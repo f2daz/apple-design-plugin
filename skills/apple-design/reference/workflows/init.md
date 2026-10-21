@@ -1,10 +1,10 @@
-# init – Projektkontext erfassen
+# init – capture project context
 
-Ziel: `APPLE_DESIGN.md` im Projekt-Root, die jede spätere Designentscheidung steuert. Vorlage: [templates/APPLE_DESIGN.md](../../templates/APPLE_DESIGN.md).
+Goal: an `APPLE_DESIGN.md` in the project root that steers every later design decision. Template: [templates/APPLE_DESIGN.md](../../templates/APPLE_DESIGN.md).
 
-## 1. Erst selbst nachsehen
+## 1. Look it up yourself first
 
-Bevor du fragst, sammle, was im Projekt steht:
+Before asking, collect what the project already says:
 
 ```bash
 find . -maxdepth 3 \( -name "*.xcodeproj" -o -name "Package.swift" -o -name "*.xcworkspace" \) -not -path "*/.build/*"
@@ -14,32 +14,32 @@ grep -rhoE "^import (SwiftUI|UIKit|AppKit|WatchKit|WidgetKit|ActivityKit)" --inc
 find . -name "AccentColor.colorset" -o -name "*.icon" -o -name "AppIcon.appiconset" | head
 ```
 
-Auch lesen, falls vorhanden: README, bestehende `DESIGN.md`/`PRODUCT.md` (impeccable), Asset-Katalog (Farben, Icons), Info.plist (`UIRequiredDeviceCapabilities`, Purpose strings).
+Also read, if present: README, existing `DESIGN.md`/`PRODUCT.md` (impeccable), the asset catalog (colors, icons), Info.plist (`UIRequiredDeviceCapabilities`, purpose strings).
 
 ## 2. Interview (AskUserQuestion)
 
-Frage nur, was nicht im Projekt steht. Eine Runde mit bis zu 4 Fragen, ggf. zweite Runde.
+Only ask what isn't in the project. One round of up to 4 questions, a second round if needed.
 
-**Runde 1**
-1. *Plattformen* (multiSelect): iOS · iPadOS · macOS · watchOS. Vorauswahl aus TARGETED_DEVICE_FAMILY nennen.
-2. *Stack*: SwiftUI (Empfohlen) · UIKit · AppKit · Gemischt/Bestand. Bei „nur Mock-ups“: Figma mit Apple UI Kit.
-3. *Ziel-OS*: aktuelles OS (Liquid Glass voll nutzbar) · aktuelles OS −1 · älter (mit `#available`-Fallbacks). Erkläre kurz die Konsequenz für Liquid Glass/neue APIs.
-4. *App-Art / Modus*: Werkzeug/Produktivität (Operate) · Inhalt/Lesen (Read) · Medien/Erlebnis (Experience) · Utility/Glance (Watch, Widgets).
+**Round 1**
+1. *Platforms* (multiSelect): iOS · iPadOS · macOS · watchOS. Mention the preselection from TARGETED_DEVICE_FAMILY.
+2. *Stack*: SwiftUI (Recommended) · UIKit · AppKit · Mixed/legacy. For "mock-ups only": Figma with the Apple UI kit.
+3. *Target OS*: current OS (Liquid Glass fully available) · current OS −1 · older (with `#available` fallbacks). Briefly explain the consequence for Liquid Glass/new APIs.
+4. *App type / mode*: tool/productivity (Operate) · content/reading (Read) · media/experience (Experience) · utility/glance (Watch, widgets).
 
-**Runde 2** (nur wenn relevant)
-- *Marke*: Akzentfarbe vorhanden? (Hex) · eigene Schrift für Display-Momente? · nur System-Look.
-- *Barrierefreiheit-Ziel*: Basis (HIG-Minimum) · erweitert (alle Dynamic-Type-Stufen inkl. Accessibility sizes, VoiceOver-Flows getestet).
-- *Systemintegration* (multiSelect): Widgets · Live Activities · Complications/Smart Stack · App Intents/Siri/Shortcuts · Notifications · Sign in with Apple / Apple Pay.
-- *Design-Werkzeug*: Figma · Sketch · direkt in Xcode/Previews.
+**Round 2** (only if relevant)
+- *Brand*: existing accent color? (hex) · custom typeface for display moments? · system look only.
+- *Accessibility goal*: baseline (HIG minimum) · extended (all Dynamic Type sizes incl. accessibility sizes, VoiceOver flows tested).
+- *System integration* (multiSelect): widgets · Live Activities · complications/Smart Stack · App Intents/Siri/Shortcuts · notifications · Sign in with Apple / Apple Pay.
+- *Design tool*: Figma · Sketch · straight in Xcode/Previews.
 
-## 3. APPLE_DESIGN.md schreiben
+## 3. Write APPLE_DESIGN.md
 
-Vorlage füllen, knapp. Ableitungen ausformulieren, z. B.:
-- Navigationsgerüst je Plattform (iPhone: Tab bar mit N Bereichen; iPad: Sidebar-adaptives Tab-Layout; Mac: NavigationSplitView + Menüleiste; Watch: NavigationStack + vertikale Seiten).
-- Welche Referenzen geladen werden (`reference/platforms/<p>.md`).
-- Passende Apple-Ressourcen (`resources.py list --platform <p>`): UI-Kit-Links für das gewählte Design-Werkzeug eintragen.
+Fill in the template, concisely. Spell out derived decisions, e.g.:
+- Navigation skeleton per platform (iPhone: tab bar with N sections; iPad: sidebar-adaptable tab layout; Mac: NavigationSplitView + menu bar; Watch: NavigationStack + vertical pages).
+- Which references to load (`reference/platforms/<p>.md`).
+- Matching Apple resources (`resources.py list --platform <p>`): add the UI kit links for the chosen design tool.
 
-## 4. Abschluss
+## 4. Wrap-up
 
-- Kurz zusammenfassen, offene Punkte nennen.
-- Angebot: Fonts installieren (`resources.py install-fonts --accept-license`, nur nach Zustimmung zur Apple-Lizenz), UI-Kit öffnen, dann `shape <erstes Feature>`.
+- Summarize briefly, list open points.
+- Offer: install fonts (`resources.py install-fonts --accept-license`, only after the user agrees to Apple's license), open the UI kit, then `shape <first feature>`.

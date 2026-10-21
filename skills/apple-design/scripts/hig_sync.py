@@ -100,7 +100,7 @@ class Renderer:
             url = BASE + url
         if not alt and not url:
             return ""
-        return f"![{alt}]({url})" if url else f"*[Bild: {alt}]*"
+        return f"![{alt}]({url})" if url else f"*[Image: {alt}]*"
 
     def inline(self, items: list) -> str:
         out = []
@@ -212,7 +212,7 @@ def render_page(path: str, doc: dict) -> tuple[str, dict]:
     md = [f"# {title}", ""]
     md.append(f"<!-- source: {BASE}{path} · © Apple Inc. · mirrored {dt.date.today().isoformat()} -->")
     if platforms:
-        md.append(f"**Plattformen:** {', '.join(platforms)}")
+        md.append(f"**Platforms:** {', '.join(platforms)}")
     if custom.get("alert-text"):
         md.append(f"**Update {custom.get('alert-date', '')}:** {custom['alert-text']}")
     md.append("")
@@ -272,7 +272,7 @@ def sync(out: Path, workers: int) -> int:
     pages_dir.mkdir(parents=True, exist_ok=True)
     root = fetch_json(ROOT)
     if not root:
-        print("Konnte HIG-Startseite nicht laden.", file=sys.stderr)
+        print("Could not load the HIG start page.", file=sys.stderr)
         return 1
 
     seen: set[str] = {ROOT}
@@ -285,14 +285,14 @@ def sync(out: Path, workers: int) -> int:
             batch, queue = queue, []
             for path, doc in zip(batch, pool.map(fetch_json, batch)):
                 if not doc:
-                    print(f"  ! fehlt: {path}", file=sys.stderr)
+                    print(f"  ! missing: {path}", file=sys.stderr)
                     continue
                 docs[path] = doc
                 for child in child_paths(doc):
                     if child not in seen:
                         seen.add(child)
                         queue.append(child)
-            print(f"  {len(docs)} Seiten geladen …", file=sys.stderr)
+            print(f"  {len(docs)} pages loaded …", file=sys.stderr)
 
     index = []
     for path, doc in sorted(docs.items()):
@@ -331,7 +331,7 @@ def sync(out: Path, workers: int) -> int:
     }
     (out / "index.json").write_text(json.dumps({"meta": meta, "pages": index}, ensure_ascii=False, indent=1),
                                     encoding="utf-8")
-    print(f"Fertig: {len(index)} Seiten → {out}", file=sys.stderr)
+    print(f"Done: {len(index)} pages → {out}", file=sys.stderr)
     return 0
 
 
@@ -340,7 +340,7 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=home() / "hig")
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--if-stale", type=int, metavar="DAYS",
-                    help="nur synchronisieren, wenn der Spiegel älter als DAYS Tage ist oder fehlt")
+                    help="only sync if the mirror is older than DAYS days or missing")
     args = ap.parse_args()
 
     idx = args.out / "index.json"
@@ -349,7 +349,7 @@ def main() -> int:
             synced = dt.datetime.fromisoformat(json.loads(idx.read_text())["meta"]["synced_at"])
             age = (dt.datetime.now(dt.timezone.utc) - synced).days
             if age < args.if_stale:
-                print(f"HIG-Spiegel ist aktuell ({age} Tage alt): {args.out}", file=sys.stderr)
+                print(f"HIG mirror is current ({age} days old): {args.out}", file=sys.stderr)
                 return 0
         except Exception:
             pass

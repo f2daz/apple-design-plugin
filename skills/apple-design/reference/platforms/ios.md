@@ -1,210 +1,210 @@
-# iOS (iPhone) – Plattformreferenz
+# iOS (iPhone) – Platform reference
 
-> Quelle: lokaler HIG-Spiegel `~/.apple-design/hig/pages/<slug>.md` (Stand 2026-10-21). Belege als `(hig:<slug>)` bzw. `(hig:<slug>#Anchor)`.
-> Paraphrasiert und verdichtet, keine Originaltexte. Zahlen nur, wenn sie im Spiegel stehen.
-
----
-
-## 1. Kurzprofil
-
-- **Display:** mittelgroß, hochauflösend; Hardware-Features wie Dynamic Island und Statusleiste begrenzen den nutzbaren Bereich (hig:designing-for-ios, hig:layout#Guides-and-safe-areas).
-- **Ergonomie:** ein- oder beidhändig gehalten, Hoch- und Querformat, Sehabstand etwa ein bis zwei Fuß. Mitte und unterer Bildschirmbereich sind am besten erreichbar (hig:designing-for-ios).
-- **Eingabe:** Multi-Touch, virtuelle Tastatur, Sprache (Siri); dazu Sensoren (Gyro/Accelerometer), persönliche Daten mit Erlaubnis (hig:designing-for-ios).
-- **Nutzungsmuster:** sehr kurze Sessions (Minuten) ebenso wie lange (Stunden); häufiges App-Switching, mehrere Apps offen (hig:designing-for-ios).
-- **Multitasking auf iPhone:** Picture in Picture (Video, FaceTime) über anderen Apps (hig:multitasking#iOS). Sonderfall **iPhone Duo** (zwei Displays, Scharnier, Split-View-Multitasking auf dem Innendisplay) – siehe Abschnitt 4.4 (hig:designing-for-iphone-duo).
-- **Systemflächen:** Widgets, Home Screen Quick Actions, Spotlight, Shortcuts, Activity Views, Live Activities, Control Center (hig:designing-for-ios, hig:controls).
+> Source: local HIG mirror `~/.apple-design/hig/pages/<slug>.md` (as of 2026-10-21). Sources cited as `(hig:<slug>)` or `(hig:<slug>#Anchor)`.
+> Paraphrased and condensed, no original text. Numbers only where they appear in the mirror.
 
 ---
 
-## 2. Nicht verhandelbar
+## 1. Profile
 
-1. **Layout über Size Classes entscheiden, nie über Gerätetyp oder Orientierung**; alle Kombinationen compact/regular einplanen (hig:layout#Size-classes).
-2. **Safe Areas und System-Margins respektieren** – Dynamic Island, Statusleiste, Toolbars und Tab Bar dürfen Inhalt/Controls nicht verdecken (hig:layout#Guides-and-safe-areas).
-3. **Dynamic Type vollständig unterstützen**, inkl. Accessibility-Größen (AX1–AX5); Layout muss umbrechen/stapeln statt abschneiden (hig:typography#Supporting-Dynamic-Type, hig:layout#Adaptability).
-4. **Hit-Targets: Standard 44×44 pt, Minimum 28×28 pt** (hig:accessibility#Mobility, hig:buttons#Best-practices).
-5. **Tab Bar nur für Navigation, nie für Aktionen**; Aktionen gehören in eine Toolbar (hig:tab-bars#Best-practices).
-6. **Tab Bar in allen Bereichen sichtbar lassen** (Ausnahme: Modal verdeckt sie); Tabs nie deaktivieren oder ausblenden (hig:tab-bars#Best-practices).
-7. **Liquid Glass nur in der Funktionsebene** (Bars, Controls), nicht im Content Layer; sparsam bei Custom Controls (hig:materials#Liquid-Glass).
-8. **Keine eigenen Bar-Hintergründe/Tönungen**; Trennung über Scroll Edge Effect statt opaker Fläche (hig:toolbars#Best-practices, hig:layout#Visual-hierarchy).
-9. **Standard-Back- und Close-Buttons verwenden**, keine Textlabels „Zurück“/„Schließen“ (hig:toolbars#Navigation).
-10. **Jedes Modal muss offensichtlich schließbar sein** – Button in der oberen Toolbar oder Wischen nach unten; bei drohendem Datenverlust Bestätigung per Action Sheet (hig:modality#Best-practices, hig:sheets#iOS-iPadOS).
-11. **Nur ein Sheet gleichzeitig**, nie mehr als ein Alert gleichzeitig (hig:sheets#Best-practices, hig:modality#Best-practices).
-12. **Light, Dark und Increased Contrast unterstützen** – auch bei Single-Appearance-Apps beide Farbvarianten liefern (Liquid-Glass-Adaptivität) (hig:color).
-13. **Systemgesten nicht überschreiben** (Edge-Swipes, Home-Indikator, Drei-Finger-Undo, Shake) (hig:gestures#Custom-gestures, hig:undo-and-redo#iOS-iPadOS).
-14. **Launch Screen = fast identisch zum ersten Screen**, kein Text, kein Branding/Werbung (hig:launching#Launch-screens).
-15. **Kontext sichern und wiederherstellen** – App kann jederzeit unterbrochen werden (hig:multitasking#Best-practices, hig:launching#Best-practices).
+- **Display:** medium-sized, high resolution; hardware features such as the Dynamic Island and the status bar limit the usable area (hig:designing-for-ios, hig:layout#Guides-and-safe-areas).
+- **Ergonomics:** held in one or both hands, portrait and landscape, viewing distance roughly one to two feet. The middle and lower part of the screen are the easiest to reach (hig:designing-for-ios).
+- **Input:** Multi-Touch, virtual keyboard, voice (Siri); plus sensors (gyroscope/accelerometer), personal data with permission (hig:designing-for-ios).
+- **Usage patterns:** very short sessions (minutes) as well as long ones (hours); frequent app switching, several apps open (hig:designing-for-ios).
+- **Multitasking on iPhone:** Picture in Picture (video, FaceTime) over other apps (hig:multitasking#iOS). Special case **iPhone Duo** (two displays, hinge, Split View multitasking on the inner display) – see section 4.4 (hig:designing-for-iphone-duo).
+- **System surfaces:** widgets, Home Screen quick actions, Spotlight, Shortcuts, activity views, Live Activities, Control Center (hig:designing-for-ios, hig:controls).
 
 ---
 
-## 3. Layout & Maße
+## 2. Non-negotiable
 
-### 3.1 Belegte Kennwerte
+1. **Decide layout by size class, never by device type or orientation**; plan for every compact/regular combination (hig:layout#Size-classes).
+2. **Respect safe areas and system margins** – the Dynamic Island, status bar, toolbars and tab bar must not obscure content/controls (hig:layout#Guides-and-safe-areas).
+3. **Fully support Dynamic Type**, including accessibility sizes (AX1–AX5); the layout must wrap/stack instead of truncating (hig:typography#Supporting-Dynamic-Type, hig:layout#Adaptability).
+4. **Hit targets: default 44×44 pt, minimum 28×28 pt** (hig:accessibility#Mobility, hig:buttons#Best-practices).
+5. **Tab bar for navigation only, never for actions**; actions belong in a toolbar (hig:tab-bars#Best-practices).
+6. **Keep the tab bar visible in every section** (exception: a modal covers it); never disable or hide tabs (hig:tab-bars#Best-practices).
+7. **Liquid Glass only in the functional layer** (bars, controls), not in the content layer; use sparingly on custom controls (hig:materials#Liquid-Glass).
+8. **No custom bar backgrounds/tints**; separate via the scroll edge effect instead of an opaque surface (hig:toolbars#Best-practices, hig:layout#Visual-hierarchy).
+9. **Use the standard Back and Close buttons**, no text labels "Back"/"Close" (hig:toolbars#Navigation).
+10. **Every modal must be obviously dismissible** – a button in the top toolbar or swipe down; if data loss is imminent, confirm via an action sheet (hig:modality#Best-practices, hig:sheets#iOS-iPadOS).
+11. **Only one sheet at a time**, never more than one alert at a time (hig:sheets#Best-practices, hig:modality#Best-practices).
+12. **Support Light, Dark and Increased Contrast** – even single-appearance apps should supply both color variants (Liquid Glass adaptivity) (hig:color).
+13. **Do not override system gestures** (edge swipes, Home indicator, three-finger undo, shake) (hig:gestures#Custom-gestures, hig:undo-and-redo#iOS-iPadOS).
+14. **Launch screen = nearly identical to the first screen**, no text, no branding/advertising (hig:launching#Launch-screens).
+15. **Save and restore context** – the app can be interrupted at any time (hig:multitasking#Best-practices, hig:launching#Best-practices).
 
-| Kennwert | Wert | Quelle |
+---
+
+## 3. Layout & dimensions
+
+### 3.1 Documented values
+
+| Metric | Value | Source |
 |---|---|---|
-| Control-Größe Standard / Minimum | 44×44 pt / 28×28 pt | (hig:accessibility#Mobility) |
-| Button-Hit-Region mindestens | 44×44 pt | (hig:buttons#Best-practices) |
-| Padding um Elemente mit Bezel | ca. 12 pt | (hig:accessibility#Mobility) |
-| Padding um Elemente ohne Bezel | ca. 24 pt (um sichtbare Kanten) | (hig:accessibility#Mobility) |
-| Textgröße Standard / Minimum | 17 pt / 11 pt | (hig:typography#Ensuring-legibility) |
-| Textvergrößerung anbieten | mind. 200 % | (hig:accessibility) |
-| Toolbar-/Fenstertitel | unter 15 Zeichen | (hig:toolbars#Titles) |
-| Toolbar-Gruppen | max. ca. 3 | (hig:toolbars#Item-groupings) |
-| Sign-in-with-Apple-Button-Höhe (Default iOS) | 44 pt | (hig:sign-in-with-apple) |
-| Drag-Image erscheinen lassen nach | ca. 3 pt Bewegung | (hig:drag-and-drop#Providing-feedback) |
-| Dimming hinter Clear Liquid Glass über hellem Inhalt | 35 % Deckkraft, dunkel | (hig:materials#Liquid-Glass) |
-| Home Screen Quick Actions | max. 4 | (hig:home-screen-quick-actions) |
-| App-Icon-Layoutgröße | 1024×1024 px, quadratisch, Systemmaske | (hig:app-icons#Specifications) |
+| Control size default / minimum | 44×44 pt / 28×28 pt | (hig:accessibility#Mobility) |
+| Button hit region at least | 44×44 pt | (hig:buttons#Best-practices) |
+| Padding around elements with a bezel | approx. 12 pt | (hig:accessibility#Mobility) |
+| Padding around elements without a bezel | approx. 24 pt (around visible edges) | (hig:accessibility#Mobility) |
+| Text size default / minimum | 17 pt / 11 pt | (hig:typography#Ensuring-legibility) |
+| Offer text enlargement | at least 200 % | (hig:accessibility) |
+| Toolbar/window title | under 15 characters | (hig:toolbars#Titles) |
+| Toolbar groups | max. approx. 3 | (hig:toolbars#Item-groupings) |
+| Sign in with Apple button height (default iOS) | 44 pt | (hig:sign-in-with-apple) |
+| Show drag image after | approx. 3 pt of movement | (hig:drag-and-drop#Providing-feedback) |
+| Dimming behind clear Liquid Glass over bright content | 35 % opacity, dark | (hig:materials#Liquid-Glass) |
+| Home Screen quick actions | max. 4 | (hig:home-screen-quick-actions) |
+| App icon layout size | 1024×1024 px, square, system mask | (hig:app-icons#Specifications) |
 
-### 3.2 Gerätegrößen / Safe-Area-Insets
+### 3.2 Device sizes / safe area insets
 
-**Im Spiegel nicht enthalten.** Die Seite `layout.md` (Update 2026-09-09) enthält keine Gerätetabelle und keine Safe-Area-Insets mehr, obwohl das Change Log frühere Spezifikationen (iPhone 14–17, iPhone Air, 16e) erwähnt. Safe-Area-Werte deshalb **nie hart kodieren**, sondern zur Laufzeit über `safeAreaInsets`/Layout Guides beziehen; Werte für Mockups aus Apple Design Resources (hig:layout, hig:designing-for-iphone-duo#Dynamic-layouts).
+**Not contained in the mirror.** The page `layout.md` (updated 2026-09-09) no longer contains a device table or safe area insets, even though the change log mentions earlier specifications (iPhone 14–17, iPhone Air, 16e). Therefore **never hard-code** safe area values; obtain them at runtime via `safeAreaInsets`/layout guides; take values for mockups from Apple Design Resources (hig:layout, hig:designing-for-iphone-duo#Dynamic-layouts).
 
-Indirekt belegte iPhone-Bildschirmgrößen (Portrait, pt) aus den Widget- und Live-Activity-Tabellen, **ohne Gerätezuordnung im Spiegel**: 430×932, 428×926, 414×896, 414×736, 393×852, 390×844, 375×812, 375×667, 360×780, 320×568 (hig:widgets#Specifications, hig:live-activities#Specifications).
+iPhone screen sizes documented indirectly (portrait, pt) from the widget and Live Activity tables, **without device mapping in the mirror**: 430×932, 428×926, 414×896, 414×736, 393×852, 390×844, 375×812, 375×667, 360×780, 320×568 (hig:widgets#Specifications, hig:live-activities#Specifications).
 
-### 3.3 Adaptivität – was die App aushalten muss
+### 3.3 Adaptability – what the app must handle
 (hig:layout#Adaptability)
-- compact/regular in beiden Achsen, Hoch-/Querformat, verschiedene Seitenverhältnisse
-- Dynamic Island, Display Zoom, iPhone Mirroring auf dem Mac (frei skalierbare Fenstergröße)
-- Textgrößenänderung, RTL-Layout, lokalisierte Datums-/Zahlenformate, Textlängen
-- Auch orientierungsfixierte Apps (z. B. Landscape-Spiele) müssen sauber skalieren; Hintergrundartwork skalieren statt verzerren/letterboxen.
-- Landscape-only: beide Querlagen (links/rechts gedreht) korrekt behandeln; in aktueller Geräteorientierung starten (hig:launching#iOS-iPadOS).
+- compact/regular on both axes, portrait/landscape, different aspect ratios
+- Dynamic Island, Display Zoom, iPhone Mirroring on the Mac (freely resizable window size)
+- text size changes, RTL layout, localized date/number formats, text lengths
+- Even orientation-locked apps (e.g., landscape games) must scale cleanly; scale background artwork instead of distorting/letterboxing it.
+- Landscape-only: handle both landscape orientations (rotated left/right) correctly; launch in the current device orientation (hig:launching#iOS-iPadOS).
 
-### 3.4 Visuelle Hierarchie
-- Wichtigstes oben und leading; Ausrichtung zum Scannen, Einrückung für Unterordnung (hig:layout#Visual-hierarchy).
-- Verwandtes gruppieren (Weißraum, Container, Trennlinien); Progressive Disclosure (hig:layout#Visual-hierarchy).
-- Vollflächige Hintergründe unter Toolbar und Tab Bar durchlaufen lassen (hig:layout#Visual-hierarchy).
+### 3.4 Visual hierarchy
+- Most important at the top and leading; alignment for scanning, indentation for subordination (hig:layout#Visual-hierarchy).
+- Group related items (white space, containers, separators); progressive disclosure (hig:layout#Visual-hierarchy).
+- Let full-bleed backgrounds extend under the toolbar and tab bar (hig:layout#Visual-hierarchy).
 
 ---
 
-## 4. Navigation & Struktur
+## 4. Navigation & structure
 
-### 4.1 Entscheidungsmatrix
+### 4.1 Decision matrix
 
-| Situation | Muster | Quelle |
+| Situation | Pattern | Source |
 |---|---|---|
-| 2+ gleichrangige Top-Level-Bereiche | **Tab Bar** (unten, schwebend, Liquid Glass) | (hig:tab-bars#iOS) |
-| Hierarchisches Drill-down | **Navigation Stack** mit Toolbar (Navigation Bar), Large Title, Back-Button | (hig:toolbars#Navigation, hig:toolbars#iOS) |
-| Mehrere Ebenen nebeneinander | **Split View nur in regular width** (z. B. iPhone quer großes Modell, iPhone Duo innen); compact → einspaltig | (hig:split-views#iOS) |
-| Eng umrissene Teilaufgabe | **Sheet** (Detents medium/large) | (hig:sheets) |
-| Komplexe/lange Aufgabe, Medien, Kamera | **Full-Screen-Modal** | (hig:sheets#Best-practices, hig:modality) |
-| Auswahl zu einer gerade ausgelösten Aktion | **Action Sheet** (nicht Menü, nicht Alert) | (hig:action-sheets#iOS-iPadOS, hig:alerts#iOS-iPadOS) |
-| Kritische Info/Bestätigung | **Alert** | (hig:alerts) |
-| Wechsel eng verwandter Unteransichten | **Segmented Control** (nicht Tab Bar) | (hig:segmented-controls#iOS-iPadOS) |
-| Zusatzinformationen in compact width | **kein Popover**, stattdessen Sheet | (hig:popovers#iOS-iPadOS) |
-| Paging (Weather-artig) | Scroll View paged + Page Control; dann keinen Scroll-Indikator auf derselben Achse | (hig:scroll-views#iOS-iPadOS) |
+| 2+ peer top-level sections | **Tab bar** (bottom, floating, Liquid Glass) | (hig:tab-bars#iOS) |
+| Hierarchical drill-down | **Navigation stack** with toolbar (navigation bar), large title, Back button | (hig:toolbars#Navigation, hig:toolbars#iOS) |
+| Several levels side by side | **Split view only in regular width** (e.g., large iPhone model in landscape, iPhone Duo inner display); compact → single column | (hig:split-views#iOS) |
+| Narrowly scoped subtask | **Sheet** (detents medium/large) | (hig:sheets) |
+| Complex/long task, media, camera | **Full-screen modal** | (hig:sheets#Best-practices, hig:modality) |
+| Choices related to an action just initiated | **Action sheet** (not a menu, not an alert) | (hig:action-sheets#iOS-iPadOS, hig:alerts#iOS-iPadOS) |
+| Critical info/confirmation | **Alert** | (hig:alerts) |
+| Switching between closely related subviews | **Segmented control** (not a tab bar) | (hig:segmented-controls#iOS-iPadOS) |
+| Additional information in compact width | **no popover**, use a sheet instead | (hig:popovers#iOS-iPadOS) |
+| Paging (Weather-style) | Paged scroll view + page control; then no scroll indicator on the same axis | (hig:scroll-views#iOS-iPadOS) |
 
-### 4.2 Tab Bar (iOS)
-- Schwebt unten über dem Inhalt auf Liquid Glass (hig:tab-bars#iOS).
-- Optional **Bottom Accessory** (z. B. MiniPlayer); Tab Bar kann sich beim Herunterscrollen minimieren, Accessory rückt inline. Rückkehr durch Tab-Tap oder Scroll nach oben (hig:tab-bars#iOS).
-- Optional **Search-Tab** am trailing Ende (hig:tab-bars#iOS, hig:search-fields#iOS).
-- Labels immer (möglichst ein Wort), SF Symbols, bevorzugt gefüllt; in compact Icon über Label (hig:tab-bars#Best-practices).
-- More-Tab (Overflow) vermeiden; leere Bereiche erklären statt Tab deaktivieren (hig:tab-bars#Best-practices).
-- Badge nur für kritische Info (rotes Oval) (hig:tab-bars#Best-practices).
-- Tab-Label-Farbe nicht ähnlich zum Content-Hintergrund; bei buntem Inhalt monochrom (hig:tab-bars#Best-practices, hig:color#Liquid-Glass-color).
+### 4.2 Tab bar (iOS)
+- Floats at the bottom above the content on Liquid Glass (hig:tab-bars#iOS).
+- Optional **bottom accessory** (e.g., MiniPlayer); the tab bar can minimize when scrolling down, the accessory moves inline. Restored by tapping a tab or scrolling up (hig:tab-bars#iOS).
+- Optional **search tab** at the trailing end (hig:tab-bars#iOS, hig:search-fields#iOS).
+- Always use labels (ideally one word), SF Symbols, preferably filled; in compact, icon above label (hig:tab-bars#Best-practices).
+- Avoid the More tab (overflow); explain empty sections instead of disabling the tab (hig:tab-bars#Best-practices).
+- Badge only for critical info (red oval) (hig:tab-bars#Best-practices).
+- Tab label color must not resemble the content background; monochrome over colorful content (hig:tab-bars#Best-practices, hig:color#Liquid-Glass-color).
 
-### 4.3 Toolbars / Navigation Bar (iOS)
-- Nur das Wichtigste in den Hauptbereich; Rest in ein **More-Menü** (hig:toolbars#iOS).
-- **Large Title** zur Orientierung; kollabiert beim Scrollen zum Standardtitel (hig:toolbars#iOS).
-- Drei Zonen: leading (Back, Titel, Dokumentmenü), center, trailing (wichtige Aktionen, Suche, More, primäre Aktion) (hig:toolbars#Item-groupings).
-- **Eine** primäre Aktion (Done/Submit) im `.prominent`-Stil, trailing (hig:toolbars#Actions).
-- Symbole ohne Rahmen (keine Kreis-Outlines); Text nur, wo kein Symbol trägt (z. B. „Bearbeiten“); Text- und Symbol-Buttons durch festen Abstand trennen (hig:toolbars#Actions, hig:toolbars#Item-groupings).
-- Titel nicht mit App-Namen belegen (hig:toolbars#Titles).
-- Custom-Komponenten in Bars: Eckradien konzentrisch zur Bar (hig:toolbars#Best-practices).
+### 4.3 Toolbars / navigation bar (iOS)
+- Only the most important items in the main area; the rest in a **More menu** (hig:toolbars#iOS).
+- **Large title** for orientation; collapses to the standard title when scrolling (hig:toolbars#iOS).
+- Three zones: leading (Back, title, document menu), center, trailing (important actions, search, More, primary action) (hig:toolbars#Item-groupings).
+- **One** primary action (Done/Submit) in the `.prominent` style, trailing (hig:toolbars#Actions).
+- Symbols without borders (no circle outlines); text only where no symbol works (e.g., "Edit"); separate text and symbol buttons with fixed space (hig:toolbars#Actions, hig:toolbars#Item-groupings).
+- Do not use the app name as the title (hig:toolbars#Titles).
+- Custom components in bars: corner radii concentric with the bar (hig:toolbars#Best-practices).
 
-### 4.4 iPhone Duo (seit 2026-09-09 im Spiegel)
+### 4.4 iPhone Duo (in the mirror since 2026-09-09)
 (hig:designing-for-iphone-duo)
-- Außendisplay = compact width, Innendisplay = regular width; Posen über Size Classes abdecken, **kein** Custom-Layout je Pose.
-- Toolbars, Tab Bar, Statusleiste, Dynamic Island wandern bei geschlossenem Gerät (und innen quer) **vertikal an die Seite**; Ausnahme: Innendisplay hochkant. Standardplatzierung nicht überschreiben.
-- Vertikale Reihenfolge: oben Navigation (Back/Close), dann prominente Aktion (Done), restliche Gruppen beibehalten; Overflow läuft von unten nach oben, über Visibility Priority steuerbar.
-- **Reserved Regions**: äußere Kamera (immer, wird für Live Activities zur Dynamic Island), innere Kamera (nur aktiv), Faltbereich (nur teilgefaltet). Custom Views über `ReservedRegion` freihalten; Grids mit gerader Spaltenzahl.
-- Split View: innen ausgeklappt, außen eine Spalte. **Arrangement Views** (split/overlay) für zweiteilige Layouts; Navigation-Container gehören außerhalb.
-- Jede Toolbar-Aktion mit Titel **und** Symbol (Titel wird im Overflow genutzt); Text-Buttons minimieren; eigenes Overflow-Menü in das System-Overflow-Menü überführen.
-- Platzmangel: navigationslastig → Toolbar-Items ins Overflow; aufgabenlastig → Tab Bar minimieren.
+- Outer display = compact width, inner display = regular width; cover postures via size classes, **no** custom layout per posture.
+- Toolbars, tab bar, status bar and Dynamic Island move **vertically to the side** when the device is closed (and on the inner display in landscape); exception: inner display in portrait. Do not override the standard placement.
+- Vertical order: navigation (Back/Close) at the top, then the prominent action (Done), keep remaining groups; overflow runs from bottom to top, controllable via visibility priority.
+- **Reserved regions**: outer camera (always; becomes the Dynamic Island for Live Activities), inner camera (only when active), fold area (only when partially folded). Keep custom views clear via `ReservedRegion`; grids with an even number of columns.
+- Split view: on the inner display when unfolded, single column on the outer display. **Arrangement views** (split/overlay) for two-part layouts; navigation containers belong outside them.
+- Every toolbar action with a title **and** a symbol (the title is used in the overflow); minimize text buttons; move your own overflow menu into the system overflow menu.
+- Lack of space: navigation-heavy → toolbar items into the overflow; task-heavy → minimize the tab bar.
 
 ### 4.5 Sheets (iOS)
 (hig:sheets#iOS-iPadOS, hig:sheets#Best-practices)
-- Einzelansicht: **Cancel leading, Done trailing** in der oberen Toolbar. Mehrschritt: Schritt 1 Cancel + (inaktiv) Done; Folgeschritte Back + Done. Nie Cancel, Done und Back gleichzeitig.
-- Done immer mit Alternative (Cancel oder Back) kombinieren.
-- Detents: *large* (voll), *medium* (ca. halbe Höhe), eigene möglich. Medium für Progressive Disclosure (Share Sheet); Compose-artige Aufgaben nur large.
-- Bei resizable Sheets **Grabber** zeigen (auch VoiceOver-relevant).
-- Swipe-to-dismiss unterstützen; bei ungesicherten Änderungen Action Sheet zur Bestätigung.
-- Sheets können **nichtmodal** sein (z. B. Format-Sheet in Notes), wenn sie den Parent-View beeinflussen.
-- Aus einem Sheet heraus kein zweites Sheet stapeln; erst schließen.
+- Single view: **Cancel leading, Done trailing** in the top toolbar. Multi-step: step 1 Cancel + (inactive) Done; subsequent steps Back + Done. Never Cancel, Done and Back at the same time.
+- Always pair Done with an alternative (Cancel or Back).
+- Detents: *large* (full), *medium* (approx. half height), custom possible. Medium for progressive disclosure (share sheet); compose-like tasks only large.
+- Show a **grabber** on resizable sheets (also relevant for VoiceOver).
+- Support swipe to dismiss; for unsaved changes, confirm with an action sheet.
+- Sheets can be **nonmodal** (e.g., the format sheet in Notes) when they affect the parent view.
+- Do not stack a second sheet from within a sheet; dismiss first.
 
-### 4.6 Suche (iOS)
+### 4.6 Search (iOS)
 (hig:search-fields#iOS)
-- Drei Orte: **Tab** (Standard-Tab mit Landing Page für Entdecken; oder Button-Erscheinung für sofortiges Tippen), **Toolbar** (unten bevorzugt, wenn Platz; oben, wenn unten Inhalt Vorrang hat), **inline** (Filter einer Liste; oben über der Liste, ggf. an Toolbar pinnen).
+- Three places: **tab** (standard tab with a landing page for discovery; or button appearance for immediate typing), **toolbar** (bottom preferred if there is room; top if content at the bottom takes priority), **inline** (filtering a list; at the top above the list, optionally pinned to the toolbar).
 
-### 4.7 Modality allgemein
+### 4.7 Modality in general
 (hig:modality)
-- Nur bei klarem Nutzen; kurz und einfach; keine „App in der App“ mit eigener Hierarchie.
-- Titel benennt die Aufgabe.
+- Only when there is a clear benefit; short and simple; no "app within the app" with its own hierarchy.
+- The title names the task.
 
 ---
 
-## 5. Komponenten-Besonderheiten (Platform considerations iOS)
+## 5. Component specifics (platform considerations iOS)
 
-| Komponente | Regel | Quelle |
+| Component | Rule | Source |
 |---|---|---|
-| Action Sheet | Für Wahl zu einer Aktion; nicht scrollen lassen | (hig:action-sheets#iOS-iPadOS) |
-| Alert | Möglichst nicht scrollend (kurze Titel, Nachricht nur wenn nötig); für Fehler Alert statt Notification | (hig:alerts#iOS-iPadOS, hig:notifications) |
-| Buttons | Activity Indicator im Button bei verzögerten Aktionen, ggf. Label „Checking out…“; 1–2 prominente Buttons pro View; Press-State Pflicht | (hig:buttons#iOS-iPadOS, hig:buttons#Style) |
-| Button-Rollen | Primary nie für destruktive Aktion; destruktiv = Systemrot | (hig:buttons#Role) |
-| Context Menu | Entweder Context Menu oder Edit Menu pro Objekt, nicht beides; grafische Vorschau; destruktive Items ans Ende, rot | (hig:context-menus#iOS-iPadOS, hig:context-menus) |
-| Menüs | Layouts small (4 Symbole oben), medium (3 Symbole+Label), large (Liste, Default) | (hig:menus#iOS-iPadOS) |
-| Edit Menu | kompakt horizontal bei Touch, vertikal bei Tastatur/Pointer; Position ggf. verschieben | (hig:edit-menus#iOS-iPadOS) |
-| Pull-down | More-Button (Ellipse) für Nebensächliches, Abwägung Auffindbarkeit | (hig:pull-down-buttons#iOS-iPadOS) |
-| Listen | Info-Button nur für Zusatzinfo, Drill-down per Disclosure Indicator; kein Index bei trailing Accessories | (hig:lists-and-tables#iOS-iPadOS-visionOS) |
-| Toggles | Switch nur in Listenzeilen (ohne extra Label); außerhalb Toggle-Button; Grün nur bei Bedarf ändern | (hig:toggles#iOS-iPadOS) |
-| Slider | Nie für Lautstärke – Volume View verwenden | (hig:sliders#iOS-iPadOS) |
-| Date Picker | Stile compact/inline/wheels/automatic; Countdown max. 23 h 59 min; compact bei Platzmangel | (hig:pickers#iOS-iPadOS) |
-| Text Fields | Clear-Button trailing; leading = Zweck, trailing = Zusatzfunktion | (hig:text-fields#iOS-iPadOS) |
-| Text Views | passenden Keyboard-Typ zeigen | (hig:text-views#iOS-iPadOS) |
-| Virtuelle Tastatur | Keyboard Layout Guide; Input-Accessory-Controls nur aufgabenrelevant, bei Bedarf Liquid Glass bzw. Standard-Toolbar | (hig:virtual-keyboards#iOS-iPadOS) |
-| Page Control | Hintergrund automatic/prominent/minimal; bei minimal kein Scrubbing; keine Animation beim Scrubben | (hig:page-controls#iOS-iPadOS) |
-| Refresh Control | automatisch aktualisieren; Titel nur mit Mehrwert (z. B. letzte Aktualisierung) | (hig:progress-indicators#iOS-iPadOS) |
-| Collections | Layoutwechsel nicht während Interaktion | (hig:collections#iOS-iPadOS) |
-| Status Bar | Inhalt darunter abdunkeln/verdecken; nur für Vollbildmedien temporär ausblenden, nie dauerhaft | (hig:status-bars) |
-| Vollbild | Home-Indikator-Verhalten beibehalten; nur bei Fehl-Exits auf Zwei-Wisch-Exit umstellen | (hig:going-full-screen#iOS-iPadOS) |
-| Gesten | Drei-Finger-Swipe Undo/Redo, Drei-Finger-Pinch Copy/Paste, Shake Undo; Simultangesten v. a. für Spiele | (hig:gestures#iOS-iPadOS) |
-| Undo/Redo | Alert-Titel „Undo <Objekt>“ präzise; Standardgesten nicht umdefinieren | (hig:undo-and-redo#iOS-iPadOS) |
-| Haptik | Standard-Controls nutzen System-Haptik; Feedback Generator: notification (success/warning/error), impact (light/medium/heavy/rigid/soft), selection | (hig:playing-haptics#iOS) |
-| Audio | System Sound Services für kurze Töne/Vibrationen | (hig:playing-audio#iOS-iPadOS) |
-| Farben | Background-Sets *system* und *grouped* (primary/secondary/tertiary); Label-Hierarchie label…quaternaryLabel, separator, link | (hig:color#iOS-iPadOS) |
-| Dark Mode | base vs. elevated Hintergründe; System-Hintergrundfarben bevorzugen | (hig:dark-mode#iOS-iPadOS) |
-| Dateien | Document Launcher (ab iOS 18) mit Title Card (2 Buttons), Hintergrund, Accessories; File-Provider-Extension ohne eigene Top-Toolbar | (hig:file-management#iOS-iPadOS) |
-| Action Button | Aktionen ohne App-Start (Live Activity, Snippets) | (hig:action-button#iOS) |
+| Action sheet | For choices related to an action; must not scroll | (hig:action-sheets#iOS-iPadOS) |
+| Alert | Avoid scrolling where possible (short titles, message only if needed); for errors use an alert instead of a notification | (hig:alerts#iOS-iPadOS, hig:notifications) |
+| Buttons | Activity indicator inside the button for delayed actions, optionally label "Checking out…"; 1–2 prominent buttons per view; pressed state mandatory | (hig:buttons#iOS-iPadOS, hig:buttons#Style) |
+| Button roles | Primary never for a destructive action; destructive = system red | (hig:buttons#Role) |
+| Context menu | Either a context menu or an edit menu per object, not both; graphical preview; destructive items at the end, red | (hig:context-menus#iOS-iPadOS, hig:context-menus) |
+| Menus | Layouts small (4 symbols at the top), medium (3 symbols + label), large (list, default) | (hig:menus#iOS-iPadOS) |
+| Edit menu | compact horizontal with touch, vertical with keyboard/pointer; adjust position if needed | (hig:edit-menus#iOS-iPadOS) |
+| Pull-down | More button (ellipsis) for secondary items, weigh against discoverability | (hig:pull-down-buttons#iOS-iPadOS) |
+| Lists | Info button only for additional info, drill-down via disclosure indicator; no index with trailing accessories | (hig:lists-and-tables#iOS-iPadOS-visionOS) |
+| Toggles | Switch only in list rows (without extra label); elsewhere a toggle button; change green only if needed | (hig:toggles#iOS-iPadOS) |
+| Slider | Never for volume – use a volume view | (hig:sliders#iOS-iPadOS) |
+| Date picker | Styles compact/inline/wheels/automatic; countdown max. 23 h 59 min; compact when space is tight | (hig:pickers#iOS-iPadOS) |
+| Text fields | Clear button trailing; leading = purpose, trailing = additional function | (hig:text-fields#iOS-iPadOS) |
+| Text views | Show the appropriate keyboard type | (hig:text-views#iOS-iPadOS) |
+| Virtual keyboard | Keyboard layout guide; input accessory controls only if task-relevant, if needed Liquid Glass or a standard toolbar | (hig:virtual-keyboards#iOS-iPadOS) |
+| Page control | Background automatic/prominent/minimal; no scrubbing with minimal; no animation while scrubbing | (hig:page-controls#iOS-iPadOS) |
+| Refresh control | Refresh automatically; title only if it adds value (e.g., last update) | (hig:progress-indicators#iOS-iPadOS) |
+| Collections | Do not change layout during interaction | (hig:collections#iOS-iPadOS) |
+| Status bar | Dim/obscure content beneath it; hide temporarily only for full-screen media, never permanently | (hig:status-bars) |
+| Full screen | Keep Home indicator behavior; switch to two-swipe exit only in case of accidental exits | (hig:going-full-screen#iOS-iPadOS) |
+| Gestures | Three-finger swipe undo/redo, three-finger pinch copy/paste, shake to undo; simultaneous gestures mainly for games | (hig:gestures#iOS-iPadOS) |
+| Undo/redo | Alert title "Undo <object>" precise; do not redefine standard gestures | (hig:undo-and-redo#iOS-iPadOS) |
+| Haptics | Standard controls use system haptics; feedback generator: notification (success/warning/error), impact (light/medium/heavy/rigid/soft), selection | (hig:playing-haptics#iOS) |
+| Audio | System Sound Services for short sounds/vibrations | (hig:playing-audio#iOS-iPadOS) |
+| Colors | Background sets *system* and *grouped* (primary/secondary/tertiary); label hierarchy label…quaternaryLabel, separator, link | (hig:color#iOS-iPadOS) |
+| Dark Mode | base vs. elevated backgrounds; prefer system background colors | (hig:dark-mode#iOS-iPadOS) |
+| Files | Document launcher (iOS 18 and later) with title card (2 buttons), background, accessories; File Provider extension without its own top toolbar | (hig:file-management#iOS-iPadOS) |
+| Action button | Actions without launching the app (Live Activity, snippets) | (hig:action-button#iOS) |
 
 ---
 
-## 6. Liquid Glass & Materialien
+## 6. Liquid Glass & materials
 
-- **Zwei Ebenen:** Liquid Glass = Funktionsebene (Tab Bar, Toolbars, Sidebars, Controls), schwebt über dem Content Layer; Standardmaterialien = Differenzierung *im* Content Layer (hig:materials).
-- **Kein Liquid Glass im Content Layer.** Ausnahme: transiente Controls (Slider, Toggle) nehmen beim Bedienen Glass-Optik an (hig:materials#Liquid-Glass).
-- **Varianten:** *regular* (blurrt/regelt Luminanz, Default für die meisten Systemkomponenten, für textlastige Elemente wie Alerts, Sidebars, Popovers) und *clear* (stark transparent, nur über visuell reichen Medien). Bei clear über hellem Inhalt dunkle Dimming-Ebene 35 %; bei dunklem Inhalt oder AVKit-Controls nicht nötig (hig:materials#Liquid-Glass).
-- **Sparsam bei Custom Controls**; Standardkomponenten übernehmen Glass automatisch (hig:materials#Liquid-Glass).
-- **Farbe:** Glass ist farblos und übernimmt Farbe vom Hintergrund. Tönung nur für Emphase (primäre Aktion, Status), dann auf den **Hintergrund** des Controls, nicht auf Symbol/Text; nicht mehrere getönte Controls. Kleine Elemente (Tab Bar, Toolbar) schalten automatisch hell/dunkel mit monochromen Symbolen (hig:color#Liquid-Glass-color).
-- **Scroll Edge Effect** statt opaker Bar-Hintergründe: *automatic* bevorzugen; *hard* = opaker mit Kante, *soft* = weicher Verlauf (testen); nur wenn Scroll-Inhalt unter schwebenden Elementen liegt; einer pro View (hig:scroll-views#Scroll-edge-effects).
-- **Background Extension Effect**, wenn Hintergrundbild unter Sidebar/Inspector gespiegelt-geblurrt weiterlaufen soll (hig:layout#Visual-hierarchy).
-- **Standardmaterialien iOS:** ultraThin, thin, regular (Default), thick; dazu Vibrancy für Labels (label…quaternaryLabel; quaternary nicht auf thin/ultraThin), Fills (fill…tertiaryFill), Separator (eine Stufe) (hig:materials#iOS-iPadOS).
-- **Material nach Semantik wählen, nicht nach Farbwirkung**; dickere Materialien für feine Texte, dünnere für Kontext (hig:materials#Standard-materials).
-- **App-Icons** sind geschichtet, erhalten Liquid-Glass-Effekte (Spiegelungen, Refraktion); Erscheinungen default, dark, clear light/dark, tinted light/dark; ungemaskte quadratische Layer, Vektor bevorzugt, Gestaltung in Icon Composer (hig:app-icons).
+- **Two layers:** Liquid Glass = functional layer (tab bar, toolbars, sidebars, controls), floats above the content layer; standard materials = differentiation *within* the content layer (hig:materials).
+- **No Liquid Glass in the content layer.** Exception: transient controls (slider, toggle) take on the glass look while being operated (hig:materials#Liquid-Glass).
+- **Variants:** *regular* (blurs/adjusts luminance, default for most system components, for text-heavy elements such as alerts, sidebars, popovers) and *clear* (highly transparent, only over visually rich media). With clear over bright content, a dark dimming layer of 35 %; not needed over dark content or with AVKit controls (hig:materials#Liquid-Glass).
+- **Use sparingly on custom controls**; standard components adopt glass automatically (hig:materials#Liquid-Glass).
+- **Color:** glass is colorless and picks up color from the background. Tint only for emphasis (primary action, status), and then on the control's **background**, not on the symbol/text; not several tinted controls. Small elements (tab bar, toolbar) automatically switch light/dark with monochrome symbols (hig:color#Liquid-Glass-color).
+- **Scroll edge effect** instead of opaque bar backgrounds: prefer *automatic*; *hard* = more opaque with an edge, *soft* = gentle gradient (test it); only when scrolling content sits under floating elements; one per view (hig:scroll-views#Scroll-edge-effects).
+- **Background extension effect** when a background image should continue mirrored and blurred under a sidebar/inspector (hig:layout#Visual-hierarchy).
+- **Standard materials iOS:** ultraThin, thin, regular (default), thick; plus vibrancy for labels (label…quaternaryLabel; quaternary not on thin/ultraThin), fills (fill…tertiaryFill), separator (one level) (hig:materials#iOS-iPadOS).
+- **Choose material by semantics, not by color effect**; thicker materials for fine text, thinner ones for context (hig:materials#Standard-materials).
+- **App icons** are layered and receive Liquid Glass effects (reflections, refraction); appearances default, dark, clear light/dark, tinted light/dark; unmasked square layers, vector preferred, design in Icon Composer (hig:app-icons).
 
 ---
 
-## 7. Typografie & Dynamic Type
+## 7. Typography & Dynamic Type
 
-- Systemschrift **SF Pro**, zusätzlich **New York** (Serif) (hig:typography#iOS-iPadOS). Systemfonts nicht einbetten, über `Font.Design` ansprechen (hig:typography#Using-system-fonts).
-- Default 17 pt, Minimum 11 pt; leichte Schnitte (Ultralight/Thin/Light) meiden (hig:typography#Ensuring-legibility).
-- Built-in Text Styles nutzen → Dynamic Type inkl. AX-Größen gratis; Custom Fonts müssen Dynamic Type und Bold Text selbst unterstützen (hig:typography#Using-custom-fonts).
-- Bei großen Größen: stapeln statt nebeneinander, Spalten reduzieren, Trunkierung minimieren, Icons mitskalieren, Hierarchie halten (hig:typography#Supporting-Dynamic-Type).
-- Tracking im laufenden System automatisch; für Mockups Tracking-Tabellen (hig:typography#Tracking-values).
+- System font **SF Pro**, plus **New York** (serif) (hig:typography#iOS-iPadOS). Do not embed system fonts; access them via `Font.Design` (hig:typography#Using-system-fonts).
+- Default 17 pt, minimum 11 pt; avoid light weights (Ultralight/Thin/Light) (hig:typography#Ensuring-legibility).
+- Use built-in text styles → Dynamic Type including AX sizes for free; custom fonts must support Dynamic Type and Bold Text themselves (hig:typography#Using-custom-fonts).
+- At large sizes: stack instead of side by side, reduce columns, minimize truncation, scale icons too, maintain hierarchy (hig:typography#Supporting-Dynamic-Type).
+- Tracking is automatic in the running system; for mockups use the tracking tables (hig:typography#Tracking-values).
 
-### 7.1 Default-Größe „Large“ (pt; Gewicht / Leading / Emphasized)
+### 7.1 Default size "Large" (pt; weight / leading / emphasized)
 (hig:typography#Specifications)
 
-| Style | Gewicht | Größe | Leading | Emphasized |
+| Style | Weight | Size | Leading | Emphasized |
 |---|---|---|---|---|
 | Large Title | Regular | 34 | 41 | Bold |
 | Title 1 | Regular | 28 | 34 | Bold |
@@ -218,7 +218,7 @@ Indirekt belegte iPhone-Bildschirmgrößen (Portrait, pt) aus den Widget- und Li
 | Caption 1 | Regular | 12 | 16 | Semibold |
 | Caption 2 | Regular | 11 | 13 | Semibold |
 
-### 7.2 Größenverlauf ausgewählter Styles (pt)
+### 7.2 Size progression of selected styles (pt)
 (hig:typography#Specifications)
 
 | Style | xS | S | M | **L** | xL | xxL | xxxL | AX1 | AX2 | AX3 | AX4 | AX5 |
@@ -230,26 +230,26 @@ Indirekt belegte iPhone-Bildschirmgrößen (Portrait, pt) aus den Widget- und Li
 | Footnote | 12 | 12 | 12 | **13** | 15 | 17 | 19 | 23 | 27 | 33 | 38 | 44 |
 | Caption 2 | 11 | 11 | 11 | **11** | 13 | 15 | 17 | 20 | 24 | 29 | 34 | 40 |
 
-Vollständige Tabellen (alle Styles, Leading) im Spiegel unter `typography.md#Specifications`. Punktgrößen basieren auf 144 ppi (@2x) bzw. 216 ppi (@3x).
+Complete tables (all styles, leading) in the mirror under `typography.md#Specifications`. Point sizes are based on 144 ppi (@2x) or 216 ppi (@3x).
 
 ---
 
-## 8. Systemintegration
+## 8. System integration
 
 ### 8.1 Widgets
 (hig:widgets)
-- Home Screen / Today View: system small, medium, large; StandBy, CarPlay, Apple HomeView: nur small. Lock Screen: accessory circular, rectangular, inline (über der Uhr). Kein extra large auf iPhone.
-- Lock-Screen-Widgets wie Complications denken: Information, kein App-Launcher; Always-On mit reduzierter Leuchtdichte → genug Graustufenkontrast.
-- Erscheinungen auf dem Home Screen: light, dark, clear, tinted (System entsättigt; Full-Color-Bilder gezielt freigeben). Rendering Modes full-color / accented / vibrant beachten.
-- StandBy: zwei small-Widgets nebeneinander, hochskaliert, Hintergrund entfernt → Hintergrund als entfernbar markieren, Text vergrößern statt Bildfarben; Nachtmodus rot monochrom.
-- Ränder **16 pt** Standard, **11 pt** für enge Gruppierungen; Text ≥ **11 pt**; Text nicht rastern; Eckradien über `ContainerRelativeShape` (hig:widgets#Choosing-margins-and-padding, hig:widgets#Displaying-text-in-widgets).
-- Animationen bei Updates bis **2 s** (hig:widgets#Updating-widget-content).
-- Tap öffnet die passende Stelle in der App; Interaktion einfach halten, kein App-artiges Layout.
-- Echtzeit → Live Activity statt Widget.
+- Home Screen / Today View: system small, medium, large; StandBy, CarPlay, Apple HomeView: small only. Lock Screen: accessory circular, rectangular, inline (above the clock). No extra large on iPhone.
+- Think of Lock Screen widgets like complications: information, not an app launcher; Always-On with reduced luminance → enough grayscale contrast.
+- Appearances on the Home Screen: light, dark, clear, tinted (the system desaturates; explicitly opt in full-color images). Observe rendering modes full-color / accented / vibrant.
+- StandBy: two small widgets side by side, scaled up, background removed → mark the background as removable, enlarge text instead of relying on image colors; night mode red monochrome.
+- Margins **16 pt** standard, **11 pt** for tight groupings; text ≥ **11 pt**; do not rasterize text; corner radii via `ContainerRelativeShape` (hig:widgets#Choosing-margins-and-padding, hig:widgets#Displaying-text-in-widgets).
+- Animations on updates up to **2 s** (hig:widgets#Updating-widget-content).
+- A tap opens the matching location in the app; keep interaction simple, no app-like layout.
+- Real-time → Live Activity instead of a widget.
 
-**Widget-Größen iPhone (pt)** (hig:widgets#Specifications)
+**Widget sizes iPhone (pt)** (hig:widgets#Specifications)
 
-| Screen (Portrait) | Small | Medium | Large | Circular | Rectangular | Inline |
+| Screen (portrait) | Small | Medium | Large | Circular | Rectangular | Inline |
 |---|---|---|---|---|---|---|
 | 430×932 | 170×170 | 364×170 | 364×382 | 76×76 | 172×76 | 257×26 |
 | 428×926 | 170×170 | 364×170 | 364×382 | 76×76 | 172×76 | 257×26 |
@@ -264,141 +264,141 @@ Vollständige Tabellen (alle Styles, Leading) im Spiegel unter `typography.md#Sp
 
 ### 8.2 Live Activities
 (hig:live-activities)
-- Für Aufgaben mit Anfang und Ende, max. ca. **8 Stunden**; keine Werbung; sensible Daten nur als harmlose Zusammenfassung.
-- Präsentationen: compact (leading+trailing um die TrueDepth-Kamera, als *eine* Info lesbar, eng an die Kamera), minimal, expanded, Lock Screen, StandBy. Erst iPhone-Design, dann verfeinern.
-- **Limited width** (z. B. Dynamic Island quer): compact/minimal in einen Kreis von **28 pt** Durchmesser einpassen.
-- Lock-Screen-Rand **14 pt**; Höhe dynamisch anpassen; keine Notification-Optik kopieren; Dismiss-Button-Farbe prüfen.
-- Dynamic Island: schwarzer, opaker Hintergrund, nicht änderbar → kräftige Farben, Key Line tönen. Logo ohne Container, nie ganzes App-Icon. Nichts in der App, das auf die Dynamic Island zeigt.
-- Text: groß, mindestens Medium-Gewicht.
-- Ende sofort beenden; auf dem Lock Screen bleibt sie bis zu **4 Stunden**. Alerts nur für essenzielle Updates. Mehrere Events in *einer* Activity rotieren.
-- App Shortcut zum Starten anbieten (z. B. über Action Button).
+- For tasks with a beginning and an end, max. approx. **8 hours**; no advertising; sensitive data only as a harmless summary.
+- Presentations: compact (leading + trailing around the TrueDepth camera, readable as *one* piece of info, snug against the camera), minimal, expanded, Lock Screen, StandBy. Design for iPhone first, then refine.
+- **Limited width** (e.g., Dynamic Island in landscape): fit compact/minimal into a circle of **28 pt** diameter.
+- Lock Screen margin **14 pt**; adjust height dynamically; do not copy the look of notifications; check the dismiss button color.
+- Dynamic Island: black, opaque background, cannot be changed → bold colors, tint the key line. Logo without a container, never the whole app icon. Nothing in the app that points to the Dynamic Island.
+- Text: large, at least medium weight.
+- End it immediately when done; on the Lock Screen it remains for up to **4 hours**. Alerts only for essential updates. Rotate multiple events within *one* activity.
+- Offer an App Shortcut to start it (e.g., via the Action button).
 
-**Live-Activity-Maße iPhone (pt)** (hig:live-activities#Specifications)
+**Live Activity dimensions iPhone (pt)** (hig:live-activities#Specifications)
 
-| Screen (Portrait) | Compact (je Seite) | Minimal (Breite) | Expanded (Höhe) | Lock Screen (Höhe) | Limited width |
+| Screen (portrait) | Compact (per side) | Minimal (width) | Expanded (height) | Lock Screen (height) | Limited width |
 |---|---|---|---|---|---|
 | 430×932 | 62.33×36.67 | 36.67–45 × 36.67 | 408 × 84–160 | 408 × 84–160 | 28×28 |
 | 393×852 | 52.33×36.67 | 36.67–45 × 36.67 | 371 × 84–160 | 371 × 84–160 | 28×28 |
 
-### 8.3 Controls (Control Center, Lock Screen, Action Button)
+### 8.3 Controls (Control Center, Lock Screen, Action button)
 (hig:controls)
-- Button oder Toggle mit Symbol, Titel, optional Wert; Symbol muss allein verständlich sein (Lock Screen zeigt nur Symbol).
-- Symbolanimation für Zustandswechsel; Tint-Farbe passend zur Marke; Hint-Text für den Action Button; Platzhalter, wenn Titel/Wert situativ.
-- Sensible Werte im gesperrten Zustand redigieren; sicherheitsrelevante Aktionen nur nach Entsperren.
+- Button or toggle with symbol, title, optional value; the symbol must be understandable on its own (the Lock Screen shows only the symbol).
+- Symbol animation for state changes; tint color matching the brand; hint text for the Action button; placeholder when title/value depend on the situation.
+- Redact sensitive values while locked; security-relevant actions only after unlocking.
 
 ### 8.4 App Shortcuts / App Intents / Siri
 (hig:app-shortcuts)
-- Häufigste, wichtigste Aufgaben; höchstens ein optionaler Parameter; kurze Phrasen; in Spotlight (Top Hit) und Shortcuts-App nach Wichtigkeit ordnen.
-- Für Standard-Domänen App Schemas erwägen. Antworten auch audio-only verständlich.
+- Most frequent, most important tasks; at most one optional parameter; short phrases; order by importance in Spotlight (top hit) and the Shortcuts app.
+- Consider app schemas for standard domains. Responses must also be understandable audio-only.
 
-### 8.5 Notifications & Badges
+### 8.5 Notifications & badges
 (hig:notifications)
-- Kurz, keine Dubletten, keine sensiblen Daten, kein App-Name/Icon im Text; generischer Text für ausgeblendete Vorschauen.
-- Aktionen: zeitsparend, nicht „App öffnen“, bevorzugt nicht-destruktiv, mit Symbol.
-- Badge nur für Anzahl ungelesener Notifications; nie nachbauen.
+- Short, no duplicates, no sensitive data, no app name/icon in the text; generic text for hidden previews.
+- Actions: time-saving, not "Open app", preferably nondestructive, with a symbol.
+- Badge only for the number of unread notifications; never imitate it.
 
-### 8.6 Weitere
-- Home Screen Quick Actions: max. 4, SF Symbols statt Emoji, stabile Titel (hig:home-screen-quick-actions).
-- Bewertungsprompt des Systems; System begrenzt auf 3× pro 365 Tage (hig:ratings-and-reviews).
-- Passkeys bevorzugen, wenn kein Sign in with Apple (hig:managing-accounts).
+### 8.6 Other
+- Home Screen quick actions: max. 4, SF Symbols instead of emoji, stable titles (hig:home-screen-quick-actions).
+- System rating prompt; the system limits it to 3× per 365 days (hig:ratings-and-reviews).
+- Prefer passkeys when Sign in with Apple is not used (hig:managing-accounts).
 
 ---
 
-## 9. Umsetzung: SwiftUI / UIKit
+## 9. Implementation: SwiftUI / UIKit
 
-Legende: **[S]** = API im Spiegel referenziert; **[K]** = gängige API, nicht im Spiegel belegt – vor Verwendung in der Entwicklerdoku prüfen.
+Legend: **[S]** = API referenced in the mirror; **[K]** = common API, framework knowledge, not documented in the mirror – verify in the developer documentation before use.
 
-| Muster | SwiftUI | UIKit |
+| Pattern | SwiftUI | UIKit |
 |---|---|---|
-| Tab-Navigation | `TabView` [S], `Tab` [K], `Tab(role: .search)` [K] | `UITabBarController` [K], `UITabBar` [S] |
-| Tab Bar minimieren / Accessory | `TabBarMinimizeBehavior` [S], `tabViewBottomAccessory` [K] / `TabViewBottomAccessoryPlacement` [S] | `UITabBarController.MinimizeBehavior` [S] |
-| Navigation Stack | `NavigationStack` [K], `.navigationTitle` [K] | `UINavigationController` [K], `prefersLargeTitles` [S] |
-| Split View | `NavigationSplitView` [S] | `UISplitViewController` [S] |
+| Tab navigation | `TabView` [S], `Tab` [K], `Tab(role: .search)` [K] | `UITabBarController` [K], `UITabBar` [S] |
+| Minimize tab bar / accessory | `TabBarMinimizeBehavior` [S], `tabViewBottomAccessory` [K] / `TabViewBottomAccessoryPlacement` [S] | `UITabBarController.MinimizeBehavior` [S] |
+| Navigation stack | `NavigationStack` [K], `.navigationTitle` [K] | `UINavigationController` [K], `prefersLargeTitles` [S] |
+| Split view | `NavigationSplitView` [S] | `UISplitViewController` [S] |
 | Toolbar | `.toolbar` / `ToolbarItem(placement:)` [K], `ToolbarItemGroup` [S], `ToolbarItemPlacement` [S], `ToolbarItemVisibilityPriority` [S], `ToolbarOverflowMenu` [S] | `UIToolbar` [S], `UIBarButtonItemGroup` [S], `fixedSpace` [S], `additionalOverflowItems` [S] |
-| Sheet / Detents | `.sheet(item:)` [S], `.presentationDetents` [K], `.presentationDragIndicator` [K] | `UISheetPresentationController` [S], `detents` [S], `prefersGrabberVisible` [S] |
-| Full-Screen-Modal | `.fullScreenCover` [K] | `UIModalPresentationStyle.fullScreen` [S] |
-| Action Sheet | `.confirmationDialog` [K] (Spiegel: „presentation modifier for a confirmation dialog“) | `UIAlertController.Style.actionSheet` [S] |
-| Suche | `.searchable` [K] | `UISearchController` [K] |
-| Liquid Glass custom | `.glassEffect(_:in:)` [S], `Glass.regular` / `Glass.clear` [S], `GlassEffectContainer` [K], `.buttonStyle(.glass/.glassProminent)` [K] | `UIGlassEffect` [K] |
-| Scroll Edge Effect | `ScrollEdgeEffectStyle` [S] | `UIScrollEdgeEffect.Style` [S] |
-| Background Extension | `backgroundExtensionEffect()` [S] | `UIBackgroundExtensionView` [S] |
-| Materialien | `Material` (`.ultraThin` … `.thick`) [S] | `UIVisualEffectView`, `UIBlurEffect`, `UIVibrancyEffect` [S] |
-| Size Classes | `UserInterfaceSizeClass` [S] | `UITraitChangeObservable` [S] |
-| Safe Area | `SafeAreaRegions` [S], `safeAreaInsets` [S] | `safeAreaInsets` [S], `UILayoutGuide` [S] |
-| Tastatur | `ToolbarItemPlacement` (keyboard) [S] | `UIKeyboardLayoutGuide` [S], `inputAccessoryView` [S] |
+| Sheet / detents | `.sheet(item:)` [S], `.presentationDetents` [K], `.presentationDragIndicator` [K] | `UISheetPresentationController` [S], `detents` [S], `prefersGrabberVisible` [S] |
+| Full-screen modal | `.fullScreenCover` [K] | `UIModalPresentationStyle.fullScreen` [S] |
+| Action sheet | `.confirmationDialog` [K] (mirror: "presentation modifier for a confirmation dialog") | `UIAlertController.Style.actionSheet` [S] |
+| Search | `.searchable` [K] | `UISearchController` [K] |
+| Custom Liquid Glass | `.glassEffect(_:in:)` [S], `Glass.regular` / `Glass.clear` [S], `GlassEffectContainer` [K], `.buttonStyle(.glass/.glassProminent)` [K] | `UIGlassEffect` [K] |
+| Scroll edge effect | `ScrollEdgeEffectStyle` [S] | `UIScrollEdgeEffect.Style` [S] |
+| Background extension | `backgroundExtensionEffect()` [S] | `UIBackgroundExtensionView` [S] |
+| Materials | `Material` (`.ultraThin` … `.thick`) [S] | `UIVisualEffectView`, `UIBlurEffect`, `UIVibrancyEffect` [S] |
+| Size classes | `UserInterfaceSizeClass` [S] | `UITraitChangeObservable` [S] |
+| Safe area | `SafeAreaRegions` [S], `safeAreaInsets` [S] | `safeAreaInsets` [S], `UILayoutGuide` [S] |
+| Keyboard | `ToolbarItemPlacement` (keyboard) [S] | `UIKeyboardLayoutGuide` [S], `inputAccessoryView` [S] |
 | iPhone Duo | `ReservedRegion` [S], `ArrangementView` [S], `ToolbarVerticalCompressionBehavior` [S] | `UIView.ReservedRegion` [S], `UIArrangementViewController` [S], `UIVerticalBarCompressionBehavior` [S] |
-| Menü-Layout | – | `UIMenu.preferredElementSize` [S] |
+| Menu layout | – | `UIMenu.preferredElementSize` [S] |
 | Refresh | `.refreshable` [K] | `UIRefreshControl` [S] |
-| Haptik | `.sensoryFeedback` [K] | `UIFeedbackGenerator` [S] |
+| Haptics | `.sensoryFeedback` [K] | `UIFeedbackGenerator` [S] |
 | Widgets | WidgetKit, `ContainerRelativeShape` [S], `padding(_:_:)` [S] | – |
 | Live Activities | ActivityKit [S], `ActivityFamily.small` (CarPlay) [S], `activitySystemActionForegroundColor(_:)` [S] | – |
 | Controls | `ControlWidget` [K], `IntentAuthenticationPolicy` [S] | – |
-| Vollbild/Systemgesten | `preferredScreenEdgesDeferringSystemGestures` [S] | dito |
-| Dokument-Launcher | `DocumentGroupLaunchScene` [S] | – |
-| Review-Prompt | `RequestReviewAction` [S] | – |
+| Full screen/system gestures | `preferredScreenEdgesDeferringSystemGestures` [S] | same |
+| Document launcher | `DocumentGroupLaunchScene` [S] | – |
+| Review prompt | `RequestReviewAction` [S] | – |
 
 ---
 
-## 10. Review-Checkliste (iOS)
+## 10. Review checklist (iOS)
 
-- [ ] Layout-Entscheidungen hängen an Size Classes, nicht an `idiom`/Orientierung/Bildschirmbreite (hig:layout#Size-classes)
-- [ ] Getestet: kleinste und größte iPhone-Größe, quer und hoch, Display Zoom, iPhone Mirroring (hig:layout#Adaptability)
-- [ ] Keine hart kodierten Safe-Area-Werte; nichts unter Dynamic Island/Statusleiste/Home-Indikator verdeckt (hig:layout#Guides-and-safe-areas)
-- [ ] Alle Tap-Ziele ≥ 44×44 pt (Minimum 28×28 pt nur ausnahmsweise), ausreichender Abstand (hig:accessibility#Mobility)
-- [ ] Dynamic Type bis AX5 ohne Abschneiden/Überlappen; horizontale Gruppen stapeln (hig:typography#Supporting-Dynamic-Type)
-- [ ] Kein Text unter 11 pt; keine Light/Thin-Schnitte für Fließtext (hig:typography#Ensuring-legibility)
-- [ ] Text Styles statt fixer Punktgrößen; Custom Fonts unterstützen Dynamic Type + Bold Text (hig:typography)
-- [ ] Tab Bar nur Navigation, mit Labels, SF Symbols, kein More-Overflow, keine deaktivierten Tabs (hig:tab-bars)
-- [ ] Tab Bar bleibt in allen Bereichen sichtbar (außer unter Modals) (hig:tab-bars#Best-practices)
-- [ ] Navigation Stack mit Standard-Back-Button und Swipe-back; Large Title auf Top-Level-Screens (hig:toolbars, hig:designing-for-ios)
-- [ ] Genau eine prominente Toolbar-Aktion, trailing; Symbole ohne Rahmen (hig:toolbars#Actions)
-- [ ] Keine eigenen Bar-Hintergrundfarben/Blur-Fakes; Scroll Edge Effect automatic (hig:toolbars, hig:scroll-views#Scroll-edge-effects)
-- [ ] Liquid Glass nicht im Content Layer; Custom-Glass sparsam; clear nur über Medien, ggf. 35-%-Dimming (hig:materials#Liquid-Glass)
-- [ ] Farbe auf Glass nur für primäre Aktion/Status, auf dem Hintergrund statt auf Symbol (hig:color#Liquid-Glass-color)
-- [ ] Sheets: Cancel leading, Done trailing; Grabber bei Resize; Swipe-to-dismiss mit Verlustschutz (hig:sheets#iOS-iPadOS)
-- [ ] Kein gestapeltes Sheet, nie zwei Alerts gleichzeitig (hig:sheets, hig:modality)
-- [ ] Popovers nur in regular width; in compact Sheet (hig:popovers#iOS-iPadOS)
-- [ ] Wahl zu einer Aktion = Action Sheet, nicht Alert; Action Sheets scrollen nicht (hig:action-sheets#iOS-iPadOS)
-- [ ] Switches nur in Listenzeilen; Lautstärke über Volume View (hig:toggles#iOS-iPadOS, hig:sliders#iOS-iPadOS)
-- [ ] Destruktive Menüeinträge am Ende und als destruktiv markiert; primäre Rolle nie destruktiv (hig:context-menus, hig:buttons#Role)
-- [ ] Light/Dark/Increased Contrast geprüft; System- bzw. semantische Farben (hig:color, hig:dark-mode#iOS-iPadOS)
-- [ ] Systemgesten (Edge-Swipe, Home-Indikator, Drei-Finger-Undo) nicht überschrieben (hig:gestures, hig:undo-and-redo#iOS-iPadOS)
-- [ ] Status Bar nicht dauerhaft versteckt; Inhalt darunter lesbar abgedeckt (hig:status-bars)
-- [ ] Launch Screen ≈ erster Screen, ohne Text/Logo; Zustand wird wiederhergestellt (hig:launching)
-- [ ] App-Icon: 1024×1024 px, ungemaskte Layer, dark/clear/tinted geprüft (hig:app-icons)
-- [ ] Widgets: 16-pt-Ränder, Text ≥ 11 pt, Deep Link, Always-On/StandBy/tinted geprüft (hig:widgets)
-- [ ] Live Activity: compact als eine Einheit, Limited Width 28 pt, Lock-Screen-Rand 14 pt, endet sofort (hig:live-activities)
-- [ ] Notifications ohne sensible Daten, Badge nur für Ungelesenes (hig:notifications)
-- [ ] iPhone Duo (falls unterstützt): vertikale Bars nicht überschrieben, Reserved Regions frei, alle Toolbar-Items mit Titel+Symbol (hig:designing-for-iphone-duo)
-
----
-
-## 11. Häufige Fehler („Web-Port-Geruch“)
-
-- **Hamburger-Menü/Drawer** statt Tab Bar für Top-Level-Navigation (hig:tab-bars).
-- **Aktionen in der Tab Bar** (z. B. „+“-Tab, der ein Formular öffnet) (hig:tab-bars#Best-practices).
-- **Eigene Top-Bar** als `div`-artiger, opaker Farbbalken mit Logo statt Navigation Bar mit Titel; App-Name als Titel (hig:toolbars#Titles, hig:toolbars#Best-practices).
-- **Text-Button „Zurück“** oder Back-Pfeil-Eigenbau ohne Swipe-back (hig:toolbars#Navigation).
-- **Fixe px-Layouts** / Breakpoints nach Gerätebreite statt Size Classes und Safe Areas (hig:layout).
-- **Fixe Schriftgrößen** (z. B. 14 px Fließtext), kein Dynamic Type, Text abgeschnitten mit „…“ (hig:typography).
-- **Mini-Tap-Ziele** (Icons 20–24 pt ohne Hit-Area-Padding) (hig:accessibility#Mobility).
-- **Modale Dialoge als zentrierte Overlay-Box** mit „X“ oben rechts statt Sheet mit Cancel/Done; Popover-Kacheln auf dem iPhone (hig:sheets, hig:popovers#iOS-iPadOS).
-- **Toasts/Snackbars** für Fehler statt Alert; In-App-Badges als Fake-Notifications (hig:notifications).
-- **Glass-Overload**: Liquid Glass auf Karten, Listenzellen, Hintergründen; mehrere farbig getönte Glass-Buttons (hig:materials#Liquid-Glass, hig:color#Liquid-Glass-color).
-- **Opake Bar-Hintergründe** in Markenfarbe statt Inhalt darunter durchscheinen zu lassen (hig:toolbars#Best-practices).
-- **Checkbox statt Switch** in Einstellungslisten bzw. Switch frei im Layout (hig:toggles#iOS-iPadOS).
-- **Dropdown-`<select>`-Optik** statt Menü/Picker (hig:menus, hig:pickers).
-- **Pull-to-refresh als einzige Aktualisierung** (hig:progress-indicators#iOS-iPadOS).
-- **Splash Screen mit Logo** als Launch Screen (hig:launching#Launch-screens).
-- **Emoji als Icons** (Quick Actions, Toolbar) statt SF Symbols (hig:home-screen-quick-actions).
-- **Hover-abhängige Funktionen** (Tooltips, Hover-Menüs) ohne Touch-Äquivalent (hig:gestures#Best-practices).
+- [ ] Layout decisions depend on size classes, not on `idiom`/orientation/screen width (hig:layout#Size-classes)
+- [ ] Tested: smallest and largest iPhone size, landscape and portrait, Display Zoom, iPhone Mirroring (hig:layout#Adaptability)
+- [ ] No hard-coded safe area values; nothing obscured under the Dynamic Island/status bar/Home indicator (hig:layout#Guides-and-safe-areas)
+- [ ] All tap targets ≥ 44×44 pt (minimum 28×28 pt only as an exception), sufficient spacing (hig:accessibility#Mobility)
+- [ ] Dynamic Type up to AX5 without truncation/overlap; horizontal groups stack (hig:typography#Supporting-Dynamic-Type)
+- [ ] No text below 11 pt; no Light/Thin weights for body text (hig:typography#Ensuring-legibility)
+- [ ] Text styles instead of fixed point sizes; custom fonts support Dynamic Type + Bold Text (hig:typography)
+- [ ] Tab bar for navigation only, with labels, SF Symbols, no More overflow, no disabled tabs (hig:tab-bars)
+- [ ] Tab bar remains visible in all sections (except under modals) (hig:tab-bars#Best-practices)
+- [ ] Navigation stack with standard Back button and swipe back; large title on top-level screens (hig:toolbars, hig:designing-for-ios)
+- [ ] Exactly one prominent toolbar action, trailing; symbols without borders (hig:toolbars#Actions)
+- [ ] No custom bar background colors/fake blurs; scroll edge effect automatic (hig:toolbars, hig:scroll-views#Scroll-edge-effects)
+- [ ] Liquid Glass not in the content layer; custom glass used sparingly; clear only over media, with 35 % dimming if needed (hig:materials#Liquid-Glass)
+- [ ] Color on glass only for primary action/status, on the background rather than the symbol (hig:color#Liquid-Glass-color)
+- [ ] Sheets: Cancel leading, Done trailing; grabber when resizable; swipe to dismiss with data-loss protection (hig:sheets#iOS-iPadOS)
+- [ ] No stacked sheet, never two alerts at the same time (hig:sheets, hig:modality)
+- [ ] Popovers only in regular width; sheet in compact (hig:popovers#iOS-iPadOS)
+- [ ] Choices related to an action = action sheet, not an alert; action sheets do not scroll (hig:action-sheets#iOS-iPadOS)
+- [ ] Switches only in list rows; volume via a volume view (hig:toggles#iOS-iPadOS, hig:sliders#iOS-iPadOS)
+- [ ] Destructive menu items at the end and marked as destructive; primary role never destructive (hig:context-menus, hig:buttons#Role)
+- [ ] Light/Dark/Increased Contrast checked; system or semantic colors (hig:color, hig:dark-mode#iOS-iPadOS)
+- [ ] System gestures (edge swipe, Home indicator, three-finger undo) not overridden (hig:gestures, hig:undo-and-redo#iOS-iPadOS)
+- [ ] Status bar not permanently hidden; content beneath it covered legibly (hig:status-bars)
+- [ ] Launch screen ≈ first screen, without text/logo; state is restored (hig:launching)
+- [ ] App icon: 1024×1024 px, unmasked layers, dark/clear/tinted checked (hig:app-icons)
+- [ ] Widgets: 16 pt margins, text ≥ 11 pt, deep link, Always-On/StandBy/tinted checked (hig:widgets)
+- [ ] Live Activity: compact as one unit, limited width 28 pt, Lock Screen margin 14 pt, ends immediately (hig:live-activities)
+- [ ] Notifications without sensitive data, badge only for unread items (hig:notifications)
+- [ ] iPhone Duo (if supported): vertical bars not overridden, reserved regions kept clear, all toolbar items with title + symbol (hig:designing-for-iphone-duo)
 
 ---
 
-## Widersprüche & Lücken im Spiegel
+## 11. Common mistakes ("web port smell")
 
-- **Keine Gerätetabelle/Safe-Area-Werte** in `layout.md`, obwohl das Change Log solche Spezifikationen nennt. Gerätespezifische Maße nur indirekt aus Widget-/Live-Activity-Tabellen.
-- **Overflow:** `toolbars.md` verlangt auf iOS ein selbst angelegtes More-Menü und sagt, das System füge Overflow-Menüs nur in macOS/iPadOS automatisch hinzu; `designing-for-iphone-duo.md` verlangt dagegen, eigene Overflow-Menüs ins System-Overflow (`ToolbarOverflowMenu`) zu überführen. Für iPhone Duo gilt Letzteres; für klassische iPhones ist das Verhältnis offen.
-- **Split View auf iPhone:** `multitasking.md#iOS` nennt nur Picture in Picture, `designing-for-iphone-duo.md` erwähnt dagegen Split-View-Multitasking auf dem Innendisplay.
-- **Sheet-Schließen:** Text nennt Cancel leading; die Detent-Illustrationen zeigen einen runden Close-Button oben links. Beides ist leading, die Form (Text vs. Symbol) ist nicht eindeutig geregelt. `toolbars.md` bevorzugt Symbole (kein Text „Close“).
-- **Detent medium** ist nur als „ungefähr halbe Höhe“ beschrieben, ohne Zahl.
+- **Hamburger menu/drawer** instead of a tab bar for top-level navigation (hig:tab-bars).
+- **Actions in the tab bar** (e.g., a "+" tab that opens a form) (hig:tab-bars#Best-practices).
+- **Custom top bar** as a `div`-like, opaque color bar with a logo instead of a navigation bar with a title; app name as the title (hig:toolbars#Titles, hig:toolbars#Best-practices).
+- **Text button "Back"** or a home-made back arrow without swipe back (hig:toolbars#Navigation).
+- **Fixed px layouts** / breakpoints by device width instead of size classes and safe areas (hig:layout).
+- **Fixed font sizes** (e.g., 14 px body text), no Dynamic Type, text truncated with "…" (hig:typography).
+- **Tiny tap targets** (icons 20–24 pt without hit-area padding) (hig:accessibility#Mobility).
+- **Modal dialogs as a centered overlay box** with an "X" at the top right instead of a sheet with Cancel/Done; popover tiles on iPhone (hig:sheets, hig:popovers#iOS-iPadOS).
+- **Toasts/snackbars** for errors instead of an alert; in-app badges as fake notifications (hig:notifications).
+- **Glass overload**: Liquid Glass on cards, list cells, backgrounds; several color-tinted glass buttons (hig:materials#Liquid-Glass, hig:color#Liquid-Glass-color).
+- **Opaque bar backgrounds** in the brand color instead of letting the content underneath show through (hig:toolbars#Best-practices).
+- **Checkbox instead of a switch** in settings lists, or a switch floating freely in the layout (hig:toggles#iOS-iPadOS).
+- **Dropdown `<select>` look** instead of a menu/picker (hig:menus, hig:pickers).
+- **Pull to refresh as the only way to update** (hig:progress-indicators#iOS-iPadOS).
+- **Splash screen with logo** as the launch screen (hig:launching#Launch-screens).
+- **Emoji as icons** (quick actions, toolbar) instead of SF Symbols (hig:home-screen-quick-actions).
+- **Hover-dependent features** (tooltips, hover menus) without a touch equivalent (hig:gestures#Best-practices).
+
+---
+
+## Contradictions & gaps in the mirror
+
+- **No device table/safe area values** in `layout.md`, although the change log mentions such specifications. Device-specific dimensions only indirectly from the widget/Live Activity tables.
+- **Overflow:** `toolbars.md` requires a self-created More menu on iOS and says the system adds overflow menus automatically only in macOS/iPadOS; `designing-for-iphone-duo.md`, by contrast, requires moving your own overflow menus into the system overflow (`ToolbarOverflowMenu`). For iPhone Duo the latter applies; for classic iPhones the relationship is unresolved.
+- **Split view on iPhone:** `multitasking.md#iOS` mentions only Picture in Picture, whereas `designing-for-iphone-duo.md` mentions Split View multitasking on the inner display.
+- **Closing sheets:** the text says Cancel leading; the detent illustrations show a round Close button at the top left. Both are leading; the form (text vs. symbol) is not clearly specified. `toolbars.md` prefers symbols (no "Close" text).
+- **Detent medium** is described only as "approximately half height", without a number.

@@ -1,28 +1,28 @@
-# resources – Apple Design Resources nutzen
+# resources – use Apple Design Resources
 
-Quelle: https://developer.apple.com/design/resources/ (Katalog im Plugin unter `data/resources.json`, aktualisierbar mit `resources.py sync`).
+Source: https://developer.apple.com/design/resources/ (catalog shipped in `data/resources.json`, refresh with `resources.py sync`).
 
-## Was es gibt
+## What's available
 
-| Art | Inhalt | Form |
+| Kind | Content | Form |
 |---|---|---|
-| UI-Kits | iOS & iPadOS, macOS, watchOS (auch tvOS, visionOS) – alle Systemkomponenten | Figma-Community-Datei, Sketch-Library |
-| App-Icon-Templates | iOS/iPadOS/watchOS (Figma/Sketch), Photoshop/Illustrator-DMG | Link / DMG |
-| Technologie-Templates | App Clips, Apple Pay, Live Activities, Messages, Sign in with Apple, Siri & App Shortcuts, Tap to Pay, TipKit, Wallet … | Figma/Sketch |
+| UI kits | iOS & iPadOS, macOS, watchOS (also tvOS, visionOS) – all system components | Figma Community file, Sketch library |
+| App icon templates | iOS/iPadOS/watchOS (Figma/Sketch), Photoshop/Illustrator DMG | Link / DMG |
+| Technology templates | App Clips, Apple Pay, Live Activities, Messages, Sign in with Apple, Siri & App Shortcuts, Tap to Pay, TipKit, Wallet … | Figma/Sketch |
 | Fonts | SF Pro, SF Compact, SF Mono, New York, SF Arabic/Armenian/Georgian/Hebrew | DMG (pkg) |
-| SF Symbols App | Symbolbibliothek, Export, Custom Symbols | DMG |
-| Icon Composer | Liquid-Glass-App-Icons | Download-Seite |
-| Bezels | iPhone, iPad, Mac, Watch, Studio Display für Marketing | DMG (teils mehrere 100 MB) |
-| Glyphen/Logos | AirPlay, ARKit, HomeKit, Apple Health, Siri, Sign in with Apple, Game Center … | DMG |
+| SF Symbols app | Symbol library, export, custom symbols | DMG |
+| Icon Composer | Liquid Glass app icons | Download page |
+| Bezels | iPhone, iPad, Mac, Watch, Studio Display for marketing | DMG (some several 100 MB) |
+| Glyphs/logos | AirPlay, ARKit, HomeKit, Apple Health, Siri, Sign in with Apple, Game Center … | DMG |
 
-## Ablauf
+## Steps
 
-1. Bedarf klären (AskUserQuestion, falls nicht klar): Mock-ups in Figma/Sketch · Fonts lokal · Icon · Marketing-Bezels · Technologie-Badge.
-2. `resources.py list [--platform ios|macos|watchos]` bzw. `show "<suche>"` – Links direkt ausgeben (Figma-Links öffnen sich in der Figma-Community → „Open in Figma“/Duplizieren).
-3. Downloads nur nach Zustimmung zur Apple-Lizenz (`--accept-license`). Vorher Größe nennen bei Bezels/SF Symbols (mehrere 100 MB). `status` zeigt Vorhandenes.
-4. Fonts: `install-fonts --accept-license` entpackt die pkgs ohne Installer/sudo nach `~/Library/Fonts`. Hinweis: Im App-Code nie SF-Dateien einbetten – das System liefert SF automatisch (`.font(.body)`, `.fontDesign(.serif)` für New York, `.monospaced` für SF Mono).
-5. Badges/Logos (App Store, Apple Pay, Wallet …): nur Originale aus https://developer.apple.com/licensing-trademarks/ nutzen, nicht nachbauen; Regeln in [technologies.md](../technologies.md).
+1. Clarify the need (AskUserQuestion if unclear): mock-ups in Figma/Sketch · fonts locally · icon · marketing bezels · technology badge.
+2. `resources.py list [--platform ios|macos|watchos]` or `show "<query>"` – output the links directly (Figma links open in the Figma Community → "Open in Figma"/duplicate).
+3. Downloads only after the user agrees to Apple's license (`--accept-license`). State the size first for bezels/SF Symbols (several 100 MB). `status` shows what's already there.
+4. Fonts: `install-fonts --accept-license` unpacks the pkgs without the installer or sudo into `~/Library/Fonts`. Note: never embed SF font files in app code – the system provides SF automatically (`.font(.body)`, `.fontDesign(.serif)` for New York, `.monospaced` for SF Mono).
+5. Badges/logos (App Store, Apple Pay, Wallet …): only use the originals from https://developer.apple.com/licensing-trademarks/, never recreate them; rules in [technologies.md](../technologies.md).
 
-## Lizenz in einem Satz
+## License in one sentence
 
-Fonts und Ressourcen dürfen zum Gestalten und Entwickeln von Software für Apple-Plattformen genutzt, aber nicht weitergegeben oder in andere Produkte eingebettet werden – maßgeblich ist die Lizenz im jeweiligen DMG.
+Fonts and resources may be used to design and develop software for Apple platforms, but not redistributed or embedded in other products – the license inside each DMG is authoritative.

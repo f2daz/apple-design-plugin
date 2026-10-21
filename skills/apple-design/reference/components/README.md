@@ -1,92 +1,92 @@
-# Komponenten-Katalog (Apple HIG)
+# Component catalog (Apple HIG)
 
-> Quelle: Apple HIG, lokaler Spiegel `~/.apple-design/hig/pages/<slug>.md` (Stand 2026-10-21). Paraphrasiert. Belege: `(hig:<slug>)`, `(hig:<slug>#Anchor)`, Anchor = Überschrift mit Bindestrichen, ohne Kommas.
-> Fokus: iOS, iPadOS, macOS, watchOS. tvOS und visionOS sind nur erwähnt, wenn es relevant ist.
+> Source: Apple HIG, local mirror `~/.apple-design/hig/pages/<slug>.md` (as of 2026-10-21). Paraphrased. Sources: `(hig:<slug>)`, `(hig:<slug>#Anchor)`, Anchor = heading with hyphens, without commas.
+> Focus: iOS, iPadOS, macOS, watchOS. tvOS and visionOS are mentioned only where relevant.
 
-Die Komponenten sind nach den HIG-Untergruppen auf acht Dateien verteilt. Je Komponente gibt es diese Abschnitte: Zweck · Plattformen · Verwenden/Nicht verwenden · Kernregeln · Plattform-Besonderheiten · Kennwerte · Umsetzung · Typische Fehler.
+The components are split across eight files following the HIG subgroups. Each component has these sections: Purpose · Platforms · Use/Don't use · Core rules · Platform considerations · Key values · Implementation · Common mistakes.
 
-## Entscheidungshilfe: Ich will X, also nehme ich Y
+## Decision aid: I want X, so I use Y
 
-### Auswahl aus wenigen Optionen
-| Situation | Komponente | Beleg |
+### Choosing from a few options
+| Situation | Component | Source |
 |---|---|---|
-| Wenige (iPhone ca. 5, breite UI ca. 5–7) eng verwandte Optionen, Auswahl soll dauerhaft sichtbar sein | Segmented control (nicht auf watchOS) | (hig:segmented-controls#Best-practices) |
-| Kurze Liste exklusiver Optionen, Platz knapp, aktuelle Auswahl im Button sichtbar | Pop-up button (SwiftUI `Picker` mit Menu-Stil) | (hig:pop-up-buttons#Best-practices), (hig:pickers#Best-practices) |
-| Befehle bzw. Aktionen, die eine Aktion präzisieren (Add, Sort) | Pull-down button bzw. Menu | (hig:pull-down-buttons#Best-practices) |
-| Mittlere bis lange, logisch geordnete Werteliste, Datum oder Uhrzeit | Picker / Date picker | (hig:pickers#Best-practices) |
-| Sehr lange Liste | List/Table, ggf. mit Index | (hig:pickers#Best-practices) |
-| macOS, 2–5 exklusive Optionen, alle sichtbar | Radio buttons, ab mehr als ca. 5 Pop-up button | (hig:toggles#Radio-buttons) |
-| Wechsel zwischen getrennten App-Bereichen | Tab bar, nicht Segmented control | (hig:segmented-controls#iOS-iPadOS) |
+| A few (iPhone approx. 5, wide UI approx. 5–7) closely related options, selection should stay visible | Segmented control (not on watchOS) | (hig:segmented-controls#Best-practices) |
+| Short list of mutually exclusive options, limited space, current selection visible in the button | Pop-up button (SwiftUI `Picker` with menu style) | (hig:pop-up-buttons#Best-practices), (hig:pickers#Best-practices) |
+| Commands or actions that refine an action (Add, Sort) | Pull-down button or Menu | (hig:pull-down-buttons#Best-practices) |
+| Medium to long, logically ordered list of values, date or time | Picker / Date picker | (hig:pickers#Best-practices) |
+| Very long list | List/Table, with an index if needed | (hig:pickers#Best-practices) |
+| macOS, 2–5 mutually exclusive options, all visible | Radio buttons; above approx. 5, Pop-up button | (hig:toggles#Radio-buttons) |
+| Switching between separate app areas | Tab bar, not Segmented control | (hig:segmented-controls#iOS-iPadOS) |
 
-### Ein/Aus und Werte
-| Situation | Komponente | Beleg |
+### On/off and values
+| Situation | Component | Source |
 |---|---|---|
-| iOS/iPadOS Ein/Aus in einer Liste | Switch (`Toggle`) | (hig:toggles#iOS-iPadOS) |
-| iOS/iPadOS Ein/Aus außerhalb einer Liste | Button mit Toggle-Verhalten | (hig:toggles#iOS-iPadOS) |
-| macOS: einzelnes Setting / betonte oder gruppensteuernde Setting | Checkbox bzw. Switch | (hig:toggles#Checkboxes), (hig:toggles#Switches) |
-| Kontinuierlicher Wert in einem Bereich | Slider | (hig:sliders#Best-practices) |
-| Kleine schrittweise Änderung | Stepper, bei großen Sprüngen zusätzlich Text field | (hig:steppers#Best-practices) |
-| Wert relativ zu einer Skala anzeigen (nicht eingeben) | Gauge | (hig:gauges) |
-| Fortschritt eines laufenden Vorgangs | Progress indicator | (hig:progress-indicators) |
+| iOS/iPadOS on/off in a list | Switch (`Toggle`) | (hig:toggles#iOS-iPadOS) |
+| iOS/iPadOS on/off outside a list | Button with toggle behavior | (hig:toggles#iOS-iPadOS) |
+| macOS: single setting / emphasized or group-controlling setting | Checkbox or Switch | (hig:toggles#Checkboxes), (hig:toggles#Switches) |
+| Continuous value within a range | Slider | (hig:sliders#Best-practices) |
+| Small incremental change | Stepper, plus a Text field for large jumps | (hig:steppers#Best-practices) |
+| Display a value relative to a scale (not input) | Gauge | (hig:gauges) |
+| Progress of an ongoing operation | Progress indicator | (hig:progress-indicators) |
 
-### Bestätigung und Rückfrage
-| Situation | Komponente | Beleg |
+### Confirmation and prompting
+| Situation | Component | Source |
 |---|---|---|
-| Unerwartetes Problem, kritische Info, seltene nicht rückgängig machbare Datenvernichtung | Alert (`alert`) | (hig:alerts#Best-practices) |
-| Optionen zu einer Aktion, die die Person bewusst ausgelöst hat (Löschen/Sichern) | Action sheet, in SwiftUI `confirmationDialog` | (hig:action-sheets#Best-practices) |
-| Optionen, die die Person selbst aufruft | Menu, kein Action sheet | (hig:action-sheets#iOS-iPadOS) |
-| Häufige, rückgängig machbare Aktion | keine Rückfrage, stattdessen Undo | (hig:alerts#Best-practices) |
-| Fehler, während die App im Hintergrund ist | kein Fehler-Push; Fehler gehören in einen Alert | (hig:notifications#Best-practices) |
+| Unexpected problem, critical info, rare irreversible data destruction | Alert (`alert`) | (hig:alerts#Best-practices) |
+| Options for an action the person deliberately initiated (Delete/Save) | Action sheet, in SwiftUI `confirmationDialog` | (hig:action-sheets#Best-practices) |
+| Options the person opens themselves | Menu, not an Action sheet | (hig:action-sheets#iOS-iPadOS) |
+| Frequent, undoable action | no confirmation; offer Undo instead | (hig:alerts#Best-practices) |
+| Error while the app is in the background | no error notification; errors belong in an Alert | (hig:notifications#Best-practices) |
 
-„Confirmation dialog“ ist keine eigene HIG-Komponente, sondern die SwiftUI-API für Action sheets (siehe presentation.md).
+"Confirmation dialog" is not a separate HIG component but the SwiftUI API for Action sheets (see presentation.md).
 
-### Nebenaufgabe und modale Darstellung
-| Situation | Komponente | Beleg |
+### Secondary task and modal presentation
+| Situation | Component | Source |
 |---|---|---|
-| Wenig Inhalt, kurzlebig, am auslösenden Control verankert (regular width, macOS) | Popover | (hig:popovers#Best-practices) |
-| In compact size class | Sheet statt Popover | (hig:popovers#iOS-iPadOS) |
-| Abgegrenzte, einfache Aufgabe mit Rückkehr zum Kontext | Sheet (iPhone: Detents) | (hig:sheets#Best-practices) |
-| Werkzeuge neben weiterlaufender Hauptaufgabe | iOS/iPadOS nicht-modales Sheet, macOS Panel | (hig:sheets#Best-practices), (hig:panels) |
-| Komplexe, lange oder medienlastige Aufgabe | iOS/iPadOS Full-screen-Modal, macOS neues Fenster/Vollbild | (hig:sheets#Best-practices), (hig:modality#Best-practices) |
-| Nie | mehrere modale Views oder zwei Alerts gleichzeitig | (hig:modality#Best-practices) |
+| Little content, short-lived, anchored to the invoking control (regular width, macOS) | Popover | (hig:popovers#Best-practices) |
+| In compact size class | Sheet instead of Popover | (hig:popovers#iOS-iPadOS) |
+| Scoped, simple task with return to context | Sheet (iPhone: detents) | (hig:sheets#Best-practices) |
+| Tools alongside an ongoing main task | iOS/iPadOS nonmodal sheet, macOS panel | (hig:sheets#Best-practices), (hig:panels) |
+| Complex, long, or media-heavy task | iOS/iPadOS full-screen modal, macOS new window/full screen | (hig:sheets#Best-practices), (hig:modality#Best-practices) |
+| Never | multiple modal views or two alerts at the same time | (hig:modality#Best-practices) |
 
-### Navigation und Struktur
-| Situation | Komponente | Beleg |
+### Navigation and structure
+| Situation | Component | Source |
 |---|---|---|
-| iPhone: wenige Hauptbereiche | Tab bar | (hig:tab-bars) |
-| iPad: viele oder anpassbare Bereiche | Tab bar mit Sidebar-Adaption (`sidebarAdaptable`) | (hig:tab-bars#iPadOS), (hig:sidebars#iOS-iPadOS) |
-| macOS: Top-Level-Navigation | Sidebar im Split view | (hig:sidebars#macOS) |
-| Hierarchie mit Detailansicht | Split view (`NavigationSplitView`) | (hig:split-views) |
-| Häufige Aktionen der aktuellen View | Toolbar, kein Wechsel zwischen App-Bereichen | (hig:toolbars) |
-| Textlastige, zeilenbasierte Daten | List/Table | (hig:lists-and-tables#Best-practices) |
-| Bildlastige oder unterschiedlich große Elemente | Collection | (hig:collections#Best-practices) |
-| macOS: hierarchische Textdaten / tiefe Hierarchie mit Spaltensprüngen | Outline view / Column view | (hig:outline-views#Best-practices), (hig:column-views#Best-practices) |
-| macOS: sich ausschließende Panes im Fenster | Tab view (iOS/iPadOS: Segmented control) | (hig:tab-views#iOS-iPadOS) |
+| iPhone: a few main areas | Tab bar | (hig:tab-bars) |
+| iPad: many or customizable areas | Tab bar with sidebar adaptation (`sidebarAdaptable`) | (hig:tab-bars#iPadOS), (hig:sidebars#iOS-iPadOS) |
+| macOS: top-level navigation | Sidebar in a split view | (hig:sidebars#macOS) |
+| Hierarchy with detail view | Split view (`NavigationSplitView`) | (hig:split-views) |
+| Frequent actions for the current view | Toolbar, not for switching between app areas | (hig:toolbars) |
+| Text-heavy, row-based data | List/Table | (hig:lists-and-tables#Best-practices) |
+| Image-heavy or variably sized items | Collection | (hig:collections#Best-practices) |
+| macOS: hierarchical text data / deep hierarchy with column jumps | Outline view / Column view | (hig:outline-views#Best-practices), (hig:column-views#Best-practices) |
+| macOS: mutually exclusive panes in a window | Tab view (iOS/iPadOS: Segmented control) | (hig:tab-views#iOS-iPadOS) |
 
-### Aktionen, Kontext und Befehle
-| Situation | Komponente | Beleg |
+### Actions, context, and commands
+| Situation | Component | Source |
 |---|---|---|
-| Einzelne, sofortige Aktion | Button | (hig:buttons) |
-| Häufige objektbezogene Befehle, versteckt | Context menu, nie als einziger Zugang | (hig:context-menus#Best-practices) |
-| Vollständiges Befehlsverzeichnis Mac/iPad | Menu bar | (hig:the-menu-bar) |
-| Teilen bzw. Übergabe an andere Apps | Activity view (Share Sheet) | (hig:activity-views) |
-| Einstieg direkt vom Home Screen | Home Screen quick actions (max. 4) | (hig:home-screen-quick-actions) |
+| Single, immediate action | Button | (hig:buttons) |
+| Frequent object-related commands, hidden | Context menu, never as the only access | (hig:context-menus#Best-practices) |
+| Complete command directory on Mac/iPad | Menu bar | (hig:the-menu-bar) |
+| Sharing or handing off to other apps | Activity view (Share Sheet) | (hig:activity-views) |
+| Entry point directly from the Home Screen | Home Screen quick actions (max. 4) | (hig:home-screen-quick-actions) |
 
-### Außerhalb der App (System experiences)
-| Situation | Komponente | Beleg |
+### Outside the app (system experiences)
+| Situation | Component | Source |
 |---|---|---|
-| Glanceable Info, periodisch aktualisiert | Widget (keine Echtzeitdaten) | (hig:widgets#iOS-iPadOS) |
-| Zeitlich begrenzter Vorgang mit Live-Updates, klarer Anfang und klares Ende | Live Activity | (hig:live-activities#Best-practices) |
-| Zeitnahe Info, wenn die App nicht vorne ist | Notification, nicht doppelt zur Live Activity | (hig:notifications), (hig:live-activities#Starting-updating-and-ending-a-Live-Activity) |
-| Eine Aktion ohne App-Start (Control Center, Lock Screen, Action button) | Control | (hig:controls#Best-practices) |
-| Funktion über Siri/Spotlight | App Shortcut, Ergebnis als Snippet | (hig:app-shortcuts), (hig:snippets) |
-| Daten auf dem Zifferblatt | Complication | (hig:complications) |
+| Glanceable info, periodically updated | Widget (no real-time data) | (hig:widgets#iOS-iPadOS) |
+| Time-bound activity with live updates, clear start and clear end | Live Activity | (hig:live-activities#Best-practices) |
+| Timely info when the app is not in the foreground | Notification, not duplicating the Live Activity | (hig:notifications), (hig:live-activities#Starting-updating-and-ending-a-Live-Activity) |
+| One action without launching the app (Control Center, Lock Screen, Action button) | Control | (hig:controls#Best-practices) |
+| Functionality via Siri/Spotlight | App Shortcut, result as a snippet | (hig:app-shortcuts), (hig:snippets) |
+| Data on the watch face | Complication | (hig:complications) |
 
-## Index aller Komponenten
+## Index of all components
 
-Die Plattformangaben stammen aus der Kopfzeile der jeweiligen Spiegelseite. Abkürzungen: i = iOS, iP = iPadOS, m = macOS, w = watchOS, tv = tvOS, v = visionOS.
+Platform information comes from the header of each mirror page. Abbreviations: i = iOS, iP = iPadOS, m = macOS, w = watchOS, tv = tvOS, v = visionOS.
 
-| Komponente | slug | Plattformen | Datei |
+| Component | slug | Platforms | File |
 |---|---|---|---|
 | Charts | charts | i iP m w tv v | [content.md](content.md) |
 | Image views | image-views | i iP m w tv v | [content.md](content.md) |
@@ -153,9 +153,9 @@ Die Plattformangaben stammen aus der Kopfzeile der jeweiligen Spiegelseite. Abk�
 | Watch faces | watch-faces | w | [system-experiences.md](system-experiences.md) |
 | Widgets | widgets | i iP m w v | [system-experiences.md](system-experiences.md) |
 
-## Bekannte Unklarheiten im Spiegel
-- **Tab bars:** Die Kopfzeile nennt macOS, die Seite enthält aber keine macOS-Hinweise (hig:tab-bars#Platform-considerations).
-- **Tab views:** Die Höchstzahl der Tabs ist widersprüchlich angegeben, „nicht mehr als sechs“ steht neben „ab sechs“ (hig:tab-views#Best-practices).
-- **Pull-down buttons:** Der Spiegel verlinkt `MenuPickerStyle` als SwiftUI-Typ. Gemeint ist vermutlich `Menu`, denn `MenuPickerStyle` entspricht dem Pop-up button.
-- **Complications:** Die Seite hat den Stand 2023 und enthält keine Maße für neuere Gehäusegrößen. Ein Inline-Maß ist doppelt und widersprüchlich angegeben (siehe system-experiences.md).
-- In den Dateien ist jeweils markiert, wo API-Namen nicht im Spiegel stehen und aus Entwicklerwissen ergänzt wurden. Diese Namen vor Verwendung prüfen.
+## Known ambiguities in the mirror
+- **Tab bars:** The header lists macOS, but the page contains no macOS guidance (hig:tab-bars#Platform-considerations).
+- **Tab views:** The maximum number of tabs is stated inconsistently; "no more than six" appears next to "six or more" (hig:tab-views#Best-practices).
+- **Pull-down buttons:** The mirror links `MenuPickerStyle` as the SwiftUI type. `Menu` is probably meant, because `MenuPickerStyle` corresponds to the Pop-up button.
+- **Complications:** The page dates from 2023 and contains no dimensions for newer case sizes. One inline dimension is given twice with conflicting values (see system-experiences.md).
+- Each file marks where API names are not in the mirror and were added from developer knowledge. Verify these names before use.

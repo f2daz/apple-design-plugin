@@ -1,178 +1,178 @@
-# Writing, Privacy und Branding
+# Writing, Privacy, and Branding
 
-Quellen (HIG-Spiegel, Stand 2026-10-21): `writing` (Update 2025-12-16: Sprachmuster, Possessivpronomen), `privacy` (2023-06-21), `branding` (2026-09-09: Markenfarbe), `inclusion` (Welcoming language, Gender identity), `onboarding` (2024-06-10), `alerts` (2024-02-02), ergänzend `buttons#Content`, `notifications`, `launching`, `progress-indicators`.
+Sources (HIG mirror, as of 2026-10-21): `writing` (updated 2025-12-16: language patterns, possessive pronouns), `privacy` (2023-06-21), `branding` (2026-09-09: brand color), `inclusion` (welcoming language, gender identity), `onboarding` (2024-06-10), `alerts` (2024-02-02), plus `buttons#Content`, `notifications`, `launching`, `progress-indicators`.
 
-## Einordnung
+## Overview
 
-Texte sind Teil der UX: Onboarding, Alerts, Fehlermeldungen, Accessibility-Beschreibungen (hig:writing). Privacy ist bei Apple Gestaltungsthema, nicht nur Recht: Transparenz über benötigte Daten, minimale Anforderungen, Schutz der freigegebenen Daten; App-Store-Produktseite zeigt die Privacy-Angaben aus App Store Connect (hig:privacy). Branding soll die App wiedererkennbar machen, aber **dem Inhalt den Vortritt lassen** und vertraute Plattformmuster beibehalten (hig:branding).
+Text is part of the UX: onboarding, alerts, error messages, accessibility descriptions (hig:writing). At Apple, privacy is a design topic, not just a legal one: transparency about the data needed, minimal requests, protection of shared data; the App Store product page shows the privacy details from App Store Connect (hig:privacy). Branding should make the app recognizable, but **defer to the content** and keep familiar platform patterns (hig:branding).
 
-## Kernregeln
+## Core rules
 
-### Stimme und Ton
-- Lege die Stimme der App fest (Zielgruppe, Vokabular, gewünschtes Gefühl) und führe eine Begriffsliste für Konsistenz (hig:writing#Getting-started).
-- Passe den Ton an die Situation an: sachlich-direkt bei Ernstem (Zahlungsfehler), leicht bei Erfolgen (Ziel erreicht) (hig:writing#Getting-started).
-- Schreibe klar und knapp; jedes Wort prüfen, im Zweifel laut vorlesen (hig:writing#Getting-started).
-- Schreibe für alle: einfache Sprache, kein Jargon, keine gegenderten Begriffe; Lokalisierung und VoiceOver mitdenken (hig:writing#Getting-started).
-- Prüfe den Ton aus verschiedenen Perspektiven; akademischer Ton wirkt ausschließend (hig:inclusion#Welcoming-language).
-- Sprich Menschen direkt an („du/Sie“, „dein/Ihr“) statt „der Nutzer“/„der Spieler“ (hig:inclusion#Welcoming-language).
-- Fachbegriffe nur mit Definition; Redewendungen durch Klartext ersetzen; Humor nur mit Bedacht (Übersetzbarkeit, Ermüdung, Missverständnis) (hig:inclusion#Welcoming-language).
-- Vermeide unnötige Geschlechtsbezüge („Abonnenten können Rezepte posten“ statt „…seine oder ihre Rezepte“); Geschlecht nur abfragen, wenn nötig, dann mit Optionen wie nichtbinär, Selbstbeschreibung, keine Angabe (hig:inclusion#Gender-identity).
-- Vermeide kontextspezifische Annahmen (z. B. Sicherheitsfragen zu Studium oder erstem Auto) – universelle Erfahrungen wählen (hig:inclusion#Avoiding-stereotypes).
-- Prüfe Farben auf kulturelle Bedeutung je Locale (hig:inclusion#Languages).
+### Voice and tone
+- Define the app's voice (audience, vocabulary, desired feeling) and keep a word list for consistency (hig:writing#Getting-started).
+- Adapt the tone to the situation: matter-of-fact and direct for serious matters (payment error), light for successes (goal reached) (hig:writing#Getting-started).
+- Write clearly and concisely; examine every word, read it aloud when in doubt (hig:writing#Getting-started).
+- Write for everyone: plain language, no jargon, no gendered terms; keep localization and VoiceOver in mind (hig:writing#Getting-started).
+- Check the tone from different perspectives; an academic tone feels exclusionary (hig:inclusion#Welcoming-language).
+- Address people directly ("you", "your") instead of "the user"/"the player" (hig:inclusion#Welcoming-language).
+- Technical terms only with a definition; replace idioms with plain language; use humor only with care (translatability, fatigue, misunderstanding) (hig:inclusion#Welcoming-language).
+- Avoid unnecessary gender references ("Subscribers can post recipes" instead of "…his or her recipes"); ask for gender only when necessary, and then with options such as nonbinary, self-identify, decline to state (hig:inclusion#Gender-identity).
+- Avoid context-specific assumptions (e.g. security questions about college or a first car) – choose universal experiences (hig:inclusion#Avoiding-stereotypes).
+- Check colors for cultural meaning per locale (hig:inclusion#Languages).
 
-### Struktur und Sprachmuster
-- Wichtigstes zuerst; mehrere Ideen ggf. auf mehrere Screens verteilen (hig:writing#Best-practices).
-- Handlungsorientiert: aktive Sprache, Buttons und Links mit Verb („Senden“ statt „Los geht’s!“); keine „Hier klicken“-Links, sondern beschreibender Linktext (wichtig für Screenreader) (hig:writing#Best-practices).
-- Baue wiederkehrende Sprachmuster auf (hig:writing#Best-practices).
-- Wähle je UI-Elementtyp eine Großschreibungsregel und halte sie durch (hig:writing#Best-practices).
-- Mehrstufige Flows: Start mit „Los geht’s/Get Started“, Fortschritt konsistent mit „Weiter/Continue“ oder „Next“ bzw. Vorschau auf den nächsten Schritt, Abschluss mit „Fertig/Done“ (hig:writing#Best-practices).
-- Possessivpronomen sparsam („Favoriten“ statt „Deine Favoriten“), Perspektive nicht wechseln; **„wir“ vermeiden** („Inhalt kann nicht geladen werden“ statt „Wir haben Probleme …“) (hig:writing#Best-practices).
-- Gesten gerätegerecht benennen (Touch: „tippen“, nicht „klicken“) (hig:writing#Best-practices).
-- Kleine Displays (iPhone, Watch) und große (TV, mehrere Zuschauer) verlangen Kürze (hig:writing#Best-practices).
-- Leere Zustände: nächste Schritte nennen, Button/Link anbieten, keine kritische Info, die später verschwindet (hig:writing#Best-practices).
-- Einstellungen: praktisch benennen; Beschreibung erklärt den eingeschalteten Zustand; auf Settings per direktem Link/Button verweisen statt Pfad zu beschreiben (hig:writing#Best-practices).
-- Textfelder: klare Labels, Hint/Platzhalter mit Format-Beispiel („name@example.com“) (hig:writing#Best-practices).
-- Wähle den Zustellkanal nach Dringlichkeit: Inline, Notification, Alert, Action Sheet (hig:writing#Best-practices).
+### Structure and language patterns
+- Most important information first; spread multiple ideas across multiple screens if needed (hig:writing#Best-practices).
+- Action-oriented: active voice, buttons and links with a verb ("Send" instead of "Let's go!"); no "Click here" links, but descriptive link text (important for screen readers) (hig:writing#Best-practices).
+- Build recurring language patterns (hig:writing#Best-practices).
+- Choose one capitalization style per UI element type and stick to it (hig:writing#Best-practices).
+- Multistep flows: start with "Get Started", progress consistently with "Continue" or "Next" or a preview of the next step, finish with "Done" (hig:writing#Best-practices).
+- Use possessive pronouns sparingly ("Favorites" instead of "Your Favorites"), don't switch perspective; **avoid "we"** ("Unable to load content" instead of "We're having trouble …") (hig:writing#Best-practices).
+- Name gestures appropriately for the device (touch: "tap", not "click") (hig:writing#Best-practices).
+- Small displays (iPhone, Watch) and large ones (TV, multiple viewers) demand brevity (hig:writing#Best-practices).
+- Empty states: name next steps, offer a button/link, no critical information that disappears later (hig:writing#Best-practices).
+- Settings: name them practically; the description explains the on state; link to Settings via a direct link/button instead of describing the path (hig:writing#Best-practices).
+- Text fields: clear labels, hint/placeholder with a format example ("name@example.com") (hig:writing#Best-practices).
+- Choose the delivery channel by urgency: inline, notification, alert, action sheet (hig:writing#Best-practices).
 
-### Fehlermeldungen
-- Fehler möglichst vermeiden; wenn nötig, **nah am Problem** anzeigen (hig:writing#Best-practices).
-- Keine Schuldzuweisung; sagen, was zu tun ist („Wähle ein Passwort mit mindestens 8 Zeichen“ statt „Passwort zu kurz“) (hig:writing#Best-practices).
-- Keine Interjektionen wie „Hoppla!“/„Oops“ (hig:writing#Best-practices).
-- Positiv formulieren („Nur Buchstaben verwenden“ statt „Keine Zahlen oder Symbole“); keine Roboter-Meldungen wie „Ungültiger Name“ (hig:writing#Best-practices).
-- Fehler, die viele trifft und Sprache nicht löst → Interaktion überdenken (hig:writing#Best-practices).
-- Fehler per Alert, nicht per Notification (hig:notifications).
+### Error messages
+- Avoid errors where possible; when necessary, show them **close to the problem** (hig:writing#Best-practices).
+- No blame; say what to do ("Choose a password with at least 8 characters" instead of "Password too short") (hig:writing#Best-practices).
+- No interjections like "Oops!"/"Uh-oh" (hig:writing#Best-practices).
+- Phrase positively ("Use only letters" instead of "No numbers or symbols"); no robotic messages like "Invalid name" (hig:writing#Best-practices).
+- Errors that affect many people and that wording can't solve → rethink the interaction (hig:writing#Best-practices).
+- Errors via alert, not via notification (hig:notifications).
 
-### Alerts – Text und Buttons
-- Ton direkt, neutral, zugänglich; nichts verschleiern, nichts vorwerfen (hig:alerts#Content).
-- Titel beschreibt die Situation konkret (was, Kontext, warum); kein „Fehler“ oder „Fehler 329347“; maximal zwei Zeilen (hig:alerts#Content).
-- Titel als ganzer Satz → Satz-Großschreibung + Satzzeichen; als Fragment → Title Case ohne Endzeichen (hig:alerts#Content).
-- Informativer Text nur mit Mehrwert, kurz, vollständige Sätze (hig:alerts#Content).
-- Buttons nicht erklären; falls doch, „wählen“ verwenden und exakten Button-Titel ohne Anführungszeichen (hig:alerts#Content).
-- Button-Titel: ein bis zwei Wörter, Verb, Ergebnis beschreibend („Alle anzeigen“, „Antworten“, „Ignorieren“); Title Case, ohne Endzeichen (hig:alerts#Buttons).
-- „OK“ nur in rein informativen Alerts; „Ja/Nein“ vermeiden; konkretes Verb statt OK (Apple-Beispiele: Erase, Convert, Clear, Delete) (hig:alerts#Buttons).
-- Abbrechen-Button heißt immer **„Abbrechen/Cancel“**; nie Default-Button; Einzelbutton, der Default ist → „Fertig/Done“, nicht Cancel (hig:alerts#Buttons).
-- Destruktiver Stil nur für destruktive Aktionen, die nicht bewusst gewählt wurden (Papierkorb leeren nach bewusster Wahl → kein destruktiver Stil) (hig:alerts#Buttons).
-- Primary Role nie auf destruktiver Aktion (hig:buttons#Content).
-- Kein Alert für reine Info, für häufige rückgängig machbare Aktionen oder beim App-Start (hig:alerts#Best-practices).
+### Alerts – text and buttons
+- Tone direct, neutral, approachable; don't obscure anything, don't accuse (hig:alerts#Content).
+- The title describes the situation concretely (what, context, why); no "Error" or "Error 329347"; at most two lines (hig:alerts#Content).
+- Title as a complete sentence → sentence case + punctuation; as a fragment → title case without ending punctuation (hig:alerts#Content).
+- Informative text only when it adds value, short, complete sentences (hig:alerts#Content).
+- Don't explain the buttons; if you must, use "choose" and the exact button title without quotation marks (hig:alerts#Content).
+- Button titles: one or two words, a verb, describing the result ("View All", "Reply", "Ignore"); title case, no ending punctuation (hig:alerts#Buttons).
+- "OK" only in purely informational alerts; avoid "Yes/No"; a specific verb instead of OK (Apple examples: Erase, Convert, Clear, Delete) (hig:alerts#Buttons).
+- The cancel button is always titled **"Cancel"**; never the default button; a single button that is the default → "Done", not Cancel (hig:alerts#Buttons).
+- Destructive style only for destructive actions that people didn't deliberately choose (emptying the Trash after a deliberate choice → no destructive style) (hig:alerts#Buttons).
+- Never assign the primary role to a destructive action (hig:buttons#Content).
+- No alert for pure information, for common undoable actions, or at app launch (hig:alerts#Best-practices).
 
-### Permission Requests und Purpose Strings
-- Fordere nur Daten an, die ein Feature wirklich braucht, so spezifisch wie möglich (hig:privacy#Best-practices).
-- Frage erst, wenn das Feature genutzt wird; beim Start nur, wenn die App ohne die Freigabe nicht funktioniert (Navigation + Standort) (hig:privacy#Requesting-permission).
-- Purpose String: kurzer, vollständiger, aktiver Satz, konkret, Satz-Großschreibung, Punkt am Ende (hig:privacy#Requesting-permission).
-- Pre-Alert-Screen nur, wenn Kontext nicht reicht: **genau ein Button**, der den System-Alert öffnet, betitelt „Weiter/Continue“ oder „Next“ – **nicht** „Erlauben/Allow“; keine Schließen-/Abbrechen-Option, keine Zusatzaktionen außer für rechtlich notwendige Einwilligung (hig:privacy#Requesting-permission, Abschnitt „Pre-alert screens, windows, or views“).
-- Tracking (ATT): System-Alert **vor** jeder Erhebung von Tracking-Daten; keine irreführenden Vorschaltseiten. Verboten (führt zur Ablehnung): Anreize, Screens, die wie eine Anfrage aussehen, Bild des Alerts, Annotationen hinter dem Alert. Erlaubt: Einwilligungsscreen vor/nach dem ATT-Alert zur Erfüllung lokaler Datenschutzgesetze (App Review Guideline 5.1.1 (iv)) (hig:privacy#Tracking-requests).
-- Respektiere Hide My Email, Mail Privacy Protection; kenne Tracking-Pflichten (hig:privacy#Best-practices).
-- Integriere notwendige Freigaben ggf. ins Onboarding, um den Nutzen zu erklären; sonst beim ersten Zugriff auf die Funktion (hig:onboarding#Additional-requests).
-- Nutze den **Location Button** (iOS, iPadOS, watchOS) für einmalige, situative Standortfreigabe (hig:privacy#Location-button).
+### Permission requests and purpose strings
+- Request only data that a feature really needs, as specifically as possible (hig:privacy#Best-practices).
+- Ask only when the feature is used; at launch only if the app can't function without the permission (navigation + location) (hig:privacy#Requesting-permission).
+- Purpose string: short, complete, active sentence, specific, sentence case, period at the end (hig:privacy#Requesting-permission).
+- Pre-alert screen only if context isn't enough: **exactly one button** that opens the system alert, titled "Continue" or "Next" – **not** "Allow"; no close/cancel option, no additional actions except for legally required consent (hig:privacy#Requesting-permission, section "Pre-alert screens, windows, or views").
+- Tracking (ATT): system alert **before** any collection of tracking data; no misleading screens in front of it. Prohibited (leads to rejection): incentives, screens that look like a request, an image of the alert, annotations behind the alert. Allowed: a consent screen before/after the ATT alert to comply with local privacy laws (App Review Guideline 5.1.1 (iv)) (hig:privacy#Tracking-requests).
+- Respect Hide My Email, Mail Privacy Protection; know your tracking obligations (hig:privacy#Best-practices).
+- Where appropriate, integrate necessary permissions into onboarding to explain the benefit; otherwise at the first access to the feature (hig:onboarding#Additional-requests).
+- Use the **location button** (iOS, iPadOS, watchOS) for one-time, situational location sharing (hig:privacy#Location-button).
 
-### Datenschutz-Umsetzung
-- Daten möglichst auf dem Gerät verarbeiten (hig:privacy#Best-practices).
-- Systemschutz nutzen (z. B. CloudKit-Verschlüsselung ab iOS 15) (hig:privacy#Best-practices).
-- Passkeys statt Passwörter; sonst 2FA; Face ID / Touch ID / Optic ID für eingeloggte Apps (hig:privacy#Protecting-data).
-- Sensibles in den Keychain, nie in Klartextdateien (hig:privacy#Protecting-data).
-- Keine eigenen Authentifizierungsverfahren; Passkeys, Sign in with Apple, Password AutoFill (hig:privacy#Protecting-data).
-- Keine sensiblen/persönlichen Daten in Notifications; generischen Text für ausgeblendete Vorschauen hinterlegen (hig:notifications).
+### Implementing data protection
+- Process data on the device where possible (hig:privacy#Best-practices).
+- Use system protections (e.g. CloudKit encryption from iOS 15) (hig:privacy#Best-practices).
+- Passkeys instead of passwords; otherwise 2FA; Face ID / Touch ID / Optic ID for signed-in apps (hig:privacy#Protecting-data).
+- Sensitive data in the keychain, never in plain-text files (hig:privacy#Protecting-data).
+- No custom authentication schemes; passkeys, Sign in with Apple, Password AutoFill (hig:privacy#Protecting-data).
+- No sensitive/personal data in notifications; provide generic text for hidden previews (hig:notifications).
 
 ### Branding
-- Markenstimme in allen Texten (z. B. einfache Worte, gelegentlich Ausrufezeichen und Emoji, wenn es zur Marke passt) (hig:branding#Best-practices).
-- Akzentfarbe sparsam: primäre Aktionen, Status-Indikatoren (Badges, gewählter Tab); Markenfarbe eher in den Content-Layer unter Liquid-Glass-Controls verlagern (hig:branding#Best-practices).
-- Custom Font nur, wenn lesbar in allen Größen und mit Bold Text und Dynamic Type; Muster: Custom Font für Headlines, System Font für Body/Captions (hig:branding#Best-practices).
-- Marke über vertraute Komponenten ausdrücken; Größe, Platzierung, Verhalten plattformtypisch lassen (hig:branding#Best-practices).
-- Branding tritt hinter Inhalt zurück; keine Flächen nur für Markenassets (hig:branding#Best-practices).
-- Logo nicht durchgängig zeigen (hig:branding#Best-practices).
-- Launch Screen ist kein Branding-Ort; Marke ggf. im Willkommens-/Onboarding-Screen (hig:branding#Best-practices, hig:launching#Launch-screens).
-- Apple-Marken dürfen weder im App-Namen noch in Bildern erscheinen; Apple Trademark Guidelines befolgen (hig:branding#Best-practices).
-- Keine SF Symbols in Logos/App-Icons, keine Apple-Hardware-Nachbildungen (hig:sf-symbols, hig:app-icons#Design).
+- Brand voice in all text (e.g. simple words, occasional exclamation points and emoji if it fits the brand) (hig:branding#Best-practices).
+- Accent color sparingly: primary actions, status indicators (badges, selected tab); rather move the brand color into the content layer beneath Liquid Glass controls (hig:branding#Best-practices).
+- Custom font only if legible at all sizes and with Bold Text and Dynamic Type; pattern: custom font for headlines, system font for body/captions (hig:branding#Best-practices).
+- Express the brand through familiar components; keep size, placement, behavior typical for the platform (hig:branding#Best-practices).
+- Branding defers to content; no areas just for brand assets (hig:branding#Best-practices).
+- Don't display the logo throughout (hig:branding#Best-practices).
+- The launch screen is not a place for branding; brand, if anything, in the welcome/onboarding screen (hig:branding#Best-practices, hig:launching#Launch-screens).
+- Apple trademarks must not appear in the app name or in images; follow the Apple Trademark Guidelines (hig:branding#Best-practices).
+- No SF Symbols in logos/app icons, no replicas of Apple hardware (hig:sf-symbols, hig:app-icons#Design).
 
-### Onboarding (kurz)
-- Erst nach dem Launch, nicht Teil davon; schnell, unterhaltsam, optional (hig:onboarding).
-- Durch Ausprobieren lehren; kontextbezogene Tipps (TipKit) statt langem Flow (hig:onboarding#Best-practices).
-- Tutorial überspringbar, danach nicht erneut zeigen, aber auffindbar (Hilfe/Einstellungen) (hig:onboarding#Best-practices).
-- Nur die App erklären, nicht das System (hig:onboarding#Best-practices).
-- Splash Screen nur kurz; keine großen Downloads vor dem Start; keine Lizenztexte im Onboarding (App Store zeigt sie) (hig:onboarding#Additional-content).
-- Setup aufschieben, sinnvolle Defaults; Bewertungs- und Kaufaufforderungen erst nach echter Nutzung (hig:onboarding#Additional-requests).
+### Onboarding (brief)
+- Only after launch, not part of it; fast, fun, optional (hig:onboarding).
+- Teach through interactivity; contextual tips (TipKit) instead of a long flow (hig:onboarding#Best-practices).
+- Tutorial skippable, not shown again afterwards, but findable (Help/Settings) (hig:onboarding#Best-practices).
+- Explain only the app, not the system (hig:onboarding#Best-practices).
+- Splash screen only briefly; no large downloads before launch; no license text in onboarding (the App Store shows it) (hig:onboarding#Additional-content).
+- Defer setup, sensible defaults; rating and purchase prompts only after real use (hig:onboarding#Additional-requests).
 
-## Kennwerte und Beispiele
+## Key values and examples
 
-### Purpose Strings (hig:privacy#Requesting-permission, sinngemäß)
+### Purpose strings (hig:privacy#Requesting-permission, paraphrased)
 
-| Bewertung | Beispiel (deutsch) | Warum |
+| Rating | Example | Why |
 |---|---|---|
-| gut | „Die App nimmt nachts Geräusche auf, um Schnarchen zu erkennen.“ | Aktiv, konkret: wie und wozu |
-| schlecht | „Mikrofonzugriff wird für ein besseres Erlebnis benötigt.“ | Passiv, vage Begründung |
-| schlecht | „Mikrofonzugriff einschalten.“ | Imperativ, keine Begründung |
+| good | "The app records during the night to detect snoring sounds." | Active, specific: how and why |
+| bad | "Microphone access is needed for a better experience." | Passive, vague reason |
+| bad | "Turn on microphone access." | Imperative, no reason |
 
-Der System-Alert zeigt den Purpose String nach dem App-Namen und vor den Buttons; Nutzer sehen und ändern ihn später unter Einstellungen > Datenschutz.
+The system alert shows the purpose string after the app name and before the buttons; people see and change it later under Settings > Privacy.
 
-### Was eine Erlaubnis erfordert (hig:privacy#Requesting-permission)
+### What requires permission (hig:privacy#Requesting-permission)
 
-| Kategorie | Beispiele |
+| Category | Examples |
 |---|---|
-| Persönliche Daten | Standort, Gesundheit, Finanzen, Kontakte, sonstige identifizierende Daten |
-| Nutzerinhalte | E-Mails, Nachrichten, Kalender, Kontakte, Spielstände, Apple-Music-Aktivität, HomeKit-Daten, Audio, Video, Fotos |
-| Geschützte Ressourcen | Bluetooth-Peripherie, Home-Automation, WLAN, lokales Netzwerk |
-| Gerätefunktionen | Kamera, Mikrofon |
-| visionOS Full Space | ARKit-Daten (Hand Tracking, Plane Estimation, Image Anchoring, World Tracking) |
-| Tracking | Advertising Identifier |
+| Personal data | Location, health, financial, contacts, other identifying data |
+| User content | Emails, messages, calendar, contacts, game saves, Apple Music activity, HomeKit data, audio, video, photos |
+| Protected resources | Bluetooth peripherals, home automation, Wi-Fi, local network |
+| Device capabilities | Camera, microphone |
+| visionOS Full Space | ARKit data (hand tracking, plane estimation, image anchoring, world tracking) |
+| Tracking | Advertising identifier |
 
-### Alert-Buttons (hig:alerts#Buttons)
+### Alert buttons (hig:alerts#Buttons)
 
-| Situation | Titel | Position |
+| Situation | Title | Position |
 |---|---|---|
-| Reine Information | OK | – |
-| Bestätigung einer Aktion | Konkretes Verb (Löschen, Konvertieren, Leeren) | Default = trailing (Zeile) bzw. oben (Stapel) |
-| Abbruch | Abbrechen/Cancel (immer exakt so) | leading (Zeile) bzw. unten (Stapel); nie Default |
-| Nur ein Button, der Default ist | Fertig/Done | – |
-| Nutzer soll lesen statt Return drücken | keinen Button als Default | – |
+| Pure information | OK | – |
+| Confirming an action | Specific verb (Delete, Convert, Clear) | Default = trailing (row) or top (stack) |
+| Cancel | Cancel (always exactly this) | leading (row) or bottom (stack); never default |
+| Only one button, which is the default | Done | – |
+| People should read rather than press Return | no button as default | – |
 
-Alternative Abbruchwege: Home Screen (iOS/iPadOS), Esc oder Cmd-. (iOS, iPadOS, macOS, visionOS mit Tastatur), Menu-Taste (tvOS). Alerts haben überall Titel, optionalen Text und bis zu drei Buttons; Textfeld möglich in iOS, iPadOS, macOS, visionOS.
+Alternative ways to cancel: Home Screen (iOS/iPadOS), Esc or Cmd-. (iOS, iPadOS, macOS, visionOS with keyboard), Menu button (tvOS). Alerts everywhere have a title, optional text, and up to three buttons; a text field is possible in iOS, iPadOS, macOS, visionOS.
 
-### Location Button – anpassbar vs. fix (hig:privacy#Location-button)
+### Location button – customizable vs. fixed (hig:privacy#Location-button)
 
-| Anpassbar | Nicht anpassbar |
+| Customizable | Not customizable |
 |---|---|
-| Systemtitel (z. B. „Current Location“, „Share My Current Location“) | übrige Gestaltung |
-| Glyph gefüllt oder Outline | – |
-| Hintergrund-, Titel- und Glyph-Farbe | – |
-| Eckenradius | – |
+| System title (e.g. "Current Location", "Share My Current Location") | all other styling |
+| Glyph filled or outline | – |
+| Background, title, and glyph color | – |
+| Corner radius | – |
 
-Text muss bei allen Accessibility-Größen und Übersetzungen ungekürzt passen; bei wiederholten Problemen (Kontrast, Transparenz) liefert das System keinen Standort mehr.
+Text must fit without truncation at all accessibility sizes and in all translations; after repeated problems (contrast, transparency) the system no longer provides the location.
 
-## Plattform-Unterschiede
+## Platform differences
 
-| Thema | iOS / iPadOS | macOS | watchOS |
+| Topic | iOS / iPadOS | macOS | watchOS |
 |---|---|---|---|
-| Gesten-Verben | tippen, wischen | klicken | tippen, Digital Crown drehen |
-| Alerts | Action Sheet statt Alert für Optionen zu bewusster Aktion; scrollende Alerts vermeiden (große Schrift) | App-Icon automatisch im Alert; Unterdrücken-Checkbox, Accessory View, Help-Button; Warnsymbol `exclamationmark.triangle` sparsam (nicht bei Sichern/Papierkorb) | knapp, wenig Platz |
-| Privacy | Location Button | Developer ID signieren (außerhalb Store); Sandbox (Pflicht im Mac App Store); Fast User Switching – keine Annahme über angemeldete Person | Location Button verfügbar |
-| Texte | Kurz (kleines Display) | mehr Raum, aber gleiche Klarheit | sehr kurz, Notification-Titel besonders knapp |
+| Gesture verbs | tap, swipe | click | tap, turn the Digital Crown |
+| Alerts | Action sheet instead of alert for options related to a deliberate action; avoid scrolling alerts (large text) | App icon automatically in the alert; suppression checkbox, accessory view, Help button; caution symbol `exclamationmark.triangle` sparingly (not for saving/Trash) | concise, little space |
+| Privacy | Location button | Sign with Developer ID (outside the Store); sandbox (required in the Mac App Store); Fast User Switching – no assumptions about the signed-in person | Location button available |
+| Text | Short (small display) | more space, but the same clarity | very short, notification titles especially concise |
 
-visionOS: ARKit-Daten nur im Full Space nach Erlaubnis; Blickrichtung bleibt privat (Hover-Effekte systemseitig); Rückkamera liefert leeres Bild – Kamera-Features ersetzen (z. B. Import) (hig:privacy#visionOS).
+visionOS: ARKit data only in a Full Space after permission; gaze direction stays private (hover effects handled by the system); the rear camera delivers a blank image – replace camera features (e.g. import) (hig:privacy#visionOS).
 
-## Umsetzung
+## Implementation
 
-### Purpose Strings (Info.plist, lokalisiert über `InfoPlist.strings`/String Catalog)
+### Purpose strings (Info.plist, localized via `InfoPlist.strings`/String Catalog)
 ```text
-NSCameraUsageDescription           – Kamera
-NSMicrophoneUsageDescription       – Mikrofon
-NSLocationWhenInUseUsageDescription – Standort bei Nutzung
-NSPhotoLibraryUsageDescription     – Fotos
-NSContactsUsageDescription         – Kontakte
-NSCalendarsFullAccessUsageDescription – Kalender (neuere Systeme; ältere: NSCalendarsUsageDescription)
+NSCameraUsageDescription           – Camera
+NSMicrophoneUsageDescription       – Microphone
+NSLocationWhenInUseUsageDescription – Location when in use
+NSPhotoLibraryUsageDescription     – Photos
+NSContactsUsageDescription         – Contacts
+NSCalendarsFullAccessUsageDescription – Calendar (newer systems; older: NSCalendarsUsageDescription)
 NSUserTrackingUsageDescription     – App Tracking Transparency
 NSBluetoothAlwaysUsageDescription  – Bluetooth
-NSLocalNetworkUsageDescription     – Lokales Netzwerk
+NSLocalNetworkUsageDescription     – Local network
 NSFaceIDUsageDescription           – Face ID
 ```
-Schlüsselnamen stammen aus dem Apple-SDK, nicht aus dem HIG-Spiegel; je Ziel-OS in der Doku prüfen.
+Key names come from the Apple SDK, not from the HIG mirror; check the documentation for each target OS.
 
 ### SwiftUI
 ```swift
-.alert("Entwurf löschen?", isPresented: $showAlert) {
-    Button("Löschen", role: .destructive) { delete() }
-    Button("Abbrechen", role: .cancel) { }
+.alert("Delete Draft?", isPresented: $showAlert) {
+    Button("Delete", role: .destructive) { delete() }
+    Button("Cancel", role: .cancel) { }
 } message: {
-    Text("Der Entwurf kann nicht wiederhergestellt werden.")
+    Text("The draft can't be recovered.")
 }
 
 LocationButton(.shareCurrentLocation) { manager.requestLocation() }   // CoreLocationUI
@@ -180,85 +180,85 @@ LocationButton(.shareCurrentLocation) { manager.requestLocation() }   // CoreLoc
     .foregroundStyle(.white)
     .tint(.blue)
 
-TipView(FavoriteTip())   // TipKit für kontextuelles Onboarding
+TipView(FavoriteTip())   // TipKit for contextual onboarding
 ```
 
 ### UIKit / AppKit
 ```swift
-let alert = UIAlertController(title: "Entwurf löschen?",
-                              message: "Der Entwurf kann nicht wiederhergestellt werden.",
+let alert = UIAlertController(title: "Delete Draft?",
+                              message: "The draft can't be recovered.",
                               preferredStyle: .alert)
-alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel))
-alert.addAction(UIAlertAction(title: "Löschen", style: .destructive) { _ in delete() })
+alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in delete() })
 
 let ns = NSAlert()
-ns.messageText = "Entwurf löschen?"
-ns.informativeText = "Der Entwurf kann nicht wiederhergestellt werden."
-ns.addButton(withTitle: "Löschen")
-ns.addButton(withTitle: "Abbrechen")
-ns.showsSuppressionButton = true   // nur bei wiederkehrenden Alerts
+ns.messageText = "Delete Draft?"
+ns.informativeText = "The draft can't be recovered."
+ns.addButton(withTitle: "Delete")
+ns.addButton(withTitle: "Cancel")
+ns.showsSuppressionButton = true   // only for recurring alerts
 ```
 
-## Review-Checkliste
+## Review checklist
 
 **Text**
-- [ ] Begriffsliste vorhanden; gleiche Dinge heißen überall gleich.
-- [ ] Ton passt zur Situation; kein Humor in Fehler-/Zahlungskontexten.
-- [ ] Buttons/Links mit Verb; keine „Hier klicken“-Links; keine Cute-Labels.
-- [ ] Einheitliche Großschreibung je Elementtyp (Deutsch: Rechtschreibregeln statt englischem Title Case anwenden).
-- [ ] Anrede konsistent (du oder Sie) – keine Mischung; kein „wir“ in Fehlermeldungen.
-- [ ] Possessivpronomen nur, wo nötig.
-- [ ] Gesten-Verben je Gerät korrekt.
-- [ ] Leere Zustände mit nächstem Schritt + Aktion.
-- [ ] Fehlermeldungen nah am Feld, lösungsorientiert, ohne Schuld, ohne „Hoppla“.
-- [ ] Platzhalter mit Formatbeispiel; Einstellungen mit Beschreibung des Ein-Zustands.
-- [ ] Inklusiv: keine Geschlechtsannahmen, kein Jargon ohne Erklärung, keine Redewendungen.
+- [ ] Word list exists; the same things have the same name everywhere.
+- [ ] Tone fits the situation; no humor in error/payment contexts.
+- [ ] Buttons/links with a verb; no "Click here" links; no cute labels.
+- [ ] Consistent capitalization per element type (for German localization: apply German spelling rules instead of English title case).
+- [ ] Form of address consistent (in German: du or Sie) – no mixing; no "we" in error messages.
+- [ ] Possessive pronouns only where necessary.
+- [ ] Gesture verbs correct for each device.
+- [ ] Empty states with next step + action.
+- [ ] Error messages close to the field, solution-oriented, blame-free, no "Oops".
+- [ ] Placeholders with a format example; settings with a description of the on state.
+- [ ] Inclusive: no gender assumptions, no unexplained jargon, no idioms.
 
 **Alerts**
-- [ ] Nur für kritische, handlungsrelevante Fälle; keiner beim Start.
-- [ ] Titel konkret, ≤ 2 Zeilen; kein „Fehler“ ohne Inhalt.
-- [ ] Buttons: 1–2 Wörter, Verb; „OK“ nur informativ; „Abbrechen“ exakt so und nicht Default.
-- [ ] Destruktiver Stil korrekt (nur bei nicht bewusst gewählter Zerstörung); Primary Role nie destruktiv.
+- [ ] Only for critical, actionable cases; none at launch.
+- [ ] Title specific, ≤ 2 lines; no "Error" without content.
+- [ ] Buttons: 1–2 words, verb; "OK" only for informational alerts; "Cancel" exactly like this and not default.
+- [ ] Destructive style correct (only for destruction not deliberately chosen); primary role never destructive.
 
 **Privacy**
-- [ ] Jede Erlaubnis begründet und auf Feature-Zeitpunkt verschoben (Ausnahme: App funktioniert sonst nicht).
-- [ ] Purpose Strings: aktiver, konkreter Satz mit Punkt; lokalisiert.
-- [ ] Pre-Alert-Screen: genau ein Button „Weiter“, kein „Erlauben“, kein Schließen.
-- [ ] ATT-Alert vor jeder Tracking-Erhebung; keine Anreize oder Alert-Imitationen.
-- [ ] Location Button statt Daueranfrage, wo situativ.
-- [ ] Keychain für Geheimnisse; Passkeys/Sign in with Apple; keine Eigenbau-Auth.
-- [ ] Keine sensiblen Inhalte in Notifications.
-- [ ] Privacy-Angaben in App Store Connect aktuell.
-- [ ] macOS: Sandbox, Developer ID (außerhalb Store).
+- [ ] Every permission justified and deferred to the moment the feature is used (exception: the app doesn't work otherwise).
+- [ ] Purpose strings: active, specific sentence with a period; localized.
+- [ ] Pre-alert screen: exactly one "Continue" button, no "Allow", no close.
+- [ ] ATT alert before any tracking data collection; no incentives or alert imitations.
+- [ ] Location button instead of a permanent request where situational.
+- [ ] Keychain for secrets; passkeys/Sign in with Apple; no homegrown auth.
+- [ ] No sensitive content in notifications.
+- [ ] Privacy details in App Store Connect up to date.
+- [ ] macOS: sandbox, Developer ID (outside the Store).
 
-**Branding / Onboarding**
-- [ ] Akzentfarbe nur für primäre Aktionen und Status.
-- [ ] Custom Font unterstützt Dynamic Type und Bold Text; Body in Systemschrift.
-- [ ] Kein Logo auf jedem Screen, keine Brand-only-Flächen.
-- [ ] Launch Screen ohne Logo/Text.
-- [ ] Keine Apple-Marken in App-Name oder Bildern.
-- [ ] Onboarding kurz, überspringbar, interaktiv; Tutorial später auffindbar; keine Lizenztexte.
-- [ ] Rating-/Kauf-Prompts erst nach Nutzung.
+**Branding / onboarding**
+- [ ] Accent color only for primary actions and status.
+- [ ] Custom font supports Dynamic Type and Bold Text; body in the system font.
+- [ ] No logo on every screen, no brand-only areas.
+- [ ] Launch screen without logo/text.
+- [ ] No Apple trademarks in the app name or images.
+- [ ] Onboarding short, skippable, interactive; tutorial findable later; no license text.
+- [ ] Rating/purchase prompts only after use.
 
-## Anti-Patterns
+## Anti-patterns
 
-- „Ups! Da ist etwas schiefgelaufen. Wir kümmern uns darum.“ – Interjektion, „wir“, keine Handlungsoption.
-- Alert-Titel „Fehler“ mit Button „OK“ für eine Lösch-Bestätigung.
-- Ja/Nein-Buttons.
-- Purpose String „Wird für ein besseres Erlebnis benötigt.“
-- Pre-Permission-Screen mit „Erlauben“ und „Später“.
-- Alle Berechtigungen gesammelt beim ersten Start abfragen.
-- Gutschein/Belohnung für Tracking-Zustimmung.
-- Logo-Splash als Launch Screen; Markenfarbe auf allen Controls.
-- Eigenes Login mit Passwort im Klartext-Cache.
-- Notification mit Kontostand oder Diagnose im Vorschautext.
-- „Klicke auf …“ in einer iPhone-App.
-- Settings-Hinweis „Gehe zu Einstellungen > Datenschutz > …“ statt Direktlink.
+- "Oops! Something went wrong. We're looking into it." – interjection, "we", no option to act.
+- Alert title "Error" with an "OK" button for a delete confirmation.
+- Yes/No buttons.
+- Purpose string "Needed for a better experience."
+- Pre-permission screen with "Allow" and "Later".
+- Requesting all permissions at once at first launch.
+- Voucher/reward for consenting to tracking.
+- Logo splash as the launch screen; brand color on all controls.
+- Custom login with the password in a plain-text cache.
+- Notification with an account balance or diagnosis in the preview text.
+- "Click on …" in an iPhone app.
+- Settings hint "Go to Settings > Privacy > …" instead of a direct link.
 
-## Unklarheiten / Widersprüche im Spiegel
+## Ambiguities / contradictions in the mirror
 
-- **„wir“:** `writing#Best-practices` rät, „we“ **ganz** zu vermeiden; `inclusion#Welcoming-language` empfiehlt, „we/our“ für die eigene Software oder Firma zu **reservieren**. Strengere Regel (writing, neuer: 2025-12-16) gilt für UI-Texte, besonders Fehlermeldungen.
-- **Großschreibung:** `writing` überlässt die Wahl (Title vs. Sentence Case) dem App-Stil; `alerts` und `buttons` schreiben Title Case für Buttons und Fragment-Titel vor. Für deutsche Lokalisierung sind beides englische Konventionen – im Deutschen gelten die normalen Rechtschreibregeln (eigene Einschätzung, nicht im Spiegel).
-- **Ausrufezeichen/Emoji:** `branding` nennt sie als mögliches Stilmittel der Markenstimme; `writing` und `alerts` verlangen neutralen, direkten Ton. Auflösung: Markenstimme in Erfolgs-/Leerzuständen, nie in Fehlern und Alerts.
-- **Pre-Alert-Screen ohne Schließen:** `privacy` verbietet Schließen/Abbrechen im Pre-Alert-Screen; erlaubt aber Zusatzaktionen, wenn rechtlich für Einwilligung nötig (z. B. DSGVO). Rechtliche Prüfung liegt außerhalb der HIG.
-- **Location-Button-Titel** „Share My Current Location“ verwendet ein Possessivpronomen – Systemvorgabe, kein Verstoß gegen `writing`.
+- **"We":** `writing#Best-practices` advises avoiding "we" **entirely**; `inclusion#Welcoming-language` recommends **reserving** "we/our" for your own software or company. The stricter rule (writing, newer: 2025-12-16) applies to UI text, especially error messages.
+- **Capitalization:** `writing` leaves the choice (title vs. sentence case) to the app's style; `alerts` and `buttons` prescribe title case for buttons and fragment titles. For German localization, both are English conventions – in German the normal spelling rules apply (author's own assessment, not in the mirror).
+- **Exclamation points/emoji:** `branding` names them as a possible stylistic device of the brand voice; `writing` and `alerts` require a neutral, direct tone. Resolution: brand voice in success/empty states, never in errors and alerts.
+- **Pre-alert screen without close:** `privacy` prohibits close/cancel in the pre-alert screen, but allows additional actions if legally required for consent (e.g. GDPR). Legal review is outside the scope of the HIG.
+- **Location button title** "Share My Current Location" uses a possessive pronoun – a system default, not a violation of `writing`.

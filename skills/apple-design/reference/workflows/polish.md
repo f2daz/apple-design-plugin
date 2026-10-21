@@ -1,37 +1,37 @@
-# polish – letzter Durchgang vor dem Release
+# polish – final pass before release
 
-Bewahrt Identität und Verhalten; verbessert Details. Keine Neugestaltung durch die Hintertür.
+Preserves identity and behavior; improves details. No redesign through the back door.
 
-## Checkliste
+## Checklist
 
-**Typografie**
-- [ ] Hierarchie über Textstile/Gewichte, max. 2–3 Ebenen pro Screen
-- [ ] Größte Dynamic-Type-Stufe: umbrechen statt abschneiden; Layout wechselt ggf. von horizontal zu vertikal (`ViewThatFits`, `dynamicTypeSize.isAccessibilitySize`)
-- [ ] Zahlen in Tabellen/Timern mit `.monospacedDigit()`
+**Typography**
+- [ ] Hierarchy via text styles/weights, max. 2–3 levels per screen
+- [ ] Largest Dynamic Type size: wrap instead of truncate; layouts may switch from horizontal to vertical (`ViewThatFits`, `dynamicTypeSize.isAccessibilitySize`)
+- [ ] Numbers in tables/timers with `.monospacedDigit()`
 
-**Farbe & Material**
-- [ ] Tint nur für Interaktives; Status mit Symbol + Farbe, nie nur Farbe
-- [ ] Dark Mode und „Kontrast erhöhen“ gesichtet; Reduce Transparency liefert lesbare Flächen
-- [ ] Liquid Glass nur auf Funktionsebene; Scroll-Edge-Effekte unter Bars sauber
+**Color & material**
+- [ ] Tint only for interactive elements; status shown with symbol + color, never color alone
+- [ ] Dark Mode and Increase Contrast reviewed; Reduce Transparency yields legible surfaces
+- [ ] Liquid Glass only on the functional layer; scroll edge effects under bars are clean
 
-**Symbole & Bilder**
-- [ ] SF Symbols einheitlich in Gewicht/Skala zum Text; Fill-Varianten für ausgewählte Zustände (Tab bar wählt automatisch)
-- [ ] Bilder in @2x/@3x bzw. Vektor; App-Icon in allen Varianten (default/dark/clear/tinted)
+**Symbols & images**
+- [ ] SF Symbols consistent in weight/scale with the text; fill variants for selected states (the tab bar picks them automatically)
+- [ ] Images at @2x/@3x or vector; app icon in all variants (default/dark/clear/tinted)
 
-**Interaktion**
-- [ ] Pressed/Disabled/Selected-States überall
-- [ ] Haptik an bedeutsamen Momenten (Erfolg, Fehler, Auswahl), nicht bei jedem Tap
-- [ ] Animationen kurz, unterbrechbar, mit Reduce-Motion-Alternative
-- [ ] Tastatur: Return-Taste-Typ, Autofill-`textContentType`, Fokusreihenfolge; Mac/iPad: Tastenkürzel für Hauptaktionen
+**Interaction**
+- [ ] Pressed/disabled/selected states everywhere
+- [ ] Haptics at meaningful moments (success, error, selection), not on every tap
+- [ ] Animations short, interruptible, with a Reduce Motion alternative
+- [ ] Keyboard: return key type, autofill `textContentType`, focus order; Mac/iPad: keyboard shortcuts for main actions
 
-**Inhalt & Zustände**
-- [ ] Leer-, Lade-, Fehler-, Offline-Zustände formuliert und gestaltet
-- [ ] Texte: Verben auf Buttons, keine Schuldzuweisung in Fehlern, Lokalisierung (+30–40 % Länge, RTL) bedacht
-- [ ] Berechtigungsdialoge mit ehrlichem Purpose string, im Kontext angefragt
+**Content & states**
+- [ ] Empty, loading, error, offline states written and designed
+- [ ] Copy: verbs on buttons, no blame in errors, localization (+30–40 % length, RTL) considered
+- [ ] Permission prompts with an honest purpose string, requested in context
 
-**Plattformdetails**
-- [ ] iPad: Pointer-Hover-Effekte, Mehrfenster, Größenänderung; Mac: Menüs vollständig, Fenster-Mindestgröße, Undo/Redo; Watch: Glance in 2 s, Digital Crown, Always-On
+**Platform details**
+- [ ] iPad: pointer hover effects, multiple windows, resizing; Mac: complete menus, minimum window size, undo/redo; Watch: glance in 2 s, Digital Crown, Always On
 
-## Ablauf
+## Steps
 
-Checkliste gegen Ziel abarbeiten, Fixes gesammelt umsetzen, gerendert prüfen (hell/dunkel/AX), Änderungsliste mit Belegen ausgeben.
+Work through the checklist for the target, implement fixes in one batch, check rendered (light/dark/AX), output a change list with sources.

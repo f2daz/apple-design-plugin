@@ -47,9 +47,9 @@ PRESETS = {
     "glyphs": ["Glyph-", "Icon-", "Logo-"],
 }
 LICENSE_NOTE = (
-    "Apple-Lizenz: Die Fonts dürfen ausschließlich für Mock-ups/Entwicklung von Software für "
-    "Apple-Plattformen genutzt werden; Templates/Bezels unterliegen der Apple Design Resources "
-    "Lizenz. Mit --accept-license bestätigst du, die Lizenz im DMG gelesen zu haben."
+    "Apple license: the fonts may only be used for mock-ups/development of software for Apple "
+    "platforms; templates/bezels are subject to the Apple Design Resources license. "
+    "Passing --accept-license confirms that you have read the license inside the DMG."
 )
 
 
@@ -153,7 +153,7 @@ def sync() -> Path:
     data = {"synced_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
             "source": PAGE, "items": items}
     out.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"{len(items)} Ressourcen → {out}", file=sys.stderr)
+    print(f"{len(items)} resources → {out}", file=sys.stderr)
     return out
 
 
@@ -181,9 +181,9 @@ def download(url: str, dest_dir: Path) -> Path:
     name = url.split("?")[0].rsplit("/", 1)[-1]
     dest = dest_dir / name
     if dest.exists() and dest.stat().st_size > 0:
-        print(f"  vorhanden: {dest}", file=sys.stderr)
+        print(f"  already there: {dest}", file=sys.stderr)
         return dest
-    print(f"  lade {url}", file=sys.stderr)
+    print(f"  downloading {url}", file=sys.stderr)
     tmp = dest.with_suffix(dest.suffix + ".part")
     subprocess.run(["curl", "-fL", "--progress-bar", "-A", UA, "-o", str(tmp), url], check=True)
     tmp.rename(dest)
@@ -236,7 +236,7 @@ def cmd_list(args) -> int:
 def cmd_show(args) -> int:
     hits = match(load()["items"], args.query)
     if not hits:
-        print("Keine Ressource gefunden. Tipp: `resources.py list`.", file=sys.stderr)
+        print("No resource found. Tip: `resources.py list`.", file=sys.stderr)
         return 1
     for it in hits:
         print(f"### {it['title']}  ({it['section']})")
@@ -271,7 +271,7 @@ def cmd_download(args) -> int:
 
 def cmd_install_fonts(args) -> int:
     if sys.platform != "darwin":
-        print("Font-Installation nur auf macOS.", file=sys.stderr)
+        print("Font installation is macOS only.", file=sys.stderr)
         return 1
     if not args.accept_license:
         print(LICENSE_NOTE, file=sys.stderr)
@@ -284,8 +284,8 @@ def cmd_install_fonts(args) -> int:
         dmg = download(url, home() / "downloads")
         fonts = install_fonts_from_dmg(dmg, target)
         total += len(fonts)
-        print(f"{name}: {len(fonts)} Schnitte → {target}")
-    print(f"Insgesamt {total} Fontdateien installiert.")
+        print(f"{name}: {len(fonts)} font files → {target}")
+    print(f"Installed {total} font files in total.")
     return 0
 
 
@@ -302,9 +302,9 @@ def cmd_status(args) -> int:
     print("Fonts in ~/Library/Fonts:")
     for fam, prefix in fams.items():
         n = len(list(fonts.glob(f"{prefix}*"))) if fonts.exists() else 0
-        print(f"  {fam}: {n} Dateien" + ("" if n else "  (nicht installiert)"))
+        print(f"  {fam}: {n} files" + ("" if n else "  (not installed)"))
     cat = home() / "resources.json"
-    print(f"Katalog: {cat if cat.exists() else BUNDLED} ")
+    print(f"Catalog: {cat if cat.exists() else BUNDLED}")
     return 0
 
 
@@ -316,7 +316,7 @@ def main() -> int:
     sub.add_parser("sync")
     p = sub.add_parser("download"); p.add_argument("query"); p.add_argument("--accept-license", action="store_true")
     p = sub.add_parser("install-fonts"); p.add_argument("fonts", nargs="*"); p.add_argument("--accept-license", action="store_true")
-    p.add_argument("--target", type=Path, help="Zielordner statt ~/Library/Fonts")
+    p.add_argument("--target", type=Path, help="target folder instead of ~/Library/Fonts")
     sub.add_parser("status")
     args = ap.parse_args()
     if args.cmd == "sync":

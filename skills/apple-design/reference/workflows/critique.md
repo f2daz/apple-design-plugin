@@ -1,25 +1,25 @@
-# critique – UX-Review am gerenderten Screen
+# critique – UX review of the rendered screen
 
-Während `audit` Regelkonformität prüft, bewertet `critique` die Gestaltung: Versteht man in drei Sekunden, was der Screen ist und was man tun kann? Fühlt es sich wie eine Apple-App an?
+While `audit` checks rule compliance, `critique` evaluates the design: do you understand within three seconds what the screen is and what you can do? Does it feel like an Apple app?
 
-## Eingaben
+## Inputs
 
-Screenshot(s) (vom Nutzer, Simulator oder Figma-Export), alternativ Code + Previews. Ohne Bild: Simulator-Screenshot erstellen (build.md) oder ehrlich sagen, dass nur der Code bewertet wird.
+Screenshot(s) (from the user, the Simulator or a Figma export), alternatively code + previews. Without an image: take a Simulator screenshot (build.md) or say honestly that only the code is being evaluated.
 
-## Bewertungsraster (je 1–5, mit Begründung)
+## Rubric (1–5 each, with reasoning)
 
-1. **Klarheit & Hierarchie** – eine Primäraktion, klare Titel, Inhalt vor Chrome (hig:design-principles, hig:layout).
-2. **Plattformgefühl** – Systemmuster, Navigation, Gesten, Liquid-Glass-Ebenen korrekt; kein „Web-Port“.
-3. **Typografie** – Textstile, Gewichte sparsam, Dynamic-Type-tauglich.
-4. **Farbe & Material** – Tint gezielt, semantische Farben, Dark Mode gleichwertig.
-5. **Ikonografie** – SF Symbols konsistent (Gewicht, Rendering, Größe), verständlich.
-6. **Zustände & Feedback** – leer/laden/Fehler, Pressed-States, Haptik, Motion mit Sinn.
-7. **Barrierefreiheit** – Kontrast, Trefferflächen, Labels, Reihenfolge.
-8. **Texte** – kurz, menschlich, handlungsorientiert.
+1. **Clarity & hierarchy** – one primary action, clear titles, content over chrome (hig:design-principles, hig:layout).
+2. **Platform feel** – system patterns, navigation, gestures, Liquid Glass layers correct; no "web port".
+3. **Typography** – text styles, sparing weights, Dynamic Type-ready.
+4. **Color & material** – tint used deliberately, semantic colors, Dark Mode on par.
+5. **Iconography** – SF Symbols consistent (weight, rendering, size), understandable.
+6. **States & feedback** – empty/loading/error, pressed states, haptics, motion with purpose.
+7. **Accessibility** – contrast, hit targets, labels, order.
+8. **Copy** – short, human, action-oriented.
 
-## Ausgabe
+## Output
 
-- Gesamteindruck (2–3 Sätze), Raster als Tabelle.
-- Top 3 Hebel mit größter Wirkung, jeweils: Beobachtung → Warum (`hig:`) → Vorschlag (konkret, mit Code-Skizze oder ASCII-Layout).
-- Bei echten Designalternativen: AskUserQuestion mit Previews (z. B. „Liste vs. Raster für die Übersicht“).
-- Angebot: `polish` oder gezielte Umsetzung.
+- Overall impression (2–3 sentences), rubric as a table.
+- Top 3 levers with the biggest impact, each: observation → why (`hig:`) → suggestion (concrete, with a code sketch or ASCII layout).
+- For real design alternatives: AskUserQuestion with previews (e.g. "list vs. grid for the overview").
+- Offer: `polish` or targeted implementation.

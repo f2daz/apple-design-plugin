@@ -1,47 +1,47 @@
-# Apple Design – <App-Name>
+# Apple Design – <App name>
 
-> Erstellt mit `/apple-design init` am <Datum>. Quelle der Regeln: Human Interface Guidelines (Spiegel `~/.apple-design/hig`, Stand <synced_at>).
+> Created with `/apple-design init` on <date>. Source of rules: Human Interface Guidelines (mirror `~/.apple-design/hig`, synced <synced_at>).
 
-## Produkt
-- Zweck in einem Satz:
-- Hauptnutzer:innen & Nutzungssituation:
-- Modus: Operate | Read | Experience | Glance
+## Product
+- Purpose in one sentence:
+- Primary users & usage context:
+- Mode: Operate | Read | Experience | Glance
 
-## Plattformen & Technik
-| Plattform | Ziel-OS | Stack | Rolle der Plattform |
+## Platforms & tech
+| Platform | Target OS | Stack | Role of the platform |
 |---|---|---|---|
 | iOS | | SwiftUI | |
 | iPadOS | | | |
 | macOS | | | |
 | watchOS | | | |
 
-Liquid Glass: voll | mit Fallback (`#available`) | nicht verfügbar
+Liquid Glass: full | with fallback (`#available`) | not available
 
-## Navigationsgerüst
+## Navigation skeleton
 - iPhone:
 - iPad:
 - Mac:
 - Watch:
 
-## Marke im System
-- Akzentfarbe (Tint): `AccentColor` = <Hex light / dark>
-- Typografie: SF Pro / SF Compact über Textstile; Display-Schrift: <keine | Name, nur für …>
-- Ikonografie: SF Symbols, Gewicht <regular>, Rendering <monochrome|hierarchical|palette|multicolor>
-- App-Icon: Icon Composer (`.icon`), Varianten: default, dark, clear, tinted
+## Brand within the system
+- Accent color (tint): `AccentColor` = <hex light / dark>
+- Typography: SF Pro / SF Compact via text styles; display face: <none | name, only for …>
+- Iconography: SF Symbols, weight <regular>, rendering <monochrome|hierarchical|palette|multicolor>
+- App icon: Icon Composer (`.icon`), variants: default, dark, clear, tinted
 
-## Barrierefreiheit
-- Ziel: Basis | erweitert
-- Dynamic Type bis: <Large | AX5>
-- Besonderheiten:
+## Accessibility
+- Goal: baseline | extended
+- Dynamic Type up to: <Large | AX5>
+- Specifics:
 
-## Systemintegration
+## System integration
 - [ ] Widgets  - [ ] Live Activities  - [ ] Complications/Smart Stack  - [ ] App Intents/Shortcuts  - [ ] Notifications  - [ ] Sign in with Apple  - [ ] Apple Pay
 
-## Ressourcen
-- UI-Kit(s):
-- Icon-Template:
-- Bezels für Marketing:
+## Resources
+- UI kit(s):
+- Icon template:
+- Bezels for marketing:
 
-## Entscheidungen (Log)
-| Datum | Entscheidung | Beleg |
+## Decisions (log)
+| Date | Decision | Source |
 |---|---|---|

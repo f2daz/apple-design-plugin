@@ -1,17 +1,17 @@
-# Inputs – Eingabemethoden (HIG-Section „Inputs“)
+# Inputs – input methods (HIG section "Inputs")
 
-Verdichtete Referenz zu allen Eingabe-Seiten der Apple HIG. Quelle: lokaler HIG-Spiegel (`~/.apple-design/hig/pages/`, Sync 2026-10-21). Belege als `(hig:<slug>)` bzw. `(hig:<slug>#Anker)`. Regeln paraphrasiert; Tabellen mit Gesten und Shortcuts sind Faktenübersichten.
+Condensed reference for all input pages of the Apple HIG. Source: local HIG mirror (`~/.apple-design/hig/pages/`, sync 2026-10-21). Citations as `(hig:<slug>)` or `(hig:<slug>#Anchor)`. Rules paraphrased; tables of gestures and shortcuts are factual overviews.
 
-Schreibweise Shortcuts: Symbole in HIG-Reihenfolge ⌃ Control, ⌥ Option, ⇧ Shift, ⌘ Command (hig:keyboards#Custom-keyboard-shortcuts).
+Shortcut notation: symbols in HIG order ⌃ Control, ⌥ Option, ⇧ Shift, ⌘ Command (hig:keyboards#Custom-keyboard-shortcuts).
 
-## Inhalt
+## Contents
 
-1. [Plattform-Matrix](#plattform-matrix)
-2. [Touch und Gesten](#touch-und-gesten)
+1. [Platform matrix](#platform-matrix)
+2. [Touch and gestures](#touch-and-gestures)
 3. [Keyboards](#keyboards)
 4. [Pointing devices](#pointing-devices)
 5. [Digital Crown](#digital-crown)
-6. [Apple Pencil und Scribble](#apple-pencil-und-scribble)
+6. [Apple Pencil and Scribble](#apple-pencil-and-scribble)
 7. [Game controls](#game-controls)
 8. [Focus and selection](#focus-and-selection)
 9. [Action button](#action-button)
@@ -19,533 +19,533 @@ Schreibweise Shortcuts: Symbole in HIG-Reihenfolge ⌃ Control, ⌥ Option, ⇧ 
 11. [Gyroscope/Accelerometer, Nearby interactions](#gyroscopeaccelerometer-nearby-interactions)
 12. [Remotes (tvOS)](#remotes-tvos)
 13. [Eyes (visionOS)](#eyes-visionos)
-14. [Auffälligkeiten und Unklarheiten](#auffälligkeiten-und-unklarheiten)
+14. [Observations and ambiguities](#observations-and-ambiguities)
 
 ---
 
-## Plattform-Matrix
+## Platform matrix
 
-Laut Plattformangabe der jeweiligen Seite („Not supported in …“):
+According to each page's platform statement ("Not supported in …"):
 
-| Eingabe | iOS | iPadOS | macOS | watchOS | tvOS | visionOS | Slug |
+| Input | iOS | iPadOS | macOS | watchOS | tvOS | visionOS | Slug |
 |---|---|---|---|---|---|---|---|
-| Gestures | ja | ja | ja (Trackpad/Magic Mouse) | ja | ja | ja | gestures |
-| Keyboards (physisch) | ja | ja | ja | nein | ja | ja | keyboards |
-| Pointing devices | ja | ja | ja | nein | nein | ja | pointing-devices |
-| Digital Crown | nein | nein | nein | ja | nein | ja (nur System) | digital-crown |
-| Apple Pencil & Scribble | nein | ja | nein | nein | nein | nein | apple-pencil-and-scribble |
-| Game controls | ja | ja | ja | nein | ja | ja | game-controls |
-| Focus and selection | nein | ja | ja | nein | ja | ja | focus-and-selection |
-| Action button | ja | nein | nein | ja | nein | nein | action-button |
-| Camera Control | ja | nein | nein | nein | nein | nein | camera-control |
-| Gyro/Accelerometer | ja | ja | (gelistet) | ja | Siri Remote | (gelistet) | gyro-and-accelerometer |
-| Nearby interactions | ja | ja | nein | ja | nein | nein | nearby-interactions |
-| Remotes | – | – | – | – | ja | – | remotes |
-| Eyes | – | – | – | – | – | ja | eyes |
+| Gestures | yes | yes | yes (trackpad/Magic Mouse) | yes | yes | yes | gestures |
+| Keyboards (physical) | yes | yes | yes | no | yes | yes | keyboards |
+| Pointing devices | yes | yes | yes | no | no | yes | pointing-devices |
+| Digital Crown | no | no | no | yes | no | yes (system only) | digital-crown |
+| Apple Pencil & Scribble | no | yes | no | no | no | no | apple-pencil-and-scribble |
+| Game controls | yes | yes | yes | no | yes | yes | game-controls |
+| Focus and selection | no | yes | yes | no | yes | yes | focus-and-selection |
+| Action button | yes | no | no | yes | no | no | action-button |
+| Camera Control | yes | no | no | no | no | no | camera-control |
+| Gyro/Accelerometer | yes | yes | (listed) | yes | Siri Remote | (listed) | gyro-and-accelerometer |
+| Nearby interactions | yes | yes | no | yes | no | no | nearby-interactions |
+| Remotes | – | – | – | – | yes | – | remotes |
+| Eyes | – | – | – | – | – | yes | eyes |
 
-Standard-Eingabe je Plattform (aus Spiele-Sicht, hig:designing-for-games#Enable-intuitive-interactions):
+Default input per platform (from a games perspective, hig:designing-for-games#Enable-intuitive-interactions):
 
-| Plattform | Standard | Zusätzlich |
+| Platform | Default | Additional |
 |---|---|---|
 | iOS | Touch | Game controller |
-| iPadOS | Touch | Game controller, Keyboard, Maus, Trackpad, Apple Pencil |
-| macOS | Keyboard, Maus, Trackpad | Game controller |
-| tvOS | Remote | Game controller, Keyboard, Maus, Trackpad |
-| visionOS | Touch (lt. Tabelle; faktisch Eyes + Hands) | Game controller, Keyboard, Maus, Trackpad, Spatial game controller |
+| iPadOS | Touch | Game controller, keyboard, mouse, trackpad, Apple Pencil |
+| macOS | Keyboard, mouse, trackpad | Game controller |
+| tvOS | Remote | Game controller, keyboard, mouse, trackpad |
+| visionOS | Touch (per table; in practice eyes + hands) | Game controller, keyboard, mouse, trackpad, spatial game controller |
 | watchOS | Touch | – |
 
 ---
 
-## Touch und Gesten
+## Touch and gestures
 
-Zweck: Physische Bewegung, die ein Objekt direkt beeinflusst – auf Touchscreen, in der Luft (visionOS) oder über Trackpad, Maus, Remote, Controller mit Touch-Fläche (hig:gestures).
+Purpose: physical motion that directly affects an object – on a touchscreen, in the air (visionOS), or via trackpad, mouse, remote, or a controller with a touch surface (hig:gestures).
 
-### Kernregeln
+### Core rules
 
-- Biete immer mehr als einen Interaktionsweg (Voice, Keyboard, Switch Control); setze nie voraus, dass jemand eine bestimmte Geste ausführen kann (hig:gestures#Best-practices).
-- Nutze vertraute Gesten nur für ihre erwartete Bedeutung; belege Tap/Swipe nicht mit app-eigenen Sonderaktionen und erfinde keine eigene Geste für Standardaktionen wie Button-Aktivierung oder Scrollen (hig:gestures#Best-practices).
-- Reagiere sofort und gib während der Geste Feedback, das Ergebnis und nötigen Bewegungsumfang erkennbar macht (hig:gestures#Best-practices).
-- Zeige an, wenn eine Geste nicht verfügbar ist (z. B. gesperrtes Objekt, deaktivierter Button klar unterscheidbar) – sonst wirkt die App eingefroren (hig:gestures#Best-practices).
-- Custom gestures nur wenn nötig (häufige Spezialaufgaben, Spiele, Zeichen-Apps); sie müssen auffindbar, leicht ausführbar, unterscheidbar und nie der einzige Weg zu einer wichtigen Aktion sein (hig:gestures#Custom-gestures).
-- Shortcut-Gesten ergänzen Standard-Steuerung, ersetzen sie nicht – z. B. Edge-Swipe zurück **plus** Back-Button in der Toolbar (hig:gestures#Custom-gestures).
-- Kollidiere nicht mit System-Gesten (Edge-Swipe in watchOS, Hand-Roll für System-Overlays in visionOS); Aufschieben der System-Geste nur in Spielen/immersiven Erlebnissen (hig:gestures#Custom-gestures).
+- Always offer more than one way to interact (voice, keyboard, Switch Control); never assume that someone can perform a particular gesture (hig:gestures#Best-practices).
+- Use familiar gestures only for their expected meaning; don't assign app-specific special actions to tap/swipe and don't invent a custom gesture for standard actions like activating a button or scrolling (hig:gestures#Best-practices).
+- Respond immediately and give feedback during the gesture that makes the result and the required range of motion recognizable (hig:gestures#Best-practices).
+- Indicate when a gesture isn't available (e.g. locked object, disabled button clearly distinguishable) – otherwise the app appears frozen (hig:gestures#Best-practices).
+- Custom gestures only when necessary (frequent specialized tasks, games, drawing apps); they must be discoverable, easy to perform, distinguishable, and never the only way to perform an important action (hig:gestures#Custom-gestures).
+- Shortcut gestures supplement standard controls, they don't replace them – e.g. edge swipe to go back **plus** Back button in the toolbar (hig:gestures#Custom-gestures).
+- Don't conflict with system gestures (edge swipe in watchOS, hand roll for system overlays in visionOS); defer the system gesture only in games/immersive experiences (hig:gestures#Custom-gestures).
 
-### Standard-Gesten (alle Plattformen)
+### Standard gestures (all platforms)
 
-| Geste | Unterstützt in | Übliche Aktion |
+| Gesture | Supported in | Common action |
 |---|---|---|
-| Tap | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | Control aktivieren, Element auswählen |
-| Swipe | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | Aktionen/Controls einblenden, Views schließen, scrollen |
-| Drag | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | UI-Element bewegen |
-| Touch (bzw. Pinch) and hold | iOS, iPadOS, tvOS, visionOS, watchOS | Zusätzliche Controls/Funktionen zeigen |
-| Double tap | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | Zoom rein/raus; Primäraktion auf Apple Watch Series 9 / Ultra 2 |
-| Zoom | iOS, iPadOS, macOS, tvOS, visionOS | View zoomen, Inhalt vergrößern |
-| Rotate | iOS, iPadOS, macOS, tvOS, visionOS | Ausgewähltes Element drehen |
+| Tap | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | Activate a control, select an item |
+| Swipe | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | Reveal actions/controls, dismiss views, scroll |
+| Drag | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | Move a UI element |
+| Touch (or pinch) and hold | iOS, iPadOS, tvOS, visionOS, watchOS | Show additional controls/functionality |
+| Double tap | iOS, iPadOS, macOS, tvOS, visionOS, watchOS | Zoom in/out; primary action on Apple Watch Series 9 / Ultra 2 |
+| Zoom | iOS, iPadOS, macOS, tvOS, visionOS | Zoom a view, magnify content |
+| Rotate | iOS, iPadOS, macOS, tvOS, visionOS | Rotate the selected item |
 
 (hig:gestures#Standard-gestures)
 
-### Zusätzliche Gesten iOS/iPadOS
+### Additional gestures iOS/iPadOS
 
-| Geste | Aktion |
+| Gesture | Action |
 |---|---|
-| Drei-Finger-Swipe | links: Undo, rechts: Redo |
-| Drei-Finger-Pinch | zusammen: Text kopieren, auseinander: einfügen |
-| Vier-Finger-Swipe (nur iPadOS) | Zwischen Apps wechseln |
-| Shake | Undo / Redo |
+| Three-finger swipe | left: undo, right: redo |
+| Three-finger pinch | in: copy text, out: paste |
+| Four-finger swipe (iPadOS only) | Switch between apps |
+| Shake | Undo / redo |
 
 (hig:gestures#iOS-iPadOS)
 
-- Erlaube gleichzeitige Erkennung mehrerer Gesten nur, wenn es hilft – typisch in Spielen (Joystick + Feuertasten) (hig:gestures#iOS-iPadOS).
+- Allow simultaneous recognition of multiple gestures only when it helps – typically in games (joystick + fire buttons) (hig:gestures#iOS-iPadOS).
 
-### Plattform-Unterschiede
+### Platform differences
 
-- **macOS:** Primär Keyboard + Maus; Standard-Gesten über Magic Trackpad, Magic Mouse oder Controller mit Touch-Fläche (hig:gestures#macOS). Details siehe [Pointing devices](#pointing-devices).
-- **watchOS – Double tap (ab watchOS 11):** scrollt Listen/Scroll-Views, wechselt vertikale Tabs; App, Widget oder Live Activity (im Smart Stack) kann einen Toggle/Button als Primäraktion festlegen; in Notifications wirkt er auf die erste nicht-destruktive Aktion (hig:gestures#watchOS).
-  - Setze keine Primäraktion in Views mit Listen, Scroll-Views oder vertikalen Tabs (Konflikt mit Navigation) (hig:gestures#watchOS).
-  - Wähle als Primäraktion den meistgenutzten Button einer nicht scrollenden View (z. B. Play/Pause); API `handGestureShortcut(_:isEnabled:)`, `.primaryAction` (hig:gestures#watchOS).
-- **tvOS:** Standard-Gesten über Siri Remote/Controller (hig:gestures#tvOS).
-- **visionOS (kurz):** indirekte Gesten (hinschauen + Finger-Tap) bevorzugt für UI; direkte Gesten (Berühren) für Objekte in Reichweite und seltene Nutzung; Custom gestures nur im Full Space mit Hand-Tracking-Erlaubnis; Bereich um die Hand für System-Overlays freihalten (hig:gestures#visionOS).
+- **macOS:** primarily keyboard + mouse; standard gestures via Magic Trackpad, Magic Mouse, or a controller with a touch surface (hig:gestures#macOS). For details see [Pointing devices](#pointing-devices).
+- **watchOS – double tap (watchOS 11 and later):** scrolls lists/scroll views, switches vertical tabs; an app, widget, or Live Activity (in the Smart Stack) can designate a toggle/button as the primary action; in notifications it acts on the first nondestructive action (hig:gestures#watchOS).
+  - Don't set a primary action in views with lists, scroll views, or vertical tabs (conflicts with navigation) (hig:gestures#watchOS).
+  - Choose the most frequently used button of a nonscrolling view as the primary action (e.g. play/pause); API `handGestureShortcut(_:isEnabled:)`, `.primaryAction` (hig:gestures#watchOS).
+- **tvOS:** standard gestures via Siri Remote/controller (hig:gestures#tvOS).
+- **visionOS (brief):** indirect gestures (look + finger tap) preferred for UI; direct gestures (touching) for objects within reach and infrequent use; custom gestures only in a Full Space with hand-tracking permission; keep the area around the hand clear for system overlays (hig:gestures#visionOS).
 
 ---
 
 ## Keyboards
 
-Zweck: Physische Tastatur für Text, Spiele und App-Steuerung; an jedem Gerät außer Apple Watch anschließbar. Mac-Nutzer fast immer, iPad-Nutzer oft (hig:keyboards).
+Purpose: physical keyboard for text, games, and app control; can be connected to any device except Apple Watch. Mac users almost always, iPad users often (hig:keyboards).
 
-### Kernregeln
+### Core rules
 
-- Unterstütze Full Keyboard Access (iOS, iPadOS, macOS, visionOS); teste über Bedienungshilfen in Settings (hig:keyboards#Best-practices).
-- iPadOS: Keyboard-Navigation für Text fields, Text views, Sidebars und Collections – **nicht** für Buttons, Segmented controls, Switches; die erreicht man über Full Keyboard Access (hig:keyboards#Best-practices).
-- Respektiere Standard-Shortcuts; erstelle für häufige App-Aktionen eigene Shortcuts statt Standard-Shortcuts umzuwidmen (hig:keyboards#Standard-keyboard-shortcuts).
-- Umwidmung nur, wenn die Standardaktion in der App sinnlos ist (Beispiel: ⌘I als „Get Info“ in einer App ohne Textbearbeitung) (hig:keyboards#Standard-keyboard-shortcuts).
-- Custom Shortcuts nur für die meistgenutzten app-spezifischen Befehle – zu viele machen die App schwer erlernbar (hig:keyboards#Custom-keyboard-shortcuts).
-- Modifier erwartungskonform: ⌘ beim Ziehen = Gruppe bewegen; ⇧ beim Resize = Seitenverhältnis halten; gehaltene Pfeiltaste = kleinste App-Einheit verschieben (hig:keyboards#Custom-keyboard-shortcuts).
-- Modifier-Reihenfolge in der Anzeige immer: Control, Option, Shift, Command (hig:keyboards#Custom-keyboard-shortcuts).
-- Kein ⇧ bei oberem Zeichen einer Doppeltaste – zeige direkt das obere Zeichen (Help = ⌘?, nicht ⇧⌘/) (hig:keyboards#Custom-keyboard-shortcuts).
-- Lass das System Shortcuts lokalisieren und bei RTL spiegeln (hig:keyboards#Custom-keyboard-shortcuts).
-- Bilde keinen neuen Shortcut, indem du einem bestehenden einen Modifier für einen fremden Befehl hinzufügst (z. B. ⇧⌘Z nur für Redo) (hig:keyboards#Custom-keyboard-shortcuts).
-- Zusatz-Modifier nur mit Buchstaben kombinieren; manche Layouts brauchen Modifier für Sonderzeichen (frz. Tastatur: ⌥5 = „{“) (hig:keyboards#Custom-keyboard-shortcuts).
+- Support Full Keyboard Access (iOS, iPadOS, macOS, visionOS); test via Accessibility in Settings (hig:keyboards#Best-practices).
+- iPadOS: keyboard navigation for text fields, text views, sidebars, and collections – **not** for buttons, segmented controls, switches; those are reached via Full Keyboard Access (hig:keyboards#Best-practices).
+- Respect standard shortcuts; create custom shortcuts for frequent app actions instead of repurposing standard shortcuts (hig:keyboards#Standard-keyboard-shortcuts).
+- Repurpose only if the standard action makes no sense in the app (example: ⌘I as "Get Info" in an app without text editing) (hig:keyboards#Standard-keyboard-shortcuts).
+- Custom shortcuts only for the most frequently used app-specific commands – too many make the app hard to learn (hig:keyboards#Custom-keyboard-shortcuts).
+- Modifiers as expected: ⌘ while dragging = move group; ⇧ while resizing = maintain aspect ratio; held arrow key = move by the smallest app unit (hig:keyboards#Custom-keyboard-shortcuts).
+- Modifier order in the display is always: Control, Option, Shift, Command (hig:keyboards#Custom-keyboard-shortcuts).
+- No ⇧ for the upper character of a two-character key – show the upper character directly (Help = ⌘?, not ⇧⌘/) (hig:keyboards#Custom-keyboard-shortcuts).
+- Let the system localize shortcuts and mirror them for RTL (hig:keyboards#Custom-keyboard-shortcuts).
+- Don't create a new shortcut by adding a modifier to an existing one for an unrelated command (e.g. ⇧⌘Z only for redo) (hig:keyboards#Custom-keyboard-shortcuts).
+- Combine additional modifiers only with letters; some layouts need modifiers for special characters (French keyboard: ⌥5 = "{") (hig:keyboards#Custom-keyboard-shortcuts).
 
-### Modifier-Empfehlung
+### Modifier recommendation
 
-| Modifier | Symbol | Empfehlung |
+| Modifier | Symbol | Recommendation |
 |---|---|---|
-| Command | ⌘ | Haupt-Modifier für Custom Shortcuts |
-| Shift | ⇧ | Sekundär, ergänzt einen verwandten Shortcut |
-| Option | ⌥ | Sparsam, für seltene Befehle/Power-Features |
-| Control | ⌃ | Vermeiden – systemweit belegt (Fokus, Screenshots) |
+| Command | ⌘ | Main modifier for custom shortcuts |
+| Shift | ⇧ | Secondary, complements a related shortcut |
+| Option | ⌥ | Sparingly, for infrequent commands/power features |
+| Control | ⌃ | Avoid – used systemwide (focus, screenshots) |
 
 (hig:keyboards#Custom-keyboard-shortcuts)
 
-### Standard-Tastaturkurzbefehle (vollständig laut HIG-Tabelle)
+### Standard keyboard shortcuts (complete per HIG table)
 
-Die HIG führt **eine** Tabelle ohne Plattform-Trennung; viele Einträge sind macOS-Systemfunktionen (Dock, Force Quit, Eject). Eine separate iPadOS-Liste existiert im Spiegel nicht (hig:keyboards#Standard-keyboard-shortcuts).
+The HIG provides **one** table without platform separation; many entries are macOS system functions (Dock, Force Quit, Eject). A separate iPadOS list does not exist in the mirror (hig:keyboards#Standard-keyboard-shortcuts).
 
-| Taste | Shortcut | Aktion |
+| Key | Shortcut | Action |
 |---|---|---|
-| Space | ⌘Space | Spotlight-Suchfeld ein-/ausblenden |
-| | ⇧⌘Space | variiert |
-| | ⌥⌘Space | Spotlight-Ergebnisfenster zeigen |
-| | ⌃⌘Space | Fenster „Sonderzeichen“ zeigen |
-| Tab | ⇧Tab | Rückwärts durch Controls navigieren |
-| | ⌘Tab | Zur nächst-zuletzt benutzten offenen App |
-| | ⇧⌘Tab | Rückwärts durch offene Apps (nach Nutzung sortiert) |
-| | ⌃Tab | Fokus zur nächsten Control-Gruppe im Dialog bzw. nächsten Tabelle (wenn Tab zur nächsten Zelle springt) |
-| | ⌃⇧Tab | Fokus zur vorherigen Control-Gruppe |
-| Esc | Esc | Aktuelle Aktion/Prozess abbrechen |
-| | ⌥⌘Esc | Dialog „Sofort beenden“ öffnen |
-| Eject | ⌃⌘Eject | Alle Apps beenden (nach Sichern) und neu starten |
-| | ⌃⌥⌘Eject | Alle Apps beenden (nach Sichern) und ausschalten |
-| F1 | ⌃F1 | Full Keyboard Access ein/aus |
-| F2 | ⌃F2 | Fokus auf Menüleiste |
-| F3 | ⌃F3 | Fokus auf Dock |
-| F4 | ⌃F4 | Fokus auf aktives (bzw. nächstes) Fenster |
-| | ⌃⇧F4 | Fokus auf zuvor aktives Fenster |
-| F5 | ⌃F5 | Fokus auf Toolbar |
-| | ⌘F5 | VoiceOver ein/aus |
-| F6 | ⌃F6 | Fokus auf erstes (bzw. nächstes) Panel |
-| | ⌃⇧F6 | Fokus auf vorheriges Panel |
-| F7 | ⌃F7 | Aktuellen Keyboard-Access-Modus in Fenstern/Dialogen temporär übersteuern |
-| F8 | – | variiert |
-| F9 | – | variiert |
-| F10 | – | variiert |
-| F11 | – | Schreibtisch zeigen |
-| F12 | – | Dashboard ein-/ausblenden |
-| ` (Gravis) | ⌘` | Nächstes offenes Fenster der vordersten App aktivieren |
-| | ⇧⌘` | Vorheriges offenes Fenster der vordersten App aktivieren |
-| | ⌥⌘` | Fokus auf Fenster-Drawer |
-| - (Bindestrich) | ⌘- | Auswahl verkleinern |
-| | ⌥⌘- | Herauszoomen (bei aktivem Bildschirmzoom) |
-| { (linke Klammer) | ⌘{ | Auswahl linksbündig |
-| } (rechte Klammer) | ⌘} | Auswahl rechtsbündig |
-| \| (Pipe) | ⌘\| | Auswahl zentrieren |
-| : (Doppelpunkt) | ⌘: | Fenster „Rechtschreibung“ zeigen |
-| ; (Semikolon) | ⌘; | Falsch geschriebene Wörter im Dokument finden |
-| , (Komma) | ⌘, | Einstellungsfenster der App öffnen |
-| | ⌃⌥⌘, | Bildschirmkontrast verringern |
-| . (Punkt) | ⌘. | Vorgang abbrechen |
-| | ⌃⌥⌘. | Bildschirmkontrast erhöhen |
-| ? (Fragezeichen) | ⌘? | Hilfe-Menü der App öffnen |
-| / (Schrägstrich) | ⌥⌘/ | Schriftglättung ein/aus |
-| = (Gleich) | ⇧⌘= | Auswahl vergrößern |
-| | ⌥⌘= | Hineinzoomen (bei aktivem Bildschirmzoom) |
-| 3 | ⇧⌘3 | Bildschirm als Datei sichern |
-| | ⌃⇧⌘3 | Bildschirm in Zwischenablage |
-| 4 | ⇧⌘4 | Auswahl als Datei sichern |
-| | ⌃⇧⌘4 | Auswahl in Zwischenablage |
-| 8 | ⌥⌘8 | Bildschirmzoom ein/aus |
-| | ⌃⌥⌘8 | Bildschirmfarben invertieren |
-| A | ⌘A | Alles auswählen (Dokument/Fenster bzw. alle Zeichen im Textfeld) |
-| | ⇧⌘A | Auswahl aufheben |
-| B | ⌘B | Fett (umschalten) |
-| C | ⌘C | Auswahl kopieren |
-| | ⇧⌘C | Fenster „Farben“ zeigen |
-| | ⌥⌘C | Stil des ausgewählten Texts kopieren |
-| | ⌃⌘C | Formatierung der Auswahl kopieren (Zwischenablage) |
-| D | ⌥⌘D | Dock ein-/ausblenden |
-| | ⌃⌘D | Definition des gewählten Worts im Lexikon zeigen |
-| E | ⌘E | Auswahl für Suche verwenden |
-| F | ⌘F | Suchfenster öffnen |
-| | ⌥⌘F | Zum Suchfeld springen |
-| | ⌃⌘F | Vollbild aktivieren |
-| G | ⌘G | Nächstes Vorkommen finden |
-| | ⇧⌘G | Vorheriges Vorkommen finden |
-| H | ⌘H | Fenster der aktuellen App ausblenden |
-| | ⌥⌘H | Fenster aller anderen Apps ausblenden |
-| I | ⌘I | Kursiv (umschalten) |
-| | ⌘I | Info-Fenster zeigen (doppelt belegt, s. Auffälligkeiten) |
-| | ⌥⌘I | Inspector-Fenster zeigen |
-| J | ⌘J | Zur Auswahl scrollen |
-| M | ⌘M | Aktives Fenster ins Dock minimieren |
-| | ⌥⌘M | Alle Fenster der aktiven App minimieren |
-| N | ⌘N | Neues Dokument |
-| O | ⌘O | Öffnen-Dialog |
-| P | ⌘P | Drucken-Dialog |
-| | ⇧⌘P | Dialog „Papierformat“ |
-| Q | ⌘Q | App beenden |
-| | ⇧⌘Q | Benutzer abmelden |
-| | ⌥⇧⌘Q | Benutzer ohne Bestätigung abmelden |
-| S | ⌘S | Sichern (neues Dokument bzw. Version) |
-| | ⇧⌘S | Duplizieren bzw. „Sichern unter“ |
-| T | ⌘T | Fenster „Schriften“ zeigen |
-| | ⌥⌘T | Toolbar ein-/ausblenden |
-| U | ⌘U | Unterstreichen (umschalten) |
-| V | ⌘V | Einfügen an Einfügemarke |
-| | ⇧⌘V | Einfügen als … (z. B. als Zitat) |
-| | ⌥⌘V | Stil eines Objekts auf Auswahl anwenden |
-| | ⌥⇧⌘V | Einfügen und Stil des umgebenden Texts übernehmen |
-| | ⌃⌘V | Formatierung auf Auswahl anwenden |
-| W | ⌘W | Aktives Fenster schließen |
-| | ⇧⌘W | Datei samt zugehöriger Fenster schließen |
-| | ⌥⌘W | Alle Fenster der App schließen |
-| X | ⌘X | Ausschneiden |
+| Space | ⌘Space | Show/hide the Spotlight search field |
+| | ⇧⌘Space | Varies |
+| | ⌥⌘Space | Show the Spotlight results window |
+| | ⌃⌘Space | Show the Special Characters window |
+| Tab | ⇧Tab | Navigate backward through controls |
+| | ⌘Tab | Move to the next most recently used open app |
+| | ⇧⌘Tab | Move backward through open apps (sorted by recent use) |
+| | ⌃Tab | Move focus to the next group of controls in a dialog or the next table (when Tab moves to the next cell) |
+| | ⌃⇧Tab | Move focus to the previous group of controls |
+| Esc | Esc | Cancel the current action/process |
+| | ⌥⌘Esc | Open the Force Quit dialog |
+| Eject | ⌃⌘Eject | Quit all apps (after saving) and restart |
+| | ⌃⌥⌘Eject | Quit all apps (after saving) and shut down |
+| F1 | ⌃F1 | Turn Full Keyboard Access on/off |
+| F2 | ⌃F2 | Move focus to the menu bar |
+| F3 | ⌃F3 | Move focus to the Dock |
+| F4 | ⌃F4 | Move focus to the active (or next) window |
+| | ⌃⇧F4 | Move focus to the previously active window |
+| F5 | ⌃F5 | Move focus to the toolbar |
+| | ⌘F5 | Turn VoiceOver on/off |
+| F6 | ⌃F6 | Move focus to the first (or next) panel |
+| | ⌃⇧F6 | Move focus to the previous panel |
+| F7 | ⌃F7 | Temporarily override the current keyboard access mode in windows/dialogs |
+| F8 | – | Varies |
+| F9 | – | Varies |
+| F10 | – | Varies |
+| F11 | – | Show desktop |
+| F12 | – | Show/hide Dashboard |
+| ` (grave accent) | ⌘` | Activate the next open window of the frontmost app |
+| | ⇧⌘` | Activate the previous open window of the frontmost app |
+| | ⌥⌘` | Move focus to the window drawer |
+| - (hyphen) | ⌘- | Decrease the size of the selection |
+| | ⌥⌘- | Zoom out (when screen zoom is enabled) |
+| { (left bracket) | ⌘{ | Left-align the selection |
+| } (right bracket) | ⌘} | Right-align the selection |
+| \| (pipe) | ⌘\| | Center the selection |
+| : (colon) | ⌘: | Show the Spelling window |
+| ; (semicolon) | ⌘; | Find misspelled words in the document |
+| , (comma) | ⌘, | Open the app's settings window |
+| | ⌃⌥⌘, | Decrease screen contrast |
+| . (period) | ⌘. | Cancel an operation |
+| | ⌃⌥⌘. | Increase screen contrast |
+| ? (question mark) | ⌘? | Open the app's Help menu |
+| / (slash) | ⌥⌘/ | Turn font smoothing on/off |
+| = (equal sign) | ⇧⌘= | Increase the size of the selection |
+| | ⌥⌘= | Zoom in (when screen zoom is enabled) |
+| 3 | ⇧⌘3 | Capture the screen to a file |
+| | ⌃⇧⌘3 | Capture the screen to the clipboard |
+| 4 | ⇧⌘4 | Capture a selection to a file |
+| | ⌃⇧⌘4 | Capture a selection to the clipboard |
+| 8 | ⌥⌘8 | Turn screen zoom on/off |
+| | ⌃⌥⌘8 | Invert screen colors |
+| A | ⌘A | Select all (document/window, or all characters in a text field) |
+| | ⇧⌘A | Deselect all |
+| B | ⌘B | Bold (toggle) |
+| C | ⌘C | Copy the selection |
+| | ⇧⌘C | Show the Colors window |
+| | ⌥⌘C | Copy the style of the selected text |
+| | ⌃⌘C | Copy the formatting of the selection (clipboard) |
+| D | ⌥⌘D | Show/hide the Dock |
+| | ⌃⌘D | Show the definition of the selected word in the Dictionary |
+| E | ⌘E | Use the selection for a find |
+| F | ⌘F | Open a Find window |
+| | ⌥⌘F | Jump to the search field |
+| | ⌃⌘F | Enter full screen |
+| G | ⌘G | Find the next occurrence |
+| | ⇧⌘G | Find the previous occurrence |
+| H | ⌘H | Hide the windows of the current app |
+| | ⌥⌘H | Hide the windows of all other apps |
+| I | ⌘I | Italic (toggle) |
+| | ⌘I | Show an Info window (assigned twice, see Observations) |
+| | ⌥⌘I | Show an Inspector window |
+| J | ⌘J | Scroll to the selection |
+| M | ⌘M | Minimize the active window to the Dock |
+| | ⌥⌘M | Minimize all windows of the active app |
+| N | ⌘N | New document |
+| O | ⌘O | Open dialog |
+| P | ⌘P | Print dialog |
+| | ⇧⌘P | Page Setup dialog |
+| Q | ⌘Q | Quit the app |
+| | ⇧⌘Q | Log out the user |
+| | ⌥⇧⌘Q | Log out the user without confirmation |
+| S | ⌘S | Save (new document or version) |
+| | ⇧⌘S | Duplicate or "Save As" |
+| T | ⌘T | Show the Fonts window |
+| | ⌥⌘T | Show/hide the toolbar |
+| U | ⌘U | Underline (toggle) |
+| V | ⌘V | Paste at the insertion point |
+| | ⇧⌘V | Paste as … (e.g. as quotation) |
+| | ⌥⌘V | Apply the style of an object to the selection |
+| | ⌥⇧⌘V | Paste and match the style of the surrounding text |
+| | ⌃⌘V | Apply formatting to the selection |
+| W | ⌘W | Close the active window |
+| | ⇧⌘W | Close a file and its associated windows |
+| | ⌥⌘W | Close all windows of the app |
+| X | ⌘X | Cut |
 | Z | ⌘Z | Undo |
-| | ⇧⌘Z | Redo (wenn Undo/Redo getrennte Befehle sind) |
-| → | ⌘→ | Tastaturlayout auf aktuelles Layout der lateinischen Schrift |
-| | ⇧⌘→ | Auswahl bis zur nächsten semantischen Einheit (meist Zeilenende) erweitern |
-| | ⇧→ | Auswahl um ein Zeichen nach rechts |
-| | ⌥⇧→ | Auswahl bis Wortende, dann Ende des nächsten Worts |
-| | ⌃→ | Fokus auf anderen Wert/Zelle in View (z. B. Tabelle) |
-| ← | ⌘← | Tastaturlayout auf aktuelles Layout der Systemschrift |
-| | ⇧⌘← | Auswahl bis zur vorherigen semantischen Einheit (meist Zeilenanfang) |
-| | ⇧← | Auswahl um ein Zeichen nach links |
-| | ⌥⇧← | Auswahl bis Wortanfang, dann Anfang des vorherigen Worts |
-| | ⌃← | Fokus auf anderen Wert/Zelle in View |
-| ↑ | ⇧⌘↑ | Auswahl nach oben bis zur nächsten semantischen Einheit (meist Dokumentanfang) |
-| | ⇧↑ | Auswahl zur Zeile darüber (gleiche horizontale Position) |
-| | ⌥⇧↑ | Auswahl bis Absatzanfang, dann Anfang des nächsten Absatzes |
-| | ⌃↑ | Fokus auf anderen Wert/Zelle in View |
-| ↓ | ⇧⌘↓ | Auswahl nach unten bis zur nächsten semantischen Einheit (meist Dokumentende) |
-| | ⇧↓ | Auswahl zur Zeile darunter (gleiche horizontale Position) |
-| | ⌥⇧↓ | Auswahl bis Absatzende, dann Ende des nächsten Absatzes (inkl. Absatzende-Zeichen bei Cut/Copy/Paste) |
-| | ⌃↓ | Fokus auf anderen Wert/Zelle in View |
+| | ⇧⌘Z | Redo (when undo/redo are separate commands) |
+| → | ⌘→ | Change the keyboard layout to the current layout of the Roman script |
+| | ⇧⌘→ | Extend the selection to the next semantic unit (usually end of line) |
+| | ⇧→ | Extend the selection one character to the right |
+| | ⌥⇧→ | Extend the selection to the end of the word, then the end of the next word |
+| | ⌃→ | Move focus to another value/cell in a view (e.g. table) |
+| ← | ⌘← | Change the keyboard layout to the current layout of the system script |
+| | ⇧⌘← | Extend the selection to the previous semantic unit (usually beginning of line) |
+| | ⇧← | Extend the selection one character to the left |
+| | ⌥⇧← | Extend the selection to the beginning of the word, then the beginning of the previous word |
+| | ⌃← | Move focus to another value/cell in a view |
+| ↑ | ⇧⌘↑ | Extend the selection upward to the next semantic unit (usually beginning of document) |
+| | ⇧↑ | Extend the selection to the line above (same horizontal position) |
+| | ⌥⇧↑ | Extend the selection to the beginning of the paragraph, then the beginning of the next paragraph |
+| | ⌃↑ | Move focus to another value/cell in a view |
+| ↓ | ⇧⌘↓ | Extend the selection downward to the next semantic unit (usually end of document) |
+| | ⇧↓ | Extend the selection to the line below (same horizontal position) |
+| | ⌥⇧↓ | Extend the selection to the end of the paragraph, then the end of the next paragraph (including the paragraph-end character for cut/copy/paste) |
+| | ⌃↓ | Move focus to another value/cell in a view |
 
-Shortcuts für Eingabequellen (nicht an Menübefehle gebunden):
+Shortcuts for input sources (not tied to menu commands):
 
-| Shortcut | Aktion |
+| Shortcut | Action |
 |---|---|
-| ⌃Space | Zwischen aktueller und letzter Eingabequelle wechseln |
-| ⌃⌥Space | Nächste Eingabequelle der Liste |
-| [Modifier]⌘Space | variiert |
-| ⌘→ | Layout der lateinischen Schrift |
-| ⌘← | Layout der Systemschrift |
+| ⌃Space | Switch between the current and the previous input source |
+| ⌃⌥Space | Next input source in the list |
+| [Modifier]⌘Space | Varies |
+| ⌘→ | Layout of the Roman script |
+| ⌘← | Layout of the system script |
 
 (hig:keyboards#Standard-keyboard-shortcuts)
 
-### Plattform-Unterschiede
+### Platform differences
 
-- **iOS, iPadOS, macOS, tvOS:** keine Zusatzhinweise; watchOS nicht unterstützt (hig:keyboards#Platform-considerations).
-- **iPadOS/macOS Menüs:** Shortcuts erscheinen in Menüleisten-Menüs (siehe hig:the-menu-bar).
-- **visionOS (kurz):** Halten von ⌘ zeigt eine Shortcut-Übersicht nach Menükategorien (File, Edit, View …) als flache Liste – Shortcut-Titel müssen ohne Untermenü-Kontext verständlich sein (`discoverabilityTitle`); bei physischer Tastatur blendet das System ein virtuelles Overlay mit Vervollständigung ein (hig:keyboards#visionOS).
-- **Spiele:** Key bindings, Single-Key-Befehle, frei belegbar – siehe [Game controls](#game-controls) (hig:game-controls#Keyboards).
+- **iOS, iPadOS, macOS, tvOS:** no additional considerations; watchOS not supported (hig:keyboards#Platform-considerations).
+- **iPadOS/macOS menus:** shortcuts appear in menu bar menus (see hig:the-menu-bar).
+- **visionOS (brief):** holding ⌘ shows a shortcut overview by menu category (File, Edit, View …) as a flat list – shortcut titles must be understandable without submenu context (`discoverabilityTitle`); with a physical keyboard the system shows a virtual overlay with completions (hig:keyboards#visionOS).
+- **Games:** key bindings, single-key commands, freely remappable – see [Game controls](#game-controls) (hig:game-controls#Keyboards).
 
 ---
 
 ## Pointing devices
 
-Zweck: Trackpad/Maus für präzise Navigation. Auf dem Mac Standard zusammen mit Keyboard; auf iPad und Vision Pro zusätzlicher Weg, ersetzt Touch/Eyes/Gesten nicht (hig:pointing-devices).
+Purpose: trackpad/mouse for precise navigation. Standard on the Mac together with the keyboard; on iPad and Vision Pro an additional way that doesn't replace touch/eyes/gestures (hig:pointing-devices).
 
-### Kernregeln
+### Core rules
 
-- Reagiere konsistent auf Maus-/Trackpad-Gesten (z. B. „Swipe between pages“ überall gleich) (hig:pointing-devices#Best-practices).
-- Definiere systemweite Trackpad-Gesten nicht um (Dock, Mission Control); Nutzer können sie anpassen (hig:pointing-devices#Best-practices).
-- Gleiches Verhalten über Gesten, Eyes, Pointer, Keyboard hinweg (hig:pointing-devices#Best-practices).
-- Lass Pointer automatisch minimierte Controls einblenden (Safari-Toolbar auf iPad, Video-Controls im Vollbild) (hig:pointing-devices#Best-practices).
-- Modifier-Verhalten (z. B. ⌥ beim Ziehen = duplizieren) muss bei Touch und Pointer gleich wirken (hig:pointing-devices#Best-practices).
+- Respond consistently to mouse/trackpad gestures (e.g. "Swipe between pages" the same everywhere) (hig:pointing-devices#Best-practices).
+- Don't redefine systemwide trackpad gestures (Dock, Mission Control); users can customize them (hig:pointing-devices#Best-practices).
+- Same behavior across gestures, eyes, pointer, keyboard (hig:pointing-devices#Best-practices).
+- Let the pointer automatically reveal minimized controls (Safari toolbar on iPad, video controls in full screen) (hig:pointing-devices#Best-practices).
+- Modifier behavior (e.g. ⌥ while dragging = duplicate) must work the same with touch and pointer (hig:pointing-devices#Best-practices).
 
 ### iPadOS
 
-- Mehrfachauswahl per Rahmenziehen (ab iPadOS 15) in Custom Views selbst implementieren (`UIBandSelectionInteraction`); Standard-Collection-Views (nicht Listen) können es (hig:pointing-devices#iPadOS).
-- Unterscheide Pointer und Finger nur bei echtem Mehrwert (z. B. präziser Klick auf Scrubber-Position) (hig:pointing-devices#iPadOS).
-- Pointer standardmäßig Kreis; I-Beam über Texteingabe (hig:pointing-devices#Pointer-shape-and-content-effects).
+- Implement band selection (iPadOS 15 and later) yourself in custom views (`UIBandSelectionInteraction`); standard collection views (not lists) support it (hig:pointing-devices#iPadOS).
+- Distinguish pointer and finger only when it adds real value (e.g. precise click on a scrubber position) (hig:pointing-devices#iPadOS).
+- Pointer is a circle by default; I-beam over text input (hig:pointing-devices#Pointer-shape-and-content-effects).
 - Content effects:
 
-| Effekt | Wirkung | Einsatz | System-Standard für |
+| Effect | Behavior | Use | System default for |
 |---|---|---|---|
-| Highlight | Pointer wird transluzentes Rounded Rect hinter dem Control, leichte Parallaxe | kleines Element, transparenter Hintergrund | Bar buttons, Tab bars, Segmented controls, Edit menus |
-| Lift | Element skaliert hoch, Schatten + Glanz, wirkt schwebend | kleines Element, opaker Hintergrund | App-Icons, Control-Center-Buttons |
-| Hover | Eigene Werte für Scale, Tint, Shadow; Pointer-Form bleibt | große Elemente | – |
+| Highlight | Pointer becomes a translucent rounded rect behind the control, slight parallax | Small element, transparent background | Bar buttons, tab bars, segmented controls, edit menus |
+| Lift | Element scales up, shadow + specular highlight, appears to float | Small element, opaque background | App icons, Control Center buttons |
+| Hover | Custom values for scale, tint, shadow; pointer shape stays | Large elements | – |
 
 (hig:pointing-devices#Standard-pointers-and-effects)
 
-- Pointer magnetism: automatisch bei Lift/Highlight und Texteingabe, nicht bei Hover (hig:pointing-devices#Pointer-magnetism).
-- Hit regions: ca. **12 pt** Padding um Elemente mit Bezel, ca. **24 pt** um Elemente ohne Bezel (hig:pointing-devices#Standard-pointers-and-effects).
-- Lückenlose Hit regions bei Custom bar buttons (sonst springt der Pointer zur Grundform) (hig:pointing-devices#Standard-pointers-and-effects).
-- Bei Lift auf nicht standardmäßigen Formen Corner radius angeben (`UIPointerShape.roundedRect(_:radius:)`) (hig:pointing-devices#Standard-pointers-and-effects).
-- Custom pointer: systemische Effekte für standardähnliche Elemente, konsistent, keine dekorativen Effekte, einfache Formen, nützliche Annotationen (z. B. X/Y-Werte) ja, Anleitungstexte am Pointer nein (hig:pointing-devices#Customizing-pointers).
-- Scale nur, wo Platz ist (nicht bei Table rows); Schatten nie ohne Scale (hig:pointing-devices#Customizing-pointers).
-- Pointer accessories (`UIPointerAccessory`): einfache Bilder; Zustandswechsel per Accessory-Transition (z. B. `plus` → `circle.slash`) (hig:pointing-devices#Pointer-accessories).
+- Pointer magnetism: automatic with lift/highlight and text input, not with hover (hig:pointing-devices#Pointer-magnetism).
+- Hit regions: about **12 pt** padding around elements with a bezel, about **24 pt** around elements without a bezel (hig:pointing-devices#Standard-pointers-and-effects).
+- Contiguous hit regions for custom bar buttons (otherwise the pointer snaps back to its default shape) (hig:pointing-devices#Standard-pointers-and-effects).
+- For lift on nonstandard shapes, specify a corner radius (`UIPointerShape.roundedRect(_:radius:)`) (hig:pointing-devices#Standard-pointers-and-effects).
+- Custom pointer: system effects for standard-like elements, consistent, no decorative effects, simple shapes, useful annotations (e.g. X/Y values) yes, instructional text on the pointer no (hig:pointing-devices#Customizing-pointers).
+- Scale only where there's room (not for table rows); never shadow without scale (hig:pointing-devices#Customizing-pointers).
+- Pointer accessories (`UIPointerAccessory`): simple images; state changes via accessory transition (e.g. `plus` → `circle.slash`) (hig:pointing-devices#Pointer-accessories).
 
-### macOS – Klicks und Gesten
+### macOS – clicks and gestures
 
-| Klick/Geste | Erwartetes Verhalten | Maus | Trackpad |
+| Click/gesture | Expected behavior | Mouse | Trackpad |
 |---|---|---|---|
-| Primary click | Auswählen/aktivieren | ja | ja |
-| Secondary click | Kontextmenü | ja | ja |
-| Scrolling | Inhalt verschieben | ja | ja |
-| Smart zoom | Zoom auf Inhalt (Web, PDF) | ja | ja |
-| Swipe between pages | Seitenweise vor/zurück | ja | ja |
-| Swipe between full-screen apps | Zwischen Vollbild-Apps/Spaces | ja | ja |
-| Mission Control (Maus: Zwei-Finger-Doppeltipp; Trackpad: 3/4 Finger nach oben) | Mission Control | ja | ja |
-| Lookup/Data detectors (Force click 1 Finger oder Tipp 3 Finger) | Lookup-Fenster | – | ja |
-| Tap to click | Tippen statt Klicken | – | ja |
-| Force click | Quick Look/Lookup; druckabhängige Controls | – | ja |
-| Pinch (2 Finger) | Zoom | – | ja |
-| Rotate (2 Finger kreisend) | Drehen | – | ja |
-| Notification Center (Swipe vom Trackpad-Rand) | Mitteilungszentrale | – | ja |
-| App Exposé (3/4 Finger nach unten) | Fenster der App in Exposé | – | ja |
-| Launchpad (Pinch Daumen + 3 Finger) | Launchpad | – | ja |
-| Show Desktop (Spread Daumen + 3 Finger) | Schreibtisch freilegen | – | ja |
+| Primary click | Select/activate | yes | yes |
+| Secondary click | Context menu | yes | yes |
+| Scrolling | Move content | yes | yes |
+| Smart zoom | Zoom in on content (web, PDF) | yes | yes |
+| Swipe between pages | Page forward/back | yes | yes |
+| Swipe between full-screen apps | Between full-screen apps/Spaces | yes | yes |
+| Mission Control (mouse: two-finger double tap; trackpad: 3/4 fingers up) | Mission Control | yes | yes |
+| Lookup/Data detectors (force click 1 finger or tap 3 fingers) | Lookup window | – | yes |
+| Tap to click | Tap instead of click | – | yes |
+| Force click | Quick Look/Lookup; pressure-sensitive controls | – | yes |
+| Pinch (2 fingers) | Zoom | – | yes |
+| Rotate (2 fingers circling) | Rotate | – | yes |
+| Notification Center (swipe from trackpad edge) | Notification Center | – | yes |
+| App Exposé (3/4 fingers down) | App's windows in Exposé | – | yes |
+| Launchpad (pinch thumb + 3 fingers) | Launchpad | – | yes |
+| Show Desktop (spread thumb + 3 fingers) | Reveal the desktop | – | yes |
 
 (hig:pointing-devices#macOS)
 
-### macOS – Standard-Pointer (`NSCursor`)
+### macOS – standard pointers (`NSCursor`)
 
-| Pointer | Bedeutung | API |
+| Pointer | Meaning | API |
 |---|---|---|
-| Arrow | Standard | `arrow` |
-| Closed hand | Inhalt in View wird verschoben (z. B. Karte) | `closedHand` |
-| Open hand | Verschieben möglich | `openHand` |
-| Contextual menu | Kontextmenü verfügbar (meist nur bei gedrücktem ⌃) | `contextualMenu` |
-| Crosshair | Präzise Rechteckauswahl | `crosshair` |
-| Disappearing item | Gezogenes Element verschwindet beim Ablegen (Original bleibt) | `disappearingItem` |
-| Drag copy | Kopieren statt Bewegen (⌥ beim Ziehen) | `dragCopy` |
-| Drag link | Alias erzeugen (⌥⌘ beim Ziehen) | `dragLink` |
-| Horizontal I-beam | Textauswahl horizontal | `iBeam` |
-| Vertical I-beam | Textauswahl vertikal | `iBeamCursorForVerticalLayout` |
-| Operation not allowed | Ablegen hier nicht möglich | `operationNotAllowed` |
+| Arrow | Default | `arrow` |
+| Closed hand | Content in the view is being moved (e.g. map) | `closedHand` |
+| Open hand | Moving is possible | `openHand` |
+| Contextual menu | Context menu available (usually only while ⌃ is pressed) | `contextualMenu` |
+| Crosshair | Precise rectangular selection | `crosshair` |
+| Disappearing item | Dragged item disappears on drop (original remains) | `disappearingItem` |
+| Drag copy | Copy instead of move (⌥ while dragging) | `dragCopy` |
+| Drag link | Create alias (⌥⌘ while dragging) | `dragLink` |
+| Horizontal I-beam | Horizontal text selection | `iBeam` |
+| Vertical I-beam | Vertical text selection | `iBeamCursorForVerticalLayout` |
+| Operation not allowed | Dropping here isn't possible | `operationNotAllowed` |
 | Pointing hand | Link | `pointingHand` |
-| Resize up/down/left/right, left/right, up/down | Größe/Position ändern in Richtung | `resizeUp`, `resizeDown`, `resizeLeft`, `resizeRight`, `resizeLeftRight`, `resizeUpDown` |
+| Resize up/down/left/right, left/right, up/down | Change size/position in direction | `resizeUp`, `resizeDown`, `resizeLeft`, `resizeRight`, `resizeLeftRight`, `resizeUpDown` |
 
 (hig:pointing-devices#Pointers)
 
-- **visionOS (kurz):** Blickziel bestimmt Pointer-Kontext; Pointer verschwindet während Trackpad-Gesten (hig:pointing-devices#visionOS). iOS: keine Zusatzhinweise; tvOS/watchOS nicht unterstützt.
+- **visionOS (brief):** gaze target determines pointer context; pointer disappears during trackpad gestures (hig:pointing-devices#visionOS). iOS: no additional considerations; tvOS/watchOS not supported.
 
 ---
 
 ## Digital Crown
 
-Zweck: Hardware-Eingabe auf Apple Watch (System + Apps) und Vision Pro (nur System) (hig:digital-crown).
+Purpose: hardware input on Apple Watch (system + apps) and Vision Pro (system only) (hig:digital-crown).
 
 ### Apple Watch
 
-- Ab watchOS 10 primäre Navigationseingabe: Smart Stack auf dem Watch Face, Home Screen, vertikal paginierte Tabs, Listen, Seiten variabler Höhe (hig:digital-crown#Apple-Watch).
-- Apps erhalten **keine** Crown-Drücke – reserviert fürs System (Home Screen) (hig:digital-crown#Apple-Watch).
-- Verankere die App-Navigation an der Crown (vertikale List/Tab/Scroll-Views) und biete parallel Touch-Äquivalente (hig:digital-crown#Apple-Watch).
-- Nutze die Crown zum Inspizieren von Daten, wo keine Navigation nötig ist (Beispiel World Clock: Tageszeit vorspulen) (hig:digital-crown#Apple-Watch).
-- Gib sichtbares Feedback auf jede Drehung; sonst wirkt die Crown funktionslos (hig:digital-crown#Apple-Watch).
-- Koppel Änderungsgeschwindigkeit an die Drehgeschwindigkeit; Werte müssen gezielt wählbar bleiben (hig:digital-crown#Apple-Watch).
-- Nutze Standard-Haptik (lineare Detents); abschalten, wenn sie nicht zur Animation passt; Tabellen mit stark unterschiedlichen Zeilenhöhen ggf. lineare statt zeilenbasierte Detents (hig:digital-crown#Apple-Watch).
+- From watchOS 10 the primary navigation input: Smart Stack on the watch face, Home Screen, vertically paginated tabs, lists, pages of variable height (hig:digital-crown#Apple-Watch).
+- Apps receive **no** Crown presses – reserved for the system (Home Screen) (hig:digital-crown#Apple-Watch).
+- Anchor app navigation to the Crown (vertical list/tab/scroll views) and offer touch equivalents in parallel (hig:digital-crown#Apple-Watch).
+- Use the Crown to inspect data where no navigation is needed (example World Clock: advance the time of day) (hig:digital-crown#Apple-Watch).
+- Give visible feedback for every rotation; otherwise the Crown seems nonfunctional (hig:digital-crown#Apple-Watch).
+- Tie the rate of change to the rotation speed; values must remain precisely selectable (hig:digital-crown#Apple-Watch).
+- Use standard haptics (linear detents); turn them off if they don't match the animation; for tables with very different row heights consider linear instead of row-based detents (hig:digital-crown#Apple-Watch).
 
-### Vision Pro (kurz)
+### Vision Pro (brief)
 
-Lautstärke, Immersionsgrad (Portal, Environment, Full Space), Recenter, Bedienungshilfen, App verlassen. Apps erhalten keine direkten Crown-Informationen (hig:digital-crown#Apple-Vision-Pro).
+Volume, level of immersion (portal, environment, Full Space), recenter, accessibility, exit app. Apps receive no direct Crown information (hig:digital-crown#Apple-Vision-Pro).
 
 ---
 
-## Apple Pencil und Scribble
+## Apple Pencil and Scribble
 
-Zweck: Präzises Zeichnen, Schreiben, Markieren auf iPad; Scribble = Handschrift in jedem Textfeld, on-device erkannt. Nur iPadOS (hig:apple-pencil-and-scribble).
+Purpose: precise drawing, writing, marking on iPad; Scribble = handwriting in any text field, recognized on-device. iPadOS only (hig:apple-pencil-and-scribble).
 
-### Kernregeln
+### Core rules
 
-- Unterstütze, was Menschen von echten Stiften erwarten (z. B. in Ränder schreiben) (hig:apple-pencil-and-scribble#Best-practices).
-- Alle Controls müssen auch auf Pencil reagieren – kein Wechsel zum Finger erzwingen (hig:apple-pencil-and-scribble#Best-practices).
-- Markieren sofort beim Aufsetzen, ohne Modus/Button vorher (hig:apple-pencil-and-scribble#Best-practices).
-- Nutze Tilt (Altitude), Force, Azimuth, Barrel roll für Strichcharakter; Druck für kontinuierliche Eigenschaften (Deckkraft, Pinselgröße) (hig:apple-pencil-and-scribble#Best-practices).
-- Direkte Verbindung zum Inhalt; keine entfernten Effekte auslösen (hig:apple-pencil-and-scribble#Best-practices).
-- Links- und Rechtshänder: keine verdeckbaren Controls bzw. verschiebbar machen (hig:apple-pencil-and-scribble#Best-practices).
+- Support what people expect from real pens (e.g. writing in margins) (hig:apple-pencil-and-scribble#Best-practices).
+- All controls must also respond to Pencil – don't force a switch to the finger (hig:apple-pencil-and-scribble#Best-practices).
+- Mark immediately on touchdown, without selecting a mode/button first (hig:apple-pencil-and-scribble#Best-practices).
+- Use tilt (altitude), force, azimuth, barrel roll for stroke character; pressure for continuous properties (opacity, brush size) (hig:apple-pencil-and-scribble#Best-practices).
+- Direct connection to content; don't trigger distant effects (hig:apple-pencil-and-scribble#Best-practices).
+- Left- and right-handed users: no controls that can be obscured, or make them movable (hig:apple-pencil-and-scribble#Best-practices).
 
-### Interaktionen
+### Interactions
 
-| Interaktion | Regeln |
+| Interaction | Rules |
 |---|---|
-| Hover | Vorschau der kommenden Markierung; nicht mit Höhe variieren; keine Aktionen auslösen; Vorschau mit mittlerem Wert dynamischer Bereiche; Hover-Vorschau nur für Pencil, nicht für Pointer (hig:apple-pencil-and-scribble#Hover) |
-| Double tap | Nutzer-Einstellung respektieren (Standard: Werkzeug ↔ Radierer; Alternativen: vorheriges Werkzeug, Farbwähler, nichts); Custom-Verhalten nur optional und nicht Default; keine inhaltsverändernden/destruktiven Aktionen (hig:apple-pencil-and-scribble#Double-tap) |
-| Squeeze (Pencil Pro) | Einzelne, diskrete Aktion; Ergebnis nahe der Stiftspitze; nicht-destruktiv, rückgängig machbar; Nutzer können Squeeze auf ein App Shortcut legen; nur bei eingeschaltetem Display und ohne Kontakt (hig:apple-pencil-and-scribble#Squeeze) |
-| Barrel roll (Pencil Pro) | Nur Markierverhalten ändern (z. B. Strichwinkel), nie Navigation/Controls (hig:apple-pencil-and-scribble#Barrel-roll) |
+| Hover | Preview of the upcoming mark; don't vary with height; don't trigger actions; preview with the midpoint value of dynamic ranges; hover preview only for Pencil, not for pointer (hig:apple-pencil-and-scribble#Hover) |
+| Double tap | Respect the user setting (default: tool ↔ eraser; alternatives: previous tool, color picker, nothing); custom behavior only optional and not the default; no content-changing/destructive actions (hig:apple-pencil-and-scribble#Double-tap) |
+| Squeeze (Pencil Pro) | Single, discrete action; result near the pencil tip; nondestructive, undoable; users can assign squeeze to an App Shortcut; only with display on and without contact (hig:apple-pencil-and-scribble#Squeeze) |
+| Barrel roll (Pencil Pro) | Change only marking behavior (e.g. stroke angle), never navigation/controls (hig:apple-pencil-and-scribble#Barrel-roll) |
 
 ### Scribble
 
-- Funktioniert standardmäßig in allen Standard-Textkomponenten außer Passwortfeldern; Custom Fields nicht erst antippen lassen (hig:apple-pencil-and-scribble#Scribble).
-- Scribble überall anbieten, wo Text naheliegt, auch ohne sichtbares Feld (`UIIndirectScribbleInteraction`, Beispiel Reminders) (hig:apple-pencil-and-scribble#Scribble).
-- Während des Schreibens: keine Autovervollständigung einblenden, Platzhalter sofort ausblenden, Feld nicht bewegen/skalieren, kein Autoscroll (hig:apple-pencil-and-scribble#Scribble).
-- Genug Schreibfläche: Feld vor Beginn oder in Pausen vergrößern (`UIScribbleInteraction`) (hig:apple-pencil-and-scribble#Scribble).
+- Works by default in all standard text components except password fields; don't require tapping custom fields first (hig:apple-pencil-and-scribble#Scribble).
+- Offer Scribble wherever text is natural, even without a visible field (`UIIndirectScribbleInteraction`, example Reminders) (hig:apple-pencil-and-scribble#Scribble).
+- While writing: don't show autocompletion, hide the placeholder immediately, don't move/scale the field, no autoscroll (hig:apple-pencil-and-scribble#Scribble).
+- Enough writing space: enlarge the field before writing starts or during pauses (`UIScribbleInteraction`) (hig:apple-pencil-and-scribble#Scribble).
 
 ### Custom drawing (PencilKit)
 
-- Beim Zeichnen auf PDF/Foto dynamische Dark-Mode-Farbanpassung abschalten (hig:apple-pencil-and-scribble#Custom-drawing).
-- In compact environments eigene Undo/Redo-Buttons (Tool picker hat dort keine); Drei-Finger-Undo unterstützen (hig:apple-pencil-and-scribble#Custom-drawing).
+- When drawing on a PDF/photo, turn off dynamic Dark Mode color adaptation (hig:apple-pencil-and-scribble#Custom-drawing).
+- In compact environments, custom undo/redo buttons (the tool picker has none there); support three-finger undo (hig:apple-pencil-and-scribble#Custom-drawing).
 
 ---
 
 ## Game controls
 
-Zweck: Präzise Spielsteuerung über Touch, physische Controller, Keyboard (hig:game-controls).
+Purpose: precise game control via touch, physical controllers, keyboard (hig:game-controls).
 
-### Touch controls (iOS/iPadOS, Framework `TouchController`)
+### Touch controls (iOS/iPadOS, framework `TouchController`)
 
-- Virtuelle Controls nur, wenn sinnvoll; wo möglich direkte Interaktion mit Spielobjekten (hig:game-controls#Touch-controls).
-- Platzierung: Safe areas beachten, nicht über Home indicator/Dynamic Island; häufige Buttons am Daumen, sekundäre (Menüs) oben (hig:game-controls#Touch-controls).
-- Mindestgrößen: häufige Controls **44x44 pt**, weniger wichtige (Menüs) **28x28 pt** (hig:game-controls#Touch-controls).
-- Sichtbarer (auch unter dem Finger, z. B. Glow) und taktiler Press-State plus Sound/Haptik (hig:game-controls#Touch-controls).
-- Symbole, die die Aktion zeigen – keine Controller-Namen wie A, X, R1 (hig:game-controls#Touch-controls).
-- Controls kontextabhängig ein-/ausblenden; Aktionen zusammenlegen (Double tap, Touch and hold für Varianten) (hig:game-controls#Touch-controls).
-- Bewegung links, Kamera rechts; Thumbstick dort erscheinen lassen, wo der Daumen landet; Kamera per direktem Pan statt Thumbstick (hig:game-controls#Touch-controls).
+- Virtual controls only when it makes sense; where possible, direct interaction with game objects (hig:game-controls#Touch-controls).
+- Placement: respect safe areas, not over the Home indicator/Dynamic Island; frequent buttons near the thumb, secondary ones (menus) at the top (hig:game-controls#Touch-controls).
+- Minimum sizes: frequent controls **44x44 pt**, less important ones (menus) **28x28 pt** (hig:game-controls#Touch-controls).
+- Visible (even under the finger, e.g. glow) and tactile pressed state plus sound/haptics (hig:game-controls#Touch-controls).
+- Symbols that show the action – no controller names like A, X, R1 (hig:game-controls#Touch-controls).
+- Show/hide controls depending on context; combine actions (double tap, touch and hold for variants) (hig:game-controls#Touch-controls).
+- Movement on the left, camera on the right; make the thumbstick appear where the thumb lands; camera via direct pan instead of a thumbstick (hig:game-controls#Touch-controls).
 
-### Physische Controller
+### Physical controllers
 
-- Immer Fallback auf die Standard-Eingabe der Plattform (hig:game-controls#Physical-controllers).
-- tvOS/visionOS dürfen Controller voraussetzen (App-Store-Badge „Game Controller Required“, `GCRequiresControllerUserInteraction`); fehlenden Controller erkennen und freundlich zum Verbinden auffordern (hig:game-controls#Physical-controllers).
-- Controller automatisch erkennen; Beschriftung/Glyphen des tatsächlich verbundenen Controllers zeigen (`GCControllerElement`); bei mehreren Controllern den aktiven verwenden (hig:game-controls#Physical-controllers).
-- SF Symbols statt Text für Controller-Elemente (hig:game-controls#Physical-controllers).
+- Always fall back to the platform's default input (hig:game-controls#Physical-controllers).
+- tvOS/visionOS may require a controller (App Store badge "Game Controller Required", `GCRequiresControllerUserInteraction`); detect a missing controller and prompt kindly to connect one (hig:game-controls#Physical-controllers).
+- Detect controllers automatically; show labels/glyphs of the actually connected controller (`GCControllerElement`); with multiple controllers, use the active one (hig:game-controls#Physical-controllers).
+- SF Symbols instead of text for controller elements (hig:game-controls#Physical-controllers).
 
-UI-Mapping außerhalb des Gameplays (alle Apple-Plattformen):
+UI mapping outside of gameplay (all Apple platforms):
 
-| Button | Verhalten in UI |
+| Button | Behavior in UI |
 |---|---|
-| A | Control aktivieren |
-| B | Abbrechen / zurück |
+| A | Activate a control |
+| B | Cancel / back |
 | X, Y | – |
-| Left/Right shoulder | Zu anderem Screen/Abschnitt links/rechts |
+| Left/Right shoulder | To another screen/section left/right |
 | Left/Right trigger | – |
-| Thumbsticks, D-Pad | Auswahl bewegen |
-| Home/Logo | System reserviert |
-| Menu | Spieleinstellungen / Pause |
+| Thumbsticks, D-pad | Move selection |
+| Home/Logo | Reserved by the system |
+| Menu | Game settings / pause |
 
 (hig:game-controls#Physical-controllers)
 
-### Keyboard (Spiele)
+### Keyboard (games)
 
-- Single-Key-Befehle bevorzugen (I = Inventory, M = Map, Space = Hauptaktion) (hig:game-controls#Keyboards).
-- Auf Apple-Tastatur testen (⌃ ggf. auf ⌘ legen, liegt neben Space) (hig:game-controls#Keyboards).
-- Nähe zu WASD und Gruppierung verwandter Aktionen (Zahlentasten) beachten; Key bindings frei belegbar machen (hig:game-controls#Keyboards).
+- Prefer single-key commands (I = Inventory, M = Map, Space = main action) (hig:game-controls#Keyboards).
+- Test on an Apple keyboard (consider mapping ⌃ to ⌘, which sits next to Space) (hig:game-controls#Keyboards).
+- Consider proximity to WASD and grouping of related actions (number keys); make key bindings freely remappable (hig:game-controls#Keyboards).
 
-- **visionOS (kurz):** Spatial game controller (z. B. PlayStation VR2 Sense) wie Hände behandeln: Blick + Trigger = indirekt, hingreifen + Trigger = direkt (hig:game-controls#visionOS). watchOS: keine Controller.
+- **visionOS (brief):** treat spatial game controllers (e.g. PlayStation VR2 Sense) like hands: look + trigger = indirect, reach + trigger = direct (hig:game-controls#visionOS). watchOS: no controllers.
 
 ---
 
 ## Focus and selection
 
-Zweck: Fokus zeigt, worauf eine Interaktion zielt; Navigation per Keyboard, Remote, Controller. Fokus wählt oft auch aus, außer wenn das einen störenden Kontextwechsel auslösen würde (hig:focus-and-selection).
+Purpose: focus shows what an interaction targets; navigation via keyboard, remote, controller. Focus often also selects, except when that would cause a disruptive context change (hig:focus-and-selection).
 
-### Kernregeln
+### Core rules
 
-- Nutze systemseitige Fokuseffekte; Custom nur wenn zwingend (hig:focus-and-selection#Best-practices).
-- Ändere Fokus nicht ohne Nutzeraktion. Ausnahme: diskrete Richtungs-Eingabe und das fokussierte Element verschwindet → zu benachbartem Element; sonst Fokusindikator ausblenden (hig:focus-and-selection#Best-practices).
-- iPadOS/macOS: Fokus nur für Content-Elemente (Listeneinträge, Text-/Suchfelder), nicht für Buttons, Slider, Toggles (das deckt Full Keyboard Access ab). tvOS: jedes Element fokussierbar (hig:focus-and-selection#Best-practices).
-- Focus ring für Text-/Suchfelder, Highlight für Listen/Collections; fokussierte Listeneinträge: weißer Text + Akzentfarb-Hintergrund, unfokussiert grau (hig:focus-and-selection#Best-practices).
+- Use system focus effects; custom only when absolutely necessary (hig:focus-and-selection#Best-practices).
+- Don't change focus without user action. Exception: discrete directional input and the focused element disappears → move to an adjacent element; otherwise hide the focus indicator (hig:focus-and-selection#Best-practices).
+- iPadOS/macOS: focus only for content elements (list items, text/search fields), not for buttons, sliders, toggles (Full Keyboard Access covers those). tvOS: every element focusable (hig:focus-and-selection#Best-practices).
+- Focus ring for text/search fields, highlight for lists/collections; focused list items: white text + accent color background, unfocused gray (hig:focus-and-selection#Best-practices).
 
-### Plattform-Unterschiede
+### Platform differences
 
-- **iPadOS (ab 15):** Focus groups. Tab springt zwischen Gruppen (Sidebar, Grid, Liste), Pfeiltasten innerhalb einer Gruppe; Reihenfolge leading→trailing, oben→unten. Halo (Focus ring) anpassbar (`UIFocusHaloEffect`); Gruppen via `focusGroupIdentifier`, Primär-Element via `UIFocusGroupPriority`. Highlight (Akzentfarb-Text) ist kein Fokuseffekt (hig:focus-and-selection#iPadOS).
-- **macOS:** Focus ring / Highlight wie oben; Full Keyboard Access deckt Controls ab (hig:focus-and-selection#Best-practices).
-- **tvOS (kurz):** Directional focus, Parallax; bis zu fünf Zustände (unfocused, focused, highlighted, selected, unavailable); Assets in vergrößerter Fokusgröße liefern; kein Pointer; im Vollbild Gesten auf Inhalt, nicht auf Fokus (hig:focus-and-selection#tvOS).
-- **visionOS (kurz):** Gleiches Fokus-System für externe Eingabegeräte; Blick-Hervorhebung ist der Hover effect, kein Fokus (hig:focus-and-selection#visionOS).
-- iOS, watchOS: nicht unterstützt.
+- **iPadOS (15 and later):** focus groups. Tab jumps between groups (sidebar, grid, list), arrow keys within a group; order leading→trailing, top→bottom. Halo (focus ring) customizable (`UIFocusHaloEffect`); groups via `focusGroupIdentifier`, primary element via `UIFocusGroupPriority`. Highlight (accent-color text) is not a focus effect (hig:focus-and-selection#iPadOS).
+- **macOS:** focus ring / highlight as above; Full Keyboard Access covers controls (hig:focus-and-selection#Best-practices).
+- **tvOS (brief):** directional focus, parallax; up to five states (unfocused, focused, highlighted, selected, unavailable); provide assets at the enlarged focus size; no pointer; in full screen, gestures act on content, not focus (hig:focus-and-selection#tvOS).
+- **visionOS (brief):** same focus system for external input devices; gaze highlighting is the hover effect, not focus (hig:focus-and-selection#visionOS).
+- iOS, watchOS: not supported.
 
 ---
 
 ## Action button
 
-Zweck: Hardware-Taste auf unterstützten iPhone- und Apple-Watch-Modellen für App Shortcuts oder Systemfunktionen; auf Apple Watch Ultra zusätzlich Workout/Dive (hig:action-button).
+Purpose: hardware button on supported iPhone and Apple Watch models for App Shortcuts or system functions; on Apple Watch Ultra additionally Workout/Dive (hig:action-button).
 
-### Kernregeln
+### Core rules
 
-- Biete eine Auswahl essenzieller Funktionen als App Shortcuts an; kein Shortcut nur zum Öffnen der App (macht das System) (hig:action-button#Best-practices).
-- Labels (sichtbar in Settings): Title-Case, Verb am Anfang, Präsens, ohne Artikel/Präpositionen, **maximal drei Wörter** („Start Race“) (hig:action-button#Best-practices).
-- Keine eigene Anleitung, die die System-Hilfe in Settings wiederholt (hig:action-button#Best-practices).
+- Offer a selection of essential functions as App Shortcuts; no shortcut just to open the app (the system does that) (hig:action-button#Best-practices).
+- Labels (visible in Settings): title case, verb first, present tense, without articles/prepositions, **maximum three words** ("Start Race") (hig:action-button#Best-practices).
+- No custom instructions that repeat the system help in Settings (hig:action-button#Best-practices).
 
-### Plattform-Unterschiede
+### Platform differences
 
-- **iOS:** Aktion ohne Kontextverlust ausführen – Live Activities und Snippets statt App-Start (Beispiel „Set Timer“) (hig:action-button#iOS).
-- **watchOS:** Erster Druck z. B. Wegpunkt, Tauchgang, Workout; Folgedrücke als logische Sekundärfunktion (Segment markieren, nächste Disziplin) – meist nur eine; Folgedrücke erweitern statt beenden (Stoppen in der UI); Action + Side button gemeinsam = Pause (Ausnahme Tauchen) (hig:action-button#watchOS).
-- iPadOS, macOS, tvOS, visionOS: nicht unterstützt.
+- **iOS:** perform the action without losing context – Live Activities and snippets instead of launching the app (example "Set Timer") (hig:action-button#iOS).
+- **watchOS:** first press e.g. waypoint, dive, workout; subsequent presses as a logical secondary function (mark segment, next discipline) – usually only one; subsequent presses extend rather than end (stopping in the UI); Action + side button together = pause (exception: diving) (hig:action-button#watchOS).
+- iPadOS, macOS, tvOS, visionOS: not supported.
 
 ---
 
 ## Camera Control
 
-Zweck: Hardware-Control auf iPhone 16 / iPhone 16 Pro (Stand der Seite), öffnet das Kamera-Erlebnis der App; leichter Druck zeigt Overlay, leichter Doppeldruck zeigt verfügbare Controls, Wischen stellt Werte ein (hig:camera-control).
+Purpose: hardware control on iPhone 16 / iPhone 16 Pro (as of the page's state), opens the app's camera experience; light press shows the overlay, light double press shows available controls, swiping adjusts values (hig:camera-control).
 
-- Control-Typen: **Slider** (Wertebereich) und **Picker** (diskrete Optionen); System-Controls für Zoom und Belichtung optional einbindbar (hig:camera-control#Anatomy).
-- Nur SF Symbols (keine Custom symbols); Symbole zeigen Funktion, nicht Zustand (hig:camera-control#Best-practices).
-- Kurze Control-Namen (Dynamic Type, verdecken sonst den Sucher) (hig:camera-control#Best-practices).
-- Einheiten an Slider-Werten (EV, %, eigener String; `localizedValueFormat`) und Prominent values definieren (`prominentValues`) (hig:camera-control#Best-practices).
-- UI außerhalb der Overlay-Zone (Hoch- und Querformat); keine doppelten Controls in UI und Overlay (hig:camera-control#Best-practices).
-- Controls je Kameramodus aktivieren/deaktivieren – zur Laufzeit nicht hinzufügen/entfernen (hig:camera-control#Best-practices).
-- Häufige Controls in die Mitte, seltene an die Ränder; System merkt sich zuletzt benutztes Control (hig:camera-control#Best-practices).
-- Locked camera capture extension anbieten (Start vom Sperrbildschirm, Home Screen, anderen Apps) (hig:camera-control#Best-practices, hig:controls#Camera-experiences-on-a-locked-device).
-- Nur iOS.
+- Control types: **slider** (range of values) and **picker** (discrete options); system controls for zoom and exposure can optionally be included (hig:camera-control#Anatomy).
+- SF Symbols only (no custom symbols); symbols show function, not state (hig:camera-control#Best-practices).
+- Short control names (Dynamic Type, otherwise they cover the viewfinder) (hig:camera-control#Best-practices).
+- Units on slider values (EV, %, custom string; `localizedValueFormat`) and define prominent values (`prominentValues`) (hig:camera-control#Best-practices).
+- UI outside the overlay zone (portrait and landscape); no duplicate controls in UI and overlay (hig:camera-control#Best-practices).
+- Enable/disable controls per camera mode – don't add/remove them at runtime (hig:camera-control#Best-practices).
+- Frequent controls in the middle, infrequent ones at the edges; the system remembers the most recently used control (hig:camera-control#Best-practices).
+- Offer a locked camera capture extension (launch from the Lock Screen, Home Screen, other apps) (hig:camera-control#Best-practices, hig:controls#Camera-experiences-on-a-locked-device).
+- iOS only.
 
 ---
 
 ## Gyroscope/Accelerometer, Nearby interactions
 
-**Gyroscope und Accelerometer** (Core Motion; iOS, iPadOS, watchOS; tvOS über Siri Remote) (hig:gyro-and-accelerometer):
-- Bewegungsdaten nur mit konkretem Nutzen erheben (hig:gyro-and-accelerometer#Best-practices).
-- Zugriff erfordert Begründungstext im Permission-Dialog (hig:gyro-and-accelerometer#Best-practices).
-- Außerhalb aktiven Gameplays keine direkte UI-Manipulation per Bewegung (schwer reproduzierbar, körperlich fordernd, Akku) (hig:gyro-and-accelerometer#Best-practices).
+**Gyroscope and accelerometer** (Core Motion; iOS, iPadOS, watchOS; tvOS via Siri Remote) (hig:gyro-and-accelerometer):
+- Collect motion data only when there is a concrete benefit (hig:gyro-and-accelerometer#Best-practices).
+- Access requires a purpose string in the permission dialog (hig:gyro-and-accelerometer#Best-practices).
+- Outside active gameplay, no direct UI manipulation via motion (hard to reproduce, physically demanding, battery) (hig:gyro-and-accelerometer#Best-practices).
 
-**Nearby interactions** (Ultra Wideband, Framework `NearbyInteraction`; iOS, iPadOS, watchOS) (hig:nearby-interactions):
-- Aufgabe aus Sicht der physischen Welt denken (z. B. Audio-Übergabe an HomePod mini durch Annähern) (hig:nearby-interactions#Best-practices).
-- Distanz, Richtung, Kontext nutzen; Feedback mit Nähe verändern; kontinuierliches Feedback; visuell, akustisch, haptisch kombinieren (hig:nearby-interactions#Best-practices).
-- Nie einziger Weg zu einer Aufgabe (hig:nearby-interactions#Best-practices).
-- Hochformat fördern (implizit, nicht per Anweisung); Sensor-Sichtfeld wie Ultra-Wide-Kamera (iPhone 11 und neuer) – außerhalb nur Distanz, keine Richtung; Hindernisse in Onboarding erklären (hig:nearby-interactions#Device-usage).
-- iOS: Distanz und Richtung; watchOS: nur Distanz, App muss im Vordergrund sein (hig:nearby-interactions#Platform-considerations).
+**Nearby interactions** (Ultra Wideband, framework `NearbyInteraction`; iOS, iPadOS, watchOS) (hig:nearby-interactions):
+- Think about the task from the perspective of the physical world (e.g. handing off audio to HomePod mini by moving closer) (hig:nearby-interactions#Best-practices).
+- Use distance, direction, context; vary feedback with proximity; continuous feedback; combine visual, audible, haptic (hig:nearby-interactions#Best-practices).
+- Never the only way to perform a task (hig:nearby-interactions#Best-practices).
+- Encourage portrait orientation (implicitly, not via instruction); sensor field of view like the Ultra Wide camera (iPhone 11 and later) – outside it only distance, no direction; explain obstructions in onboarding (hig:nearby-interactions#Device-usage).
+- iOS: distance and direction; watchOS: distance only, app must be in the foreground (hig:nearby-interactions#Platform-considerations).
 
 ---
 
 ## Remotes (tvOS)
 
-Nur der Vollständigkeit halber (außerhalb des Fokus): Standard-Gesten für Standard-Aktionen; Gesten mit Fokusrichtung koppeln; Press (bewusst) vs. Tap (navigieren) unterscheiden, bei Live-Video keine Taps auswerten; Back öffnet den Parent (im Spiel: Pause-Menü); Play/Pause steuert Wiedergabe; EPG-Tasten erwartungskonform (hig:remotes).
+Only for completeness (outside the focus): standard gestures for standard actions; couple gestures with focus direction; distinguish press (deliberate) vs. tap (navigate), don't evaluate taps during live video; Back opens the parent (in a game: pause menu); Play/Pause controls playback; EPG buttons as expected (hig:remotes).
 
-| Taste/Bereich | App | Spiel |
+| Button/area | App | Game |
 |---|---|---|
-| Touch surface (Swipe) | Navigieren, Fokus ändern | D-Pad |
-| Touch surface (Press) | Aktivieren, tiefer navigieren | Primärtaste |
-| Back | Zurück / Apple TV Home | Pause/Fortsetzen, zurück, Hauptmenü, Home |
-| Play/Pause | Wiedergabe starten/pausieren | Sekundärtaste, Intro überspringen |
+| Touch surface (swipe) | Navigate, change focus | D-pad |
+| Touch surface (press) | Activate, navigate deeper | Primary button |
+| Back | Back / Apple TV Home | Pause/resume, back, main menu, Home |
+| Play/Pause | Start/pause playback | Secondary button, skip intro |
 
 (hig:remotes#Buttons)
 
@@ -553,25 +553,25 @@ Nur der Vollständigkeit halber (außerhalb des Fokus): Standard-Gesten für Sta
 
 ## Eyes (visionOS)
 
-Kurzfassung: Blick wählt Ziel, System zeigt Hover effect; App erfährt aus Datenschutzgründen nicht, wohin geschaut wird – nur den Tap (hig:eyes).
+Summary: gaze selects the target, the system shows the hover effect; for privacy reasons the app isn't told where the person is looking – only the tap (hig:eyes).
 
-- Mehrere Interaktionswege anbieten (Accessibility) (hig:eyes#Best-practices).
-- Inhalte im Sichtfeld; Lesestoff mindestens **1 m** entfernt platzieren (hig:eyes#Best-practices).
-- Abstand zwischen interaktiven Elementen: mind. **16 pt** Rand um jedes Element oder Mittelpunkte mind. **60 pt** auseinander (hig:eyes#Making-items-easy-to-see).
-- Runde Formen bevorzugen; zusammengesetzte Komponenten mit gemeinsamer Hover-Region; keine flächenfüllenden Wiederholmuster; Bewegung nahe dem Blickziel vermeiden (hig:eyes#Making-items-easy-to-see, hig:eyes#Encouraging-interaction).
-- Custom hover effects laufen außerhalb des App-Prozesses (kein Code bei Blick); sparsam einsetzen; Delay: keiner (subtil), kurz (Tab-Bar-Expansion), lang (Tooltip); eine Primär-View stabil halten (hig:eyes#Custom-hover-effects).
+- Offer multiple ways to interact (accessibility) (hig:eyes#Best-practices).
+- Content within the field of view; place reading material at least **1 m** away (hig:eyes#Best-practices).
+- Spacing between interactive elements: at least **16 pt** padding around each element or centers at least **60 pt** apart (hig:eyes#Making-items-easy-to-see).
+- Prefer rounded shapes; compound components with a shared hover region; no area-filling repeating patterns; avoid motion near the gaze target (hig:eyes#Making-items-easy-to-see, hig:eyes#Encouraging-interaction).
+- Custom hover effects run outside the app process (no code on gaze); use sparingly; delay: none (subtle), short (tab bar expansion), long (tooltip); keep one primary view stable (hig:eyes#Custom-hover-effects).
 
 ---
 
-## Auffälligkeiten und Unklarheiten
+## Observations and ambiguities
 
-- **Shortcut-Tabelle ohne Plattformzuordnung:** hig:keyboards enthält nur eine gemeinsame Tabelle, die überwiegend macOS-Systemfunktionen beschreibt; eine eigene iPadOS-Shortcut-Liste gibt es im Spiegel nicht. Für iPadOS sind daher nur die app-bezogenen Einträge (⌘C/V/X/Z, ⌘N, ⌘F, ⌘W, ⌘, …) sinnvoll übertragbar – das ist eine Ableitung, keine HIG-Aussage.
-- **⌘I doppelt belegt** (Kursiv und Info-Fenster) – so in der HIG-Tabelle; die Seite nennt ⌘I als Beispiel für zulässige Umwidmung, wenn keine Textbearbeitung existiert.
-- **F12 „Dashboard“**: Die Tabelle nennt noch Dashboard, das es in aktuellen macOS-Versionen nicht mehr gibt – Tabelle wirkt in Teilen veraltet; ebenso „window drawer“ (⌥⌘`).
-- **⌘←/⌘→** sind in der Tabelle nur als Tastaturlayout-Wechsel geführt; Cursor-Sprung an Zeilenanfang/-ende fehlt. Navigations-Shortcuts ohne ⇧ (⌥←, ⌘↑ usw.) sind generell nicht aufgeführt.
-- Tippfehler in der Quelle: „Control- F3“ (Leerzeichen) – hier normalisiert zu ⌃F3.
-- **Camera Control** nennt nur iPhone 16 / 16 Pro; ob spätere Modelle gemeint sind, sagt die Seite nicht (Update-Stand 2024-09-09).
-- **watchOS-Double-tap**: hig:gestures nennt Apple Watch Series 9 und Ultra 2 in der Gesten-Tabelle, im Fließtext „watchOS 11 and later“ ohne Modellliste.
-- **Standard-Eingabe visionOS = „Touch“** in hig:designing-for-games widerspricht der sonstigen Darstellung (Eyes + indirekte Gesten, hig:designing-for-visionos); watchOS = „Touch“ ignoriert die Digital Crown als primäre Navigationseingabe (hig:digital-crown).
-- **Gyroscope-Seite** listet macOS und visionOS als Plattform, der Text nennt aber nur iOS, iPadOS, watchOS und tvOS (Siri Remote).
-- hig:designing-for-ios verlinkt noch auf den alten Slug `spatial-interactions` (heute `nearby-interactions`, umbenannt 2023-06-21).
+- **Shortcut table without platform assignment:** hig:keyboards contains only one shared table that mostly describes macOS system functions; a separate iPadOS shortcut list doesn't exist in the mirror. For iPadOS, therefore, only the app-related entries (⌘C/V/X/Z, ⌘N, ⌘F, ⌘W, ⌘, …) transfer meaningfully – this is an inference, not an HIG statement.
+- **⌘I assigned twice** (italic and Info window) – as in the HIG table; the page cites ⌘I as an example of permissible repurposing when no text editing exists.
+- **F12 "Dashboard"**: the table still lists Dashboard, which no longer exists in current macOS versions – the table appears partly outdated; likewise "window drawer" (⌥⌘`).
+- **⌘←/⌘→** are listed in the table only as keyboard layout switches; the cursor jump to beginning/end of line is missing. Navigation shortcuts without ⇧ (⌥←, ⌘↑, etc.) are generally not listed.
+- Typo in the source: "Control- F3" (space) – normalized here to ⌃F3.
+- **Camera Control** mentions only iPhone 16 / 16 Pro; whether later models are meant, the page doesn't say (update state 2024-09-09).
+- **watchOS double tap**: hig:gestures mentions Apple Watch Series 9 and Ultra 2 in the gestures table, in the body text "watchOS 11 and later" without a model list.
+- **Default input visionOS = "Touch"** in hig:designing-for-games contradicts the rest of the documentation (eyes + indirect gestures, hig:designing-for-visionos); watchOS = "Touch" ignores the Digital Crown as the primary navigation input (hig:digital-crown).
+- **Gyroscope page** lists macOS and visionOS as platforms, but the text mentions only iOS, iPadOS, watchOS, and tvOS (Siri Remote).
+- hig:designing-for-ios still links to the old slug `spatial-interactions` (now `nearby-interactions`, renamed 2023-06-21).

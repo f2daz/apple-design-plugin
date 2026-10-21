@@ -1,15 +1,15 @@
-# icon – App-Icon gestalten
+# icon – design the app icon
 
-Regeln und Maße stehen in [icons-and-symbols.md](../foundations/icons-and-symbols.md) (Quelle: hig:app-icons). Dieses Playbook steuert den Ablauf.
+Rules and sizes are in [icons-and-symbols.md](../foundations/icons-and-symbols.md) (source: hig:app-icons). This playbook drives the process.
 
-## Ablauf
+## Steps
 
-1. **Briefing** (AskUserQuestion): Plattformen (iOS/iPadOS, macOS, watchOS – ein `.icon` kann alle bedienen) · Motiv-Idee (eine Idee, kein Text, kein Screenshot) · Stil (flach-grafisch, Glyph mit Farbfläche, illustrativ) · Werkzeug (Icon Composer (Empfohlen) · Figma/Illustrator-Template).
-2. **Vorlagen holen**:
-   - Icon Composer: `resources.py show "icon composer"` (Download über developer.apple.com, ab macOS Sequoia).
-   - Templates: `resources.py show "app icon template"` (Figma/Sketch-Link) bzw. `resources.py download "icon templates" --accept-license` (Photoshop/Illustrator).
-3. **Ebenen planen**: Hintergrund + 1–3 Vordergrundebenen, als Vektoren (SVG) exportiert; Liquid-Glass-Eigenschaften (Specular, Blur, Translucency, Shadow) entstehen in Icon Composer, nicht im Artwork.
-4. **Varianten**: Default, Dark, Clear (light/dark), Tinted – jede kontrollieren; Mac-Icon darf eigenständiger wirken, Watch-Icon ist rund (siehe Referenz).
-5. **`.icon`-Paket erzeugen/prüfen**: Wenn der Skill `compose-app-icon` verfügbar ist, ihn für Aufbau/Validierung von `icon.json` nutzen. Sonst Icon Composer manuell.
-6. **Einbinden**: `.icon`-Datei ins Xcode-Projekt ziehen, als App-Icon im Target setzen; ältere OS-Versionen bekommen automatisch generierte Bitmaps (Details prüfen: `hig_search.py page app-icons --section "Platform considerations"`).
-7. **Prüfen**: Home Screen hell/dunkel/getönt, kleine Größen (Einstellungen, Spotlight), Mac Dock/Finder, Watch-Raster.
+1. **Briefing** (AskUserQuestion): platforms (iOS/iPadOS, macOS, watchOS – one `.icon` can serve all) · motif idea (one idea, no text, no screenshot) · style (flat graphic, glyph on a color field, illustrative) · tool (Icon Composer (Recommended) · Figma/Illustrator template).
+2. **Get the templates:**
+   - Icon Composer: `resources.py show "icon composer"` (download via developer.apple.com, macOS Sequoia or later).
+   - Templates: `resources.py show "app icon template"` (Figma/Sketch link) or `resources.py download "icon templates" --accept-license` (Photoshop/Illustrator).
+3. **Plan layers:** background + 1–3 foreground layers, exported as vectors (SVG); Liquid Glass properties (specular, blur, translucency, shadow) are applied in Icon Composer, not baked into the artwork.
+4. **Variants:** default, dark, clear (light/dark), tinted – review each one; the Mac icon may look more distinct, the Watch icon is circular (see reference).
+5. **Create/validate the `.icon` package:** if the `compose-app-icon` skill is available, use it to build/validate `icon.json`. Otherwise use Icon Composer manually.
+6. **Integrate:** drag the `.icon` file into the Xcode project and set it as the target's app icon; older OS versions automatically get generated bitmaps (check the details: `hig_search.py page app-icons --section "Platform considerations"`).
+7. **Check:** Home Screen light/dark/tinted, small sizes (Settings, Spotlight), Mac Dock/Finder, Watch grid.

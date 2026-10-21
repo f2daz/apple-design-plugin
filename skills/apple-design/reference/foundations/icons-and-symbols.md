@@ -1,112 +1,112 @@
-# Icons, SF Symbols, App-Icons und Bild-Assets
+# Icons, SF Symbols, App Icons, and Image Assets
 
-Quellen (HIG-Spiegel, Stand 2026-10-21): `sf-symbols` (Update 2025-07-28, SF Symbols 7), `icons` (2025-06-09), `app-icons` (2026-06-08, Liquid Glass), `images` (2025-12-16), ergänzend `dark-mode`, `right-to-left`, `inclusion`.
+Sources (HIG mirror, as of 2026-10-21): `sf-symbols` (updated 2025-07-28, SF Symbols 7), `icons` (2025-06-09), `app-icons` (2026-06-08, Liquid Glass), `images` (2025-12-16), plus `dark-mode`, `right-to-left`, `inclusion`.
 
-## Einordnung
+## Overview
 
-Drei Ebenen, die oft verwechselt werden:
+Three levels that are often confused:
 
-| Ebene | Zweck | Format | Wer gestaltet |
+| Level | Purpose | Format | Who designs it |
 |---|---|---|---|
-| **Interface-Icon / Glyph** | Ein Konzept in UI ausdrücken (Toolbar, Tab Bar, Menü, Button) | SF Symbol oder eigenes Vektor-Asset (PDF/SVG), Template (schwarz + transparent) | Bevorzugt SF Symbols, sonst Custom Symbol |
-| **App-Icon** | Identität der App auf Home Screen, Spotlight, Settings, Notifications, Share Sheet | Geschichtete Quelle (Icon Composer bzw. Image Stack) | Eigenes Design, System legt Liquid-Glass-Effekte darüber |
-| **Bild-Asset** | Inhalte, Illustrationen, Fotos | PNG/JPEG/HEIC/PDF/SVG in Asset Catalog, Scale Factors | Eigenes Design |
+| **Interface icon / glyph** | Express a concept in the UI (toolbar, tab bar, menu, button) | SF Symbol or custom vector asset (PDF/SVG), template (black + transparent) | Prefer SF Symbols, otherwise a custom symbol |
+| **App icon** | Identity of the app on the Home Screen, Spotlight, Settings, notifications, share sheet | Layered source (Icon Composer or image stack) | Your own design; the system applies Liquid Glass effects on top |
+| **Image asset** | Content, illustrations, photos | PNG/JPEG/HEIC/PDF/SVG in an asset catalog, scale factors | Your own design |
 
-Werkzeug im Plugin: **`scripts/sf_symbols.py`** zur Suche passender Symbolnamen (z. B. nach Begriff oder Kategorie). Vor jeder Symbolwahl damit prüfen, ob ein Systemsymbol existiert, statt ein eigenes Icon zu zeichnen. Verfügbarkeit hängt von der Ziel-OS-Version ab – Symbole und Features eines Jahrgangs gibt es in älteren Systemen nicht (hig:sf-symbols).
+Tool in the plugin: **`scripts/sf_symbols.py`** for finding suitable symbol names (e.g. by term or category). Before choosing any symbol, use it to check whether a system symbol exists instead of drawing your own icon. Availability depends on the target OS version – symbols and features of a given release are not available on older systems (hig:sf-symbols).
 
-## Kernregeln
+## Core rules
 
 ### SF Symbols
-- Nutze SF Symbols für Interface-Icons; sie richten sich automatisch an San Francisco in allen Gewichten und Größen aus (hig:sf-symbols).
-- Verwende SF Symbols (oder ähnlich aussehende Bilder) **nie** in App-Icons, Logos oder sonstiger Markennutzung – das verbieten die Nutzungsbedingungen (hig:sf-symbols).
-- Prüfe den Rendering-Modus in jedem Kontext (Größe, Hintergrundkontrast); „automatic“ liefert den bevorzugten Modus, ersetzt aber keine Sichtprüfung (hig:sf-symbols#Rendering-modes).
-- Nutze Systemfarben für Symbole, damit sie sich an Dark Mode, Vibrancy und Accessibility-Einstellungen anpassen (hig:sf-symbols#Rendering-modes).
-- Setze Variable Color nur für sich ändernde Werte (Stärke, Füllstand) ein – nicht für Tiefe; Tiefe = Hierarchical (hig:sf-symbols#Variable-color).
-- Stimme Symbol-Gewicht auf das Gewicht des benachbarten Texts ab; Betonung über Scale statt Gewicht steuern (hig:sf-symbols#Weights-and-scales, hig:icons#Best-practices).
-- Überlasse die Wahl Outline vs. Fill möglichst dem Container (Tab Bar iOS → Fill, Toolbar → Outline) (hig:sf-symbols#Design-variants).
-- Animiere Symbole sparsam und nur mit klarer Aussage; zu viele Animationen überladen (hig:sf-symbols#Animations).
-- Passe Symbole, die Apple-Produkte oder -Features darstellen, **nicht** an – sie sind urheberrechtlich geschützt (im SF-Symbols-App mit Info-Badge markiert) (hig:sf-symbols#Custom-symbols).
-- Gib Custom Symbols und eigenen Interface-Icons eine Accessibility-Beschreibung (hig:sf-symbols#Custom-symbols, hig:icons#Best-practices).
+- Use SF Symbols for interface icons; they automatically align with San Francisco in all weights and sizes (hig:sf-symbols).
+- **Never** use SF Symbols (or similar-looking images) in app icons, logos, or any other trademark-related use – the license terms prohibit it (hig:sf-symbols).
+- Check the rendering mode in every context (size, background contrast); "automatic" provides the preferred mode but does not replace a visual check (hig:sf-symbols#Rendering-modes).
+- Use system colors for symbols so they adapt to Dark Mode, vibrancy, and accessibility settings (hig:sf-symbols#Rendering-modes).
+- Use Variable Color only for changing values (strength, fill level) – not for depth; depth = Hierarchical (hig:sf-symbols#Variable-color).
+- Match the symbol weight to the weight of adjacent text; control emphasis via scale rather than weight (hig:sf-symbols#Weights-and-scales, hig:icons#Best-practices).
+- Where possible, let the container decide between outline and fill (iOS tab bar → fill, toolbar → outline) (hig:sf-symbols#Design-variants).
+- Animate symbols sparingly and only with a clear message; too many animations are overwhelming (hig:sf-symbols#Animations).
+- Do **not** modify symbols that depict Apple products or features – they are copyrighted (marked with an info badge in the SF Symbols app) (hig:sf-symbols#Custom-symbols).
+- Give custom symbols and custom interface icons an accessibility description (hig:sf-symbols#Custom-symbols, hig:icons#Best-practices).
 
-### Interface-Icons
-- Gestalte stark vereinfacht und mit vertrauten Metaphern, direkt bezogen auf Aktion oder Inhalt (hig:icons#Best-practices).
-- Halte Größe, Detailgrad, Strichstärke und Perspektive über alle Icons der App konsistent – auch bei Mischung aus Custom und System (hig:icons#Best-practices).
-- Zentriere optisch, nicht geometrisch; Korrektur als Padding im Asset ablegen (hig:icons#Best-practices).
-- Liefere eine Selected-Variante nur, wenn nötig – Standardkomponenten (Toolbar, Tab Bar, Buttons) erzeugen den Selected-State selbst (hig:icons#Best-practices).
-- Nutze geschlechtsneutrale Figuren und kulturübergreifend verständliche Bilder (hig:icons#Best-practices, hig:inclusion#Gender-identity).
-- Text im Icon nur, wenn bedeutungstragend (z. B. Textformatierung); Zeichen dann lokalisieren, Textandeutungen für RTL spiegeln (hig:icons#Best-practices).
-- Liefere Custom-Interface-Icons als Vektor (PDF/SVG); PNG nur, wenn nötig, dann in allen Scale Factors (hig:icons#Best-practices).
-- Bilde keine Apple-Hardware nach; falls nötig, nur Apple Design Resources oder die entsprechenden SF Symbols (hig:icons#Best-practices).
+### Interface icons
+- Design in a highly simplified way with familiar metaphors, directly related to the action or content (hig:icons#Best-practices).
+- Keep size, level of detail, stroke weight, and perspective consistent across all icons in the app – including when mixing custom and system icons (hig:icons#Best-practices).
+- Center optically, not geometrically; store the correction as padding in the asset (hig:icons#Best-practices).
+- Provide a selected variant only when needed – standard components (toolbar, tab bar, buttons) generate the selected state themselves (hig:icons#Best-practices).
+- Use gender-neutral figures and imagery that is understood across cultures (hig:icons#Best-practices, hig:inclusion#Gender-identity).
+- Text in an icon only when it carries meaning (e.g. text formatting); then localize the characters and mirror text-like elements for RTL (hig:icons#Best-practices).
+- Provide custom interface icons as vectors (PDF/SVG); PNG only when necessary, and then in all scale factors (hig:icons#Best-practices).
+- Do not replicate Apple hardware; if necessary, use only Apple Design Resources or the corresponding SF Symbols (hig:icons#Best-practices).
 
-### App-Icons
-- Baue das Icon geschichtet: Hintergrund + ein oder mehrere Vordergrund-Layer (iOS, iPadOS, macOS, watchOS); das System legt Liquid-Glass-Effekte (Specular Highlights, Refraction, Translucency) darüber (hig:app-icons#Layer-design).
-- Liefere **ungemaskte, quadratische** Layer (tvOS: rechteckig); vormaskierte Ecken verschlechtern Highlights und erzeugen gezackte Kanten (hig:app-icons#Icon-shape).
-- Halte Hauptinhalt zentriert – besonders bei kreisförmiger Maske (watchOS, visionOS) (hig:app-icons#Icon-shape).
-- Bevorzuge klare Kanten in Vordergrund-Layern, keine weichen/gefederten Ränder (hig:app-icons#Layer-design).
-- Importiere Layer bevorzugt als Vektor (SVG/PDF), Text in Outlines umwandeln; Mesh-Gradients/Raster als PNG (hig:app-icons#Layer-design).
-- Hintergrund: Volltonfarbe oder Verlauf direkt in Icon Composer; importierte Hintergründe vollflächig und opak (hig:app-icons#Layer-design).
-- Keine eigenen Schatten, Glows, Bevels, Blurs, Specular Highlights – das macht das System dynamisch (hig:app-icons#Visual-effects).
-- Halte das Design einfach, mit wenigen Formen; Illustration statt Foto; keine Screenshots oder Standard-UI-Komponenten nachbauen (hig:app-icons#Design).
-- Text nur, wenn für Erlebnis oder Marke essenziell; keine Wörter wie „Watch“, „Play“, „New“, „For visionOS“ (hig:app-icons#Design).
-- Halte das Icon über alle Plattformen visuell konsistent (hig:app-icons#Design).
-- Halte Kernmerkmale über alle Darstellungsvarianten gleich; keine Elemente je Variante austauschen (hig:app-icons#Appearances).
-- Keine Nachbildung von Apple-Hardware (hig:app-icons#Design).
+### App icons
+- Build the icon in layers: background + one or more foreground layers (iOS, iPadOS, macOS, watchOS); the system applies Liquid Glass effects (specular highlights, refraction, translucency) on top (hig:app-icons#Layer-design).
+- Provide **unmasked, square** layers (tvOS: rectangular); pre-masked corners degrade highlights and produce jagged edges (hig:app-icons#Icon-shape).
+- Keep the primary content centered – especially with a circular mask (watchOS, visionOS) (hig:app-icons#Icon-shape).
+- Prefer crisp edges in foreground layers, no soft/feathered edges (hig:app-icons#Layer-design).
+- Preferably import layers as vectors (SVG/PDF), convert text to outlines; mesh gradients/raster artwork as PNG (hig:app-icons#Layer-design).
+- Background: solid color or gradient directly in Icon Composer; imported backgrounds must be full-bleed and opaque (hig:app-icons#Layer-design).
+- No custom shadows, glows, bevels, blurs, or specular highlights – the system applies these dynamically (hig:app-icons#Visual-effects).
+- Keep the design simple, with few shapes; illustration rather than photo; do not replicate screenshots or standard UI components (hig:app-icons#Design).
+- Text only when essential to the experience or brand; no words like "Watch", "Play", "New", "For visionOS" (hig:app-icons#Design).
+- Keep the icon visually consistent across all platforms (hig:app-icons#Design).
+- Keep core features the same across all appearance variants; do not swap elements per variant (hig:app-icons#Appearances).
+- No replicas of Apple hardware (hig:app-icons#Design).
 
-### Bild-Assets
-- Liefere für jedes Bitmap alle Scale Factors der unterstützten Geräte (hig:images#Resolution).
-- Gestalte auf niedrigster Auflösung, skaliere hoch; Kontrollpunkte von Vektorformen auf ganze Werte legen, damit @2x/@3x pixelgenau bleiben (hig:images#Resolution).
-- Bette in jedes Bild ein Farbprofil ein (hig:images#Best-practices).
-- Teste auf realen Geräten (hig:images#Best-practices).
+### Image assets
+- Provide every bitmap in all scale factors of the supported devices (hig:images#Resolution).
+- Design at the lowest resolution and scale up; place control points of vector shapes on whole values so @2x/@3x stay pixel-accurate (hig:images#Resolution).
+- Embed a color profile in every image (hig:images#Best-practices).
+- Test on real devices (hig:images#Best-practices).
 
-## Kennwerte und Tabellen
+## Key values and tables
 
-### SF Symbols – Rendering-Modi (hig:sf-symbols#Rendering-modes)
+### SF Symbols – rendering modes (hig:sf-symbols#Rendering-modes)
 
-| Modus | Verhalten | Typischer Einsatz |
+| Mode | Behavior | Typical use |
 |---|---|---|
-| Monochrome | Eine Farbe für alle Layer | Standard in Text-nahen Kontexten |
-| Hierarchical | Eine Farbe, Deckkraft je Layer-Ebene (primary/secondary/tertiary) | Tiefe/Hierarchie mit Akzentfarbe |
-| Palette | Eine Farbe pro Layer; bei 2 Farben für 3 Ebenen teilen sich secondary und tertiary eine Farbe | Abstimmung auf Farbschema |
-| Multicolor | Intrinsische Bedeutungsfarben (z. B. `leaf` grün, `trash.slash` rot) | Bedeutung durch Farbe verstärken |
+| Monochrome | One color for all layers | Default in text-adjacent contexts |
+| Hierarchical | One color, opacity per layer level (primary/secondary/tertiary) | Depth/hierarchy with an accent color |
+| Palette | One color per layer; with 2 colors for 3 levels, secondary and tertiary share a color | Matching a color scheme |
+| Multicolor | Intrinsic meaningful colors (e.g. `leaf` green, `trash.slash` red) | Reinforce meaning through color |
 
-Layer-Prinzip: Pfade sind in Ebenen organisiert, Beispiel `cloud.sun.rain.fill` = Wolke (primary), Sonne (secondary), Tropfen (tertiary).
+Layer principle: paths are organized into levels, e.g. `cloud.sun.rain.fill` = cloud (primary), sun (secondary), drops (tertiary).
 
-**Gradients** (ab SF Symbols 7): linearer Verlauf aus einer Quellfarbe, in allen Modi, für System- und Custom-Farben sowie Custom Symbols; wirkt am besten bei großen Größen (hig:sf-symbols#Gradients).
+**Gradients** (SF Symbols 7 and later): linear gradient from a single source color, in all modes, for system and custom colors as well as custom symbols; works best at large sizes (hig:sf-symbols#Gradients).
 
-**Variable Color:** Färbt Layer schwellwertabhängig zwischen 0 und 100 %. Einzelne Layer können ausgenommen werden (z. B. Lautsprecherkorpus in `speaker.wave.3`) (hig:sf-symbols#Variable-color).
+**Variable Color:** Colors layers depending on a threshold between 0 and 100 %. Individual layers can be excluded (e.g. the speaker body in `speaker.wave.3`) (hig:sf-symbols#Variable-color).
 
-### SF Symbols – Gewichte und Skalen (hig:sf-symbols#Weights-and-scales)
+### SF Symbols – weights and scales (hig:sf-symbols#Weights-and-scales)
 
-| Merkmal | Werte |
+| Attribute | Values |
 |---|---|
-| Gewichte | 9, von Ultralight bis Black, je entsprechend einem SF-Font-Gewicht |
-| Skalen | Small, Medium (Default), Large – relativ zur Cap Height von SF |
-| Design-Varianten | Outline (häufigste), Fill, Slash, Enclosed (Circle/Square/Rectangle); kombinierbar |
-| Sprach-/Schriftvarianten | u. a. Latin, Arabic, Hebrew, Hindi, Thai, Chinese, Japanese, Korean, Cyrillic, Devanagari, indische Ziffernsysteme; wechseln automatisch mit Gerätesprache |
+| Weights | 9, from Ultralight to Black, each corresponding to an SF font weight |
+| Scales | Small, Medium (default), Large – relative to the cap height of SF |
+| Design variants | Outline (most common), Fill, Slash, Enclosed (circle/square/rectangle); can be combined |
+| Language/script variants | Including Latin, Arabic, Hebrew, Hindi, Thai, Chinese, Japanese, Korean, Cyrillic, Devanagari, Indic numeral systems; switch automatically with the device language |
 
-Varianten-Faustregeln: Outline neben Text (Toolbar, Liste); Enclosed verbessert Lesbarkeit bei kleinen Größen; Fill für mehr Gewicht (iOS-Tab-Bar, Swipe Actions, Auswahl mit Akzentfarbe); Slash für „nicht verfügbar“.
+Variant rules of thumb: outline next to text (toolbar, list); enclosed improves legibility at small sizes; fill for more weight (iOS tab bar, swipe actions, selection with accent color); slash for "unavailable".
 
-### SF Symbols – Animationen (hig:sf-symbols#Animations)
+### SF Symbols – animations (hig:sf-symbols#Animations)
 
-| Effekt | Wirkung | Einsatz |
+| Effect | Behavior | Use |
 |---|---|---|
-| Appear / Disappear | Symbol erscheint/verschwindet schrittweise | Ein-/Ausblenden |
-| Bounce | Kurzes elastisches Skalieren, kehrt zurück; einmalig per Default | „Aktion ist passiert / nötig“ |
-| Scale | Größenänderung, bleibt bestehen bis zurückgesetzt | Auswahl hervorheben |
-| Pulse | Deckkraft variiert (nur annotierte Layer oder alle) | Laufende Aktivität |
-| Variable Color | Layer-Deckkraft schrittweise; cumulative oder iterative; optional autoreverse, inaktive Layer ausblenden; open loop vs. closed loop | Fortschritt, Verbinden, Senden, Wiedergabe |
-| Replace | Tausch zweier Symbole; Varianten Down-Up, Up-Up (Fortschritt), Off-Up (nächster Zustand betont) | Zustandswechsel |
-| Magic Replace | Smarter Übergang verwandter Formen (Slash zeichnet, Badge erscheint); Default-Replace, fällt bei unverwandten Symbolen auf Down-Up zurück | Play/Pause, Mic/Mic-Slash |
-| Wiggle | Hin-und-her entlang einer Achse | Übersehbaren Call-to-Action betonen |
-| Breathe | Deckkraft **und** Größe pulsieren | Laufende Aufnahme, Status |
-| Rotate | Ganzes Symbol oder Teile (By Layer, z. B. Ventilatorblätter) | Laufender Vorgang |
-| Draw On / Draw Off | Zeichnet entlang Führungspunkten (ab SF Symbols 7); alle Layer, gestaffelt oder einzeln | Fortschritt (Download), Richtung |
+| Appear / Disappear | Symbol appears/disappears gradually | Showing/hiding |
+| Bounce | Brief elastic scaling, returns to original; once by default | "Action has happened / is needed" |
+| Scale | Size change, persists until reset | Highlight a selection |
+| Pulse | Opacity varies (only annotated layers or all) | Ongoing activity |
+| Variable Color | Layer opacity step by step; cumulative or iterative; optionally autoreverse, hide inactive layers; open loop vs. closed loop | Progress, connecting, sending, playback |
+| Replace | Swap of two symbols; variants Down-Up, Up-Up (progress), Off-Up (next state emphasized) | State change |
+| Magic Replace | Smart transition between related shapes (slash draws, badge appears); default replace, falls back to Down-Up for unrelated symbols | Play/pause, mic/mic-slash |
+| Wiggle | Back-and-forth along an axis | Emphasize an easily overlooked call to action |
+| Breathe | Opacity **and** size pulse | Ongoing recording, status |
+| Rotate | Whole symbol or parts (By Layer, e.g. fan blades) | Ongoing process |
+| Draw On / Draw Off | Draws along guide points (SF Symbols 7 and later); all layers, staggered or individually | Progress (download), direction |
 
-Wiedergabe steuerbar: einmalig oder wiederholt bis Bedingung erfüllt, Geschwindigkeit, Reverse vor Wiederholung. Animationen gelten für alle Modi, Gewichte, Skalen und Custom Symbols. Animationen nur mit SF Symbols 5 oder neuer (hig:motion#Providing-feedback).
+Playback is configurable: once or repeating until a condition is met, speed, reverse before repeating. Animations apply to all modes, weights, scales, and custom symbols. Animations only with SF Symbols 5 or later (hig:motion#Providing-feedback).
 
-### Standard-Symbole für häufige Aktionen (Auswahl, hig:icons#Standard-icons)
+### Standard symbols for common actions (selection, hig:icons#Standard-icons)
 
-| Aktion | Symbol |
+| Action | Symbol |
 |---|---|
 | Cut / Copy / Paste | `scissors` / `document.on.document` / `document.on.clipboard` |
 | Done, Save | `checkmark` |
@@ -123,7 +123,7 @@ Wiedergabe steuerbar: einmalig oder wiederholt bis Bedingung erfüllt, Geschwind
 | Superscript / Subscript | `textformat.superscript` / `textformat.subscript` |
 | Align Left / Center / Justified / Right | `text.alignleft` / `text.aligncenter` / `text.justify` / `text.alignright` |
 | Search | `magnifyingglass` |
-| Find (inkl. Replace, Next, Previous, Use Selection) | `text.page.badge.magnifyingglass` |
+| Find (incl. Replace, Next, Previous, Use Selection) | `text.page.badge.magnifyingglass` |
 | Filter | `line.3.horizontal.decrease` |
 | Share, Export | `square.and.arrow.up` |
 | Print | `printer` |
@@ -133,83 +133,83 @@ Wiedergabe steuerbar: einmalig oder wiederholt bis Bedingung erfüllt, Geschwind
 | Bring Forward / Send Backward | `square.2.layers.3d.top.filled` / `square.2.layers.3d.bottom.filled` |
 | Alarm / Archive / Calendar | `alarm` / `archivebox` / `calendar` |
 
-Hinweis: Mehrere Namen (`document.on.document`, `text.page.badge.magnifyingglass`) sind neuere Umbenennungen; bei älteren Deployment Targets mit `scripts/sf_symbols.py` bzw. der SF-Symbols-App die Verfügbarkeit prüfen.
+Note: Several names (`document.on.document`, `text.page.badge.magnifyingglass`) are recent renames; for older deployment targets, check availability with `scripts/sf_symbols.py` or the SF Symbols app.
 
-### App-Icon-Spezifikationen (hig:app-icons#Specifications)
+### App icon specifications (hig:app-icons#Specifications)
 
-| Plattform | Layout-Form | Form nach Maskierung | Layout-Größe | Stil | Darstellungsvarianten |
+| Platform | Layout shape | Shape after masking | Layout size | Style | Appearance variants |
 |---|---|---|---|---|---|
-| iOS, iPadOS, macOS | Quadrat | Abgerundetes Rechteck (quadratisch) | 1024x1024 px | Layered | Default, Dark, Clear Light, Clear Dark, Tinted Light, Tinted Dark |
-| tvOS | Rechteck (Querformat) | Abgerundetes Rechteck | 800x480 px | Layered (Parallax, 2–5 Layer) | – |
-| visionOS | Quadrat | Kreis | 1024x1024 px | Layered (3D, Hintergrund + 1–2 Layer) | – |
-| watchOS | Quadrat | Kreis | 1088x1088 px | Layered | – |
+| iOS, iPadOS, macOS | Square | Rounded rectangle (square) | 1024x1024 px | Layered | Default, Dark, Clear Light, Clear Dark, Tinted Light, Tinted Dark |
+| tvOS | Rectangle (landscape) | Rounded rectangle | 800x480 px | Layered (parallax, 2–5 layers) | – |
+| visionOS | Square | Circle | 1024x1024 px | Layered (3D, background + 1–2 layers) | – |
+| watchOS | Square | Circle | 1088x1088 px | Layered | – |
 
-- Kleinere Varianten (Settings, Notifications) skaliert das System automatisch.
-- Farbräume: sRGB, Gray Gamma 2.2, Display P3 (Wide Gamut; nicht visionOS).
-- Nicht gelieferte Darstellungsvarianten erzeugt das System selbst (hig:app-icons#Appearances).
-- Alternative App-Icons (iOS, iPadOS, tvOS, kompatible Apps in visionOS) brauchen in iOS/iPadOS jeweils eigene Dark-, Clear- und Tinted-Varianten; alle unterliegen App Review (hig:app-icons#Appearances).
+- The system automatically scales smaller variants (Settings, notifications).
+- Color spaces: sRGB, Gray Gamma 2.2, Display P3 (wide gamut; not visionOS).
+- The system generates any appearance variants you don't provide (hig:app-icons#Appearances).
+- Alternate app icons (iOS, iPadOS, tvOS, compatible apps in visionOS) each need their own dark, clear, and tinted variants in iOS/iPadOS; all are subject to App Review (hig:app-icons#Appearances).
 
-### Icon Composer – Workflow (hig:app-icons#Layer-design)
+### Icon Composer – workflow (hig:app-icons#Layer-design)
 
-1. Vordergrund-Layer im eigenen Design-Tool anlegen (Vektor, klare Kanten, zunächst voll opak).
-2. In Icon Composer (Teil von Xcode, auch separat über Apple Developer) importieren.
-3. Hintergrund definieren (Farbe/Verlauf), Layer-Positionen anpassen.
-4. Effekte setzen: Specular Highlights, Refraction, Translucency; Deckkraft der Vordergrund-Layer variieren für Tiefe.
-5. Layer gruppieren, wenn Effekte auf Gruppenebene wirken sollen (Gruppen bieten zusätzliche Liquid-Glass-Optionen).
-6. Darstellungsvarianten annotieren, über Systemversionen vorschauen, nach Xcode exportieren.
+1. Create foreground layers in your own design tool (vector, crisp edges, fully opaque at first).
+2. Import into Icon Composer (part of Xcode, also available separately from Apple Developer).
+3. Define the background (color/gradient), adjust layer positions.
+4. Apply effects: specular highlights, refraction, translucency; vary the opacity of foreground layers for depth.
+5. Group layers when effects should apply at group level (groups offer additional Liquid Glass options).
+6. Annotate appearance variants, preview across system versions, export to Xcode.
 
-tvOS/visionOS: Layer stattdessen als Image Stack im Asset Catalog; Parallax Previewer / Parallax Exporter aus Apple Design Resources.
+tvOS/visionOS: layers instead as an image stack in the asset catalog; Parallax Previewer / Parallax Exporter from Apple Design Resources.
 
-Für das Erzeugen und Validieren von `.icon`-Paketen steht der Skill **compose-app-icon** zur Verfügung.
+The **compose-app-icon** skill is available for creating and validating `.icon` packages.
 
-### Darstellungsvarianten (Light/Dark/Clear/Tinted) (hig:app-icons#Appearances)
+### Appearance variants (Light/Dark/Clear/Tinted) (hig:app-icons#Appearances)
 
-| Variante | Gestaltungshinweis |
+| Variant | Design guidance |
 |---|---|
-| Default | Basis-Design |
-| Dark | Aus dem Light-Icon ableiten; komplementäre Farben, keine überhellen Bilder; farbige Hintergründe liefern meist den besten Kontrast |
-| Clear (Light/Dark) | Noch zurückhaltender als Dark; Form muss ohne Farbe tragen |
-| Tinted (Light/Dark) | Ebenfalls stark gedämpft; Erkennbarkeit über Silhouette |
+| Default | Base design |
+| Dark | Derive from the light icon; complementary colors, no overly bright images; colored backgrounds usually give the best contrast |
+| Clear (Light/Dark) | Even more restrained than Dark; the shape must work without color |
+| Tinted (Light/Dark) | Also heavily muted; recognizability via silhouette |
 
-Alle Varianten: sichtbar, lesbar, wiedererkennbar; sollen neben System-Icons und Widgets stimmig wirken.
+All variants: visible, legible, recognizable; should look cohesive next to system icons and widgets.
 
-### Bild-Auflösungen (hig:images#Resolution)
+### Image resolutions (hig:images#Resolution)
 
-| Plattform | Scale Factors |
+| Platform | Scale factors |
 |---|---|
-| iOS | @2x und @3x |
+| iOS | @2x and @3x |
 | iPadOS, watchOS | @2x |
-| macOS, tvOS | @1x und @2x |
-| visionOS | @2x oder höher; über @6x merkliche Performance-Kosten, bei > @2x hochwertige Filterung setzen |
+| macOS, tvOS | @1x and @2x |
+| visionOS | @2x or higher; above @6x noticeable performance cost, set high-quality filtering for > @2x |
 
-### Bildformate (hig:images#Formats)
+### Image formats (hig:images#Formats)
 
-| Bildtyp | Format |
+| Image type | Format |
 |---|---|
-| Bitmap/Raster | De-interlaced PNG |
-| PNG ohne 24-bit-Bedarf | 8-bit-Palette |
-| Fotos | JPEG (optimiert) oder HEIC |
-| Stereo/Spatial Photos | Stereo HEIC |
-| Flache Icons, Interface-Icons, skalierende Flachgrafik | PDF oder SVG |
+| Bitmap/raster | De-interlaced PNG |
+| PNG without need for 24-bit | 8-bit palette |
+| Photos | JPEG (optimized) or HEIC |
+| Stereo/spatial photos | Stereo HEIC |
+| Flat icons, interface icons, scalable flat artwork | PDF or SVG |
 
-### macOS – Document Icons (hig:icons#Document-icons)
+### macOS – document icons (hig:icons#Document-icons)
 
-| Element | Größen |
+| Element | Sizes |
 |---|---|
-| Background Fill | 512x512 @1x / 1024x1024 @2x · 256 / 512 · 128 / 256 · 32 / 64 · 16 / 32 px |
-| Center Image (halbe Canvas-Größe) | 256x256 @1x / 512x512 @2x · 128 / 256 · 32 / 64 · 16 / 32 px |
-| Rand im Center Image | ca. 10 % der Canvas; Motiv ca. 80 % (z. B. ~205x205 in 256x256) |
+| Background fill | 512x512 @1x / 1024x1024 @2x · 256 / 512 · 128 / 256 · 32 / 64 · 16 / 32 px |
+| Center image (half the canvas size) | 256x256 @1x / 512x512 @2x · 128 / 256 · 32 / 64 · 16 / 32 px |
+| Margin in the center image | approx. 10 % of the canvas; motif approx. 80 % (e.g. ~205x205 in 256x256) |
 
-- Ohne eigenes Document Icon komponiert macOS App-Icon + Dateiendung.
-- Obere rechte Ecke freihalten (System zeichnet die Eselsohr-Ecke darüber).
-- Kleine Größen vereinfachen (z. B. Rasterlinien reduzieren, bei 16x16 weglassen).
-- Optional kurzer Begriff statt unbekannter Endung (z. B. „scene“ statt „scn“); System setzt ihn in Großbuchstaben und skaliert ihn.
+- Without a custom document icon, macOS composes the app icon + file extension.
+- Keep the top-right corner clear (the system draws the folded corner over it).
+- Simplify small sizes (e.g. reduce grid lines, omit them at 16x16).
+- Optionally a short term instead of an unfamiliar extension (e.g. "scene" instead of "scn"); the system capitalizes and scales it.
 
-### watchOS – Autoscaling-PDFs (hig:images#watchOS)
+### watchOS – autoscaling PDFs (hig:images#watchOS)
 
-Design für 40 mm und 42 mm in @2x; WatchKit skaliert:
+Design for 40 mm and 42 mm at @2x; WatchKit scales:
 
-| Bildschirm | Skalierung |
+| Screen | Scaling |
 |---|---|
 | 38 mm | 90 % |
 | 40 mm | 100 % |
@@ -219,18 +219,18 @@ Design für 40 mm und 42 mm in @2x; WatchKit skaliert:
 | 45 mm | 119 % |
 | 49 mm | 119 % |
 
-## Plattform-Unterschiede
+## Platform differences
 
-| Thema | iOS / iPadOS | macOS | watchOS |
+| Topic | iOS / iPadOS | macOS | watchOS |
 |---|---|---|---|
-| App-Icon-Maske | Abgerundetes Quadrat | Abgerundetes Quadrat (gleiche Spezifikation wie iOS) | Kreis – Inhalt streng zentrieren |
-| App-Icon-Größe | 1024x1024 px | 1024x1024 px | 1088x1088 px |
-| Darstellungsvarianten | Default, Dark, Clear, Tinted | Default, Dark, Clear, Tinted | keine |
-| Besonderheit | Alternative App-Icons möglich (mit eigenen Varianten) | Document Icons für eigene Dateitypen | Kein schwarzer Icon-Hintergrund (verschmilzt mit Display) |
-| Bild-Scale | iOS @2x+@3x, iPadOS @2x | @1x+@2x | @2x, Autoscaling-PDF; Transparenz nur wo nötig (Template-Bilder, Complications), sonst Hintergrund einbacken |
-| Symbol-Varianten | Tab Bar nutzt Fill | Toolbar/Sidebar meist Outline | Kompakte Darstellung, Enclosed hilft bei Kleinstgrößen |
+| App icon mask | Rounded square | Rounded square (same specification as iOS) | Circle – center content strictly |
+| App icon size | 1024x1024 px | 1024x1024 px | 1088x1088 px |
+| Appearance variants | Default, Dark, Clear, Tinted | Default, Dark, Clear, Tinted | none |
+| Special considerations | Alternate app icons possible (with their own variants) | Document icons for custom file types | No black icon background (merges with the display) |
+| Image scale | iOS @2x+@3x, iPadOS @2x | @1x+@2x | @2x, autoscaling PDF; transparency only where needed (template images, complications), otherwise bake in the background |
+| Symbol variants | Tab bar uses fill | Toolbar/sidebar mostly outline | Compact presentation, enclosed helps at the smallest sizes |
 
-## Umsetzung
+## Implementation
 
 ### SwiftUI
 ```swift
@@ -238,18 +238,18 @@ Image(systemName: "cloud.sun.rain.fill")
     .symbolRenderingMode(.hierarchical)      // .monochrome / .palette / .multicolor
     .foregroundStyle(.tint)
     .imageScale(.large)                      // small / medium / large
-    .font(.body.weight(.semibold))           // Gewicht folgt Font
+    .font(.body.weight(.semibold))           // weight follows font
 
 Image(systemName: "wifi", variableValue: signal) // Variable Color 0.0–1.0
 
 Image(systemName: "bell")
-    .symbolEffect(.bounce, value: count)     // Discrete Effect bei Wertänderung
+    .symbolEffect(.bounce, value: count)     // discrete effect on value change
 Image(systemName: isMuted ? "mic.slash" : "mic")
     .contentTransition(.symbolEffect(.replace))
 
-Label("Teilen", systemImage: "square.and.arrow.up")   // Text + Symbol, VoiceOver-Label inklusive
-Image("CustomGlyph").accessibilityLabel("Zähler")       // Custom Symbol beschriften
-Image(decorative: "Ornament")                           // rein dekorativ
+Label("Share", systemImage: "square.and.arrow.up")    // text + symbol, VoiceOver label included
+Image("CustomGlyph").accessibilityLabel("Counter")      // label a custom symbol
+Image(decorative: "Ornament")                           // purely decorative
 ```
 
 ### UIKit
@@ -263,71 +263,71 @@ imageView.addSymbolEffect(.pulse)               // iOS 17+
 ### AppKit
 ```swift
 let config = NSImage.SymbolConfiguration(textStyle: .body, scale: .medium)
-let image = NSImage(systemSymbolName: "trash", accessibilityDescription: "Löschen")?
+let image = NSImage(systemSymbolName: "trash", accessibilityDescription: "Delete")?
     .withSymbolConfiguration(config)
 ```
 
-Hinweise: Symbol-Effekte gibt es ab SF Symbols 5 (iOS 17 / macOS 14 / watchOS 10); Draw On/Off und Gradients ab SF Symbols 7 – Deployment Target prüfen. Custom Symbols: Template eines ähnlichen Systemsymbols aus der SF-Symbols-App exportieren, im Vektor-Tool anpassen, in der App annotieren.
+Notes: Symbol effects are available from SF Symbols 5 (iOS 17 / macOS 14 / watchOS 10); Draw On/Off and gradients from SF Symbols 7 – check the deployment target. Custom symbols: export the template of a similar system symbol from the SF Symbols app, adapt it in a vector tool, annotate it in the app.
 
-## Custom Symbols – Prozess (hig:sf-symbols#Custom-symbols)
+## Custom symbols – process (hig:sf-symbols#Custom-symbols)
 
-- [ ] Ähnlichstes Systemsymbol als Template exportieren; Detailgrad, optisches Gewicht, Ausrichtung, Perspektive übernehmen.
-- [ ] Ziele: einfach, erkennbar, inklusiv, direkt auf Aktion/Inhalt bezogen.
-- [ ] Layer annotieren (Farbe oder Hierarchie-Ebene) für die gewünschten Rendering-Modi.
-- [ ] Bei Badges/Breitenzuwachs negative Side Margins setzen; Benennung nach Muster `left-margin-Regular-M`.
-- [ ] Für Animationen ganze Formen zeichnen und Lücken als Erase-Layer annotieren (statt Ausschnitte); Z-Order für Variable Color festlegen; Layer-Gruppen nutzen.
-- [ ] Mit **allen** Animations-Presets testen.
-- [ ] Enclosures/Badges nicht einzeichnen, sondern über die Component Library der SF-Symbols-App erzeugen.
-- [ ] Directionality für RTL festlegen (hig:right-to-left).
-- [ ] Accessibility-Label vergeben.
-- [ ] Keine Apple-Produkte nachbilden; Apple-Feature-Symbole nicht anpassen.
+- [ ] Export the most similar system symbol as a template; adopt its level of detail, optical weight, alignment, and perspective.
+- [ ] Goals: simple, recognizable, inclusive, directly related to the action/content.
+- [ ] Annotate layers (color or hierarchy level) for the desired rendering modes.
+- [ ] For badges/added width, set negative side margins; naming follows the pattern `left-margin-Regular-M`.
+- [ ] For animations, draw whole shapes and annotate gaps as erase layers (instead of cutouts); define the z-order for Variable Color; use layer groups.
+- [ ] Test with **all** animation presets.
+- [ ] Don't draw enclosures/badges; generate them via the component library of the SF Symbols app.
+- [ ] Define directionality for RTL (hig:right-to-left).
+- [ ] Assign an accessibility label.
+- [ ] Don't replicate Apple products; don't modify Apple feature symbols.
 
-## Review-Checkliste
+## Review checklist
 
-**Interface-Icons und Symbole**
-- [ ] Für jede Standardaktion das Standardsymbol aus der Tabelle verwendet (mit `scripts/sf_symbols.py` gegengeprüft).
-- [ ] Symbolgewicht passt zum Nachbartext; Betonung über Scale, nicht über Gewichtsbruch.
-- [ ] Rendering-Modus in Light, Dark und Increase Contrast sowie bei kleinster Größe geprüft.
-- [ ] Variable Color nur für veränderliche Werte.
-- [ ] Animationen haben klaren Zweck, wenige gleichzeitig, passen zur Tonalität; Reduce Motion berücksichtigt (siehe `motion-and-feedback.md`).
-- [ ] Custom Icons: Vektor (PDF/SVG), optisch zentriert, konsistente Strichstärke, Accessibility-Label.
-- [ ] Keine SF Symbols in App-Icon, Logo oder Marke.
-- [ ] Keine angepassten Apple-Produkt-/Feature-Symbole, keine Hardware-Nachbildungen.
-- [ ] Icons mit Leserichtung für RTL gespiegelt bzw. Systemvarianten genutzt.
+**Interface icons and symbols**
+- [ ] The standard symbol from the table is used for every standard action (cross-checked with `scripts/sf_symbols.py`).
+- [ ] Symbol weight matches the adjacent text; emphasis via scale, not via a weight mismatch.
+- [ ] Rendering mode checked in Light, Dark, and Increase Contrast and at the smallest size.
+- [ ] Variable Color only for changing values.
+- [ ] Animations have a clear purpose, few at a time, match the tone; Reduce Motion respected (see `motion-and-feedback.md`).
+- [ ] Custom icons: vector (PDF/SVG), optically centered, consistent stroke weight, accessibility label.
+- [ ] No SF Symbols in the app icon, logo, or brand.
+- [ ] No modified Apple product/feature symbols, no hardware replicas.
+- [ ] Icons with reading direction mirrored for RTL, or system variants used.
 
-**App-Icon**
-- [ ] Geschichtete Quelle in Icon Composer (iOS/iPadOS/macOS/watchOS) bzw. Image Stack (tvOS/visionOS).
-- [ ] Layer quadratisch, ungemaskt, Vektor; Text in Outlines.
-- [ ] Keine eingebackenen Schatten, Glows, Highlights, Blurs.
-- [ ] Hauptmotiv zentriert, funktioniert in kreisförmiger Maske (watchOS).
-- [ ] Varianten Default/Dark/Clear/Tinted geprüft; Kernmerkmale identisch.
-- [ ] watchOS: kein schwarzer Hintergrund.
-- [ ] Keine Fotos, Screenshots, UI-Nachbauten, überflüssigen Wörter.
-- [ ] Alternative Icons (falls vorhanden) mit eigenen Varianten.
+**App icon**
+- [ ] Layered source in Icon Composer (iOS/iPadOS/macOS/watchOS) or image stack (tvOS/visionOS).
+- [ ] Layers square, unmasked, vector; text converted to outlines.
+- [ ] No baked-in shadows, glows, highlights, blurs.
+- [ ] Main motif centered, works in a circular mask (watchOS).
+- [ ] Default/Dark/Clear/Tinted variants checked; core features identical.
+- [ ] watchOS: no black background.
+- [ ] No photos, screenshots, UI replicas, superfluous words.
+- [ ] Alternate icons (if any) with their own variants.
 
-**Bilder**
-- [ ] Alle Scale Factors je Plattform vorhanden.
-- [ ] Farbprofil eingebettet; Formate gemäß Tabelle.
-- [ ] Light/Dark-Varianten wo nötig (z. B. weiße Bildhintergründe im Dark Mode abdunkeln) (hig:dark-mode#Icons-and-images).
-- [ ] Auf echten Geräten geprüft.
+**Images**
+- [ ] All scale factors per platform present.
+- [ ] Color profile embedded; formats as per the table.
+- [ ] Light/dark variants where needed (e.g. darken white image backgrounds in Dark Mode) (hig:dark-mode#Icons-and-images).
+- [ ] Checked on real devices.
 
-## Anti-Patterns
+## Anti-patterns
 
-- SF Symbol (z. B. `bolt.fill`) als App-Logo oder im App-Icon.
-- Vormaskiertes, abgerundetes PNG als App-Icon-Layer → gezackte Kanten, kaputte Highlights.
-- Eingebackene Drop Shadows/Glanz im Icon, die mit Liquid-Glass-Effekten kollidieren.
-- Dark-Icon, das Elemente austauscht oder anderes Motiv zeigt.
-- Selbst gezeichnete Varianten mit Badge/Kreis statt Component Library.
-- Variable Color als Deko-Verlauf für Tiefe.
-- Dauerhaft wiederholte Wiggle/Bounce-Effekte ohne Bedeutung.
-- Nur PNG @1x für ein Interface-Icon.
-- Unterschiedliche Strichstärken zwischen eigenen und System-Icons.
-- Männliche Standardfigur für „Person“.
-- Apple-Hardware im Icon nachgebaut.
+- SF Symbol (e.g. `bolt.fill`) as the app logo or in the app icon.
+- Pre-masked, rounded PNG as an app icon layer → jagged edges, broken highlights.
+- Baked-in drop shadows/gloss in the icon that clash with Liquid Glass effects.
+- Dark icon that swaps elements or shows a different motif.
+- Self-drawn variants with badge/circle instead of the component library.
+- Variable Color as a decorative gradient for depth.
+- Permanently repeating wiggle/bounce effects without meaning.
+- Only PNG @1x for an interface icon.
+- Different stroke weights between custom and system icons.
+- Male default figure for "person".
+- Apple hardware replicated in the icon.
 
-## Unklarheiten / Widersprüche im Spiegel
+## Ambiguities / contradictions in the mirror
 
-- **Darstellungsvarianten:** `app-icons#Layer-design` nennt für Icon Composer „default, dark, and mono“, die Abschnitte *Appearances* und *Specifications* nennen „default, dark, clear, tinted“ (Spezifikation: Clear Light/Dark, Tinted Light/Dark). Vermutlich ist „mono“ die Basis für Clear/Tinted; maßgeblich ist die Spezifikationstabelle.
-- **watchOS 42 mm = 100 %** in der Autoscaling-Tabelle, obwohl 41 mm bei 106 % liegt; das Apple-Dokument nennt 40 mm und 42 mm als Designbasis. Werte so übernommen, nicht interpoliert.
-- **App-Icon macOS:** Die Plattform-Sektion nennt „keine zusätzlichen Überlegungen“ für macOS; macOS-Spezifika stehen nur unter Document Icons (`icons`).
-- Konkrete Punktgrößen für Symbol-Skalen nennt die HIG nicht – sie sind relativ zur Cap Height definiert.
+- **Appearance variants:** `app-icons#Layer-design` names "default, dark, and mono" for Icon Composer, while the *Appearances* and *Specifications* sections name "default, dark, clear, tinted" (specification: Clear Light/Dark, Tinted Light/Dark). Presumably "mono" is the basis for Clear/Tinted; the specification table is authoritative.
+- **watchOS 42 mm = 100 %** in the autoscaling table, although 41 mm is at 106 %; the Apple document names 40 mm and 42 mm as the design basis. Values adopted as-is, not interpolated.
+- **App icon macOS:** The platform section states "no additional considerations" for macOS; macOS specifics appear only under document icons (`icons`).
+- The HIG does not specify concrete point sizes for symbol scales – they are defined relative to the cap height.

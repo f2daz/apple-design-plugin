@@ -1,36 +1,36 @@
-# Typografie
+# Typography
 
-> Quelle: lokaler HIG-Spiegel `~/.apple-design/hig/pages/typography.md` (gespiegelt 2026-10-21, Apple-Update 2025-12-16: Emphasized Weights ergänzt). Ergänzend: `accessibility`, `layout`, `sf-symbols`. Inhalte paraphrasiert; Kennwert-Tabellen als Fakten übernommen.
+> Source: local HIG mirror `~/.apple-design/hig/pages/typography.md` (mirrored 2026-10-21, Apple update 2025-12-16: Emphasized Weights added). Supplementary: `accessibility`, `layout`, `sf-symbols`. Content paraphrased; specification tables taken over as facts.
 
-## Einordnung
+## Overview
 
-Typografie trägt auf Apple-Plattformen drei Aufgaben: Lesbarkeit, Informationshierarchie und (sparsam) Markenausdruck. Die Systemschriften (San Francisco, New York) und die systemdefinierten **Text Styles** sind der Normalfall – sie bringen Dynamic Type, Bold Text, optische Größen und Tracking automatisch mit. Eigene Schriften sind erlaubt, müssen diese Verhaltensweisen aber selbst nachbauen.
+On Apple platforms, typography serves three purposes: legibility, information hierarchy and (sparingly) brand expression. The system fonts (San Francisco, New York) and the system-defined **text styles** are the default – they come with Dynamic Type, Bold Text, optical sizes and tracking built in. Custom fonts are allowed, but must replicate these behaviors themselves.
 
-## Kernregeln
+## Core rules
 
-- Verwende pro Plattform mindestens die Mindestgröße, im Fließtext die Standardgröße (Tabelle unten); bei dünnen Custom-Schnitten größer wählen. (hig:typography#Ensuring-legibility)
-- Meide Ultralight, Thin und Light – vor allem bei kleinen Größen; bevorzuge Regular, Medium, Semibold, Bold. (hig:typography#Ensuring-legibility)
-- Teste Lesbarkeit im echten Kontext (Distanz, Licht, Spiele-Overlays); bei Problemen Größe oder Kontrast erhöhen. (hig:typography#Ensuring-legibility)
-- Baue Hierarchie über Gewicht, Größe und Farbe – und erhalte diese Hierarchie auch bei geänderter Textgröße. (hig:typography#Conveying-hierarchy)
-- Halte die Zahl der Schriftfamilien minimal, auch in stark individualisierten UIs. (hig:typography#Conveying-hierarchy)
-- Priorisiere beim Skalieren den Inhalt, den Menschen tatsächlich lesen wollen (z. B. Dialog statt Tab-Titel oder flüchtige Schadenszahlen). (hig:typography#Conveying-hierarchy)
-- Nutze die eingebauten Text Styles; sie liefern Dynamic Type und Accessibility-Größen. (hig:typography#Using-system-fonts)
-- Modifiziere Text Styles über Symbolic Traits (Bold, Loose/Tight Leading) statt eigene Größen zu erfinden; ab drei Zeilen kein Tight Leading. (hig:typography#Using-system-fonts)
-- Bette Systemschriften nicht in die App ein – greife über `Font.Design` darauf zu (`.default` = SF, `.serif` = New York). (hig:typography#Using-system-fonts)
-- Passe in Mockups ggf. das Tracking an (Tracking-Tabelle unten); zur Laufzeit erledigt das System das. (hig:typography#Tracking-values)
-- Custom Fonts: Lesbarkeit sicherstellen und Dynamic Type sowie Bold Text selbst unterstützen. (hig:typography#Using-custom-fonts)
-- Das Layout muss alle Textgrößen inkl. Larger Accessibility Sizes tragen; auf dem Gerät testen (Einstellungen > Bedienungshilfen > Anzeige & Textgröße > Größerer Text). (hig:typography#Supporting-Dynamic-Type)
-- Skaliere bedeutungstragende Icons mit der Schrift (SF Symbols tun das automatisch). (hig:typography#Supporting-Dynamic-Type)
-- Minimiere Truncation bei großen Größen; Ziel: bei der größten AX-Größe so viel nützlichen Text wie bei der größten Standardgröße. Mehrzeilige Labels zulassen. (hig:typography#Supporting-Dynamic-Type)
-- Wechsle bei großen Größen auf gestapelte Layouts (Text über Sekundärelementen) und reduziere Spalten. (hig:typography#Supporting-Dynamic-Type)
-- Halte Primärelemente auch bei sehr großer Schrift oben im View. (hig:typography#Supporting-Dynamic-Type)
-- Lege Layouts so an, dass nebeneinanderliegende Views bei großer Schrift vertikal stapeln und Zeilen in der Höhe wachsen. (hig:layout#Adaptability)
+- Use at least the minimum size per platform, and the default size for body text (table below); choose larger sizes for thin custom weights. (hig:typography#Ensuring-legibility)
+- Avoid Ultralight, Thin and Light – especially at small sizes; prefer Regular, Medium, Semibold, Bold. (hig:typography#Ensuring-legibility)
+- Test legibility in the real context (distance, lighting, game overlays); if there are problems, increase size or contrast. (hig:typography#Ensuring-legibility)
+- Build hierarchy through weight, size and color – and preserve this hierarchy when the text size changes. (hig:typography#Conveying-hierarchy)
+- Keep the number of typefaces minimal, even in highly customized UIs. (hig:typography#Conveying-hierarchy)
+- When scaling, prioritize the content people actually want to read (e.g. dialogue rather than tab titles or transient damage numbers). (hig:typography#Conveying-hierarchy)
+- Use the built-in text styles; they provide Dynamic Type and accessibility sizes. (hig:typography#Using-system-fonts)
+- Modify text styles via symbolic traits (Bold, Loose/Tight Leading) instead of inventing your own sizes; no tight leading for three or more lines. (hig:typography#Using-system-fonts)
+- Don't embed system fonts in the app – access them via `Font.Design` (`.default` = SF, `.serif` = New York). (hig:typography#Using-system-fonts)
+- Adjust tracking in mockups where needed (tracking table below); at runtime the system handles this. (hig:typography#Tracking-values)
+- Custom fonts: ensure legibility and support Dynamic Type and Bold Text yourself. (hig:typography#Using-custom-fonts)
+- The layout must accommodate all text sizes including Larger Accessibility Sizes; test on device (Settings > Accessibility > Display & Text Size > Larger Text). (hig:typography#Supporting-Dynamic-Type)
+- Scale meaningful icons with the font (SF Symbols do this automatically). (hig:typography#Supporting-Dynamic-Type)
+- Minimize truncation at large sizes; goal: at the largest AX size, as much useful text as at the largest standard size. Allow multiline labels. (hig:typography#Supporting-Dynamic-Type)
+- At large sizes, switch to stacked layouts (text above secondary elements) and reduce columns. (hig:typography#Supporting-Dynamic-Type)
+- Keep primary elements at the top of the view, even with very large text. (hig:typography#Supporting-Dynamic-Type)
+- Design layouts so that side-by-side views stack vertically at large text sizes and rows grow in height. (hig:layout#Adaptability)
 
-## Kennwerte
+## Specifications
 
-### Standard- und Mindestgrößen (hig:typography#Ensuring-legibility)
+### Default and minimum sizes (hig:typography#Ensuring-legibility)
 
-| Plattform | Standardgröße | Mindestgröße |
+| Platform | Default size | Minimum size |
 |---|---|---|
 | iOS, iPadOS | 17 pt | 11 pt |
 | macOS | 13 pt | 10 pt |
@@ -38,31 +38,31 @@ Typografie trägt auf Apple-Plattformen drei Aufgaben: Lesbarkeit, Informationsh
 | visionOS | 17 pt | 12 pt |
 | watchOS | 16 pt | 12 pt |
 
-### Systemschriften (hig:typography#Using-system-fonts)
+### System fonts (hig:typography#Using-system-fonts)
 
-| Familie | Charakter | Varianten / Hinweise |
+| Family | Character | Variants / notes |
 |---|---|---|
-| San Francisco (SF) | Sans Serif | SF Pro, SF Compact, SF Arabic, SF Armenian, SF Georgian, SF Hebrew, SF Mono |
-| SF Rounded | gerundete Variante | für SF Pro, SF Compact, SF Arabic, SF Armenian, SF Georgian, SF Hebrew |
-| New York (NY) | Serif | allein oder mit SF kombinierbar |
+| San Francisco (SF) | Sans serif | SF Pro, SF Compact, SF Arabic, SF Armenian, SF Georgian, SF Hebrew, SF Mono |
+| SF Rounded | rounded variant | for SF Pro, SF Compact, SF Arabic, SF Armenian, SF Georgian, SF Hebrew |
+| New York (NY) | Serif | can be used alone or combined with SF |
 
-- Beide Familien liegen als **Variable Fonts** vor; das System nutzt **dynamische optische Größen** (Text/Display stufenlos interpoliert). Diskrete optische Größen nur in Tools ohne Variable-Font-Support nötig.
-- Gewichte Ultralight bis Black; SF zusätzlich in Breiten (u. a. Condensed, Expanded). SF Symbols haben äquivalente Gewichte → Symbol und Text gewichtsgleich setzen.
-- SF Mono ist Teil der SF-Familie; der Spiegel nennt keine eigenen Größen-/Tracking-Werte für SF Mono.
+- Both families are available as **variable fonts**; the system uses **dynamic optical sizes** (Text/Display interpolated continuously). Discrete optical sizes are only needed in tools without variable-font support.
+- Weights from Ultralight to Black; SF additionally in widths (including Condensed, Expanded). SF Symbols have equivalent weights → set symbol and text in matching weights.
+- SF Mono is part of the SF family; the mirror lists no separate size/tracking values for SF Mono.
 
-| Plattform | Systemschrift | NY | Dynamic Type |
+| Platform | System font | NY | Dynamic Type |
 |---|---|---|---|
-| iOS, iPadOS | SF Pro | ja | ja |
-| macOS | SF Pro | nur für Mac-Catalyst-Apps genannt | **nein** |
-| watchOS | SF Compact (Complications: SF Compact Rounded) | ja | ja |
-| tvOS | SF Pro | ja | ja |
-| visionOS | SF Pro (bolder Body/Title-Varianten, zusätzlich Extra Large Title 1/2) | ja, Text Styles explizit angeben | ja |
+| iOS, iPadOS | SF Pro | yes | yes |
+| macOS | SF Pro | mentioned only for Mac Catalyst apps | **no** |
+| watchOS | SF Compact (complications: SF Compact Rounded) | yes | yes |
+| tvOS | SF Pro | yes | yes |
+| visionOS | SF Pro (bolder Body/Title variants, plus Extra Large Title 1/2) | yes, specify text styles explicitly | yes |
 
 ### Emphasized Weights
 
-Hervorgehobene Varianten der Text Styles entstehen über Symbolic Traits (SwiftUI `bold()`, UIKit `traitBold` in `UIFontDescriptor`). Mögliche Emphasized Weights: Medium, Semibold, Bold, Heavy. In den Tabellen steht die jeweilige Emphasized Weight pro Style. (hig:typography#Specifications)
+Emphasized variants of the text styles are created via symbolic traits (SwiftUI `bold()`, UIKit `traitBold` in `UIFontDescriptor`). Possible emphasized weights: Medium, Semibold, Bold, Heavy. The tables list the emphasized weight for each style. (hig:typography#Specifications)
 
-### iOS/iPadOS Dynamic Type – Standardgrößen (Größe/Leading in pt; Default = Large)
+### iOS/iPadOS Dynamic Type – standard sizes (size/leading in pt; default = Large)
 
 | Style | Weight | Emph. | xSmall | Small | Medium | Large | xLarge | xxLarge | xxxLarge |
 |---|---|---|---|---|---|---|---|---|---|
@@ -78,9 +78,9 @@ Hervorgehobene Varianten der Text Styles entstehen über Symbolic Traits (SwiftU
 | Caption 1 | Regular | Semibold | 11/13 | 11/13 | 11/13 | 12/16 | 14/19 | 16/21 | 18/23 |
 | Caption 2 | Regular | Semibold | 11/13 | 11/13 | 11/13 | 11/13 | 13/18 | 15/20 | 17/22 |
 
-Punktgrößen bezogen auf 144 ppi (@2x) bzw. 216 ppi (@3x). (hig:typography#Specifications)
+Point sizes based on 144 ppi (@2x) and 216 ppi (@3x) respectively. (hig:typography#Specifications)
 
-### iOS/iPadOS – Larger Accessibility Type Sizes (Größe/Leading in pt)
+### iOS/iPadOS – Larger Accessibility Type Sizes (size/leading in pt)
 
 | Style | Weight | Emph. | AX1 | AX2 | AX3 | AX4 | AX5 |
 |---|---|---|---|---|---|---|---|
@@ -96,7 +96,7 @@ Punktgrößen bezogen auf 144 ppi (@2x) bzw. 216 ppi (@3x). (hig:typography#Spec
 | Caption 1 | Regular | Semibold | 22/28 | 26/32 | 32/39 | 37/44 | 43/51 |
 | Caption 2 | Regular | Semibold | 20/25 | 24/30 | 29/35 | 34/41 | 40/48 |
 
-### macOS – eingebaute Text Styles (kein Dynamic Type; Größe/Line Height in pt)
+### macOS – built-in text styles (no Dynamic Type; size/line height in pt)
 
 | Text Style | Weight | Size | Line height | Emph. |
 |---|---|---|---|---|
@@ -112,11 +112,11 @@ Punktgrößen bezogen auf 144 ppi (@2x) bzw. 216 ppi (@3x). (hig:typography#Spec
 | Caption 1 | Regular | 10 | 13 | Medium |
 | Caption 2 | **Medium** | 10 | 13 | Semibold |
 
-Bezogen auf 144 ppi (@2x). Achtung: Headline ist auf macOS Bold (iOS: Semibold), Caption 2 Medium.
+Based on 144 ppi (@2x). Note: on macOS, Headline is Bold (iOS: Semibold) and Caption 2 is Medium.
 
-### watchOS Dynamic Type – Standardgrößen (Größe/Leading in pt)
+### watchOS Dynamic Type – standard sizes (size/leading in pt)
 
-Defaults laut Spiegel: Small = 38 mm, Large = 40/41/42 mm, xLarge = 44/45/49 mm.
+Defaults according to the mirror: Small = 38 mm, Large = 40/41/42 mm, xLarge = 44/45/49 mm.
 
 | Style | Weight | Emph. | xSmall | Small | Large | xLarge | xxLarge | xxxLarge |
 |---|---|---|---|---|---|---|---|---|
@@ -131,7 +131,7 @@ Defaults laut Spiegel: Small = 38 mm, Large = 40/41/42 mm, xLarge = 44/45/49 mm.
 | Footnote 1 | Regular | Semibold | 11/13.5 | 12/14.5 | 13/15.5 | 14/16.5 | 15/17.5 | 16/18.5 |
 | Footnote 2 | Regular | Semibold | 10/12.5 | 11/13.5 | 12/14.5 | 13/15.5 | 14/16.5 | 15/17.5 |
 
-### watchOS – Larger Accessibility Type Sizes (Größe/Leading in pt)
+### watchOS – Larger Accessibility Type Sizes (size/leading in pt)
 
 | Style | Weight | Emph. | AX1 | AX2 | AX3 |
 |---|---|---|---|---|---|
@@ -146,11 +146,11 @@ Defaults laut Spiegel: Small = 38 mm, Large = 40/41/42 mm, xLarge = 44/45/49 mm.
 | Footnote 1 | Regular | Semibold | 16/18.5 | 17/19.5 | 18/20.5 |
 | Footnote 2 | Regular | Semibold | 15/17.5 | 16/17.5 | 17/19.5 |
 
-Hinweis watchOS: Reihenfolge der Styles weicht von iOS ab (Caption vor Footnote; Footnote 1/2 statt Footnote/Subhead/Callout).
+Note on watchOS: the order of styles differs from iOS (Caption before Footnote; Footnote 1/2 instead of Footnote/Subhead/Callout).
 
 ### Tracking (1/1000 em / pt)
 
-SF Pro gilt für iOS, iPadOS, visionOS; macOS und tvOS haben eigene, nahezu identische Tabellen. SF Compact (Rounded) gilt für watchOS. „–“ = für diese Größe kein Wert im Spiegel. Nicht jedes Tool rechnet in 1/1000 em. (hig:typography#Tracking-values)
+SF Pro applies to iOS, iPadOS, visionOS; macOS and tvOS have their own, nearly identical tables. SF Compact (Rounded) applies to watchOS. "–" = no value in the mirror for this size. Not every tool works in 1/1000 em. (hig:typography#Tracking-values)
 
 | pt | SF Pro | SF Pro Rounded | New York | SF Compact | SF Compact Rounded |
 |---|---|---|---|---|---|
@@ -219,14 +219,14 @@ SF Pro gilt für iOS, iPadOS, visionOS; macOS und tvOS haben eigene, nahezu iden
 | 92 | 0 / 0 | 0 / 0.00 | – | -28 / -2.47 | -28 / -2.47 |
 | 96 | 0 / 0 | 0 / 0.00 | -16 / -1.50 | -28 / -2.62 | -28 / -2.62 |
 
-New York zusätzlich (größere Größen): 100 pt −16/−1.56 · 120 pt −16/−1.88 · 140 pt −16/−2.26 · 160 pt −16/−2.58 · 180 pt −17/−2.99 · 200 pt −17/−3.32 · 220 pt −18/−3.76 · 240 pt −18/−4.22 · 260 pt −18/−4.57.
+New York additionally (larger sizes): 100 pt −16/−1.56 · 120 pt −16/−1.88 · 140 pt −16/−2.26 · 160 pt −16/−2.58 · 180 pt −17/−2.99 · 200 pt −17/−3.32 · 220 pt −18/−3.76 · 240 pt −18/−4.22 · 260 pt −18/−4.57.
 
-## Plattform-Unterschiede
+## Platform differences
 
-- **iOS/iPadOS:** SF Pro + NY, voller Dynamic-Type-Umfang (7 Standard- + 5 AX-Stufen). (hig:typography#iOS-iPadOS)
-- **macOS:** Kein Dynamic Type. Für Text, der wie System-Controls aussehen soll, die dynamischen Font-Varianten von `NSFont` nutzen: (hig:typography#macOS)
+- **iOS/iPadOS:** SF Pro + NY, full Dynamic Type range (7 standard + 5 AX sizes). (hig:typography#iOS-iPadOS)
+- **macOS:** No Dynamic Type. For text that should look like system controls, use the dynamic font variants of `NSFont`: (hig:typography#macOS)
 
-| Variante | AppKit-API |
+| Variant | AppKit API |
 |---|---|
 | Control content | `controlContentFont(ofSize:)` |
 | Label | `labelFont(ofSize:)` |
@@ -241,14 +241,14 @@ New York zusätzlich (größere Größen): 100 pt −16/−1.56 · 120 pt −16/
 | Bold system font | `boldSystemFont(ofSize:)` |
 | System font | `systemFont(ofSize:)` |
 
-- **watchOS:** SF Compact, Complications in SF Compact Rounded; 6 Standard- + 3 AX-Stufen; Default-Stufe hängt von der Gehäusegröße ab. (hig:typography#watchOS)
-- **visionOS (Rand):** 2D-Text bevorzugen, Kontrast zum Glass-Hintergrund maximieren, Text ohne Hintergrund eher bold statt mit Schatten, an Raumpunkte gebundene Labels per Billboarding zum Nutzer drehen. (hig:typography#visionOS)
+- **watchOS:** SF Compact, complications in SF Compact Rounded; 6 standard + 3 AX sizes; the default size depends on the case size. (hig:typography#watchOS)
+- **visionOS (peripheral):** Prefer 2D text, maximize contrast against the glass background, make text without a background bold rather than adding shadows, rotate labels anchored to points in space toward the user via billboarding. (hig:typography#visionOS)
 
-## Umsetzung
+## Implementation
 
-> API-Zuordnung SwiftUI/UIKit: Die HIG nennt die Style-Namen, nicht jede API-Konstante. Die Zuordnung unten ist etabliertes Framework-Wissen, nicht aus dem Spiegel belegt.
+> SwiftUI/UIKit API mapping: the HIG names the styles, not every API constant. The mapping below is established framework knowledge, not sourced from the mirror.
 
-| HIG-Style | SwiftUI `Font` | UIKit `UIFont.TextStyle` |
+| HIG style | SwiftUI `Font` | UIKit `UIFont.TextStyle` |
 |---|---|---|
 | Large Title | `.largeTitle` | `.largeTitle` |
 | Title 1 | `.title` | `.title1` |
@@ -266,59 +266,59 @@ New York zusätzlich (größere Größen): 100 pt −16/−1.56 · 120 pt −16/
 ```swift
 Text("Inbox").font(.largeTitle)
 Text(subject).font(.headline)
-Text(preview).font(.body).leading(.loose)          // Symbolic Trait Leading (hig: leading(_:))
-Text("Wichtig").font(.body).bold()                  // Emphasized Weight
-Text("Zitat").font(.system(.body, design: .serif))  // New York via Font.Design.serif
+Text(preview).font(.body).leading(.loose)          // Symbolic trait leading (hig: leading(_:))
+Text("Important").font(.body).bold()                // Emphasized weight
+Text("Quote").font(.system(.body, design: .serif))  // New York via Font.Design.serif
 Text(code).font(.system(.body, design: .monospaced))
-// Custom Font mit Dynamic Type (relativeTo koppelt an einen Text Style)
+// Custom font with Dynamic Type (relativeTo ties it to a text style)
 Text(title).font(.custom("BrandSerif", size: 17, relativeTo: .body))
 ```
-- Bei großen Größen Layout umbauen: `@Environment(\.dynamicTypeSize)` und `.isAccessibilitySize` → `HStack` zu `VStack`; `ViewThatFits` als Alternative.
-- Abstände/Icongrößen mitskalieren: `@ScaledMetric`.
+- Restructure the layout at large sizes: `@Environment(\.dynamicTypeSize)` and `.isAccessibilitySize` → `HStack` to `VStack`; `ViewThatFits` as an alternative.
+- Scale spacing/icon sizes along with text: `@ScaledMetric`.
 
 **UIKit**
 ```swift
 label.font = UIFont.preferredFont(forTextStyle: .body)
 label.adjustsFontForContentSizeCategory = true
-label.numberOfLines = 0                                   // Truncation vermeiden (hig: numberOfLines)
+label.numberOfLines = 0                                   // Avoid truncation (hig: numberOfLines)
 let custom = UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont(name: "Brand", size: 17)!)
-if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { /* gestapeltes Layout */ }
+if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { /* stacked layout */ }
 ```
 
-**AppKit:** `NSFont.preferredFont(forTextStyle:)` für die macOS-Text-Styles, sonst die `NSFont`-Varianten aus der Tabelle oben.
+**AppKit:** `NSFont.preferredFont(forTextStyle:)` for the macOS text styles, otherwise the `NSFont` variants from the table above.
 
-**Unity:** Dynamic Type über Apples Unity-Plug-ins; sonst eigene Textgrößen-Einstellung anbieten. (hig:typography#Using-custom-fonts)
+**Unity:** Dynamic Type via Apple's Unity plug-ins; otherwise offer your own text size setting. (hig:typography#Using-custom-fonts)
 
-## Review-Checkliste
+## Review checklist
 
-- [ ] Fließtext ≥ Standardgröße, kein Text unter der Plattform-Mindestgröße
-- [ ] Keine Ultralight/Thin/Light-Schnitte in kleinen Größen
-- [ ] Höchstens wenige Schriftfamilien; Hierarchie über Text Styles, nicht über Ad-hoc-Größen
-- [ ] Alle Texte nutzen Text Styles bzw. skalierende Custom Fonts (`relativeTo:` / `UIFontMetrics`)
-- [ ] Bold Text (Bedienungshilfe) wirkt auch bei Custom Fonts
-- [ ] Bei AX5 (iOS) bzw. AX3 (watchOS) getestet: keine Überlappung, minimale Truncation, Primärinhalt oben
-- [ ] Horizontale Layouts stapeln bei Accessibility-Größen; Spaltenzahl reduziert
-- [ ] Bedeutungstragende Icons skalieren mit (SF Symbols)
-- [ ] Kein Tight Leading bei ≥ 3 Zeilen
-- [ ] Systemschriften nicht eingebettet; NY/Mono über `Font.Design`
-- [ ] macOS: Control-nahe Texte über `NSFont`-Varianten; Headline-Gewicht Bold berücksichtigt
-- [ ] Mockups: Tracking gemäß Tabelle gesetzt
+- [ ] Body text ≥ default size, no text below the platform minimum size
+- [ ] No Ultralight/Thin/Light weights at small sizes
+- [ ] At most a few typefaces; hierarchy via text styles, not ad-hoc sizes
+- [ ] All text uses text styles or scaling custom fonts (`relativeTo:` / `UIFontMetrics`)
+- [ ] Bold Text (accessibility setting) also takes effect with custom fonts
+- [ ] Tested at AX5 (iOS) or AX3 (watchOS): no overlap, minimal truncation, primary content at the top
+- [ ] Horizontal layouts stack at accessibility sizes; number of columns reduced
+- [ ] Meaningful icons scale along (SF Symbols)
+- [ ] No tight leading for ≥ 3 lines
+- [ ] System fonts not embedded; NY/Mono via `Font.Design`
+- [ ] macOS: control-related text via `NSFont` variants; Bold Headline weight taken into account
+- [ ] Mockups: tracking set according to the table
 
-## Anti-Patterns
+## Anti-patterns
 
-- Feste Punktgrößen (`.system(size: 15)`) für Fließtext → kein Dynamic Type.
-- Alles skaliert gleichermaßen mit, auch Tab-Titel und Chrome, statt Inhalt zu priorisieren.
-- `numberOfLines = 1` + Truncation in scrollbaren Bereichen ohne Möglichkeit, den Volltext zu sehen.
-- Eigene Schrift ohne Bold-Text- und Dynamic-Type-Unterstützung.
-- Sieben verschiedene Schriftarten zur „Markenbildung“.
-- Hierarchie nur über Größe, die bei großen Textstufen kollabiert.
-- Hervorhebung über Light-Schnitt oder extrem enges Tracking.
-- 3D-Text oder Schlagschatten für Lesetext in visionOS.
+- Fixed point sizes (`.system(size: 15)`) for body text → no Dynamic Type.
+- Everything scales equally, including tab titles and chrome, instead of prioritizing content.
+- `numberOfLines = 1` + truncation in scrollable areas with no way to see the full text.
+- Custom font without Bold Text and Dynamic Type support.
+- Seven different typefaces for "branding".
+- Hierarchy based on size alone, which collapses at large text sizes.
+- Emphasis via a Light weight or extremely tight tracking.
+- 3D text or drop shadows for reading text in visionOS.
 
-## Auffälligkeiten im Spiegel
+## Anomalies in the mirror
 
-- watchOS AX1, Title 2: Leading **41** bei Größe 34 – bricht das sonst durchgängige Muster (Leading = Größe + 2,5 bzw. +2/+3). Vermutlich Quellfehler; Wert unverändert übernommen.
-- watchOS AX2, Footnote 2: Leading **17.5** bei Größe 16 (Muster ließe 18.5 erwarten). Unverändert übernommen.
-- Tracking 52/53 pt: iOS-Tabelle +0.33/+0.31, macOS- und tvOS-Tabellen +0.31/+0.33 (vertauscht). Beide Varianten im Spiegel; 1/1000-em-Wert (+6) identisch.
-- New York 11 pt: Quelle schreibt „+.12“ (= +0.12).
-- Font-Familien-Tabelle: Für SF Mono enthält der Spiegel keine Spezifikation.
+- watchOS AX1, Title 2: leading **41** at size 34 – breaks the otherwise consistent pattern (leading = size + 2.5, or +2/+3). Probably a source error; value taken over unchanged.
+- watchOS AX2, Footnote 2: leading **17.5** at size 16 (the pattern would suggest 18.5). Taken over unchanged.
+- Tracking 52/53 pt: iOS table +0.33/+0.31, macOS and tvOS tables +0.31/+0.33 (swapped). Both variants are in the mirror; the 1/1000 em value (+6) is identical.
+- New York 11 pt: the source writes "+.12" (= +0.12).
+- Font family table: the mirror contains no specification for SF Mono.

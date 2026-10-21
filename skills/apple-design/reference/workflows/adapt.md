@@ -1,29 +1,29 @@
-# adapt – auf weitere Apple-Plattformen übertragen
+# adapt – bring a design to more Apple platforms
 
-Grundsatz: **Gleiche App, idiomatische Gestalt.** Inhalte, Daten und Begriffe bleiben; Struktur, Eingabe und Dichte folgen der Zielplattform. Skalieren ist kein Adaptieren.
+Principle: **same app, idiomatic form.** Content, data and terminology stay; structure, input and density follow the target platform. Scaling is not adapting.
 
-## Ablauf
+## Steps
 
-1. Quell- und Zielplattform klären; Ziel-Referenz laden (`reference/platforms/<ziel>.md`) und `hig_search.py platform <ziel>` für die verwendeten Komponenten.
-2. AskUserQuestion, falls offen: „Welche Rolle hat die Zielplattform?“ – Vollwertig (alle Funktionen) · Begleiter (Kernaufgaben) · Glance (Status/Schnellaktion).
-3. Mapping-Tabelle erstellen (unten), Abweichungen begründen, dann umsetzen (build.md).
+1. Clarify source and target platform; load the target reference (`reference/platforms/<target>.md`) and run `hig_search.py platform <target>` for the components in use.
+2. AskUserQuestion if open: "What role does the target platform play?" – full-featured (all functions) · companion (core tasks) · glance (status/quick action).
+3. Build the mapping table (below), justify deviations, then implement (build.md).
 
-## Mapping-Hilfe
+## Mapping guide
 
-| Aspekt | iPhone | iPad | Mac | Watch |
+| Aspect | iPhone | iPad | Mac | Watch |
 |---|---|---|---|---|
-| Top-Level-Navigation | Tab bar | Tab bar ↔ Sidebar (adaptiv) | Sidebar in Split View + Menüleiste | NavigationStack, vertikale Seiten |
-| Hierarchie | Push im Stack | Split View (2–3 Spalten) | Split View, ggf. mehrere Fenster | flacher Stack, wenige Ebenen |
-| Nebenaufgabe | Sheet | Sheet / Popover / Inspector | Sheet am Fenster, Panel, Inspector | Modal-Sheet, kurz |
-| Aktionen | Toolbar, Swipe, Kontextmenü | + Tastenkürzel, Pointer-Hover | Menüleiste + Toolbar + Kontextmenü + Shortcuts | Toolbar-Ecken, Liste, Crown |
-| Eingabe | Touch | Touch, Pencil, Tastatur, Trackpad | Maus/Trackpad, Tastatur | Touch, Digital Crown, Diktat |
-| Dichte | kompakt | mittel, nutzt Breite | hoch, kleinere Controls | minimal, eine Aufgabe |
-| Systemorte | Widgets, Live Activities, Controls | Widgets, Stage Manager | Menüleisten-Extra, Widgets, Dock | Complications, Smart Stack, Live Activities |
+| Top-level navigation | Tab bar | Tab bar ↔ sidebar (adaptable) | Sidebar in split view + menu bar | NavigationStack, vertical pages |
+| Hierarchy | Push in stack | Split view (2–3 columns) | Split view, possibly multiple windows | Flat stack, few levels |
+| Side task | Sheet | Sheet / popover / inspector | Window-modal sheet, panel, inspector | Modal sheet, short |
+| Actions | Toolbar, swipe, context menu | + keyboard shortcuts, pointer hover | Menu bar + toolbar + context menu + shortcuts | Toolbar corners, list, Crown |
+| Input | Touch | Touch, Pencil, keyboard, trackpad | Mouse/trackpad, keyboard | Touch, Digital Crown, dictation |
+| Density | Compact | Medium, uses the width | High, smaller controls | Minimal, one task |
+| System locations | Widgets, Live Activities, controls | Widgets, Stage Manager | Menu bar extra, widgets, Dock | Complications, Smart Stack, Live Activities |
 
-Details und Zahlen stehen in den Plattform-Referenzen; vor allem für watchOS die Inhalte radikal kürzen.
+Details and numbers are in the platform references; for watchOS in particular, cut content radically.
 
-## Typische Fallen
+## Typical traps
 
-- iPad: iPhone-Layout mittig gestreckt; Popover ohne Anker; fehlende Tastaturunterstützung; keine Größenänderung/Multitasking.
-- Mac (Catalyst oder SwiftUI): keine Menüleiste, Touch-große Controls, Sheets statt Fenster, fehlendes Undo, keine Einstellungen im App-Menü.
-- Watch: iPhone-Screens verkleinert, Text-Eingabe als Hauptweg, zu viele Ebenen, keine Complication.
+- iPad: iPhone layout stretched in the middle; popover without an anchor; no keyboard support; no resizing/multitasking.
+- Mac (Catalyst or SwiftUI): no menu bar, touch-sized controls, sheets instead of windows, no undo, no settings in the app menu.
+- Watch: shrunken iPhone screens, text input as the main path, too many levels, no complication.

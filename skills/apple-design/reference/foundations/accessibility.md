@@ -1,74 +1,74 @@
 # Accessibility
 
-Quellen (HIG-Spiegel, Stand 2026-10-21): `accessibility` (Update 2025-06-09: Assistive Access, Switch Control, Accessibility Nutrition Labels), `voiceover` (2025-03-07), `inclusion`, `typography` (Dynamic Type), `color`, `dark-mode`, `materials`, `motion`, `buttons`, `right-to-left`.
+Sources (HIG mirror, as of 2026-10-21): `accessibility` (updated 2025-06-09: Assistive Access, Switch Control, Accessibility Nutrition Labels), `voiceover` (2025-03-07), `inclusion`, `typography` (Dynamic Type), `color`, `dark-mode`, `materials`, `motion`, `buttons`, `right-to-left`.
 
-## Einordnung
+## Overview
 
-Apple beschreibt eine zugängliche Oberfläche als **intuitiv** (vertraute, konsistente Interaktionen), **wahrnehmbar** (Information nie nur über einen Kanal) und **anpassbar** (System-Accessibility-Features und persönliche Einstellungen werden respektiert) (hig:accessibility). Die HIG gliedert nach Vision, Hearing, Mobility, Speech, Cognitive. Behinderung ist ein Spektrum und kann permanent, temporär oder situativ sein (hig:inclusion#Accessibility).
+Apple describes an accessible interface as **intuitive** (familiar, consistent interactions), **perceivable** (information never conveyed through only one channel), and **adaptable** (system accessibility features and personal settings are respected) (hig:accessibility). The HIG is organized into Vision, Hearing, Mobility, Speech, Cognitive. Disability is a spectrum and can be permanent, temporary, or situational (hig:inclusion#Accessibility).
 
-Prüfwerkzeug: **Accessibility Inspector** (Xcode). Ergebnis lässt sich im App Store über **Accessibility Nutrition Labels** (App Store Connect) ausweisen (hig:accessibility).
+Testing tool: **Accessibility Inspector** (Xcode). The result can be declared on the App Store via **Accessibility Nutrition Labels** (App Store Connect) (hig:accessibility).
 
-## Kernregeln
+## Core rules
 
-### Sehen
-- Unterstütze größere Textgrößen: Ziel mindestens **200 %** Vergrößerung (watchOS **140 %**), über Dynamic Type oder eigene UI (hig:accessibility#Vision).
-- Halte die plattformspezifischen Default- und Mindestschriftgrößen ein, auch bei Custom Fonts; bei dünnen Schnitten größer wählen (hig:accessibility#Vision, hig:typography#Ensuring-legibility).
-- Vermeide Ultralight, Thin, Light – besonders bei kleinem Text (hig:typography#Ensuring-legibility).
-- Erfülle Mindestkontraste (Tabelle unten) in Light **und** Dark; falls der Default nicht reicht, liefere zumindest bei **Increase Contrast** ein kontrastreicheres Schema (hig:accessibility#Vision).
-- Bevorzuge Systemfarben – sie bringen Varianten für Dark Mode und Increase Contrast mit; eigene Farben brauchen Light, Dark und je eine Increased-Contrast-Variante (hig:color#Best-practices).
-- Vermittle Information nie nur über Farbe; ergänze Form, Symbol, Text (problematisch: Rot-Grün, Blau-Orange). Biete ggf. anpassbare Farbschemata (Charts, Spielfiguren) (hig:accessibility#Vision, hig:color#Inclusive-color).
-- Beschreibe UI und Inhalte für VoiceOver (hig:voiceover).
-- Teste Dark Mode mit Increase Contrast und Reduce Transparency – einzeln und kombiniert (hig:dark-mode#Best-practices).
-- Prüfe Liquid Glass (regular/clear) mit Reduce Transparency und Increase Contrast; das Erscheinungsbild ändert sich mit diesen Einstellungen (hig:materials).
-- Lass interface-relevante Icons mit der Schriftgröße mitwachsen (SF Symbols skalieren automatisch) (hig:typography#Supporting-Dynamic-Type).
-- Custom Fonts müssen Dynamic Type und **Bold Text** selbst unterstützen; Systemschriften tun das automatisch (hig:typography#Using-custom-fonts).
+### Vision
+- Support larger text sizes: aim for at least **200 %** enlargement (watchOS **140 %**), via Dynamic Type or your own UI (hig:accessibility#Vision).
+- Respect the platform-specific default and minimum font sizes, including with custom fonts; choose larger sizes for thin weights (hig:accessibility#Vision, hig:typography#Ensuring-legibility).
+- Avoid Ultralight, Thin, Light – especially for small text (hig:typography#Ensuring-legibility).
+- Meet minimum contrast ratios (table below) in Light **and** Dark; if the default isn't sufficient, provide a higher-contrast scheme at least for **Increase Contrast** (hig:accessibility#Vision).
+- Prefer system colors – they include variants for Dark Mode and Increase Contrast; custom colors need Light, Dark, and an increased-contrast variant for each (hig:color#Best-practices).
+- Never convey information through color alone; add shape, symbol, text (problematic: red-green, blue-orange). Where appropriate, offer customizable color schemes (charts, game pieces) (hig:accessibility#Vision, hig:color#Inclusive-color).
+- Describe UI and content for VoiceOver (hig:voiceover).
+- Test Dark Mode with Increase Contrast and Reduce Transparency – individually and combined (hig:dark-mode#Best-practices).
+- Check Liquid Glass (regular/clear) with Reduce Transparency and Increase Contrast; the appearance changes with these settings (hig:materials).
+- Let interface-relevant icons scale with the font size (SF Symbols scale automatically) (hig:typography#Supporting-Dynamic-Type).
+- Custom fonts must support Dynamic Type and **Bold Text** themselves; system fonts do this automatically (hig:typography#Using-custom-fonts).
 
 ### VoiceOver
-- Vergib Labels für alle wesentlichen Elemente; Standard-Labels von System-Controls durch funktionsbeschreibende ersetzen, Custom Elements immer beschriften, Labels aktuell halten (hig:voiceover#Descriptions).
-- Beschreibe bedeutungstragende Bilder – nur das, was das Bild selbst vermittelt, nicht die benachbarte Bildunterschrift (hig:voiceover#Descriptions).
-- Mache Charts/Infografiken vollständig zugänglich: knappe Gesamtbeschreibung, interaktive Details auch per VoiceOver erreichbar (hig:voiceover#Descriptions).
-- Blende rein dekorative Bilder aus (hig:voiceover#Descriptions).
-- Vergib eindeutige Bildschirmtitel und korrekte Überschriften (hig:voiceover#Navigation).
-- Gruppiere zusammengehörige Elemente (Bild + Bildunterschrift) und lege Reihenfolge/Beziehungen fest, wo sie nur visuell erkennbar sind (hig:voiceover#Navigation).
-- Melde sichtbare Inhalts- und Layoutänderungen an VoiceOver (hig:voiceover#Navigation).
-- Unterstütze den Rotor (Überschriften, Links, eigene Inhaltstypen) (hig:voiceover#Navigation).
+- Provide labels for all essential elements; replace default labels of system controls with ones that describe the function, always label custom elements, keep labels up to date (hig:voiceover#Descriptions).
+- Describe meaningful images – only what the image itself conveys, not the adjacent caption (hig:voiceover#Descriptions).
+- Make charts/infographics fully accessible: concise overall description, interactive details also reachable via VoiceOver (hig:voiceover#Descriptions).
+- Hide purely decorative images (hig:voiceover#Descriptions).
+- Provide unique screen titles and correct headings (hig:voiceover#Navigation).
+- Group related elements (image + caption) and define order/relationships where they are only visually apparent (hig:voiceover#Navigation).
+- Announce visible content and layout changes to VoiceOver (hig:voiceover#Navigation).
+- Support the rotor (headings, links, custom content types) (hig:voiceover#Navigation).
 
-### Hören
-- Transportiere Dialog und wichtige Information nie nur per Audio; biete Captions, Subtitles, Audio Descriptions, Transcripts je nach Medium (hig:accessibility#Hearing).
-- Kombiniere Audio-Cues mit Haptics; in iOS/iPadOS zusätzlich Music Haptics und Audio Graphs möglich (hig:accessibility#Hearing).
-- Ergänze Audio-Hinweise durch visuelle Hinweise, besonders bei Inhalten außerhalb des Bildschirms (Spiele, Spatial) (hig:accessibility#Hearing).
+### Hearing
+- Never convey dialogue and important information through audio alone; offer captions, subtitles, audio descriptions, transcripts depending on the medium (hig:accessibility#Hearing).
+- Combine audio cues with haptics; in iOS/iPadOS Music Haptics and Audio Graphs are also available (hig:accessibility#Hearing).
+- Supplement audio cues with visual cues, especially for content outside the screen (games, spatial) (hig:accessibility#Hearing).
 
-### Motorik
-- Halte Control-Mindestgrößen ein (Tabelle unten); Buttons brauchen ein Hit-Target von mindestens 44x44 pt, in visionOS 60x60 pt (hig:accessibility#Mobility, hig:buttons#Best-practices).
-- Abstand ist so wichtig wie Größe: ca. **12 pt** Padding um Elemente mit Bezel, ca. **24 pt** um Elemente ohne Bezel (hig:accessibility#Mobility).
-- Nutze für häufige Interaktionen die einfachste Geste; keine eigenen Mehrfinger-/Mehrhand-Gesten (hig:accessibility#Mobility).
-- Biete für jede Geste eine Alternative auf dem Bildschirm (z. B. Button zusätzlich zu Swipe-to-dismiss) (hig:accessibility#Mobility).
-- Beschrifte Elemente so, dass **Voice Control** sie per Sprache ansprechen kann (hig:accessibility#Mobility).
-- Integriere Siri und Shortcuts für wiederkehrende Aufgaben (auch Action Button) (hig:accessibility#Mobility).
-- Teste mit VoiceOver, AssistiveTouch, Full Keyboard Access, Pointer Control, Switch Control (hig:accessibility#Mobility).
+### Mobility
+- Respect minimum control sizes (table below); buttons need a hit target of at least 44x44 pt, 60x60 pt in visionOS (hig:accessibility#Mobility, hig:buttons#Best-practices).
+- Spacing is as important as size: approx. **12 pt** padding around elements with a bezel, approx. **24 pt** around elements without a bezel (hig:accessibility#Mobility).
+- Use the simplest gesture for frequent interactions; no custom multi-finger/multi-hand gestures (hig:accessibility#Mobility).
+- Provide an on-screen alternative for every gesture (e.g. a button in addition to swipe-to-dismiss) (hig:accessibility#Mobility).
+- Label elements so that **Voice Control** can address them by voice (hig:accessibility#Mobility).
+- Integrate Siri and Shortcuts for recurring tasks (including the Action button) (hig:accessibility#Mobility).
+- Test with VoiceOver, AssistiveTouch, Full Keyboard Access, Pointer Control, Switch Control (hig:accessibility#Mobility).
 
-### Sprache / Eingabe
-- Ermögliche vollständige Bedienung per Tastatur (**Full Keyboard Access**); systemweite Tastaturkurzbefehle nicht überschreiben (hig:accessibility#Speech).
-- Unterstütze **Switch Control** (externe Schalter, Controller, Geräusche) für Auswählen, Tippen, Tippen von Text, Zeichnen (hig:accessibility#Speech).
+### Speech / input
+- Enable complete operation via keyboard (**Full Keyboard Access**); don't override system-wide keyboard shortcuts (hig:accessibility#Speech).
+- Support **Switch Control** (external switches, game controllers, sounds) for selecting, tapping, typing text, drawing (hig:accessibility#Speech).
 
-### Kognition
-- Halte Aktionen einfach und konsistent; Systemgesten vor eigenen (hig:accessibility#Cognitive).
-- Vermeide zeitgesteuert verschwindende UI; schließen per expliziter Aktion (hig:accessibility#Cognitive).
-- Kein Autoplay von Audio/Video ohne Start-/Stopp-Steuerung; globale Opt-out-Einstellung erwägen (hig:accessibility#Cognitive).
-- Reagiere auf **Dim Flashing Lights** bei Videowiedergabe (hig:accessibility#Cognitive).
-- Reagiere auf **Reduce Motion**: automatische und wiederholte Animationen (Zoom, Skalierung, periphere Bewegung) reduzieren (hig:accessibility#Cognitive) – Details in `motion-and-feedback.md`.
-- Optimiere für **Assistive Access** (iOS/iPadOS): Kernfunktionen identifizieren, Nebenpfade entfernen, Mehrschritt-Flows auf einen Schritt pro Screen aufteilen, schwer umkehrbare Aktionen doppelt bestätigen lassen (hig:accessibility#Cognitive).
-- Biete in Spielen Schwierigkeits-Anpassungen (Kriterien, Reaktionszeit, Steuerhilfen) (hig:accessibility#Cognitive).
+### Cognitive
+- Keep actions simple and consistent; system gestures before custom ones (hig:accessibility#Cognitive).
+- Avoid UI that disappears on a timer; dismiss via an explicit action (hig:accessibility#Cognitive).
+- No autoplay of audio/video without start/stop controls; consider a global opt-out setting (hig:accessibility#Cognitive).
+- Respond to **Dim Flashing Lights** during video playback (hig:accessibility#Cognitive).
+- Respond to **Reduce Motion**: reduce automatic and repeating animations (zoom, scaling, peripheral motion) (hig:accessibility#Cognitive) – details in `motion-and-feedback.md`.
+- Optimize for **Assistive Access** (iOS/iPadOS): identify core functions, remove secondary paths, split multistep flows into one step per screen, require double confirmation for actions that are hard to undo (hig:accessibility#Cognitive).
+- In games, offer difficulty adjustments (criteria, reaction time, control assistance) (hig:accessibility#Cognitive).
 
-### Inklusion
-- Keine Bilder/Sprache, die Menschen mit Behinderung ausschließen oder Behinderung als negative Metapher nutzen; People-first schreiben (hig:inclusion#Accessibility).
-- Gehe nicht davon aus, dass eine Behinderung jemanden von der Nutzung abhält (hig:inclusion#Accessibility).
+### Inclusion
+- No images/language that exclude people with disabilities or use disability as a negative metaphor; write people-first (hig:inclusion#Accessibility).
+- Don't assume that a disability prevents someone from using the app (hig:inclusion#Accessibility).
 
-## Kennwerte
+## Key values
 
-### Schriftgrößen Default / Minimum (hig:accessibility#Vision, hig:typography#Ensuring-legibility)
+### Font sizes default / minimum (hig:accessibility#Vision, hig:typography#Ensuring-legibility)
 
-| Plattform | Default | Minimum |
+| Platform | Default | Minimum |
 |---|---|---|
 | iOS, iPadOS | 17 pt | 11 pt |
 | macOS | 13 pt | 10 pt |
@@ -76,19 +76,19 @@ Prüfwerkzeug: **Accessibility Inspector** (Xcode). Ergebnis lässt sich im App 
 | visionOS | 17 pt | 12 pt |
 | watchOS | 16 pt | 12 pt |
 
-### Kontrast (Accessibility Inspector, WCAG Level AA) (hig:accessibility#Vision)
+### Contrast (Accessibility Inspector, WCAG Level AA) (hig:accessibility#Vision)
 
-| Textgröße | Gewicht | Mindestkontrast |
+| Text size | Weight | Minimum contrast |
 |---|---|---|
-| bis 17 pt | alle | 4.5:1 |
-| ab 18 pt | alle | 3:1 |
-| alle | Bold | 3:1 |
+| up to 17 pt | all | 4.5:1 |
+| 18 pt and above | all | 3:1 |
+| all | Bold | 3:1 |
 
-Zusatz aus `dark-mode#Dark-Mode-colors`: mindestens 4.5:1; bei eigenen Vorder-/Hintergrundfarben **7:1 anstreben**, besonders bei kleinem Text. Als Messmethoden nennt Apple WCAG und APCA.
+Addition from `dark-mode#Dark-Mode-colors`: at least 4.5:1; with custom foreground/background colors **aim for 7:1**, especially for small text. Apple names WCAG and APCA as measurement methods.
 
-### Control-Größen (hig:accessibility#Mobility)
+### Control sizes (hig:accessibility#Mobility)
 
-| Plattform | Default | Minimum |
+| Platform | Default | Minimum |
 |---|---|---|
 | iOS, iPadOS | 44x44 pt | 28x28 pt |
 | macOS | 28x28 pt | 20x20 pt |
@@ -96,17 +96,17 @@ Zusatz aus `dark-mode#Dark-Mode-colors`: mindestens 4.5:1; bei eigenen Vorder-/H
 | visionOS | 60x60 pt | 28x28 pt |
 | watchOS | 44x44 pt | 28x28 pt |
 
-Abstand: ~12 pt um Elemente mit Bezel, ~24 pt um bezellose Elemente (gemessen ab sichtbarer Kante).
+Spacing: ~12 pt around elements with a bezel, ~24 pt around bezel-less elements (measured from the visible edge).
 
-### Dynamic Type – Body-Stil als Referenz (hig:typography#Specifications)
+### Dynamic Type – Body style as reference (hig:typography#Specifications)
 
-| Größe | iOS/iPadOS Body (pt / Leading) | watchOS Body (pt / Leading) |
+| Size | iOS/iPadOS Body (pt / leading) | watchOS Body (pt / leading) |
 |---|---|---|
 | xSmall | 14 / 19 | 14 / 16.5 |
-| Small | 15 / 20 | 15 / 17.5 (Default 38 mm) |
+| Small | 15 / 20 | 15 / 17.5 (default 38 mm) |
 | Medium | 16 / 21 | – |
-| Large | **17 / 22 (Default)** | 16 / 18.5 (Default 40/41/42 mm) |
-| xLarge | 19 / 24 | 17 / 19.5 (Default 44/45/49 mm) |
+| Large | **17 / 22 (default)** | 16 / 18.5 (default 40/41/42 mm) |
+| xLarge | 19 / 24 | 17 / 19.5 (default 44/45/49 mm) |
 | xxLarge | 21 / 26 | 18 / 20.5 |
 | xxxLarge | 23 / 29 | 19 / 21.5 |
 | AX1 | 28 / 34 | 21 / 23.5 |
@@ -115,174 +115,174 @@ Abstand: ~12 pt um Elemente mit Bezel, ~24 pt um bezellose Elemente (gemessen ab
 | AX4 | 47 / 56 | – |
 | AX5 | 53 / 62 | – |
 
-Vollständige Stil-Tabellen: `typography`-Referenz. Dynamic Type gibt es in iOS, iPadOS, tvOS, visionOS, watchOS – **nicht in macOS** (hig:typography#macOS).
+Complete style tables: `typography` reference. Dynamic Type is available in iOS, iPadOS, tvOS, visionOS, watchOS – **not in macOS** (hig:typography#macOS).
 
-### System-Einstellungen, auf die eine App reagieren muss
+### System settings an app must respond to
 
-| Einstellung | Erwartete Reaktion | Beleg |
+| Setting | Expected response | Source |
 |---|---|---|
-| Larger Text / Dynamic Type inkl. AX-Größen | Layout skaliert, minimal kürzen, ggf. gestapeltes Layout, weniger Spalten | hig:typography#Supporting-Dynamic-Type |
-| Bold Text | Custom Fonts liefern fetteren Schnitt | hig:typography#Using-custom-fonts |
-| Increase Contrast | Eigene Farben mit Increased-Contrast-Varianten; Systemfarben passen sich an | hig:color#Best-practices |
-| Reduce Transparency | Materialien/Liquid Glass werden opaker; Lesbarkeit prüfen | hig:materials, hig:dark-mode#Best-practices |
-| Reduce Motion | Bewegung reduzieren, Fades statt Bewegung | hig:accessibility#Cognitive |
-| Dim Flashing Lights | Video-Wiedergabe reagiert | hig:accessibility#Cognitive |
-| Dark Mode | Beide Appearances lesbar, Kontrast in beiden prüfen | hig:dark-mode |
-| VoiceOver | Labels, Reihenfolge, Gruppen, Notifications, Rotor | hig:voiceover |
-| Voice Control | Sichtbare, eindeutige Beschriftungen | hig:accessibility#Mobility |
-| Switch Control, Full Keyboard Access, AssistiveTouch, Pointer Control | Alle Funktionen ohne Touch-Gesten erreichbar | hig:accessibility#Mobility, #Speech |
-| Assistive Access | Reduzierte, einschrittige Oberfläche | hig:accessibility#Cognitive |
+| Larger Text / Dynamic Type incl. AX sizes | Layout scales, minimal truncation, stacked layout if needed, fewer columns | hig:typography#Supporting-Dynamic-Type |
+| Bold Text | Custom fonts provide a bolder weight | hig:typography#Using-custom-fonts |
+| Increase Contrast | Custom colors with increased-contrast variants; system colors adapt | hig:color#Best-practices |
+| Reduce Transparency | Materials/Liquid Glass become more opaque; check legibility | hig:materials, hig:dark-mode#Best-practices |
+| Reduce Motion | Reduce motion, fades instead of movement | hig:accessibility#Cognitive |
+| Dim Flashing Lights | Video playback responds | hig:accessibility#Cognitive |
+| Dark Mode | Both appearances legible, check contrast in both | hig:dark-mode |
+| VoiceOver | Labels, order, groups, notifications, rotor | hig:voiceover |
+| Voice Control | Visible, unique labels | hig:accessibility#Mobility |
+| Switch Control, Full Keyboard Access, AssistiveTouch, Pointer Control | All functions reachable without touch gestures | hig:accessibility#Mobility, #Speech |
+| Assistive Access | Reduced, single-step interface | hig:accessibility#Cognitive |
 
-Nicht im Spiegel ausgeführt, aber im System vorhanden: Button Shapes, Smart Invert, Differentiate Without Color, On/Off Labels – die HIG-Seiten geben dazu keine eigenen Regeln; in der Praxis über die unten genannten APIs abfragen und Farbe-allein vermeiden.
+Not covered in the mirror, but present in the system: Button Shapes, Smart Invert, Differentiate Without Color, On/Off Labels – the HIG pages give no specific rules for these; in practice, query them via the APIs listed below and avoid relying on color alone.
 
-## Plattform-Unterschiede
+## Platform differences
 
-| Thema | iOS / iPadOS | macOS | watchOS |
+| Topic | iOS / iPadOS | macOS | watchOS |
 |---|---|---|---|
-| Dynamic Type | ja, 7 Standard- + 5 AX-Größen | **nein** – eigene Skalierung oder Systemschriftgrößen/-Varianten (`NSFont`-Dynamic-Variants) | ja, 6 Standard- + 3 AX-Größen; Default abhängig von Gehäusegröße |
-| Vergrößerungsziel | 200 % | 200 % (über eigene UI) | 140 % |
-| Default/Min Text | 17 / 11 pt | 13 / 10 pt | 16 / 12 pt |
-| Control Default/Min | 44 / 28 pt | 28 / 20 pt | 44 / 28 pt |
-| Dark Mode | ja (Base/Elevated-Hintergründe) | ja (Desktop Tinting) | kein Dark Mode (immer dunkel) |
-| Eingabe-Alternativen | Voice Control, Switch Control, AssistiveTouch, Full Keyboard Access | Full Keyboard Access, Voice Control, Switch Control, Pointer Control | VoiceOver, Siri/Shortcuts, Action Button, Digital Crown |
-| Assistive Access | ja | – | – |
-| Besonderheit | Music Haptics, Audio Graphs | Tastatur-Navigation zentral, Systemkürzel nicht überschreiben | Kurze Interaktionen, keine zeitkritischen UIs |
+| Dynamic Type | yes, 7 standard + 5 AX sizes | **no** – custom scaling or system font sizes/variants (`NSFont` dynamic variants) | yes, 6 standard + 3 AX sizes; default depends on case size |
+| Enlargement target | 200 % | 200 % (via your own UI) | 140 % |
+| Default/min text | 17 / 11 pt | 13 / 10 pt | 16 / 12 pt |
+| Control default/min | 44 / 28 pt | 28 / 20 pt | 44 / 28 pt |
+| Dark Mode | yes (base/elevated backgrounds) | yes (desktop tinting) | no Dark Mode (always dark) |
+| Input alternatives | Voice Control, Switch Control, AssistiveTouch, Full Keyboard Access | Full Keyboard Access, Voice Control, Switch Control, Pointer Control | VoiceOver, Siri/Shortcuts, Action button, Digital Crown |
+| Assistive Access | yes | – | – |
+| Special considerations | Music Haptics, Audio Graphs | Keyboard navigation is central, don't override system shortcuts | Short interactions, no time-critical UIs |
 
-visionOS (zur Vollständigkeit): Pointer Control (Kopf/Hand), Zoom; Komfort priorisieren (Inhalte im Blickfeld, horizontale statt vertikale Layouts, keine kopfverankerten Inhalte, keine großen repetitiven Gesten); mit VoiceOver erhalten Custom Gestures standardmäßig keine Handeingabe (Direct Gesture Mode) (hig:accessibility#visionOS, hig:voiceover#visionOS).
+visionOS (for completeness): Pointer Control (head/hand), Zoom; prioritize comfort (content within the field of view, horizontal rather than vertical layouts, no head-anchored content, no large repetitive gestures); with VoiceOver, custom gestures don't receive hand input by default (Direct Gesture Mode) (hig:accessibility#visionOS, hig:voiceover#visionOS).
 
-## Umsetzung
+## Implementation
 
 ### SwiftUI
 ```swift
-// Labels, Werte, Hinweise
+// Labels, values, hints
 Button(action: share) { Image(systemName: "square.and.arrow.up") }
-    .accessibilityLabel("Teilen")
-    .accessibilityHint("Öffnet Optionen zum Teilen")   // sparsam
-Slider(value: $volume).accessibilityValue("\(Int(volume * 100)) Prozent")
-Image(decorative: "Hintergrund")                       // aus VoiceOver ausblenden
-Text("Einstellungen").accessibilityAddTraits(.isHeader)
+    .accessibilityLabel("Share")
+    .accessibilityHint("Opens sharing options")        // use sparingly
+Slider(value: $volume).accessibilityValue("\(Int(volume * 100)) percent")
+Image(decorative: "Background")                        // hide from VoiceOver
+Text("Settings").accessibilityAddTraits(.isHeader)
 
-// Gruppieren / Reihenfolge
+// Grouping / order
 VStack { Image(photo); Text(caption) }
     .accessibilityElement(children: .combine)
 .accessibilitySortPriority(1)
 
-// Voice Control: alternative Sprachbefehle
-.accessibilityInputLabels(["Senden", "Abschicken"])
+// Voice Control: alternative voice commands
+.accessibilityInputLabels(["Send", "Submit"])
 
-// Custom Actions statt Swipe-only
-.accessibilityAction(named: "Löschen") { delete() }
+// Custom actions instead of swipe-only
+.accessibilityAction(named: "Delete") { delete() }
 
 // Rotor
-.accessibilityRotor("Überschriften") { ... }
+.accessibilityRotor("Headings") { ... }
 
-// Änderungen melden
-AccessibilityNotification.Announcement("Download abgeschlossen").post()
+// Announce changes
+AccessibilityNotification.Announcement("Download complete").post()
 
-// Einstellungen abfragen
+// Query settings
 @Environment(\.dynamicTypeSize) var typeSize          // typeSize.isAccessibilitySize
 @Environment(\.accessibilityReduceMotion) var reduceMotion
 @Environment(\.accessibilityReduceTransparency) var reduceTransparency
 @Environment(\.colorSchemeContrast) var contrast       // .increased
-@Environment(\.legibilityWeight) var weight            // .bold bei Bold Text
+@Environment(\.legibilityWeight) var weight            // .bold with Bold Text
 @Environment(\.accessibilityDifferentiateWithoutColor) var noColorOnly
 
-// Custom Font mit Dynamic Type
+// Custom font with Dynamic Type
 .font(.custom("BrandSans", size: 17, relativeTo: .body))
 @ScaledMetric(relativeTo: .body) var iconSize = 24
 ```
 
 ### UIKit
 ```swift
-button.accessibilityLabel = "Teilen"
-imageView.isAccessibilityElement = false                 // dekorativ
+button.accessibilityLabel = "Share"
+imageView.isAccessibilityElement = false                 // decorative
 label.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: brandFont)
 label.adjustsFontForContentSizeCategory = true
-label.numberOfLines = 0                                  // Truncation vermeiden
-if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { /* gestapeltes Layout */ }
+label.numberOfLines = 0                                  // avoid truncation
+if traitCollection.preferredContentSizeCategory.isAccessibilityCategory { /* stacked layout */ }
 UIAccessibility.post(notification: .layoutChanged, argument: firstElement)
 UIAccessibility.isReduceMotionEnabled / .isReduceTransparencyEnabled
 UIAccessibility.isBoldTextEnabled / .isDarkerSystemColorsEnabled
 view.shouldGroupAccessibilityChildren = true
-let rotor = UIAccessibilityCustomRotor(name: "Überschriften") { ... }
+let rotor = UIAccessibilityCustomRotor(name: "Headings") { ... }
 ```
 
 ### AppKit
 ```swift
-button.setAccessibilityLabel("Teilen")
+button.setAccessibilityLabel("Share")
 NSWorkspace.shared.accessibilityDisplayShouldReduceMotion
 NSWorkspace.shared.accessibilityDisplayShouldReduceTransparency
 NSWorkspace.shared.accessibilityDisplayShouldIncreaseContrast
 NSAccessibility.post(element: view, notification: .layoutChanged)
-NSAccessibilityCustomRotor(label: "Überschriften", itemSearchDelegate: self)
+NSAccessibilityCustomRotor(label: "Headings", itemSearchDelegate: self)
 ```
 
-Hinweis: API-Namen oben stammen aus dem Apple-SDK, nicht aus dem HIG-Spiegel; der Spiegel verweist auf `accessibilityHidden(_:)`, `accessibilityElement`, `isAccessibilityElement`, `shouldGroupAccessibilityChildren`, `AccessibilityNotification`, `AccessibilityRotorEntry`, `UIAccessibilityCustomRotor`, `NSAccessibilityCustomRotor`, `isAccessibilityCategory`, `numberOfLines`.
+Note: The API names above come from the Apple SDK, not from the HIG mirror; the mirror references `accessibilityHidden(_:)`, `accessibilityElement`, `isAccessibilityElement`, `shouldGroupAccessibilityChildren`, `AccessibilityNotification`, `AccessibilityRotorEntry`, `UIAccessibilityCustomRotor`, `NSAccessibilityCustomRotor`, `isAccessibilityCategory`, `numberOfLines`.
 
-## Audit-Checkliste
+## Audit checklist
 
-**Sehen**
-- [ ] Alle Texte über Text Styles / skalierte Fonts; AX5 (iOS) bzw. AX3 (watchOS) ohne abgeschnittene Kerninhalte.
-- [ ] Layout wechselt bei AX-Größen auf gestapelt; Spaltenzahl reduziert; Hierarchie bleibt oben.
-- [ ] Keine Texte unter Plattform-Minimum; keine Light/Thin-Schnitte bei kleinem Text.
-- [ ] Kontraste ≥ 4.5:1 (≤ 17 pt) bzw. ≥ 3:1 (≥ 18 pt oder Bold) in Light **und** Dark; eigene Farben Ziel 7:1.
-- [ ] Increase Contrast liefert sichtbar stärkere Differenzierung (eigene Farben mit HC-Variante).
-- [ ] Reduce Transparency: Text auf Materialien/Liquid Glass weiterhin lesbar.
-- [ ] Bold Text greift auch bei Custom Fonts.
-- [ ] Zustände/Fehler nicht nur über Farbe (zusätzlich Symbol, Text, Form).
-- [ ] Bedeutungstragende Icons wachsen mit der Schriftgröße.
+**Vision**
+- [ ] All text uses text styles / scaled fonts; AX5 (iOS) or AX3 (watchOS) without truncated core content.
+- [ ] Layout switches to stacked at AX sizes; column count reduced; hierarchy stays at the top.
+- [ ] No text below the platform minimum; no Light/Thin weights for small text.
+- [ ] Contrast ≥ 4.5:1 (≤ 17 pt) or ≥ 3:1 (≥ 18 pt or Bold) in Light **and** Dark; custom colors target 7:1.
+- [ ] Increase Contrast provides visibly stronger differentiation (custom colors with HC variant).
+- [ ] Reduce Transparency: text on materials/Liquid Glass remains legible.
+- [ ] Bold Text also takes effect with custom fonts.
+- [ ] States/errors not conveyed by color alone (additionally symbol, text, shape).
+- [ ] Meaningful icons scale with the font size.
 
 **VoiceOver**
-- [ ] Jedes interaktive Element hat ein funktionales Label (kein „Button“, kein Dateiname).
-- [ ] Dekorative Bilder ausgeblendet; Inhaltsbilder beschrieben.
-- [ ] Titel je Screen eindeutig, Überschriften als Header markiert.
-- [ ] Lesereihenfolge logisch; Bild + Caption gruppiert.
-- [ ] Dynamische Änderungen (Laden fertig, Fehler, Layoutwechsel) werden angesagt.
-- [ ] Charts mit Zusammenfassung und navigierbaren Datenpunkten.
-- [ ] Custom Controls mit Wert, Traits und Adjustable-/Custom Actions.
+- [ ] Every interactive element has a functional label (no "Button", no file name).
+- [ ] Decorative images hidden; content images described.
+- [ ] Title unique per screen, headings marked as headers.
+- [ ] Reading order logical; image + caption grouped.
+- [ ] Dynamic changes (loading finished, errors, layout changes) are announced.
+- [ ] Charts with summary and navigable data points.
+- [ ] Custom controls with value, traits, and adjustable/custom actions.
 
-**Motorik / Eingabe**
-- [ ] Hit-Targets ≥ 44x44 pt (iOS/iPadOS/watchOS), ≥ 28x28 pt (macOS-Default), ≥ 60x60 pt (visionOS); Minima nicht unterschritten.
-- [ ] Abstände ~12 pt (mit Bezel) / ~24 pt (ohne Bezel).
-- [ ] Jede Geste hat eine sichtbare Alternative (Button, Menü, Custom Action).
-- [ ] Keine Mehrfinger-Pflichtgesten für Kernfunktionen.
-- [ ] Voice Control: alle Elemente per „Tippe <Name>“ erreichbar.
-- [ ] Full Keyboard Access / Tab-Reihenfolge vollständig; Systemkürzel nicht überschrieben.
-- [ ] Switch Control erreicht alle Funktionen.
+**Mobility / input**
+- [ ] Hit targets ≥ 44x44 pt (iOS/iPadOS/watchOS), ≥ 28x28 pt (macOS default), ≥ 60x60 pt (visionOS); minimums not undercut.
+- [ ] Spacing ~12 pt (with bezel) / ~24 pt (without bezel).
+- [ ] Every gesture has a visible alternative (button, menu, custom action).
+- [ ] No mandatory multi-finger gestures for core functions.
+- [ ] Voice Control: all elements reachable via "Tap <name>".
+- [ ] Full Keyboard Access / tab order complete; system shortcuts not overridden.
+- [ ] Switch Control reaches all functions.
 
-**Hören**
-- [ ] Untertitel/Captions/Transkripte für Audio- und Videoinhalte.
-- [ ] Audio-Signale zusätzlich visuell und haptisch.
+**Hearing**
+- [ ] Subtitles/captions/transcripts for audio and video content.
+- [ ] Audio signals additionally visual and haptic.
 
-**Kognition / Bewegung**
-- [ ] Keine automatisch verschwindenden Hinweise mit Handlungsbedarf.
-- [ ] Kein Autoplay ohne Steuerung.
-- [ ] Reduce Motion: keine Zoom-/Parallax-/Bounce-Effekte, Fades statt Slides.
-- [ ] Dim Flashing Lights bei Videowiedergabe berücksichtigt.
-- [ ] Assistive Access (falls relevant): Kernflows einschrittig, destruktive Aktionen doppelt bestätigt.
+**Cognitive / motion**
+- [ ] No automatically disappearing notices that require action.
+- [ ] No autoplay without controls.
+- [ ] Reduce Motion: no zoom/parallax/bounce effects, fades instead of slides.
+- [ ] Dim Flashing Lights respected during video playback.
+- [ ] Assistive Access (if relevant): core flows single-step, destructive actions double-confirmed.
 
-**Prozess**
-- [ ] Accessibility Inspector Audit ohne offene Befunde.
-- [ ] Test mit echten Einstellungen (Larger Text, Bold Text, Increase Contrast, Reduce Transparency, Reduce Motion, VoiceOver) – einzeln und kombiniert.
-- [ ] Accessibility Nutrition Labels in App Store Connect gepflegt.
+**Process**
+- [ ] Accessibility Inspector audit without open findings.
+- [ ] Test with real settings (Larger Text, Bold Text, Increase Contrast, Reduce Transparency, Reduce Motion, VoiceOver) – individually and combined.
+- [ ] Accessibility Nutrition Labels maintained in App Store Connect.
 
-## Anti-Patterns
+## Anti-patterns
 
-- Feste Schriftgrößen (`.system(size: 15)`) ohne `relativeTo`/`UIFontMetrics`.
-- `lineLimit(1)` auf Inhaltstexten → Truncation bei großen Größen.
-- Icon-Buttons ohne Label („Button, Bild“ in VoiceOver).
-- Status nur als roter/grüner Punkt.
-- Grauer Text auf Liquid Glass ohne Prüfung mit Reduce Transparency.
-- Swipe-to-delete als einziger Weg zum Löschen.
-- Toasts/Banner, die nach wenigen Sekunden verschwinden und eine Aktion enthalten.
-- App-eigener Light/Dark-Schalter statt Systemeinstellung (hig:dark-mode#Best-practices).
-- Kleine Tap-Ziele dicht nebeneinander (z. B. 24-pt-Icons ohne Padding).
-- Dekorative Bilder mit Alt-Text, die VoiceOver-Nutzer ausbremsen.
-- Überschreiben von Systemkürzeln (z. B. Cmd-Tab-ähnliche Bindings) in macOS.
+- Fixed font sizes (`.system(size: 15)`) without `relativeTo`/`UIFontMetrics`.
+- `lineLimit(1)` on content text → truncation at large sizes.
+- Icon buttons without a label ("Button, image" in VoiceOver).
+- Status only as a red/green dot.
+- Gray text on Liquid Glass without checking with Reduce Transparency.
+- Swipe-to-delete as the only way to delete.
+- Toasts/banners that disappear after a few seconds and contain an action.
+- App-specific light/dark toggle instead of the system setting (hig:dark-mode#Best-practices).
+- Small tap targets packed closely together (e.g. 24-pt icons without padding).
+- Decorative images with alt text that slow down VoiceOver users.
+- Overriding system shortcuts (e.g. Cmd-Tab-like bindings) in macOS.
 
-## Unklarheiten / Widersprüche im Spiegel
+## Ambiguities / contradictions in the mirror
 
-- **Hit-Target macOS:** `buttons#Best-practices` nennt allgemein mindestens 44x44 pt (visionOS 60x60), `accessibility#Mobility` nennt für macOS 28x28 pt Default und 20x20 pt Minimum. Für macOS gilt die plattformspezifische Tabelle; die 44-pt-Regel ist auf Touch ausgerichtet.
-- **Kontrast:** `accessibility` nennt 4.5:1 bzw. 3:1 (WCAG AA), `dark-mode` zusätzlich 7:1 als Zielwert für eigene Farben. Kein Widerspruch, aber zwei Niveaus: 4.5:1 = Pflichtminimum, 7:1 = Empfehlung.
-- **Schwelle 17/18 pt:** Die Tabelle springt von „bis 17 pt“ auf „18 pt“; Zwischenwerte (z. B. 17.5 pt) sind nicht geregelt.
-- **200 %-Ziel vs. tatsächliche Skala:** iOS-Body wächst von 17 auf 53 pt (AX5), watchOS-Body von 16 auf 23 pt (AX3) – die Ziele 200 % / 140 % sind Mindestanforderungen an eigene Lösungen, keine Systemgrenzen.
+- **Hit target macOS:** `buttons#Best-practices` generally states at least 44x44 pt (visionOS 60x60), while `accessibility#Mobility` states 28x28 pt default and 20x20 pt minimum for macOS. For macOS the platform-specific table applies; the 44-pt rule is geared toward touch.
+- **Contrast:** `accessibility` states 4.5:1 or 3:1 (WCAG AA), `dark-mode` additionally 7:1 as a target for custom colors. Not a contradiction, but two levels: 4.5:1 = mandatory minimum, 7:1 = recommendation.
+- **17/18 pt threshold:** The table jumps from "up to 17 pt" to "18 pt"; intermediate values (e.g. 17.5 pt) are not covered.
+- **200 % target vs. actual scale:** iOS Body grows from 17 to 53 pt (AX5), watchOS Body from 16 to 23 pt (AX3) – the 200 % / 140 % targets are minimum requirements for custom solutions, not system limits.

@@ -1,209 +1,209 @@
-# macOS – Plattformreferenz
+# macOS – Platform reference
 
-Quelle: lokaler HIG-Spiegel (`~/.apple-design/hig/pages`, Stand 2026-10-21). Belege als `(hig:<slug>)` bzw. `(hig:<slug>#Anker)`. Alle Zahlen stammen aus dem Spiegel; wo der Spiegel keine Zahl nennt, steht hier auch keine.
-
----
-
-## 1. Kurzprofil
-
-- **Nutzungskontext:** stationär am Schreibtisch, Sichtabstand ca. 1–3 Fuß; Sitzungen von wenigen Minuten bis zu Stunden konzentrierter Arbeit; mehrere Apps gleichzeitig offen, häufiger Wechsel zwischen aktiven und inaktiven Zuständen (hig:designing-for-macos).
-- **Eingabe:** physische Tastatur (praktisch immer), Maus/Trackpad mit hoher Präzision, Gamecontroller, Siri; Trackpad-Gesten und Force Click (hig:designing-for-macos, hig:pointing-devices#macOS, hig:keyboards).
-- **Displays:** große, hochauflösende Displays, zusätzliche Monitore inkl. iPad; einige Macs haben eine Kameraaussparung oben mittig (hig:designing-for-macos, hig:layout#macOS, hig:going-full-screen#macOS).
-- **Systemrahmen:** Menüleiste, Dock, Finder/Dateiverwaltung, Vollbild in eigenem Space, Fenster in drei Zuständen (main/key/inactive) (hig:designing-for-macos, hig:windows#macOS).
-- **Erwartung:** mehr Inhalt in weniger Hierarchieebenen, wenig Modalität, frei skalierbare Fenster, alle Befehle in der Menüleiste, Tastaturkürzel, Personalisierung (Toolbar, Fenster, Farben, Schriften) (hig:designing-for-macos).
-- **Kein Dynamic Type** auf macOS (hig:typography#macOS).
+Source: local HIG mirror (`~/.apple-design/hig/pages`, as of 2026-10-21). Sources cited as `(hig:<slug>)` or `(hig:<slug>#Anchor)`. All numbers come from the mirror; where the mirror gives no number, none is given here either.
 
 ---
 
-## 2. Nicht verhandelbar
+## 1. Profile
 
-1. Jeden Befehl der App in der Menüleiste anbieten – auch selten genutzte und solche, die bereits in Toolbar oder Kontextmenü stehen (hig:the-menu-bar#App-specific-menus, hig:toolbars#macOS).
-2. Standardmenüs in Standardreihenfolge: App-Menü, File, Edit, Format, View, App-spezifische Menüs, Window, Help (hig:the-menu-bar#Anatomy).
-3. Menüpunkte nicht ausblenden, wenn sie gerade nicht anwendbar sind – deaktivieren (hig:the-menu-bar#Best-practices).
-4. Standard-Tastaturkürzel unterstützen und nicht für fremde Aktionen umwidmen; eigene Kürzel nur für die häufigsten App-Befehle, Command als Hauptmodifier, Control vermeiden (hig:keyboards#Standard-keyboard-shortcuts, hig:keyboards#Custom-keyboard-shortcuts).
-5. Fenster frei skalierbar, verschiebbar, minimierbar; Vollbild über das System anbieten und Nutzer entscheiden lassen, wann es betreten/verlassen wird (hig:designing-for-macos, hig:going-full-screen#macOS).
-6. Keine eigenen Fensterrahmen/-controls nachbauen; Systemdarstellung der Fensterzustände (key/main/inactive) erhalten (hig:windows#Best-practices, hig:windows#macOS).
-7. Keine kritischen Controls oder Informationen am unteren Fenster- oder Sidebar-Rand – Fenster werden oft teilweise unter den Bildschirmrand geschoben (hig:layout#macOS, hig:windows#macOS, hig:sidebars#macOS).
-8. Einstellungen über *App-Name > Settings…* (Command-Komma) öffnen, nicht über einen Toolbar-Button (hig:settings#macOS).
-9. Window-Menü immer anbieten, auch bei nur einem Fenster, mit Minimize und Zoom (Full Keyboard Access) (hig:the-menu-bar#Window-menu).
-10. View-Menü immer anbieten, auch wenn nur Enter/Exit Full Screen darin steht; Show/Hide-Titel spiegeln den aktuellen Zustand (hig:the-menu-bar#View-menu).
-11. Undo/Redo oben im Edit-Menü mit Command-Z / Shift-Command-Z (hig:undo-and-redo#macOS).
-12. Liquid Glass nur in der Funktionsebene (Toolbar, Sidebar, Controls), nie im Inhaltsbereich; sparsam auf eigene Controls anwenden (hig:materials#Liquid-Glass).
-13. Menu Bar Extra öffnet ein Menü, kein Popover (außer Funktion ist für ein Menü zu komplex); Nutzer entscheiden, ob es angezeigt wird (hig:the-menu-bar#Menu-bar-extras).
-14. Vom Accent Color des Nutzers abhängige Elemente (Sidebar-Icons, Auswahl) nicht hart einfärben, außer eine fixe Farbe trägt Bedeutung (hig:sidebars#Best-practices, hig:color#App-accent-colors).
-15. Full Keyboard Access unterstützen (hig:keyboards#Best-practices).
+- **Usage context:** stationary at a desk, viewing distance approx. 1–3 feet; sessions from a few minutes to hours of focused work; several apps open at once, frequent switching between active and inactive states (hig:designing-for-macos).
+- **Input:** physical keyboard (practically always), mouse/trackpad with high precision, game controllers, Siri; trackpad gestures and Force Click (hig:designing-for-macos, hig:pointing-devices#macOS, hig:keyboards).
+- **Displays:** large, high-resolution displays, additional monitors incl. iPad; some Macs have a camera housing at the top center (hig:designing-for-macos, hig:layout#macOS, hig:going-full-screen#macOS).
+- **System frame:** menu bar, Dock, Finder/file management, full screen in its own Space, windows in three states (main/key/inactive) (hig:designing-for-macos, hig:windows#macOS).
+- **Expectations:** more content in fewer hierarchy levels, little modality, freely resizable windows, all commands in the menu bar, keyboard shortcuts, personalization (toolbar, windows, colors, fonts) (hig:designing-for-macos).
+- **No Dynamic Type** on macOS (hig:typography#macOS).
 
 ---
 
-## 3. Layout & Maße
+## 2. Non-negotiable
 
-### Konkrete Werte aus dem Spiegel
+1. Offer every app command in the menu bar – including rarely used ones and those already in the toolbar or a context menu (hig:the-menu-bar#App-specific-menus, hig:toolbars#macOS).
+2. Standard menus in standard order: app menu, File, Edit, Format, View, app-specific menus, Window, Help (hig:the-menu-bar#Anatomy).
+3. Don't hide menu items when they don't currently apply – disable them (hig:the-menu-bar#Best-practices).
+4. Support standard keyboard shortcuts and don't repurpose them for other actions; custom shortcuts only for the most frequent app commands, Command as the main modifier, avoid Control (hig:keyboards#Standard-keyboard-shortcuts, hig:keyboards#Custom-keyboard-shortcuts).
+5. Windows freely resizable, movable, minimizable; offer full screen via the system and let people decide when to enter/exit it (hig:designing-for-macos, hig:going-full-screen#macOS).
+6. Don't rebuild custom window frames/controls; preserve the system appearance of window states (key/main/inactive) (hig:windows#Best-practices, hig:windows#macOS).
+7. No critical controls or information at the bottom edge of a window or sidebar – windows are often partially moved below the screen edge (hig:layout#macOS, hig:windows#macOS, hig:sidebars#macOS).
+8. Open settings via *App Name > Settings…* (Command-Comma), not via a toolbar button (hig:settings#macOS).
+9. Always offer a Window menu, even with only one window, with Minimize and Zoom (Full Keyboard Access) (hig:the-menu-bar#Window-menu).
+10. Always offer a View menu, even if it only contains Enter/Exit Full Screen; Show/Hide titles reflect the current state (hig:the-menu-bar#View-menu).
+11. Undo/Redo at the top of the Edit menu with Command-Z / Shift-Command-Z (hig:undo-and-redo#macOS).
+12. Liquid Glass only in the functional layer (toolbar, sidebar, controls), never in the content area; apply sparingly to custom controls (hig:materials#Liquid-Glass).
+13. A menu bar extra opens a menu, not a popover (unless the functionality is too complex for a menu); people decide whether it is shown (hig:the-menu-bar#Menu-bar-extras).
+14. Don't hard-code colors for elements that depend on the user's accent color (sidebar icons, selection), unless a fixed color carries meaning (hig:sidebars#Best-practices, hig:color#App-accent-colors).
+15. Support Full Keyboard Access (hig:keyboards#Best-practices).
 
-| Größe | Wert | Quelle |
+---
+
+## 3. Layout & dimensions
+
+### Concrete values from the mirror
+
+| Item | Value | Source |
 |---|---|---|
-| Menüleistenhöhe | 24 pt | (hig:the-menu-bar#Menu-bar-extras) |
-| Standard-Textgröße / Minimum | 13 pt / 10 pt | (hig:typography#Ensuring-legibility) |
-| Control-Größe Default / Minimum | 28x28 pt / 20x20 pt | (hig:accessibility#Mobility) |
-| Abstand um Elemente mit Bezel / ohne Bezel | ca. 12 pt / ca. 24 pt | (hig:accessibility#Mobility) |
-| Split-View-Divider (thin, bevorzugt) | 1 pt | (hig:split-views#macOS) |
-| Padding Bild ↔ Kante beim Image Button | ca. 10 px | (hig:buttons#macOS) |
-| Toolbar-/Fenstertitel | unter 15 Zeichen | (hig:toolbars#Titles) |
-| Toolbar-Gruppen | max. 3 anstreben | (hig:toolbars#Item-groupings) |
-| Tooltip-Länge | max. 60–75 Zeichen | (hig:offering-help#macOS-visionOS) |
-| App-Name im About-Menüpunkt | 16 Zeichen oder weniger | (hig:the-menu-bar#App-menu) |
-| Radio Buttons pro Gruppe | typisch 2–5; ab ca. 5 Optionen Pop-up Button | (hig:toggles#macOS) |
-| Tabs in Tab View | nicht mehr als 6 | (hig:tab-views#Best-practices) |
-| Stepper Shift-Klick | größere Schritte, Beispiel: 10× Standard | (hig:steppers#macOS) |
-| Kontrast (WCAG AA) | bis 17 pt: 4.5:1; ab 18 pt oder fett: 3:1 | (hig:accessibility#Vision) |
-| App-Icon Layoutgröße | 1024x1024 px, quadratisch, System maskiert zu abgerundetem Rechteck | (hig:app-icons#Specifications) |
-| Widget-Textgröße | 11 pt oder größer | (hig:widgets#Displaying-text-in-widgets) |
-| Widget-Ränder | 16 pt Standard, 11 pt eng; auf dem Mac-Desktop kleiner (ohne Zahl) | (hig:widgets#Choosing-margins-and-padding) |
-| Mac Catalyst, iPad-Idiom | Skalierung auf 77 %, z. B. 17 pt → 13 pt | (hig:mac-catalyst#Choose-an-idiom) |
-| Dokument-Icon Hintergrund | 512/256/128/32/16 px @1x (jeweils @2x doppelt) | (hig:icons#macOS) |
-| Dokument-Icon Center Image | halbe Canvas-Größe; ca. 10 % Rand, Motiv ca. 80 % (z. B. 205x205 in 256x256) | (hig:icons#macOS) |
-| Kleinste Dokument-Icon-Größe | 16x16 px | (hig:icons#macOS) |
+| Menu bar height | 24 pt | (hig:the-menu-bar#Menu-bar-extras) |
+| Default text size / minimum | 13 pt / 10 pt | (hig:typography#Ensuring-legibility) |
+| Control size default / minimum | 28x28 pt / 20x20 pt | (hig:accessibility#Mobility) |
+| Spacing around elements with bezel / without bezel | approx. 12 pt / approx. 24 pt | (hig:accessibility#Mobility) |
+| Split view divider (thin, preferred) | 1 pt | (hig:split-views#macOS) |
+| Padding image ↔ edge for image buttons | approx. 10 px | (hig:buttons#macOS) |
+| Toolbar/window title | under 15 characters | (hig:toolbars#Titles) |
+| Toolbar groups | aim for max. 3 | (hig:toolbars#Item-groupings) |
+| Tooltip length | max. 60–75 characters | (hig:offering-help#macOS-visionOS) |
+| App name in the About menu item | 16 characters or fewer | (hig:the-menu-bar#App-menu) |
+| Radio buttons per group | typically 2–5; from approx. 5 options use a pop-up button | (hig:toggles#macOS) |
+| Tabs in a tab view | no more than 6 | (hig:tab-views#Best-practices) |
+| Stepper Shift-click | larger increments, example: 10× standard | (hig:steppers#macOS) |
+| Contrast (WCAG AA) | up to 17 pt: 4.5:1; from 18 pt or bold: 3:1 | (hig:accessibility#Vision) |
+| App icon layout size | 1024x1024 px, square, system masks to rounded rectangle | (hig:app-icons#Specifications) |
+| Widget text size | 11 pt or larger | (hig:widgets#Displaying-text-in-widgets) |
+| Widget margins | 16 pt standard, 11 pt tight; smaller on the Mac desktop (no number) | (hig:widgets#Choosing-margins-and-padding) |
+| Mac Catalyst, iPad idiom | scaling to 77 %, e.g. 17 pt → 13 pt | (hig:mac-catalyst#Choose-an-idiom) |
+| Document icon background | 512/256/128/32/16 px @1x (each doubled @2x) | (hig:icons#macOS) |
+| Document icon center image | half the canvas size; approx. 10 % margin, motif approx. 80 % (e.g. 205x205 in 256x256) | (hig:icons#macOS) |
+| Smallest document icon size | 16x16 px | (hig:icons#macOS) |
 
-### Layoutregeln
+### Layout rules
 
-- Wichtigstes oben und an der führenden Seite (Lesereihenfolge); top-down-Fluss, wichtige Aktionen oben im Fenster (hig:layout#Visual-hierarchy, hig:mac-catalyst#Layout).
-- Hintergrundinhalte bis unter Sidebar und Toolbar ziehen; wenn Sidebar/Inspector Bildteile verdecken, Background Extension Effect nutzen (hig:layout#Visual-hierarchy, hig:sidebars#Best-practices).
-- Keine Inhalte hinter der Kameraaussparung oben am Fensterrand (hig:layout#macOS).
-- Split-View-Panes: sinnvolle Min-/Max-Breiten, damit der Divider sichtbar bleibt (hig:split-views#macOS).
-- Spalten in Tabellen/Outline/Column Views vom Nutzer skalierbar (hig:lists-and-tables#macOS, hig:outline-views, hig:column-views).
-- Tab View mit Rand aus Window-Body auf allen Seiten einrücken (hig:tab-views#Anatomy).
-- Im Vollbild Proportionen anpassen, aber Fenster nicht programmatisch skalieren (hig:going-full-screen#Best-practices).
+- Most important content at the top and on the leading side (reading order); top-down flow, important actions at the top of the window (hig:layout#Visual-hierarchy, hig:mac-catalyst#Layout).
+- Extend background content beneath the sidebar and toolbar; if a sidebar/inspector covers parts of an image, use the background extension effect (hig:layout#Visual-hierarchy, hig:sidebars#Best-practices).
+- No content behind the camera housing at the top edge of the window (hig:layout#macOS).
+- Split view panes: sensible min/max widths so the divider stays visible (hig:split-views#macOS).
+- Columns in table/outline/column views resizable by the user (hig:lists-and-tables#macOS, hig:outline-views, hig:column-views).
+- Inset a tab view with a margin from the window body on all sides (hig:tab-views#Anatomy).
+- In full screen, adjust proportions, but don't resize the window programmatically (hig:going-full-screen#Best-practices).
 
-**Lücke im Spiegel:** Es gibt keine Default-, Minimal- oder Maximalgrößen für macOS-Fenster, keine Toolbar-Höhe, keine Sidebar-Breiten und keine Zeilenhöhen (Sidebar-Größe small/medium/large nur qualitativ, hig:sidebars#macOS). Solche Werte nicht erfinden; im Zweifel Systemkomponenten verwenden.
+**Gap in the mirror:** There are no default, minimum, or maximum sizes for macOS windows, no toolbar height, no sidebar widths, and no row heights (sidebar size small/medium/large only qualitative, hig:sidebars#macOS). Don't invent such values; when in doubt, use system components.
 
 ---
 
-## 4. Navigation & Struktur
+## 4. Navigation & structure
 
-### Fenster
-- **Primärfenster** für Hauptnavigation und Inhalt; **Hilfsfenster** für eine abgeschlossene Aufgabe ohne Navigation in andere Bereiche (hig:windows).
-- Neue Fenster gezielt öffnen (z. B. Compose in Mail), nicht als Default-Verhalten; Option „In neuem Fenster öffnen“ via Kontextmenü oder File-Menü anbieten (hig:windows#Best-practices).
-- Im UI-Text immer „Fenster/window“ sagen, nie „Scene“ (hig:windows#Best-practices).
-- Zustände: *main* (vorderstes App-Fenster), *key* (nimmt Eingaben an, farbige Fensterknöpfe), *inactive* (grau, ohne Vibrancy) (hig:windows#macOS-window-states).
-- Bottom Bar nur für wenig, kontextbezogene Info (z. B. Finder-Statusleiste); mehr Info → Inspector (hig:windows#macOS).
+### Windows
+- **Primary window** for main navigation and content; **auxiliary window** for a self-contained task without navigation to other areas (hig:windows).
+- Open new windows deliberately (e.g. Compose in Mail), not as default behavior; offer an "Open in New Window" option via context menu or File menu (hig:windows#Best-practices).
+- In UI text always say "window", never "scene" (hig:windows#Best-practices).
+- States: *main* (frontmost app window), *key* (accepts input, colored window buttons), *inactive* (gray, no vibrancy) (hig:windows#macOS-window-states).
+- Bottom bar only for a small amount of contextual info (e.g. Finder status bar); more info → inspector (hig:windows#macOS).
 
-### Menüleiste
-- Pflichtmenüs und Reihenfolge siehe Abschnitt 2; Details zu App-, File-, Edit-, Format-, View-, Window-, Help-Menü in (hig:the-menu-bar).
-- App-Menü: About zuerst und allein in einer Gruppe; Settings…; Services; Hide/Hide Others/Show All; Quit (hig:the-menu-bar#App-menu).
-- App-spezifische Menüs zwischen View und Window, Reihenfolge von allgemein zu speziell, Hierarchie der App spiegeln (Mail: Mailbox → Message → Format) (hig:the-menu-bar#App-specific-menus).
-- Menütitel kurz, möglichst ein Wort; Title Case (hig:the-menu-bar#Best-practices).
-- Ellipse (…) bei Menüpunkten, die weitere Eingaben verlangen (hig:menus, hig:the-menu-bar#File-menu).
-- Dynamische Menüpunkte (Option-Varianten) nur in Menüleistenmenüs, nur ein Modifier, nie einziger Weg (hig:the-menu-bar#Dynamic-menu-items).
-- Duplicate statt Save As/Export/Copy To bevorzugen; Export As nur für Fremdformate (hig:the-menu-bar#File-menu).
+### Menu bar
+- Required menus and order see section 2; details on the app, File, Edit, Format, View, Window, and Help menus in (hig:the-menu-bar).
+- App menu: About first and alone in a group; Settings…; Services; Hide/Hide Others/Show All; Quit (hig:the-menu-bar#App-menu).
+- App-specific menus between View and Window, ordered from general to specific, reflecting the app's hierarchy (Mail: Mailbox → Message → Format) (hig:the-menu-bar#App-specific-menus).
+- Menu titles short, ideally one word; title case (hig:the-menu-bar#Best-practices).
+- Ellipsis (…) for menu items that require further input (hig:menus, hig:the-menu-bar#File-menu).
+- Dynamic menu items (Option variants) only in menu bar menus, only one modifier, never the only way (hig:the-menu-bar#Dynamic-menu-items).
+- Prefer Duplicate over Save As/Export/Copy To; Export As only for foreign formats (hig:the-menu-bar#File-menu).
 
 ### Sidebar
-- Führende Seite, Navigation zwischen Bereichen/Top-Level-Sammlungen; max. zwei Hierarchieebenen, tiefer → zusätzliche Content-Liste im Split View (hig:sidebars#Best-practices).
-- Ein-/ausblendbar per Button und View-Menü (Show/Hide Sidebar), standardmäßig sichtbar (hig:sidebars#Best-practices).
-- Kann beim Verkleinern des Fensters automatisch einklappen (hig:sidebars#macOS).
-- Suchfeld oben in der Sidebar, wenn es die Sidebar filtert (hig:search-fields#iPadOS-macOS).
+- Leading side, navigation between areas/top-level collections; max. two hierarchy levels, deeper → additional content list in a split view (hig:sidebars#Best-practices).
+- Can be shown/hidden via button and View menu (Show/Hide Sidebar), visible by default (hig:sidebars#Best-practices).
+- Can collapse automatically when the window is made smaller (hig:sidebars#macOS).
+- Search field at the top of the sidebar if it filters the sidebar (hig:search-fields#iPadOS-macOS).
 
 ### Toolbar
-- Im Fensterrahmen oben, unter oder integriert mit der Titelleiste; Items ohne Bezel (hig:toolbars#macOS).
-- Leading: Zurück, Sidebar-Toggle, Titel, ggf. Dokumentmenü (nicht anpassbar). Center: häufige Controls, anpassbar, fallen ins System-Overflow. Trailing: immer sichtbar – Inspector-Buttons, Suchfeld, More-Menü, primäre Aktion (hig:toolbars#Item-groupings).
-- Suchfeld für viele Fälle am trailing Ende der Toolbar (hig:search-fields#iPadOS-macOS).
-- Toolbar-Anpassung anbieten bei vielen Items oder langen Sitzungen (hig:toolbars#Best-practices).
-- Fenstertitel nicht mit dem App-Namen belegen (hig:toolbars#Titles).
+- In the window frame at the top, below or integrated with the title bar; items without bezel (hig:toolbars#macOS).
+- Leading: back, sidebar toggle, title, document menu if applicable (not customizable). Center: frequent controls, customizable, move into system overflow. Trailing: always visible – inspector buttons, search field, More menu, primary action (hig:toolbars#Item-groupings).
+- Search field at the trailing end of the toolbar for many cases (hig:search-fields#iPadOS-macOS).
+- Offer toolbar customization with many items or long sessions (hig:toolbars#Best-practices).
+- Don't use the app name as the window title (hig:toolbars#Titles).
 
 ### Inspector
-- Zeigt Details der aktuellen Auswahl und aktualisiert sich mit ihr; als Panel oder als trailing Split-View-Pane; ein „Info“-Fenster mit festem Inhalt ist dagegen ein normales Fenster (hig:panels#Best-practices, hig:windows#macOS).
-- Inspector neben dem Inhalt statt Popover (hig:mac-catalyst#Layout).
+- Shows details of the current selection and updates with it; as a panel or as a trailing split view pane; an "Info" window with fixed content, by contrast, is a regular window (hig:panels#Best-practices, hig:windows#macOS).
+- Inspector next to the content instead of a popover (hig:mac-catalyst#Layout).
 
 ### Settings
-- Eigenes Settings-Fenster mit nicht anpassbarer, immer sichtbarer Toolbar zum Wechsel der Panes; aktiver Pane markiert; Fenstertitel = Pane-Name (ohne Panes: „*App Name* Settings“); zuletzt genutzten Pane wiederherstellen; Minimize/Maximize dimmen (hig:settings#macOS).
-- Dokumentbezogene Optionen ins File-Menü (hig:settings#macOS).
-- Nur seltene, allgemeine Einstellungen; Aufgabenoptionen dort, wo die Aufgabe stattfindet; keine Kopien systemweiter Einstellungen (hig:settings#Best-practices).
+- Dedicated settings window with a non-customizable, always-visible toolbar for switching panes; active pane highlighted; window title = pane name (without panes: "*App Name* Settings"); restore the most recently used pane; dim Minimize/Maximize (hig:settings#macOS).
+- Document-specific options in the File menu (hig:settings#macOS).
+- Only infrequent, general settings; task options where the task takes place; no copies of system-wide settings (hig:settings#Best-practices).
 
-### Muster-Auswahl
-| Datenform | Muster | Quelle |
+### Pattern selection
+| Data shape | Pattern | Source |
 |---|---|---|
-| Flach, mehrspaltig, sortierbar | Table View | (hig:lists-and-tables#macOS) |
-| Hierarchisch mit Attributspalten | Outline View (Hierarchie nur in Spalte 1) | (hig:outline-views) |
-| Tiefe Hierarchie, häufiges Vor/Zurück, keine Sortierung nötig | Column View (Browser) | (hig:column-views) |
-| Wenige eng verwandte Bereiche im Fensterkörper | Tab View (statt Segmented Control) | (hig:tab-views, hig:segmented-controls#macOS) |
-| Wiederholte Eingabe mit Ergebnisbeobachtung | Panel statt Sheet | (hig:sheets#macOS) |
+| Flat, multi-column, sortable | Table view | (hig:lists-and-tables#macOS) |
+| Hierarchical with attribute columns | Outline view (hierarchy only in column 1) | (hig:outline-views) |
+| Deep hierarchy, frequent back/forward, no sorting needed | Column view (browser) | (hig:column-views) |
+| Few closely related areas in the window body | Tab view (instead of segmented control) | (hig:tab-views, hig:segmented-controls#macOS) |
+| Repeated input while observing results | Panel instead of sheet | (hig:sheets#macOS) |
 
 ---
 
-## 5. Komponenten-Besonderheiten (Platform considerations)
+## 5. Component specifics (Platform considerations)
 
 **Buttons**
-- Push Button ist Standard; Ellipse im Titel, wenn er ein weiteres Fenster/View/App öffnet; Flexible-Height nur für zweizeiligen/hohen Inhalt (hig:buttons#macOS).
-- Square (Gradient) Buttons nur im View (z. B. +/- unter Tabelle), nicht in Toolbar/Statusleiste, Symbol statt Text, kein einleitendes Label (hig:buttons#macOS).
-- Help Button: systemeigener, max. einer pro Fenster, kontextbezogenes Hilfethema; Position: Dialog mit OK/Cancel → untere Ecke gegenüber den Buttons; Settings → untere linke oder rechte Ecke; nie in Toolbar (hig:buttons#macOS).
-- Image Buttons im View, nicht im Fensterrahmen; Label darunter (hig:buttons#macOS).
-- Spring Loading (Force Click beim Draggen) für Buttons und Segmente erwägen (hig:buttons#macOS, hig:segmented-controls#macOS).
+- Push button is the standard; ellipsis in the title if it opens another window/view/app; flexible-height only for two-line/tall content (hig:buttons#macOS).
+- Square (gradient) buttons only in a view (e.g. +/- below a table), not in toolbar/status bar, symbol instead of text, no introductory label (hig:buttons#macOS).
+- Help button: the system-provided one, max. one per window, context-specific help topic; position: dialog with OK/Cancel → bottom corner opposite the buttons; settings → bottom left or right corner; never in the toolbar (hig:buttons#macOS).
+- Image buttons in a view, not in the window frame; label below (hig:buttons#macOS).
+- Consider spring loading (Force Click while dragging) for buttons and segments (hig:buttons#macOS, hig:segmented-controls#macOS).
 
-**Toggles:** Switch für gewichtige Gruppenschalter, Mini-Switch in Grouped-Form-Zeilen, Checkbox für Hierarchien und Einzeloptionen (inkl. Mixed State), Radio Buttons für exklusive Optionen; nie in Toolbar/Statusleiste; bestehende Checkboxen nicht durch Switches ersetzen (hig:toggles#macOS).
+**Toggles:** switch for weighty group toggles, mini switch in grouped form rows, checkbox for hierarchies and single options (incl. mixed state), radio buttons for exclusive options; never in toolbar/status bar; don't replace existing checkboxes with switches (hig:toggles#macOS).
 
-**Sheets:** karten­artig über dem Elternfenster, Elternfenster gedimmt; vernünftige Default-Größe; andere App-Fenster bleiben nutzbar (hig:sheets#macOS).
+**Sheets:** card-like above the parent window, parent window dimmed; reasonable default size; other app windows remain usable (hig:sheets#macOS).
 
-**Popovers:** können abgelöst (detached) werden und werden dann zum Panel mit möglichst gleicher Optik (hig:popovers#macOS).
+**Popovers:** can be detached and then become a panel with as similar an appearance as possible (hig:popovers#macOS).
 
-**Panels:** schweben über Fenstern, kurzer Substantiv-Titel („Inspector“, „Fonts“); bei App-Aktivierung alle Panels nach vorn, bei Inaktivität ausblenden; nicht in der Fensterliste des Window-Menüs; kein Minimize; einfache Controls (Slider, Stepper) bevorzugen; HUD-Stil nur für medienlastige Apps, klein, sparsam farbig, kaum Controls (hig:panels).
+**Panels:** float above windows, short noun title ("Inspector", "Fonts"); bring all panels to the front when the app activates, hide them when inactive; not in the Window menu's window list; no Minimize; prefer simple controls (slider, stepper); HUD style only for media-heavy apps, small, sparingly colored, few controls (hig:panels).
 
-**Alerts:** App-Icon automatisch; Unterdrückungsoption für wiederholte Alerts, Accessory View, Help Button möglich; Warnsymbol nur bei echtem Risiko von Datenverlust (hig:alerts#macOS).
+**Alerts:** app icon automatically; suppression option for repeated alerts, accessory view, help button possible; caution symbol only for a real risk of data loss (hig:alerts#macOS).
 
-**Listen/Tabellen/Outline/Column:** Sortieren per Spaltenkopf (erneuter Klick kehrt um), Spalten skalierbar, alternierende Zeilenfarben bei breiten Tabellen; Outline: Option-Klick expandiert rekursiv, Expansionszustand merken, Spaltenköpfe als Substantive ohne Doppelpunkt, mittige Ellipse bei Kürzung; Column View: Wurzel in Spalte 1, Vorschau bei Blattobjekten (hig:lists-and-tables#macOS, hig:outline-views, hig:column-views).
+**Lists/tables/outline/column:** sort via column header (clicking again reverses), resizable columns, alternating row colors for wide tables; outline: Option-click expands recursively, remember expansion state, column headers as nouns without colon, middle ellipsis when truncating; column view: root in column 1, preview for leaf items (hig:lists-and-tables#macOS, hig:outline-views, hig:column-views).
 
-**Split Views:** vertikal, horizontal oder kombiniert; Panes ausblendbar, Wiederherstellung über Toolbar-Button und Menübefehl mit Kürzel; thin Divider (hig:split-views#macOS).
+**Split views:** vertical, horizontal, or combined; panes can be hidden, restore via toolbar button and menu command with shortcut; thin divider (hig:split-views#macOS).
 
-**Scroll Views:** Scroll Bars; in Panels ggf. small/mini, dann alle Controls im Panel in gleicher Größe (hig:scroll-views#macOS).
+**Scroll views:** scroll bars; in panels possibly small/mini, then all controls in the panel in the same size (hig:scroll-views#macOS).
 
-**Text/Eingabe:** Combo Box für Text + Vorschlagsliste; Expansion Tooltip für abgeschnittenen Feldinhalt; Token Fields; Path Controls nur im Window-Body (hig:text-fields#macOS, hig:entering-data#macOS, hig:token-fields, hig:path-controls).
+**Text/input:** combo box for text + suggestion list; expansion tooltip for truncated field content; token fields; path controls only in the window body (hig:text-fields#macOS, hig:entering-data#macOS, hig:token-fields, hig:path-controls).
 
-**Pickers / Slider / Gauges:** Date Picker textuell oder grafisch; Slider mit Tick Marks, linear vs. zirkulär (für wiederkehrende Werte), Live-Feedback; Level Indicator (Capacity diskret/kontinuierlich, Rating, Relevance) (hig:pickers#macOS, hig:sliders#macOS, hig:gauges#macOS).
+**Pickers / sliders / gauges:** date picker textual or graphical; slider with tick marks, linear vs. circular (for recurring values), live feedback; level indicator (capacity discrete/continuous, rating, relevance) (hig:pickers#macOS, hig:sliders#macOS, hig:gauges#macOS).
 
-**Tooltips (Help Tags):** nur das gezeigte Control beschreiben, mit Verb beginnen, Control-Namen nicht wiederholen, Satz-Schreibweise, 60–75 Zeichen (hig:offering-help#macOS-visionOS).
+**Tooltips (help tags):** describe only the indicated control, start with a verb, don't repeat the control name, sentence case, 60–75 characters (hig:offering-help#macOS-visionOS).
 
-**Pointer & Trackpad:** Standard-Cursor semantisch nutzen (I-Beam, Open/Closed Hand, Crosshair, Drag Copy, Operation not allowed, Resize-Varianten); Sekundärklick = Kontextmenü; Force Click, Smart Zoom, Swipe between pages beachten (hig:pointing-devices#macOS).
+**Pointer & trackpad:** use standard cursors semantically (I-beam, open/closed hand, crosshair, drag copy, operation not allowed, resize variants); secondary click = context menu; account for Force Click, smart zoom, swipe between pages (hig:pointing-devices#macOS).
 
-**Kontextmenüs:** Mac-Nutzer erwarten zu jedem Objekt ein Kontextmenü mit relevanten Aktionen (hig:mac-catalyst#Menus, hig:context-menus).
+**Context menus:** Mac users expect a context menu with relevant actions on every object (hig:mac-catalyst#Menus, hig:context-menus).
 
-**Drag and Drop:** Export in den Finder (Datei oder Clipping), Ziehen aus inaktiven Fenstern ohne Aktivierung, Badge mit Anzahl bei Mehrfachauswahl, passende Cursor, Auswahl+Ziehen in einer Bewegung (hig:drag-and-drop#macOS).
+**Drag and drop:** export to the Finder (file or clipping), dragging from inactive windows without activating them, badge with count for multiple selection, appropriate cursors, select + drag in one motion (hig:drag-and-drop#macOS).
 
-**Dateien:** Standard-Open/Save-Panels; Open-Button umbenennbar (z. B. „Insert“); Save-Dialog mit Formatwahl und optionalem Accessory View; bei deaktiviertem Autosave Punkt im Close-Button und im Window-Menü; „Edited“ im Titel nach Speichern entfernen; Finder Sync Extensions für Sync-Status (hig:file-management#macOS).
+**Files:** standard Open/Save panels; Open button can be renamed (e.g. "Insert"); Save dialog with format choice and optional accessory view; with autosave disabled, dot in the close button and in the Window menu; remove "Edited" from the title after saving; Finder Sync extensions for sync status (hig:file-management#macOS).
 
-**Drucken:** eigene Kategorie im Print-Panel für app-spezifische Optionen; Page Setup nur für dokumentspezifische Seiteneinstellungen; erweiterte Optionen hinter Disclosure „Advanced Options“ (hig:printing#macOS).
+**Printing:** a dedicated category in the Print panel for app-specific options; Page Setup only for document-specific page settings; advanced options behind an "Advanced Options" disclosure (hig:printing#macOS).
 
-**Haptik:** Magic Trackpad – nur Alignment, Level change, Generic (hig:playing-haptics#macOS).
+**Haptics:** Magic Trackpad – only alignment, level change, generic (hig:playing-haptics#macOS).
 
-**Datenschutz:** Developer ID für Vertrieb außerhalb des Stores; Sandboxing (Pflicht im Mac App Store); Fast User Switching beachten (hig:privacy#macOS).
+**Privacy:** Developer ID for distribution outside the Store; sandboxing (required in the Mac App Store); consider fast user switching (hig:privacy#macOS).
 
-**Farben:** dynamische Systemfarben (labelColor, controlAccentColor, selectedContentBackgroundColor, unemphasized-Varianten für Nicht-Key-Fenster usw.) statt fixer Werte (hig:color#macOS).
+**Colors:** dynamic system colors (labelColor, controlAccentColor, selectedContentBackgroundColor, unemphasized variants for non-key windows, etc.) instead of fixed values (hig:color#macOS).
 
-**Dark Mode / Desktop Tinting:** Bei Graphite-Akzent tönen Fensterhintergründe nach dem Schreibtischbild; eigene Komponenten mit sichtbarem Hintergrund im neutralen Zustand leicht transparent halten, farbige Zustände nicht (hig:dark-mode#macOS).
-
----
-
-## 6. Liquid Glass, Materialien, aktuelles Design-System
-
-- **Zwei Ebenen:** Liquid Glass für die Funktionsebene (Toolbars, Sidebars, Controls) über dem Inhalt; Standardmaterialien (Blur, Vibrancy, Blending) für Struktur im Inhaltsbereich (hig:materials).
-- **Kein Liquid Glass im Content Layer**; Ausnahme: transiente Zustände von Slidern/Toggles beim Bedienen (hig:materials#Liquid-Glass).
-- **Varianten:** *regular* (blurrt, Standard für Systemkomponenten, für textlastige Elemente wie Sidebars, Popovers, Alerts); *clear* nur über visuell reichem Medieninhalt; bei hellem Untergrund 35 % dunkle Dimmebene erwägen (hig:materials#Liquid-Glass).
-- **Sidebars** schweben auf macOS in der Liquid-Glass-Ebene; Inhalt darunter weiterführen (horizontal scrollen oder Background Extension Effect) (hig:sidebars#Best-practices).
-- Liquid Glass ist in großen Elementen wie Sidebars opaker, in Toolbars wechselt es je nach Untergrund zwischen hell und dunkel, Symbole/Text monochrom (hig:color#Liquid-Glass-color).
-- **Farbe sparsam:** Akzentfarbe auf den Hintergrund der primären Aktion (prominent), nicht auf mehrere Controls; bei farbigem Inhalt monochrome Toolbar (hig:color#Liquid-Glass-color, hig:toolbars#Best-practices).
-- **Toolbar:** keine eigenen Hintergründe/Tönungen; stattdessen Scroll Edge Effect; Standardkomponenten sind konzentrisch zu den Bar-Ecken, eigene Komponenten ebenfalls konzentrisch gestalten; Symbole ohne Rahmen; eine `.prominent`-Aktion am trailing Ende (hig:toolbars#Best-practices, hig:toolbars#Actions).
-- **Scroll Edge Effect** (iOS, iPadOS, macOS): automatisch bevorzugen; nur hinter schwebenden Elementen; ein Effekt pro View; in Split Views je Pane, gleiche Höhe (hig:scroll-views#Scroll-edge-effects).
-- **Standardmaterialien macOS:** NSVisualEffectView-Materialien semantisch wählen, Blending *behind window* vs. *within window*; Vibrancy in eigenen Views bewusst einsetzen (hig:materials#macOS).
-- Inaktive Fenster verlieren Vibrancy – eigene Fenster müssen die Zustandsdarstellung mitmachen (hig:windows#macOS-window-states).
-- **App-Icon:** geschichtet, Liquid-Glass-Eigenschaften (Specular, Refraktion, Transluzenz) durch das System; Ebenen in Icon Composer; quadratische, unmaskierte Ebenen; keine eigenen Schatten/Glows; Varianten default, dark, clear light/dark, tinted light/dark (hig:app-icons).
+**Dark Mode / desktop tinting:** with the Graphite accent, window backgrounds are tinted by the desktop picture; keep custom components with a visible background slightly transparent in their neutral state, but not colored states (hig:dark-mode#macOS).
 
 ---
 
-## 7. Typografie
+## 6. Liquid Glass, materials, current design system
 
-- Systemschrift **SF Pro**; **kein Dynamic Type** auf macOS (hig:typography#macOS).
-- Default 13 pt, Minimum 10 pt (hig:typography#Ensuring-legibility).
-- Leichte Schnitte (Ultralight, Thin, Light) vermeiden (hig:typography#Ensuring-legibility).
-- Für Text passend zu Systemcontrols die dynamischen NSFont-Varianten nutzen: controlContentFont, labelFont, menuFont, menuBarFont, messageFont, paletteFont, titleBarFont, toolTipsFont, userFont, userFixedPitchFont, systemFont, boldSystemFont (hig:typography#macOS).
-- Systemschriften nicht einbetten, über Font.Design ansprechen (hig:typography#Using-system-fonts).
+- **Two layers:** Liquid Glass for the functional layer (toolbars, sidebars, controls) above the content; standard materials (blur, vibrancy, blending) for structure in the content area (hig:materials).
+- **No Liquid Glass in the content layer**; exception: transient states of sliders/toggles while interacting (hig:materials#Liquid-Glass).
+- **Variants:** *regular* (blurs, standard for system components, for text-heavy elements such as sidebars, popovers, alerts); *clear* only over visually rich media content; on a bright background, consider a 35 % dark dimming layer (hig:materials#Liquid-Glass).
+- **Sidebars** float in the Liquid Glass layer on macOS; continue content beneath them (horizontal scrolling or background extension effect) (hig:sidebars#Best-practices).
+- Liquid Glass is more opaque in large elements such as sidebars; in toolbars it switches between light and dark depending on the background, symbols/text monochrome (hig:color#Liquid-Glass-color).
+- **Use color sparingly:** accent color on the background of the primary action (prominent), not on several controls; monochrome toolbar over colorful content (hig:color#Liquid-Glass-color, hig:toolbars#Best-practices).
+- **Toolbar:** no custom backgrounds/tints; use the scroll edge effect instead; standard components are concentric with the bar corners, design custom components concentrically as well; symbols without borders; one `.prominent` action at the trailing end (hig:toolbars#Best-practices, hig:toolbars#Actions).
+- **Scroll edge effect** (iOS, iPadOS, macOS): prefer the automatic one; only behind floating elements; one effect per view; in split views per pane, same height (hig:scroll-views#Scroll-edge-effects).
+- **Standard materials on macOS:** choose NSVisualEffectView materials semantically, blending *behind window* vs. *within window*; use vibrancy deliberately in custom views (hig:materials#macOS).
+- Inactive windows lose vibrancy – custom windows must follow the state appearance (hig:windows#macOS-window-states).
+- **App icon:** layered, Liquid Glass properties (specular, refraction, translucency) applied by the system; layers in Icon Composer; square, unmasked layers; no custom shadows/glows; variants default, dark, clear light/dark, tinted light/dark (hig:app-icons).
 
-### macOS Built-in Text Styles (hig:typography#Specifications)
+---
+
+## 7. Typography
+
+- System font **SF Pro**; **no Dynamic Type** on macOS (hig:typography#macOS).
+- Default 13 pt, minimum 10 pt (hig:typography#Ensuring-legibility).
+- Avoid light weights (Ultralight, Thin, Light) (hig:typography#Ensuring-legibility).
+- For text matching system controls, use the dynamic NSFont variants: controlContentFont, labelFont, menuFont, menuBarFont, messageFont, paletteFont, titleBarFont, toolTipsFont, userFont, userFixedPitchFont, systemFont, boldSystemFont (hig:typography#macOS).
+- Don't embed system fonts; access them via Font.Design (hig:typography#Using-system-fonts).
+
+### macOS built-in text styles (hig:typography#Specifications)
 
 | Style | Weight | Size (pt) | Line height (pt) | Emphasized |
 |---|---|---|---|---|
@@ -219,128 +219,128 @@ Quelle: lokaler HIG-Spiegel (`~/.apple-design/hig/pages`, Stand 2026-10-21). Bel
 | Caption 1 | Regular | 10 | 13 | Medium |
 | Caption 2 | Medium | 10 | 13 | Semibold |
 
-Punktgrößen bezogen auf 144 ppi bei @2x-Designs. Tracking-Tabelle für Mockups: (hig:typography#Tracking-values), z. B. 12 pt → 0, 13 pt → −6/1000 em.
+Point sizes based on 144 ppi for @2x designs. Tracking table for mockups: (hig:typography#Tracking-values), e.g. 12 pt → 0, 13 pt → −6/1000 em.
 
 ---
 
-## 8. Systemintegration
+## 8. System integration
 
-- **Menu Bar Extras:** Symbol (SF Symbol oder Template-Icon, schwarz/klar, System färbt); Menü statt Popover; vom Nutzer aktivierbar (Setting, ggf. im Setup anbieten); nicht auf Sichtbarkeit verlassen – System blendet Extras bei Platzmangel aus; Funktionen zusätzlich anders erreichbar machen (hig:the-menu-bar#Menu-bar-extras).
-- **Dock-Menü:** hochwertige Einträge (offene/zuletzt genutzte Fenster, Aktionen für den Fall „App nicht vorn“, z. B. Mail: Neue Mail abrufen, Neue Nachricht); jeder Eintrag auch anderswo verfügbar (hig:dock-menus).
-- **Vollbild:** systemeigenes Vollbild (berücksichtigt Kameraaussparung); Einstieg per Fensterknopf, View-Menü, Control-Command-F; Dock erreichbar lassen (außer Spiele); kein Auto-Exit; beim Zurückkehren Zustand fortsetzen (hig:going-full-screen).
-- **Services:** Eintrag im App-Menü (macOS only) (hig:the-menu-bar#App-menu).
-- **Widgets:** auf dem Desktop und im Notification Center; Größen small, medium, large, extra large (hig:widgets#System-family-widgets).
-- **Live Activities** eines gekoppelten iPhones erscheinen in der Mac-Menüleiste (compact/minimal/expanded); Klick öffnet iPhone Mirroring; iOS-Maße verwenden (hig:live-activities#macOS).
-- **Notifications:** keine macOS-Sonderregeln; allgemeine Regeln: knapp, keine sensiblen Daten, max. 4 Aktionen, keine Aktion „nur App öffnen“, Badge nur für ungelesene Mitteilungen; Notification-Sounds mischen sich auf macOS standardmäßig mit anderem Audio (hig:notifications, hig:playing-audio#macOS).
-- **App Shortcuts** werden auf macOS nicht unterstützt, App-Intents-Aktionen aber in der Kurzbefehle-App (hig:app-shortcuts#macOS).
-- **Hilfe:** Help-Menü mit Help Book (automatisches Suchfeld), Command-? öffnet Help-Menü (hig:the-menu-bar#Help-menu, hig:keyboards).
-- **SharePlay:** geteiltes Video läuft in einem Fenster weiter (hig:shareplay).
+- **Menu bar extras:** symbol (SF Symbol or template icon, black/clear, system tints it); menu instead of popover; can be enabled by the user (setting, optionally offered during setup); don't rely on visibility – the system hides extras when space is limited; make functions reachable in other ways as well (hig:the-menu-bar#Menu-bar-extras).
+- **Dock menu:** high-value items (open/recently used windows, actions for when the app isn't frontmost, e.g. Mail: Get New Mail, New Message); every item also available elsewhere (hig:dock-menus).
+- **Full screen:** system full screen (accounts for the camera housing); entry via window button, View menu, Control-Command-F; keep the Dock reachable (except games); no auto-exit; resume state when returning (hig:going-full-screen).
+- **Services:** item in the app menu (macOS only) (hig:the-menu-bar#App-menu).
+- **Widgets:** on the desktop and in Notification Center; sizes small, medium, large, extra large (hig:widgets#System-family-widgets).
+- **Live Activities** of a paired iPhone appear in the Mac menu bar (compact/minimal/expanded); clicking opens iPhone Mirroring; use iOS dimensions (hig:live-activities#macOS).
+- **Notifications:** no macOS-specific rules; general rules: concise, no sensitive data, max. 4 actions, no action that only opens the app, badge only for unread notifications; on macOS, notification sounds mix with other audio by default (hig:notifications, hig:playing-audio#macOS).
+- **App Shortcuts** are not supported on macOS, but App Intents actions are, in the Shortcuts app (hig:app-shortcuts#macOS).
+- **Help:** Help menu with Help Book (automatic search field), Command-? opens the Help menu (hig:the-menu-bar#Help-menu, hig:keyboards).
+- **SharePlay:** shared video continues playing in a window (hig:shareplay).
 
 ---
 
-## 9. Umsetzung: SwiftUI / AppKit-Mapping
+## 9. Implementation: SwiftUI / AppKit mapping
 
-| Konzept | SwiftUI | AppKit |
+| Concept | SwiftUI | AppKit |
 |---|---|---|
-| Hauptfenster / mehrere Fenster | `WindowGroup`, `Window`, `DocumentGroup`, `openWindow` (OpenWindowAction) | `NSWindow`, `NSWindowController` |
-| Menüleistenbefehle | `.commands { CommandMenu(...) ; CommandGroup(...) }`, `.keyboardShortcut(...)` | `NSMenu`, `NSMenuItem` (Alternates: `isAlternate`) |
-| Settings-Fenster | `Settings { ... }` Scene (öffnet via Command-Komma) | eigenes Fenster mit Toolbar-Panes |
-| Menu Bar Extra | `MenuBarExtra` | `NSStatusBar` / `NSStatusItem` |
-| Sidebar + Detail | `NavigationSplitView` | `NSSplitViewController` mit Sidebar-Item |
-| Inspector | `.inspector(isPresented:)` | trailing Split-View-Item / Panel |
-| Split View (frei) | `HSplitView`, `VSplitView` | `NSSplitView` (`dividerStyle` thin) |
-| Tabelle | `Table` (sortierbar, mehrspaltig) | `NSTableView` |
-| Outline | `List(children:)` / `OutlineGroup`, `Table` mit Children | `NSOutlineView` |
-| Column View | – (kein direktes SwiftUI-Pendant bekannt) | `NSBrowser` |
-| Toolbar | `.toolbar { ToolbarItem(placement:) }`, `.toolbarRole`, Anpassung über `id`-basierte Items | `NSToolbar` (customizable) |
-| Suche | `.searchable(...)` | `NSSearchField` / `NSSearchToolbarItem` |
+| Main window / multiple windows | `WindowGroup`, `Window`, `DocumentGroup`, `openWindow` (OpenWindowAction) | `NSWindow`, `NSWindowController` |
+| Menu bar commands | `.commands { CommandMenu(...) ; CommandGroup(...) }`, `.keyboardShortcut(...)` | `NSMenu`, `NSMenuItem` (alternates: `isAlternate`) |
+| Settings window | `Settings { ... }` scene (opens via Command-Comma) | custom window with toolbar panes |
+| Menu bar extra | `MenuBarExtra` | `NSStatusBar` / `NSStatusItem` |
+| Sidebar + detail | `NavigationSplitView` | `NSSplitViewController` with sidebar item |
+| Inspector | `.inspector(isPresented:)` | trailing split view item / panel |
+| Split view (free) | `HSplitView`, `VSplitView` | `NSSplitView` (`dividerStyle` thin) |
+| Table | `Table` (sortable, multi-column) | `NSTableView` |
+| Outline | `List(children:)` / `OutlineGroup`, `Table` with children | `NSOutlineView` |
+| Column view | – (no direct SwiftUI equivalent known) | `NSBrowser` |
+| Toolbar | `.toolbar { ToolbarItem(placement:) }`, `.toolbarRole`, customization via `id`-based items | `NSToolbar` (customizable) |
+| Search | `.searchable(...)` | `NSSearchField` / `NSSearchToolbarItem` |
 | Tooltip | `.help("...")` | `toolTip` |
-| Kontextmenü | `.contextMenu { }` | `menu(for:)` |
-| Popover / Sheet | `.popover`, `.sheet` | `NSPopover` (detachable), `beginSheet` |
-| Panel / HUD | – | `NSPanel`, Stil `hudWindow` |
-| Vollbild | Systemverhalten von `WindowGroup` | `toggleFullScreen(_:)` |
-| Dock-Menü | – | `applicationDockMenu(_:)` im App-Delegate |
-| Liquid Glass eigene Controls | `.glassEffect()`; Hintergrund-Spiegelung `.backgroundExtensionEffect()`; `.scrollEdgeEffectStyle(...)` | `NSGlassEffectView`, `NSBackgroundExtensionView` |
-| Materialien | `.background(.regularMaterial)` usw. | `NSVisualEffectView` (Material, BlendingMode) |
-| Dynamische Systemfarben | `Color(nsColor: .labelColor)` u. ä. | `NSColor.labelColor`, `.controlAccentColor` … |
-| Haptik Trackpad | – | `NSHapticFeedbackPerformer` |
+| Context menu | `.contextMenu { }` | `menu(for:)` |
+| Popover / sheet | `.popover`, `.sheet` | `NSPopover` (detachable), `beginSheet` |
+| Panel / HUD | – | `NSPanel`, style `hudWindow` |
+| Full screen | system behavior of `WindowGroup` | `toggleFullScreen(_:)` |
+| Dock menu | – | `applicationDockMenu(_:)` in the app delegate |
+| Liquid Glass custom controls | `.glassEffect()`; background mirroring `.backgroundExtensionEffect()`; `.scrollEdgeEffectStyle(...)` | `NSGlassEffectView`, `NSBackgroundExtensionView` |
+| Materials | `.background(.regularMaterial)` etc. | `NSVisualEffectView` (Material, BlendingMode) |
+| Dynamic system colors | `Color(nsColor: .labelColor)` and similar | `NSColor.labelColor`, `.controlAccentColor` … |
+| Trackpad haptics | – | `NSHapticFeedbackPerformer` |
 
-Hinweis: Im Spiegel verlinkt und damit belegt sind MenuBarExtra, NSStatusBar, CommandMenu, VSplitView/HSplitView, NSSplitView.DividerStyle, NSVisualEffectView (Material/BlendingMode), backgroundExtensionEffect(), ScrollEdgeEffectStyle, toggleFullScreen(_:), NSHapticFeedbackPerformer, help(_:), OpenWindowAction, hudWindow, NSDatePicker, NSTabView, isAlternate. Alle anderen Zuordnungen (u. a. `.inspector`, `Table`, `Settings`, `NSBrowser`, `applicationDockMenu(_:)`, `glassEffect`, `NSGlassEffectView`) sind Standard-API ohne Beleg im Spiegel – vor Verwendung in Code gegen die aktuelle Developer-Dokumentation prüfen.
-
----
-
-## 10. Review-Checkliste
-
-**Menüleiste & Tastatur**
-- [ ] Menüs vorhanden und in Standardreihenfolge: App, File, Edit, (Format), View, App-spezifisch, Window, Help (hig:the-menu-bar#Anatomy)
-- [ ] Jede Toolbar-Aktion und jeder Kontextmenübefehl auch als Menübefehl (hig:toolbars#macOS)
-- [ ] Nicht anwendbare Menüpunkte deaktiviert statt ausgeblendet (hig:the-menu-bar#Best-practices)
-- [ ] About an erster Stelle mit Trenner; Settings… im App-Menü; Quit/Hide mit kurzem App-Namen (hig:the-menu-bar#App-menu)
-- [ ] View-Menü mit zustandsabhängigen Show/Hide-Titeln und Enter/Exit Full Screen (hig:the-menu-bar#View-menu)
-- [ ] Window-Menü mit Minimize, Zoom, Bring All to Front; Panels nicht in der Fensterliste (hig:the-menu-bar#Window-menu, hig:panels)
-- [ ] Standardkürzel funktionieren (Cmd-N/O/S/W/Q/Z/C/V/X/A/F/P/Komma/?) und sind nicht umgewidmet (hig:keyboards#Standard-keyboard-shortcuts)
-- [ ] Eigene Kürzel sparsam, Command-basiert, ohne Control, Modifier-Reihenfolge Control-Option-Shift-Command (hig:keyboards#Custom-keyboard-shortcuts)
-- [ ] Full Keyboard Access: alle Controls per Tastatur erreichbar (hig:keyboards#Best-practices)
-- [ ] Menüpunkte mit weiterer Eingabe enden auf „…“ (hig:menus)
-
-**Fenster & Layout**
-- [ ] Fenster frei skalierbar; Layout bricht bei kleinen und großen Größen nicht (hig:windows#Best-practices)
-- [ ] Systemvollbild unterstützt, nicht erzwungen; Dock erreichbar (hig:going-full-screen)
-- [ ] Keine eigenen Fensterrahmen/-knöpfe; key/main/inactive sichtbar unterscheidbar (hig:windows#macOS)
-- [ ] Nichts Kritisches am unteren Fenster-/Sidebar-Rand (hig:layout#macOS)
-- [ ] Fenstertitel aussagekräftig, nicht der App-Name, unter 15 Zeichen (hig:toolbars#Titles)
-- [ ] Default Text 13 pt, nichts unter 10 pt; Kontrast 4.5:1 bzw. 3:1 (hig:typography, hig:accessibility)
-- [ ] Controls mindestens 20x20 pt, Default 28x28 pt (hig:accessibility#Mobility)
-
-**Navigation & Komponenten**
-- [ ] Sidebar max. zwei Ebenen, ein-/ausblendbar (Button + View-Menü), standardmäßig sichtbar (hig:sidebars)
-- [ ] Sidebar-Icons folgen der System-Akzentfarbe, fixe Farben nur mit Bedeutung (hig:sidebars#Best-practices)
-- [ ] Toolbar: max. drei Gruppen, Symbole ohne Rahmen, eine prominente Aktion trailing, Suche trailing, anpassbar bei vielen Items (hig:toolbars)
-- [ ] Keine Switches/Checkboxes/Square/Image/Help Buttons/Path Controls im Fensterrahmen (hig:toggles#macOS, hig:buttons#macOS, hig:path-controls)
-- [ ] Tabellen: sortierbare Spaltenköpfe, skalierbare Spalten; hierarchische Daten im Outline View (hig:lists-and-tables#macOS)
-- [ ] Settings-Fenster: nicht anpassbare Toolbar, aktiver Pane markiert, Titel = Pane, letzter Pane wiederhergestellt, Minimize/Zoom gedimmt (hig:settings#macOS)
-- [ ] Sheets lassen andere App-Fenster bedienbar; wiederholte Eingaben im Panel statt Sheet (hig:sheets#macOS)
-- [ ] Tooltips für Icon-only-Controls, ≤ 60–75 Zeichen (hig:offering-help#macOS-visionOS)
-- [ ] Kontextmenü auf allen relevanten Objekten (hig:mac-catalyst#Menus)
-
-**Material & System**
-- [ ] Liquid Glass nur auf Funktionsebene, nicht im Inhalt; keine eigenen Toolbar-Hintergründe (hig:materials#Liquid-Glass, hig:toolbars)
-- [ ] Inhalte laufen unter Sidebar/Toolbar weiter bzw. Background Extension Effect (hig:layout#Visual-hierarchy)
-- [ ] Dynamische Systemfarben, Light/Dark/Increased Contrast getestet (hig:color)
-- [ ] Menu Bar Extra (falls vorhanden): Template-Symbol, Menü, optional, Funktionen auch im Dock-Menü/App (hig:the-menu-bar#Menu-bar-extras)
-- [ ] App-Icon aus Icon Composer, quadratische unmaskierte Ebenen, Dark/Clear/Tinted geprüft (hig:app-icons)
-- [ ] Autosave-Status korrekt signalisiert (Punkt im Close-Button nur bei deaktiviertem Autosave) (hig:file-management#macOS)
+Note: Linked in the mirror and therefore sourced are MenuBarExtra, NSStatusBar, CommandMenu, VSplitView/HSplitView, NSSplitView.DividerStyle, NSVisualEffectView (Material/BlendingMode), backgroundExtensionEffect(), ScrollEdgeEffectStyle, toggleFullScreen(_:), NSHapticFeedbackPerformer, help(_:), OpenWindowAction, hudWindow, NSDatePicker, NSTabView, isAlternate. All other mappings (incl. `.inspector`, `Table`, `Settings`, `NSBrowser`, `applicationDockMenu(_:)`, `glassEffect`, `NSGlassEffectView`) are standard API without a source in the mirror – verify against the current developer documentation before using them in code.
 
 ---
 
-## 11. Häufige Fehler / Anti-Patterns
+## 10. Review checklist
 
-- **iPad-/iPhone-Port ohne Mac-Anpassung:** Tab Bar unten, Buttons an Seiten-/Unterkante, Popover statt Inspector, Aktionen nur in der UI statt im Menü. Auf dem Mac: Sidebar oder Segmented Control statt Tab Bar, Top-Level-Bereiche zusätzlich im View-Menü, Controls in die Fenster-Toolbar, Next/Previous zusätzlich zu Swipe (hig:mac-catalyst#Navigation, hig:mac-catalyst#Layout).
-- **Fehlende Menübefehle/Kürzel:** Befehle nur in Toolbar oder Kontextmenü – Toolbar ist ausblend-/anpassbar, also nie einziger Ort (hig:toolbars#macOS).
-- **Settings-Zahnrad in der Toolbar** statt App-Menü + Command-Komma (hig:settings#macOS).
-- **Eigene Fensterchrome** oder nachgebaute Ampelknöpfe (hig:windows#Best-practices).
-- **Kritische Aktionen in der Bottom Bar** (hig:windows#macOS).
-- **Standardkürzel umgewidmet** oder neue Kürzel durch Modifier-Zusatz zu fremden Befehlen (Shift-Cmd-Z für Nicht-Redo) (hig:keyboards#Custom-keyboard-shortcuts).
-- **Menu Bar Extra öffnet Popover** oder wird ungefragt installiert (hig:the-menu-bar#Menu-bar-extras).
-- **Liquid Glass im Inhalt** oder auf vielen eigenen Controls; mehrere farbig getönte Toolbar-Buttons (hig:materials#Liquid-Glass, hig:color#Liquid-Glass-color).
-- **Segmented Control zum View-Wechsel im Hauptbereich** statt Tab View (hig:segmented-controls#macOS).
-- **Hover-/Pointer-Feedback fehlt**, falsche Cursor (z. B. Pointing Hand ohne Link) (hig:pointing-devices#Pointers).
-- **Automatisches Vollbild** oder eigenes Fenstermodus-Menü; Zoom-Button für Vollbild missbraucht (hig:going-full-screen#macOS, hig:the-menu-bar#Window-menu).
-- **Panels im Window-Menü-Dokumentenliste** oder mit aktivem Minimize (hig:panels).
-- **„Save As“/„Export“ statt „Duplicate“** für einfache Kopien (hig:the-menu-bar#File-menu).
-- **Touch-Maße unverändert übernommen** (44-pt-Ziele, große Abstände) – ergibt auf dem Mac unnötig geringe Informationsdichte; Mac-Default für Controls ist 28x28 pt, große Displays sollen mehr Inhalt in weniger Ebenen zeigen (hig:accessibility#Mobility, hig:designing-for-macos).
+**Menu bar & keyboard**
+- [ ] Menus present and in standard order: App, File, Edit, (Format), View, app-specific, Window, Help (hig:the-menu-bar#Anatomy)
+- [ ] Every toolbar action and every context menu command also available as a menu command (hig:toolbars#macOS)
+- [ ] Inapplicable menu items disabled instead of hidden (hig:the-menu-bar#Best-practices)
+- [ ] About first with separator; Settings… in the app menu; Quit/Hide with short app name (hig:the-menu-bar#App-menu)
+- [ ] View menu with state-dependent Show/Hide titles and Enter/Exit Full Screen (hig:the-menu-bar#View-menu)
+- [ ] Window menu with Minimize, Zoom, Bring All to Front; panels not in the window list (hig:the-menu-bar#Window-menu, hig:panels)
+- [ ] Standard shortcuts work (Cmd-N/O/S/W/Q/Z/C/V/X/A/F/P/Comma/?) and are not repurposed (hig:keyboards#Standard-keyboard-shortcuts)
+- [ ] Custom shortcuts sparing, Command-based, without Control, modifier order Control-Option-Shift-Command (hig:keyboards#Custom-keyboard-shortcuts)
+- [ ] Full Keyboard Access: all controls reachable via keyboard (hig:keyboards#Best-practices)
+- [ ] Menu items requiring further input end in "…" (hig:menus)
+
+**Windows & layout**
+- [ ] Windows freely resizable; layout doesn't break at small and large sizes (hig:windows#Best-practices)
+- [ ] System full screen supported, not forced; Dock reachable (hig:going-full-screen)
+- [ ] No custom window frames/buttons; key/main/inactive visibly distinguishable (hig:windows#macOS)
+- [ ] Nothing critical at the bottom edge of the window/sidebar (hig:layout#macOS)
+- [ ] Window title meaningful, not the app name, under 15 characters (hig:toolbars#Titles)
+- [ ] Default text 13 pt, nothing below 10 pt; contrast 4.5:1 or 3:1 (hig:typography, hig:accessibility)
+- [ ] Controls at least 20x20 pt, default 28x28 pt (hig:accessibility#Mobility)
+
+**Navigation & components**
+- [ ] Sidebar max. two levels, can be shown/hidden (button + View menu), visible by default (hig:sidebars)
+- [ ] Sidebar icons follow the system accent color, fixed colors only when meaningful (hig:sidebars#Best-practices)
+- [ ] Toolbar: max. three groups, symbols without borders, one prominent action trailing, search trailing, customizable with many items (hig:toolbars)
+- [ ] No switches/checkboxes/square/image/help buttons/path controls in the window frame (hig:toggles#macOS, hig:buttons#macOS, hig:path-controls)
+- [ ] Tables: sortable column headers, resizable columns; hierarchical data in an outline view (hig:lists-and-tables#macOS)
+- [ ] Settings window: non-customizable toolbar, active pane highlighted, title = pane, last pane restored, Minimize/Zoom dimmed (hig:settings#macOS)
+- [ ] Sheets keep other app windows usable; repeated input in a panel instead of a sheet (hig:sheets#macOS)
+- [ ] Tooltips for icon-only controls, ≤ 60–75 characters (hig:offering-help#macOS-visionOS)
+- [ ] Context menu on all relevant objects (hig:mac-catalyst#Menus)
+
+**Material & system**
+- [ ] Liquid Glass only in the functional layer, not in content; no custom toolbar backgrounds (hig:materials#Liquid-Glass, hig:toolbars)
+- [ ] Content continues beneath sidebar/toolbar or uses the background extension effect (hig:layout#Visual-hierarchy)
+- [ ] Dynamic system colors, Light/Dark/Increased Contrast tested (hig:color)
+- [ ] Menu bar extra (if present): template symbol, menu, optional, functions also in Dock menu/app (hig:the-menu-bar#Menu-bar-extras)
+- [ ] App icon from Icon Composer, square unmasked layers, Dark/Clear/Tinted checked (hig:app-icons)
+- [ ] Autosave status signaled correctly (dot in the close button only with autosave disabled) (hig:file-management#macOS)
 
 ---
 
-## Widersprüche und Unklarheiten im Spiegel
+## 11. Common mistakes / anti-patterns
 
-- **Trefferflächen:** (hig:buttons#Best-practices) nennt allgemein mindestens 44x44 pt, (hig:accessibility#Mobility) für macOS 28x28 pt Default und 20x20 pt Minimum. Für Mac-Controls gilt die plattformspezifische Tabelle; die 44-pt-Regel ist touch-geprägt.
-- **App-Icon:** (hig:mac-catalyst#App-icons, Stand 2023) verlangt eine eigene macOS-Version im „lifelike rendering style“; (hig:app-icons, Stand 2026) behandelt iOS/iPadOS/macOS einheitlich (quadratisch, Icon Composer, Liquid Glass) und nennt keine macOS-Besonderheiten. Aktuellere Seite (app-icons) hat Vorrang. Ebenso spricht app-icons bei Erscheinungsvarianten von „Home Screen“, obwohl macOS mitgemeint ist.
-- **Settings:** (hig:mac-catalyst) listet „App-spezifische Settings in der System-Settings-App“ als Catalyst-Feature; (hig:settings#macOS) beschreibt ein eigenes Settings-Fenster über das App-Menü. Für native Mac-Apps das eigene Fenster verwenden.
-- **Widget-Rendering:** (hig:widgets#Appearances) sagt, Accented Rendering gelte für System-Family-Widgets „auf allen Plattformen“; die Tabelle daneben nennt für Mac „Accented: Not supported“.
-- **Tab Views:** „nicht mehr als sechs Tabs“ und im selben Absatz „wenn Sie sechs oder mehr Tabs brauchen“ (hig:tab-views#Best-practices).
-- **Tastaturkürzel-Tabelle:** Command-I doppelt (Italic und Info-Fenster), F12 „Dashboard“ (Funktion existiert in aktuellem macOS nicht mehr) (hig:keyboards#Standard-keyboard-shortcuts). Kontextabhängig auflösen, Dashboard ignorieren.
-- **New York:** (hig:typography#macOS) nennt NY nur für Mac-Catalyst-Apps, die allgemeine Developer-Note verweist auf `Font.Design.serif` plattformübergreifend. Verfügbarkeit in nativen Mac-Apps im Zweifel prüfen.
-- **Größere Schrift:** macOS hat kein Dynamic Type, (hig:accessibility#Vision) empfiehlt dennoch Vergrößerung auf mindestens 200 % – auf dem Mac also über eigene UI (z. B. Schriftgrößen-Einstellung, Zoom-Befehle).
-- **Settings-Fenster:** HIG spricht von „maximize button“, auf macOS heißt das Element Zoom-Button (hig:settings#macOS).
-- **Keine Fenstermaße:** Weder Default- noch Mindestgrößen für Mac-Fenster sind im Spiegel enthalten.
+- **iPad/iPhone port without Mac adaptation:** tab bar at the bottom, buttons at side/bottom edges, popover instead of inspector, actions only in the UI instead of the menu. On the Mac: sidebar or segmented control instead of tab bar, top-level areas additionally in the View menu, controls in the window toolbar, Next/Previous in addition to swipe (hig:mac-catalyst#Navigation, hig:mac-catalyst#Layout).
+- **Missing menu commands/shortcuts:** commands only in toolbar or context menu – the toolbar can be hidden/customized, so it is never the only place (hig:toolbars#macOS).
+- **Settings gear in the toolbar** instead of app menu + Command-Comma (hig:settings#macOS).
+- **Custom window chrome** or rebuilt traffic-light buttons (hig:windows#Best-practices).
+- **Critical actions in the bottom bar** (hig:windows#macOS).
+- **Repurposed standard shortcuts** or new shortcuts created by adding a modifier to unrelated commands (Shift-Cmd-Z for something other than Redo) (hig:keyboards#Custom-keyboard-shortcuts).
+- **Menu bar extra opens a popover** or is installed without asking (hig:the-menu-bar#Menu-bar-extras).
+- **Liquid Glass in content** or on many custom controls; several color-tinted toolbar buttons (hig:materials#Liquid-Glass, hig:color#Liquid-Glass-color).
+- **Segmented control for switching views in the main area** instead of a tab view (hig:segmented-controls#macOS).
+- **Missing hover/pointer feedback**, wrong cursors (e.g. pointing hand without a link) (hig:pointing-devices#Pointers).
+- **Automatic full screen** or a custom window-mode menu; zoom button misused for full screen (hig:going-full-screen#macOS, hig:the-menu-bar#Window-menu).
+- **Panels in the Window menu's document list** or with Minimize enabled (hig:panels).
+- **"Save As"/"Export" instead of "Duplicate"** for simple copies (hig:the-menu-bar#File-menu).
+- **Touch dimensions adopted unchanged** (44-pt targets, large spacing) – results in unnecessarily low information density on the Mac; the Mac default for controls is 28x28 pt, large displays should show more content in fewer levels (hig:accessibility#Mobility, hig:designing-for-macos).
+
+---
+
+## Contradictions and ambiguities in the mirror
+
+- **Hit targets:** (hig:buttons#Best-practices) generally specifies at least 44x44 pt, (hig:accessibility#Mobility) for macOS 28x28 pt default and 20x20 pt minimum. For Mac controls, the platform-specific table applies; the 44-pt rule is touch-oriented.
+- **App icon:** (hig:mac-catalyst#App-icons, as of 2023) requires a separate macOS version in the "lifelike rendering style"; (hig:app-icons, as of 2026) treats iOS/iPadOS/macOS uniformly (square, Icon Composer, Liquid Glass) and names no macOS specifics. The more recent page (app-icons) takes precedence. Likewise, app-icons speaks of the "Home Screen" for appearance variants, although macOS is included.
+- **Settings:** (hig:mac-catalyst) lists "app-specific settings in the System Settings app" as a Catalyst feature; (hig:settings#macOS) describes a dedicated settings window via the app menu. For native Mac apps, use the dedicated window.
+- **Widget rendering:** (hig:widgets#Appearances) says accented rendering applies to system-family widgets "on all platforms"; the adjacent table lists "Accented: Not supported" for Mac.
+- **Tab views:** "no more than six tabs" and in the same paragraph "if you need six or more tabs" (hig:tab-views#Best-practices).
+- **Keyboard shortcut table:** Command-I appears twice (Italic and Info window), F12 "Dashboard" (feature no longer exists in current macOS) (hig:keyboards#Standard-keyboard-shortcuts). Resolve by context, ignore Dashboard.
+- **New York:** (hig:typography#macOS) names NY only for Mac Catalyst apps, the general developer note refers to `Font.Design.serif` across platforms. When in doubt, verify availability in native Mac apps.
+- **Larger text:** macOS has no Dynamic Type, yet (hig:accessibility#Vision) recommends enlargement to at least 200 % – on the Mac, therefore, via custom UI (e.g. a font size setting, zoom commands).
+- **Settings window:** the HIG speaks of a "maximize button"; on macOS the element is called the zoom button (hig:settings#macOS).
+- **No window dimensions:** Neither default nor minimum sizes for Mac windows are contained in the mirror.

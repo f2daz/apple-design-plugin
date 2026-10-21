@@ -1,37 +1,37 @@
-# shape – Feature planen, bevor Code entsteht
+# shape – plan a feature before code exists
 
-Ergebnis: eine kurze Spezifikation (im Chat oder als `design/<feature>.md`), die `build` ohne Rückfragen umsetzen kann.
+Result: a short spec (in chat or as `design/<feature>.md`) that `build` can implement without follow-up questions.
 
-## Ablauf
+## Steps
 
-1. **Aufgabe verstehen.** Was will die Person erledigen, wie oft, wo (unterwegs, Schreibtisch, Handgelenk)? Fehlt Wesentliches → eine AskUserQuestion-Runde (z. B. „Wie oft wird das genutzt?“ · „Primäre Plattform?“ · „Muss es offline gehen?“).
-2. **Einordnen.** Gehört es in die bestehende Navigation (welcher Tab/Sidebar-Bereich), ist es eine Nebenaufgabe (Sheet), ein Detail (Push) oder ein Systemort (Widget, Live Activity, Control, Complication, Menüleisten-Extra)? Entscheidung mit [components/README.md](../components/README.md) und [patterns.md](../patterns.md) belegen.
-3. **Je Plattform das idiomatische Muster wählen** (aus `reference/platforms/<p>.md`). Für jede Plattform in `APPLE_DESIGN.md` eine Zeile: Einstieg, Container, Primäraktion, Sekundäraktionen, Rückweg.
-4. **Komponenten festlegen** – System zuerst. Bei echten Alternativen (z. B. Segmented control vs. Menu vs. Picker) die Optionen mit `AskUserQuestion` und ASCII-Preview vorlegen, Empfehlung zuerst.
-5. **Zustände** aufzählen: leer, lädt, Teil-/Fehlerzustand, offline, keine Berechtigung, sehr viel Inhalt, sehr lange Texte/Lokalisierung, größte Dynamic-Type-Stufe, Dark Mode, Reduce Motion.
-6. **Inhalte & Texte**: Titel, Buttonbeschriftungen (Verben), Leerzustandstext, Fehlermeldungen (hig:writing).
-7. **Symbole & Ressourcen**: SF Symbols mit `sf_symbols.py search` auswählen und Mindest-OS gegen Ziel-OS prüfen.
+1. **Understand the task.** What does the person want to get done, how often, where (on the go, at a desk, on the wrist)? If something essential is missing → one AskUserQuestion round (e.g. "How often is this used?" · "Primary platform?" · "Must it work offline?").
+2. **Place it.** Does it belong in the existing navigation (which tab/sidebar section), is it a side task (sheet), a detail (push), or a system location (widget, Live Activity, control, complication, menu bar extra)? Back the decision with [components/README.md](../components/README.md) and [patterns.md](../patterns.md).
+3. **Choose the idiomatic pattern per platform** (from `reference/platforms/<p>.md`). One line for each platform in `APPLE_DESIGN.md`: entry point, container, primary action, secondary actions, way back.
+4. **Pick components** – system first. For real alternatives (e.g. segmented control vs. menu vs. picker), present the options with `AskUserQuestion` and an ASCII preview, recommendation first.
+5. **List states:** empty, loading, partial/error, offline, no permission, a lot of content, very long text/localization, largest Dynamic Type size, Dark Mode, Reduce Motion.
+6. **Content & copy:** titles, button labels (verbs), empty-state text, error messages (hig:writing).
+7. **Symbols & resources:** pick SF Symbols with `sf_symbols.py search` and check their minimum OS against the target OS.
 
-## Spezifikations-Vorlage
+## Spec template
 
 ```markdown
 ## <Feature>
-Ziel: … · Häufigkeit: … · Plattformen: …
+Goal: … · Frequency: … · Platforms: …
 
-### Struktur
-| Plattform | Einstieg | Container | Primäraktion | Rückweg |
+### Structure
+| Platform | Entry point | Container | Primary action | Way back |
 |---|---|---|---|---|
 
 ### Screens
 #### <Screen>
-- Layout (ASCII-Skizze)
-- Komponenten: … (hig:…)
-- Symbole: `…` (iOS ≥ …)
-- Zustände: leer / lädt / Fehler / …
-- Texte: …
-- Barrierefreiheit: VoiceOver-Reihenfolge, Labels, Dynamic-Type-Verhalten (Umbruch statt Abschneiden)
+- Layout (ASCII sketch)
+- Components: … (hig:…)
+- Symbols: `…` (iOS ≥ …)
+- States: empty / loading / error / …
+- Copy: …
+- Accessibility: VoiceOver order, labels, Dynamic Type behavior (wrap instead of truncate)
 
-### Offene Fragen
+### Open questions
 ```
 
-Danach anbieten: `build <feature>`.
+Then offer: `build <feature>`.

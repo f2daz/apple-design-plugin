@@ -41,8 +41,8 @@ class DB:
     def __init__(self):
         self.base = next((b for b in SOURCES if (b / "name_availability.plist").exists()), None)
         if not self.base:
-            sys.exit("SF-Symbols-Metadaten nicht gefunden (nur macOS). "
-                     "Alternativ SF Symbols App installieren: resources.py show 'sf symbols'")
+            sys.exit("SF Symbols metadata not found (macOS only). "
+                     "Alternatively install the SF Symbols app: resources.py show 'sf symbols'")
         avail = load_plist(self.base, "name_availability.plist") or {}
         self.year_of: dict[str, str] = avail.get("symbols", {})
         self.releases: dict[str, dict] = avail.get("year_to_release", {})
@@ -105,19 +105,19 @@ def fmt(r: dict, verbose: bool = False) -> str:
     v = " ".join(f"{p} {m[p]}" for p in ("iOS", "macOS", "watchOS") if p in m)
     line = f"{r['name']:<42} {v}"
     if r.get("restriction"):
-        line += "  ⚠ eingeschränkt"
+        line += "  ⚠ restricted"
     if verbose:
         extra = []
         if r["categories"]:
-            extra.append("Kategorien: " + ", ".join(r["categories"]))
+            extra.append("Categories: " + ", ".join(r["categories"]))
         if r["keywords"]:
-            extra.append("Suchbegriffe: " + ", ".join(r["keywords"]))
+            extra.append("Keywords: " + ", ".join(r["keywords"]))
         if r.get("fill_variant"):
-            extra.append("Fill-Variante: " + r["fill_variant"])
+            extra.append("Fill variant: " + r["fill_variant"])
         if r.get("deprecated_aliases"):
-            extra.append("Alte Namen: " + ", ".join(r["deprecated_aliases"]))
+            extra.append("Former names: " + ", ".join(r["deprecated_aliases"]))
         if r.get("restriction"):
-            extra.append("Einschränkung: " + str(r["restriction"]))
+            extra.append("Restriction: " + str(r["restriction"]))
         line += "".join(f"\n    {e}" for e in extra)
     return line
 
@@ -148,13 +148,13 @@ def main() -> int:
         if args.json:
             print(json.dumps(rows, ensure_ascii=False, indent=1))
         else:
-            print("\n".join(fmt(r) for r in rows) or "Keine Treffer.")
+            print("\n".join(fmt(r) for r in rows) or "No matches.")
             if len(names) > args.limit:
-                print(f"… {len(names) - args.limit} weitere (--limit)")
+                print(f"… {len(names) - args.limit} more (--limit)")
     elif args.cmd == "info":
         if args.name not in db.year_of:
             close = [n for n in db.year_of if args.name in n][:10]
-            print(f"'{args.name}' nicht gefunden." + (f" Ähnlich: {', '.join(close)}" if close else ""))
+            print(f"'{args.name}' not found." + (f" Similar: {', '.join(close)}" if close else ""))
             return 1
         r = db.row(args.name)
         print(json.dumps(r, ensure_ascii=False, indent=1) if args.json else fmt(r, verbose=True))
@@ -163,11 +163,11 @@ def main() -> int:
     elif args.cmd == "category":
         names = [n for n, c in db.cats_of.items() if args.key in c]
         print("\n".join(fmt(db.row(n)) for n in names[:args.limit]))
-        print(f"({len(names)} Symbole in '{args.key}')")
+        print(f"({len(names)} symbols in '{args.key}')")
     elif args.cmd == "new":
         names = sorted(n for n, y in db.year_of.items() if y.split(".")[0] == args.year)
         print("\n".join(fmt(db.row(n)) for n in names))
-        print(f"({len(names)} Symbole aus {args.year}; Release-Map: {db.releases.get(args.year, {})})")
+        print(f"({len(names)} symbols from {args.year}; release map: {db.releases.get(args.year, {})})")
     return 0
 
 

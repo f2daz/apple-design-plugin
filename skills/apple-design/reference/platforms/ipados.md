@@ -1,240 +1,240 @@
-# iPadOS (iPad) – Plattformreferenz
+# iPadOS (iPad) – Platform reference
 
-> Quelle: lokaler HIG-Spiegel `~/.apple-design/hig/pages/<slug>.md` (Stand 2026-10-21). Belege als `(hig:<slug>)` bzw. `(hig:<slug>#Anchor)`.
-> Paraphrasiert und verdichtet. Zahlen nur, wenn sie im Spiegel stehen. Viele Regeln gelten für iOS und iPadOS gemeinsam – siehe `ios.md`; hier stehen die iPad-spezifischen Punkte und die gemeinsamen nur, soweit sie auf dem iPad anders wirken.
-
----
-
-## 1. Kurzprofil
-
-- **Display:** groß, hochauflösend; App läuft **full screen** oder **windowed** (frei skalierbare Fenster, mehrere gleichzeitig) (hig:designing-for-ipados, hig:windows#iPadOS).
-- **Ergonomie:** gehalten, auf dem Tisch oder im Ständer; Sehabstand meist innerhalb von etwa drei Fuß. Dichte und Größe an Sehabstand und Eingabeart ausrichten (hig:designing-for-ipados).
-- **Eingabe:** Multi-Touch, virtuelle oder Hardware-Tastatur, Trackpad/Maus (Pointer), Apple Pencil, Sprache; oft kombiniert (hig:designing-for-ipados).
-- **Nutzung:** kurze Aktionen bis zu stundenlangen Produktiv-, Kreativ- und Mediensessions; mehrere Apps sichtbar, Drag and Drop zwischen Apps (hig:designing-for-ipados).
-- **Systemfeatures:** Multitasking/Fenster, Widgets (inkl. extra large), Drag and Drop, Menüleiste (hig:designing-for-ipados, hig:the-menu-bar#iPadOS).
-- **Ziel:** großen Screen für Inhalt nutzen, Modals und Vollbild-Übergänge minimieren, Controls erreichbar, aber nicht im Weg; nahtlos auch auf dem Mac lauffähig (hig:designing-for-ipados).
+> Source: local HIG mirror `~/.apple-design/hig/pages/<slug>.md` (as of 2026-10-21). Sources cited as `(hig:<slug>)` or `(hig:<slug>#Anchor)`.
+> Paraphrased and condensed. Numbers only where they appear in the mirror. Many rules apply to iOS and iPadOS alike – see `ios.md`; this file covers the iPad-specific points, and the shared ones only where they work differently on iPad.
 
 ---
 
-## 2. Nicht verhandelbar
+## 1. Profile
 
-1. **Fenster fluid skalierbar gestalten.** Jede Breite von schmal (compact) über mittlere Breiten bis voll muss funktionieren; die App erfährt nicht, welche Multitasking-Konfiguration gewählt wurde (hig:multitasking#iPadOS, hig:windows#Best-practices).
-2. **Layout über Size Classes, nicht über Gerät/Orientierung**; Funktionalität bleibt bei jeder Größe gleich, nur die sichtbare Menge ändert sich (hig:layout#Size-classes).
-3. **Window Controls nicht überdecken:** leading Toolbar-Items nach innen rücken, wenn Fensterkontrollen erscheinen (hig:windows#iPadOS).
-4. **Keine eigenen Fensterrahmen/Window-Controls** nachbauen; im UI-Text „Fenster“ sagen, nicht „Scene“ (hig:windows#Best-practices).
-5. **Tab Bar bevorzugen** (oben, ggf. in Sidebar wandelbar); Sidebar nur bei komplexer Struktur bzw. per `sidebarAdaptable` (hig:tab-bars#iPadOS, hig:sidebars#iOS-iPadOS).
-6. **Sidebar nicht standardmäßig ausblenden**, Edge-Swipe zum Ein-/Ausblenden respektieren, max. zwei Hierarchieebenen (hig:sidebars#Best-practices).
-7. **Split View: aktuelle Auswahl in jeder Spalte persistent hervorheben**; Navigation zwischen Spalten auch in schmalen Fenstern logisch (hig:split-views).
-8. **Pointer unterstützt Touch, ersetzt ihn nicht**; System-Pointer-Effekte (highlight/lift/hover) für Standard- und standardähnliche Elemente (hig:pointing-devices#iPadOS).
-9. **Standard-Tastaturkürzel nicht umdefinieren**; Full Keyboard Access unterstützen; keine eigene Tastaturnavigation für Buttons/Switches/Segmented Controls (hig:keyboards).
-10. **Alle Funktionen auch ohne Menüleiste erreichbar** – die Menüleiste ist meist versteckt und nur mit Hardware-Tastatur voll nutzbar (hig:the-menu-bar#iPadOS).
-11. **Popovers für regular width, Sheets in Form-/Page-Sheet-Stil**; in compact automatisch zu Sheet (hig:popovers#iOS-iPadOS, hig:sheets#iOS-iPadOS).
-12. **Hit-Targets 44×44 pt Standard / 28×28 pt Minimum** – auch mit Pointer (hig:accessibility#Mobility).
-13. **Liquid Glass nur für die Funktionsebene**; Inhalt unter Sidebar/Toolbar durchlaufen lassen (hig:materials#Liquid-Glass, hig:sidebars#Best-practices).
-14. **Apple Pencil: sofort markieren, kein Modus-Zwang; Hover/Double-Tap/Squeeze nie destruktiv** (hig:apple-pencil-and-scribble).
-15. **Dynamic Type, Dark Mode, Orientierung und Multitasking-Modi nahtlos** (hig:designing-for-ipados).
+- **Display:** large, high resolution; the app runs **full screen** or **windowed** (freely resizable windows, several at once) (hig:designing-for-ipados, hig:windows#iPadOS).
+- **Ergonomics:** handheld, on a table or in a stand; viewing distance usually within about three feet. Align density and size with viewing distance and input method (hig:designing-for-ipados).
+- **Input:** Multi-Touch, virtual or hardware keyboard, trackpad/mouse (pointer), Apple Pencil, voice; often combined (hig:designing-for-ipados).
+- **Usage:** short actions up to hours-long productivity, creative and media sessions; several apps visible, drag and drop between apps (hig:designing-for-ipados).
+- **System features:** multitasking/windows, widgets (including extra large), drag and drop, menu bar (hig:designing-for-ipados, hig:the-menu-bar#iPadOS).
+- **Goal:** use the large screen for content, minimize modals and full-screen transitions, keep controls reachable but out of the way; also run seamlessly on the Mac (hig:designing-for-ipados).
 
 ---
 
-## 3. Layout & Maße
+## 2. Non-negotiable
 
-### 3.1 Belegte Kennwerte
+1. **Design windows to resize fluidly.** Every width from narrow (compact) through medium widths to full must work; the app is not told which multitasking configuration was chosen (hig:multitasking#iPadOS, hig:windows#Best-practices).
+2. **Layout by size class, not by device/orientation**; functionality stays the same at every size, only the visible amount changes (hig:layout#Size-classes).
+3. **Do not cover window controls:** move leading toolbar items inward when window controls appear (hig:windows#iPadOS).
+4. **Do not rebuild custom window frames/window controls**; in UI text say "window", not "scene" (hig:windows#Best-practices).
+5. **Prefer a tab bar** (top, optionally convertible to a sidebar); sidebar only for complex structures or via `sidebarAdaptable` (hig:tab-bars#iPadOS, hig:sidebars#iOS-iPadOS).
+6. **Do not hide the sidebar by default**, respect the edge swipe for showing/hiding it, max. two hierarchy levels (hig:sidebars#Best-practices).
+7. **Split view: persistently highlight the current selection in every column**; navigation between columns stays logical even in narrow windows (hig:split-views).
+8. **The pointer supports touch, it does not replace it**; system pointer effects (highlight/lift/hover) for standard and standard-like elements (hig:pointing-devices#iPadOS).
+9. **Do not redefine standard keyboard shortcuts**; support Full Keyboard Access; no custom keyboard navigation for buttons/switches/segmented controls (hig:keyboards).
+10. **All functions reachable without the menu bar** – the menu bar is usually hidden and only fully usable with a hardware keyboard (hig:the-menu-bar#iPadOS).
+11. **Popovers for regular width, sheets in form/page sheet style**; automatically a sheet in compact (hig:popovers#iOS-iPadOS, hig:sheets#iOS-iPadOS).
+12. **Hit targets 44×44 pt default / 28×28 pt minimum** – also with a pointer (hig:accessibility#Mobility).
+13. **Liquid Glass only for the functional layer**; let content run under the sidebar/toolbar (hig:materials#Liquid-Glass, hig:sidebars#Best-practices).
+14. **Apple Pencil: mark immediately, no forced mode; hover/double tap/squeeze never destructive** (hig:apple-pencil-and-scribble).
+15. **Dynamic Type, Dark Mode, orientation and multitasking modes seamless** (hig:designing-for-ipados).
 
-| Kennwert | Wert | Quelle |
+---
+
+## 3. Layout & dimensions
+
+### 3.1 Documented values
+
+| Metric | Value | Source |
 |---|---|---|
-| Control-Größe Standard / Minimum | 44×44 pt / 28×28 pt | (hig:accessibility#Mobility) |
-| Pointer-Hit-Region: Padding um Element mit Bezel | ca. 12 pt | (hig:pointing-devices#Standard-pointers-and-effects) |
-| Pointer-Hit-Region: Padding ohne Bezel | ca. 24 pt um sichtbare Kanten | (hig:pointing-devices#Standard-pointers-and-effects) |
-| Text Standard / Minimum | 17 pt / 11 pt | (hig:typography#Ensuring-legibility) |
-| Toolbar-Titel | unter 15 Zeichen | (hig:toolbars#Titles) |
-| Toolbar-Gruppen | max. ca. 3 (auch auf iPad) | (hig:toolbars#Item-groupings) |
-| Anpassbare Tab-Bar: Default-Tabs | 5 oder weniger | (hig:tab-bars#iPadOS) |
-| Sidebar-Hierarchie | max. 2 Ebenen, sonst Split View mit Content-Liste | (hig:sidebars#Best-practices) |
-| Split-View-Spalten | 2 (z. B. Mail) oder 3 (z. B. Keynote) | (hig:split-views#iPadOS) |
-| Drag-Image ab | ca. 3 pt Bewegung | (hig:drag-and-drop#Providing-feedback) |
-| App-Icon | 1024×1024 px, quadratisch, Systemmaske | (hig:app-icons#Specifications) |
+| Control size default / minimum | 44×44 pt / 28×28 pt | (hig:accessibility#Mobility) |
+| Pointer hit region: padding around element with a bezel | approx. 12 pt | (hig:pointing-devices#Standard-pointers-and-effects) |
+| Pointer hit region: padding without a bezel | approx. 24 pt around visible edges | (hig:pointing-devices#Standard-pointers-and-effects) |
+| Text default / minimum | 17 pt / 11 pt | (hig:typography#Ensuring-legibility) |
+| Toolbar title | under 15 characters | (hig:toolbars#Titles) |
+| Toolbar groups | max. approx. 3 (on iPad too) | (hig:toolbars#Item-groupings) |
+| Customizable tab bar: default tabs | 5 or fewer | (hig:tab-bars#iPadOS) |
+| Sidebar hierarchy | max. 2 levels, otherwise split view with a content list | (hig:sidebars#Best-practices) |
+| Split view columns | 2 (e.g., Mail) or 3 (e.g., Keynote) | (hig:split-views#iPadOS) |
+| Drag image from | approx. 3 pt of movement | (hig:drag-and-drop#Providing-feedback) |
+| App icon | 1024×1024 px, square, system mask | (hig:app-icons#Specifications) |
 
-### 3.2 Gerätegrößen / Safe Areas
+### 3.2 Device sizes / safe areas
 
-**Im Spiegel nicht enthalten.** `layout.md` (Update 2026-09-09) enthält keine Gerätetabelle und keine Safe-Area-Insets (das Change Log nennt frühere Spezifikationen für iPad 11", iPad Air 11"/13", iPad mini 8,3", iPad Air 10,9"). Safe Areas zur Laufzeit beziehen, nicht hart kodieren (hig:layout#Guides-and-safe-areas).
+**Not contained in the mirror.** `layout.md` (updated 2026-09-09) contains no device table and no safe area insets (the change log mentions earlier specifications for iPad 11", iPad Air 11"/13", iPad mini 8.3", iPad Air 10.9"). Obtain safe areas at runtime, do not hard-code them (hig:layout#Guides-and-safe-areas).
 
-Indirekt belegte iPad-Bildschirmgrößen (Portrait, pt) aus der Widget-Tabelle, **ohne Gerätezuordnung**: 768×1024, 744×1133, 810×1080, 820×1180, 834×1112, 834×1194, 1024×1366; mit Display Zoom „More Space“: 954×1373, 970×1389, 1192×1590 (hig:widgets#Specifications).
+iPad screen sizes documented indirectly (portrait, pt) from the widget table, **without device mapping**: 768×1024, 744×1133, 810×1080, 820×1180, 834×1112, 834×1194, 1024×1366; with Display Zoom "More Space": 954×1373, 970×1389, 1192×1590 (hig:widgets#Specifications).
 
-### 3.3 Size Classes auf dem iPad
+### 3.3 Size classes on iPad
 (hig:layout#Size-classes)
-- Fenster können in **jeder** Kombination aus compact/regular in Breite und Höhe erscheinen (schmal-kurz, schmal-hoch, breit-kurz, breit-hoch).
-- Nicht nur für Landscape-iPhone (regular width/compact height) oder Portrait-compact designen; vertikalen Platz in regular height nutzen.
-- Bei mehr Platz: Tab Bar → Sidebar, Overflow-Items ausklappen. Idiom bleibt gleich → Layout bleibt iPad-typisch erkennbar.
-- Sehr breite/flache und schmale/hohe Fenster: Hintergrundartwork über den „Standard“-Ausschnitt hinaus anlegen (hig:layout#Adaptability).
-- Testen u. a. mit Device Hub, insbesondere kleinste und größte Fenster (hig:layout#Adaptability).
+- Windows can appear in **any** combination of compact/regular in width and height (narrow-short, narrow-tall, wide-short, wide-tall).
+- Do not design only for landscape iPhone (regular width/compact height) or portrait compact; use the vertical space in regular height.
+- With more space: tab bar → sidebar, expand overflow items. The idiom stays the same → the layout remains recognizably iPad-like.
+- Very wide/flat and narrow/tall windows: extend background artwork beyond the "standard" crop (hig:layout#Adaptability).
+- Test with Device Hub among others, especially the smallest and largest windows (hig:layout#Adaptability).
 
-### 3.4 Visuelle Hierarchie
-- Wichtiges oben/leading; Inhalt elevieren, Controls nicht im Weg (hig:layout#Visual-hierarchy, hig:designing-for-ipados).
-- Vollflächige Hintergründe unter Sidebar, Toolbar, Tab Bar; ggf. Background Extension Effect unter Sidebar/Inspector (hig:layout#Visual-hierarchy).
+### 3.4 Visual hierarchy
+- Important items at the top/leading; elevate content, keep controls out of the way (hig:layout#Visual-hierarchy, hig:designing-for-ipados).
+- Full-bleed backgrounds under the sidebar, toolbar, tab bar; optionally the background extension effect under the sidebar/inspector (hig:layout#Visual-hierarchy).
 
 ---
 
-## 4. Navigation & Struktur
+## 4. Navigation & structure
 
-### 4.1 Entscheidungsmatrix
+### 4.1 Decision matrix
 
-| Situation | Muster | Quelle |
+| Situation | Pattern | Source |
 |---|---|---|
-| Wenige Hauptbereiche | **Tab Bar oben** (fest, `tabBarOnly`) | (hig:tab-bars#iPadOS) |
-| Viele Bereiche, komplexere App | **Tab Bar, in Sidebar wandelbar** (`sidebarAdaptable`), anpassbar | (hig:tab-bars#iPadOS, hig:sidebars#iOS-iPadOS) |
-| Nur Sidebar, ohne Umschalten | **NavigationSplitView / UISplitViewController** | (hig:sidebars#iOS-iPadOS, hig:tab-bars#iPadOS) |
-| Hierarchie > 2 Ebenen | **Split View** mit 2–3 Spalten (Sidebar – Liste – Detail) | (hig:sidebars#Best-practices, hig:split-views#iPadOS) |
-| Hauptbereiche + volle Breite für Inhalt | **Tab Bar + Toolbar in derselben Zeile oben** | (hig:toolbars#iPadOS) |
-| Eng umrissene Teilaufgabe | **Sheet** (Form/Page Sheet) | (hig:sheets#iOS-iPadOS) |
-| Kontextoptionen zu einem Element (regular) | **Popover** | (hig:popovers#iOS-iPadOS) |
-| Eigenständige Aufgabe parallel zum Kontext | **neues Fenster** (z. B. Mail-Compose) | (hig:windows#Best-practices, hig:modality) |
-| Objekt neu anlegen „im Leerraum“ | **Context Menu** (Long Press / Sekundärklick) | (hig:context-menus#iOS-iPadOS) |
-| Optionsauswahl in Popover/Modal für Listeneintrag | **Pop-up Button** statt Disclosure-Drilldown | (hig:pop-up-buttons#iPadOS) |
+| Few main sections | **Tab bar at the top** (fixed, `tabBarOnly`) | (hig:tab-bars#iPadOS) |
+| Many sections, more complex app | **Tab bar, convertible to a sidebar** (`sidebarAdaptable`), customizable | (hig:tab-bars#iPadOS, hig:sidebars#iOS-iPadOS) |
+| Sidebar only, without switching | **NavigationSplitView / UISplitViewController** | (hig:sidebars#iOS-iPadOS, hig:tab-bars#iPadOS) |
+| Hierarchy > 2 levels | **Split view** with 2–3 columns (sidebar – list – detail) | (hig:sidebars#Best-practices, hig:split-views#iPadOS) |
+| Main sections + full width for content | **Tab bar + toolbar in the same row at the top** | (hig:toolbars#iPadOS) |
+| Narrowly scoped subtask | **Sheet** (form/page sheet) | (hig:sheets#iOS-iPadOS) |
+| Contextual options for an element (regular) | **Popover** | (hig:popovers#iOS-iPadOS) |
+| Self-contained task alongside the context | **new window** (e.g., Mail compose) | (hig:windows#Best-practices, hig:modality) |
+| Create a new object "in empty space" | **Context menu** (long press / secondary click) | (hig:context-menus#iOS-iPadOS) |
+| Option selection in a popover/modal for a list item | **Pop-up button** instead of a disclosure drill-down | (hig:pop-up-buttons#iPadOS) |
 
-### 4.2 Tab Bar (iPadOS)
+### 4.2 Tab bar (iPadOS)
 (hig:tab-bars, hig:tab-bars#iPadOS)
-- Liegt **oben**; entweder fest oder mit Button zur Umwandlung in eine Sidebar.
-- **Anpassbar machen** bei vielen Bereichen (Nutzer pinnt z. B. Playlist als Tab); Default ≤ 5 Tabs für Kontinuität zwischen compact und regular.
-- In regular: Icon und Label nebeneinander; in compact: Icon über Label.
-- Allgemeine Regeln wie iOS: nur Navigation, sichtbar halten, nicht deaktivieren, Labels, Badges sparsam.
-- In der Menüleiste: jeden Tab als Eintrag im View-Menü, ggf. mit Tastenkürzel (hig:the-menu-bar#iPadOS).
+- Sits at the **top**; either fixed or with a button to convert it into a sidebar.
+- **Make it customizable** when there are many sections (e.g., the user pins a playlist as a tab); default ≤ 5 tabs for continuity between compact and regular.
+- In regular: icon and label side by side; in compact: icon above label.
+- General rules as on iOS: navigation only, keep visible, do not disable, labels, badges sparingly.
+- In the menu bar: each tab as an item in the View menu, optionally with a keyboard shortcut (hig:the-menu-bar#iPadOS).
 
 ### 4.3 Sidebar
 (hig:sidebars)
-- Leading, schwebt in der Liquid-Glass-Ebene; Inhalt darunter scrollen lassen oder Background Extension Effect.
-- Inhalte vom Nutzer anpassbar; Gruppen mit Disclosure Controls; SF Symbols bzw. Custom Symbols statt Bitmaps.
-- Icons in Akzentfarbe; feste Farben nur sparsam mit Bedeutung (z. B. VIP gelb).
-- Zwei Ebenen mit knappen Gruppentiteln; tiefer → Split View mit Content-Liste.
-- Ausblenden per System-Edge-Swipe; nicht standardmäßig versteckt.
-- Ohne SwiftUI: `UICollectionLayoutListConfiguration.Appearance.sidebar` (hig:sidebars#iOS-iPadOS).
-- Suche oben in der Sidebar, wenn sie die Sidebar filtert (Settings-Muster) (hig:search-fields#iPadOS-macOS).
+- Leading, floats in the Liquid Glass layer; let content scroll underneath or use the background extension effect.
+- Content customizable by the user; groups with disclosure controls; SF Symbols or custom symbols instead of bitmaps.
+- Icons in the accent color; fixed colors only sparingly and with meaning (e.g., VIP yellow).
+- Two levels with concise group titles; deeper → split view with a content list.
+- Hide via the system edge swipe; not hidden by default.
+- Without SwiftUI: `UICollectionLayoutListConfiguration.Appearance.sidebar` (hig:sidebars#iOS-iPadOS).
+- Search at the top of the sidebar if it filters the sidebar (Settings pattern) (hig:search-fields#iPadOS-macOS).
 
-### 4.4 Split View
+### 4.4 Split view
 (hig:split-views)
-- 2 oder 3 vertikale Spalten; Auswahl pro Spalte sichtbar halten; Drag and Drop zwischen Spalten.
-- **Schmale, mittlere, breite Fensterbreiten** durchspielen – Spalten müssen kollabieren und logisch navigierbar bleiben.
-- Je Spalte ein eigener Scroll Edge Effect, Höhen konsistent halten (hig:scroll-views#Scroll-edge-effects).
+- 2 or 3 vertical columns; keep the selection in each column visible; drag and drop between columns.
+- Run through **narrow, medium, wide window widths** – columns must collapse and remain logically navigable.
+- A separate scroll edge effect per column, keep heights consistent (hig:scroll-views#Scroll-edge-effects).
 
 ### 4.5 Toolbar (iPadOS)
 (hig:toolbars)
-- Toolbar und Tab Bar können oben dieselbe Zeile teilen.
-- **Overflow-Menü legt das System automatisch an**, nicht manuell bauen; Layouts vermeiden, die standardmäßig überlaufen. Center-Items kollabieren beim Verkleinern ins Overflow; trailing Items bleiben immer sichtbar; leading Items sind nicht anpassbar.
-- **Toolbar-Anpassung** anbieten bei vielen Items oder langen Sessions.
-- Leading: Back, Sidebar-Toggle, Titel, Dokumentmenü (Duplicate, Rename, Move, Export). Trailing: Inspector-Buttons, Suche, More, primäre Aktion.
-- Fensterkontrollen erscheinen windowed am leading Rand der Toolbar → leading Buttons einrücken (hig:windows#iPadOS).
-- Titel: aussagekräftig je Fenster, damit mehrere Fenster unterscheidbar sind; nicht App-Name (hig:toolbars#Titles).
+- Toolbar and tab bar can share the same row at the top.
+- **The system creates the overflow menu automatically**, do not build it manually; avoid layouts that overflow by default. Center items collapse into the overflow when shrinking; trailing items always stay visible; leading items are not customizable.
+- Offer **toolbar customization** with many items or long sessions.
+- Leading: Back, sidebar toggle, title, document menu (Duplicate, Rename, Move, Export). Trailing: inspector buttons, search, More, primary action.
+- Window controls appear in windowed mode at the leading edge of the toolbar → indent leading buttons (hig:windows#iPadOS).
+- Title: meaningful per window so multiple windows can be told apart; not the app name (hig:toolbars#Titles).
 
-### 4.6 Fenster & Multitasking
+### 4.6 Windows & multitasking
 (hig:windows#iPadOS, hig:multitasking#iPadOS)
-- **Full screen:** Fenster füllen den Bildschirm, Wechsel über App-Switcher. **Windowed:** frei skalierbar, mehrere sichtbar, verschiebbar; System merkt sich Größe/Position. Systemsteuerung für Kacheln, Vollbild, Minimieren, Schließen; vorderstes Fenster mit farbigen Controls und Schatten.
-- Picture in Picture für Video/FaceTime in beiden Modi.
-- Primär- vs. Hilfsfenster: Hilfsfenster ohne App-Navigation, mit Schließen-Button (hig:windows).
-- Neue Fenster gezielt (Compose, Dokument), nicht standardmäßig; „In neuem Fenster öffnen“ per Context Menu oder File-Menü; Pinch-to-open-in-new-window erwägen (hig:windows).
-- Tipp im Spiegel: Wer nur eine Datei anzeigen will, kann Quick Look nutzen, **muss aber Mehrfenster unterstützen** (hig:windows#iPadOS).
-- Multitasking-Grundregeln: Kontext sichern, Medien/Spiele pausieren, Audio-Unterbrechungen korrekt behandeln, Hintergrundaufgaben fertigstellen, Notifications sparsam (hig:multitasking#Best-practices).
+- **Full screen:** windows fill the screen, switching via the app switcher. **Windowed:** freely resizable, several visible, movable; the system remembers size/position. System controls for tiling, full screen, minimize, close; frontmost window with colored controls and a shadow.
+- Picture in Picture for video/FaceTime in both modes.
+- Primary vs. auxiliary windows: auxiliary windows without app navigation, with a close button (hig:windows).
+- Open new windows deliberately (compose, document), not by default; "Open in New Window" via context menu or File menu; consider pinch to open in a new window (hig:windows).
+- Tip in the mirror: an app that only wants to display a file can use Quick Look, **but must support multiple windows** (hig:windows#iPadOS).
+- Multitasking basics: save context, pause media/games, handle audio interruptions correctly, finish background tasks, use notifications sparingly (hig:multitasking#Best-practices).
 
-### 4.7 Sheets & Modality (iPadOS)
-- **Page- oder Form-Sheet** bevorzugen (Default-Größe, zentriert, gedimmter Hintergrund) (hig:sheets#iOS-iPadOS).
-- Buttons wie iOS: Cancel leading, Done trailing; Multi-Step mit Back (hig:sheets#iOS-iPadOS).
-- Nichtmodale Sheets möglich, wenn der Parent bearbeitet wird (hig:sheets#Anatomy).
-- Modals minimieren; für parallele Aufgaben eher Fenster (hig:designing-for-ipados, hig:modality).
-- Dark Mode: Vordergrund-Modals nutzen automatisch *elevated* Hintergründe, auch zur Trennung zwischen Fenstern/Apps (hig:dark-mode#iOS-iPadOS).
+### 4.7 Sheets & modality (iPadOS)
+- Prefer a **page or form sheet** (default size, centered, dimmed background) (hig:sheets#iOS-iPadOS).
+- Buttons as on iOS: Cancel leading, Done trailing; multi-step with Back (hig:sheets#iOS-iPadOS).
+- Nonmodal sheets are possible when the parent is being edited (hig:sheets#Anatomy).
+- Minimize modals; prefer windows for parallel tasks (hig:designing-for-ipados, hig:modality).
+- Dark Mode: foreground modals automatically use *elevated* backgrounds, also to separate windows/apps (hig:dark-mode#iOS-iPadOS).
 
-### 4.8 Suche (iPadOS)
+### 4.8 Search (iPadOS)
 (hig:search-fields#iPadOS-macOS)
-- Standard: Suchfeld **trailing in der Toolbar** (Split-View-Apps wie Mail, Notes).
-- Oben in der Sidebar, wenn die Suche die Sidebar filtert.
-- Eigener Bereich (Sidebar-Item/Tab), wenn Suche mit Entdecken verbunden ist (Music, TV); Feld dort sofort fokussieren – **außer** nur die virtuelle Tastatur ist verfügbar.
-- Feld skaliert mit dem Fenster; in compact über der Content-Liste platzieren.
-- Konsistent mit der Mac-Version halten.
+- Default: search field **trailing in the toolbar** (split view apps such as Mail, Notes).
+- At the top of the sidebar if the search filters the sidebar.
+- A dedicated section (sidebar item/tab) when search is combined with discovery (Music, TV); focus the field there immediately – **unless** only the virtual keyboard is available.
+- The field scales with the window; in compact, place it above the content list.
+- Keep it consistent with the Mac version.
 
 ---
 
-## 5. Komponenten-Besonderheiten (Platform considerations iPadOS)
+## 5. Component specifics (platform considerations iPadOS)
 
-### 5.1 Pointer (Trackpad/Maus)
+### 5.1 Pointer (trackpad/mouse)
 (hig:pointing-devices#iPadOS)
-- Pointer ist Zusatz zu Touch. Standardform Kreis; I-Beam über Text automatisch.
-- **Content Effects:** *highlight* (kleine Elemente mit transparentem Hintergrund; Default für Bar-Buttons, Tab Bars, Segmented Controls, Edit Menus), *lift* (kleine Elemente mit opakem Hintergrund; App-Icons, Control-Center-Buttons), *hover* (große Elemente; Skalierung/Tint/Schatten selbst definieren).
-- **Magnetismus** bei highlight/lift und Textbereichen, nicht bei hover.
-- Hit-Regionen: ca. 12 pt Padding mit Bezel, ca. 24 pt ohne; benachbarte Bar-Buttons mit **lückenlosen** Hit-Regionen.
-- Bei lift auf nicht standardförmigen Elementen Eckradius angeben.
-- Band-Selektion (Ziehen über mehrere Items) in Custom Views selbst implementieren.
-- Pointer vs. Finger nur unterscheiden, wenn es Mehrwert bringt (z. B. präzises Scrubbing).
-- Keine dekorativen Pointer-Effekte, kein Anleitungstext am Pointer; Annotationen mit echtem Nutzen (z. B. X/Y-Werte) ok.
-- Hover-Effekte: Skalierung nur mit Platz drumherum; Schatten nie ohne Skalierung; Tabellenzeilen nur Tint.
-- Pointer Accessories: einfache Bilder, Übergänge für Zustandswechsel (z. B. `plus` → `circle.slash`).
+- The pointer is an addition to touch. Default shape is a circle; I-beam over text automatically.
+- **Content effects:** *highlight* (small elements with a transparent background; default for bar buttons, tab bars, segmented controls, edit menus), *lift* (small elements with an opaque background; app icons, Control Center buttons), *hover* (large elements; define scale/tint/shadow yourself).
+- **Magnetism** with highlight/lift and text areas, not with hover.
+- Hit regions: approx. 12 pt padding with a bezel, approx. 24 pt without; adjacent bar buttons with **gapless** hit regions.
+- With lift on non-standard-shaped elements, specify the corner radius.
+- Implement band selection (dragging across multiple items) yourself in custom views.
+- Distinguish pointer vs. finger only when it adds value (e.g., precise scrubbing).
+- No decorative pointer effects, no instructional text at the pointer; annotations with real benefit (e.g., X/Y values) are fine.
+- Hover effects: scale only with space around it; never a shadow without scaling; table rows only tint.
+- Pointer accessories: simple images, transitions for state changes (e.g., `plus` → `circle.slash`).
 
-### 5.2 Tastatur & Fokus
-- Fokussystem mit **Fokusgruppen**: Tab wechselt zwischen Gruppen (Sidebar, Grid, Liste), Pfeiltasten innerhalb einer Gruppe; Reihenfolge leading→trailing, oben→unten (hig:focus-and-selection#iPadOS).
-- Fokusanzeige: Halo (Focus Ring, anpassbar per `UIFocusHaloEffect`) oder Highlight in Akzentfarbe; Primary Item per Priorität (hig:focus-and-selection#iPadOS).
-- Tastaturnavigation in Textfeldern, Text Views, Sidebars, Collections; **nicht** für Buttons, Segmented Controls, Switches – dafür Full Keyboard Access (hig:keyboards).
-- Standardkürzel respektieren; eigene nur für häufige Befehle; Modifier-Reihenfolge Control, Option, Shift, Command; kein Shift bei Zeichen, die Shift ohnehin brauchen (hig:keyboards#Custom-keyboard-shortcuts).
-- Beim Drop Option-Taste prüfen (erzwingt Kopie) (hig:drag-and-drop#Accepting-drops).
+### 5.2 Keyboard & focus
+- Focus system with **focus groups**: Tab moves between groups (sidebar, grid, list), arrow keys within a group; order leading→trailing, top→bottom (hig:focus-and-selection#iPadOS).
+- Focus indicator: halo (focus ring, customizable via `UIFocusHaloEffect`) or highlight in the accent color; primary item via priority (hig:focus-and-selection#iPadOS).
+- Keyboard navigation in text fields, text views, sidebars, collections; **not** for buttons, segmented controls, switches – use Full Keyboard Access for those (hig:keyboards).
+- Respect standard shortcuts; custom ones only for frequent commands; modifier order Control, Option, Shift, Command; no Shift for characters that already require Shift (hig:keyboards#Custom-keyboard-shortcuts).
+- On drop, check the Option key (forces a copy) (hig:drag-and-drop#Accepting-drops).
 
-### 5.3 Menüleiste (iPadOS)
+### 5.3 Menu bar (iPadOS)
 (hig:the-menu-bar#iPadOS)
-- Erscheint durch Pointer an die obere Kante oder Wischen von oben; belegt die Höhe der Statusleiste; zentriert; keine Menu Bar Extras, kein Apple-Menü; App-Menü ohne About/Services; Fensterkontrollen in der Menüleiste, wenn die App full screen läuft.
-- Kein Sammelbecken für sonst nicht platzierbare Funktionen; dynamische Menüeinträge immer auch anders erreichbar.
-- *App > Settings* öffnet die App-Seite in den iPadOS-Einstellungen; eigene Einstellungen als separaten Eintrag darunter.
-- Häufiger Untermenüs nutzen als am Mac (Menüzeilen sind auf dem iPad höher).
+- Appears when the pointer moves to the top edge or on a swipe down from the top; occupies the height of the status bar; centered; no menu bar extras, no Apple menu; app menu without About/Services; window controls in the menu bar when the app runs full screen.
+- Not a catch-all for functions that cannot be placed elsewhere; dynamic menu items always reachable another way too.
+- *App > Settings* opens the app's page in iPadOS Settings; put your own settings in a separate item below it.
+- Use submenus more often than on the Mac (menu rows are taller on iPad).
 
 ### 5.4 Apple Pencil & Scribble
 (hig:apple-pencil-and-scribble)
-- Sofort markieren, ohne Werkzeugwahl oder Modus; Controls auch per Pencil bedienbar.
-- Tilt, Druck, Azimut, Barrel Roll für Ausdruck nutzen; direkte, unmittelbare Rückmeldung.
-- Links- und Rechtshänder: Controls nicht unter der Hand; ggf. verschiebbar.
-- **Hover:** nur Vorschau (Größe/Farbe des Strichs), nie Aktion auslösen; Vorschau nur für Pencil, nicht Pointer.
-- **Double Tap:** Nutzereinstellung respektieren (Default: Werkzeug ↔ Radierer); nie Inhalt verändern.
-- **Squeeze:** einzelne diskrete Aktion, UI nahe der Pencil-Spitze, nicht-destruktiv/undo-fähig.
-- **Barrel Roll:** nur Strichverhalten modifizieren, keine Navigation.
-- **Scribble:** funktioniert in Standard-Textkomponenten (nicht Passwortfelder); Feld beim Schreiben nicht bewegen, kein Autoscroll, keine störende Autovervollständigung, genug Schreibfläche.
-- PencilKit: Tool Picker hat Undo/Redo nur in regular; in compact eigene Undo/Redo-Buttons.
+- Mark immediately, without tool selection or mode; controls also operable with Pencil.
+- Use tilt, pressure, azimuth, barrel roll for expression; direct, immediate feedback.
+- Left- and right-handed users: controls not under the hand; movable if needed.
+- **Hover:** preview only (stroke size/color), never trigger an action; preview only for Pencil, not the pointer.
+- **Double tap:** respect the user setting (default: tool ↔ eraser); never modify content.
+- **Squeeze:** a single discrete action, UI near the Pencil tip, nondestructive/undoable.
+- **Barrel roll:** only modify stroke behavior, no navigation.
+- **Scribble:** works in standard text components (not password fields); do not move the field while writing, no autoscroll, no distracting autocompletion, enough writing space.
+- PencilKit: the tool picker has undo/redo only in regular; in compact provide your own undo/redo buttons.
 
-### 5.5 Weitere Komponenten
+### 5.5 Other components
 
-| Komponente | iPad-spezifische Regel | Quelle |
+| Component | iPad-specific rule | Source |
 |---|---|---|
-| Context Menu | Long Press oder Sekundärklick; gut zum Anlegen neuer Objekte im Leerraum | (hig:context-menus#iOS-iPadOS) |
-| Edit Menu | vertikaler Stil bei Tastatur/Pointer, horizontaler bei Touch – beides prüfen | (hig:edit-menus#iOS-iPadOS) |
-| Drag and Drop | mehrere gleichzeitige Drags; Items während des Drags hinzufügen (Flocking), mehrere Drops annehmen; Spring Loading | (hig:drag-and-drop#iOS-iPadOS, hig:drag-and-drop) |
-| Page Control | Pointer kann einzelne Indikatoren anwählen | (hig:page-controls#iOS-iPadOS) |
-| Pop-up Button | in Popover/Modal statt Disclosure für kleine Optionsmengen | (hig:pop-up-buttons#iPadOS) |
-| Popover | nur in regular width | (hig:popovers#iOS-iPadOS) |
-| Gesten | Vier-Finger-Swipe = App-Wechsel (System, nicht belegen); Drei-Finger-Undo/Copy wie iOS | (hig:gestures#iOS-iPadOS) |
-| Menüs | small/medium/large Layout wie iOS | (hig:menus#iOS-iPadOS) |
-| Toolbars | Anpassung durch Nutzer, System-Overflow | (hig:toolbars) |
-| Dateien | Document Launcher (ab iPadOS 18); File-Provider-Extension ohne eigene Top-Toolbar | (hig:file-management#iOS-iPadOS) |
-| SharePlay | geteiltes Video in Picture in Picture weiterspielen | (hig:shareplay#iOS-iPadOS-macOS) |
-| Sonstige gemeinsame Regeln | Action Sheets, Alerts, Toggles, Slider, Text Fields, Pickers, Refresh, Haptik → siehe `ios.md` Abschnitt 5 | |
+| Context menu | Long press or secondary click; good for creating new objects in empty space | (hig:context-menus#iOS-iPadOS) |
+| Edit menu | vertical style with keyboard/pointer, horizontal with touch – check both | (hig:edit-menus#iOS-iPadOS) |
+| Drag and drop | several simultaneous drags; add items during a drag (flocking), accept multiple drops; spring loading | (hig:drag-and-drop#iOS-iPadOS, hig:drag-and-drop) |
+| Page control | The pointer can select individual indicators | (hig:page-controls#iOS-iPadOS) |
+| Pop-up button | in a popover/modal instead of disclosure for small sets of options | (hig:pop-up-buttons#iPadOS) |
+| Popover | only in regular width | (hig:popovers#iOS-iPadOS) |
+| Gestures | Four-finger swipe = app switching (system, do not assign); three-finger undo/copy as on iOS | (hig:gestures#iOS-iPadOS) |
+| Menus | small/medium/large layout as on iOS | (hig:menus#iOS-iPadOS) |
+| Toolbars | Customization by the user, system overflow | (hig:toolbars) |
+| Files | Document launcher (iPadOS 18 and later); File Provider extension without its own top toolbar | (hig:file-management#iOS-iPadOS) |
+| SharePlay | Continue playing shared video in Picture in Picture | (hig:shareplay#iOS-iPadOS-macOS) |
+| Other shared rules | Action sheets, alerts, toggles, sliders, text fields, pickers, refresh, haptics → see `ios.md` section 5 | |
 
 ---
 
-## 6. Liquid Glass & Materialien
+## 6. Liquid Glass & materials
 
-- Liquid Glass = Funktionsebene (Tab Bar, Toolbar, **Sidebar**); Standardmaterialien (ultraThin, thin, regular, thick) für den Content Layer (hig:materials, hig:materials#iOS-iPadOS).
-- **Sidebar** ist größeres Glass-Element → erscheint opaker zur Lesbarkeit; Tab Bar/Toolbar wechseln automatisch hell/dunkel mit monochromen Symbolen (hig:color#Liquid-Glass-color).
-- Inhalt unter Sidebar und Toolbar laufen lassen; Bildhintergründe per **Background Extension Effect** spiegeln (hig:sidebars#Best-practices, hig:layout#Visual-hierarchy).
-- Regular-Variante für textreiche Elemente (Sidebars, Popovers, Alerts); clear nur über Medien, bei hellem Inhalt 35-%-Dimming (hig:materials#Liquid-Glass).
-- Scroll Edge Effect: in Split Views **pro Spalte einer**, Höhen angleichen; automatic bevorzugen (hig:scroll-views#Scroll-edge-effects).
-- Keine eigenen Toolbar-Hintergründe/Tönungen; eine prominente Aktion mit getöntem Hintergrund (hig:toolbars#Best-practices, hig:color#Liquid-Glass-color).
-- Vibrancy: Labels label…quaternaryLabel (quaternary nicht auf thin/ultraThin), Fills, Separator (hig:materials#iOS-iPadOS).
-- Custom Komponenten in Bars: Eckradien konzentrisch (hig:toolbars#Best-practices).
-- App-Icon geschichtet mit Glass-Effekten, Varianten default/dark/clear/tinted (hig:app-icons).
+- Liquid Glass = functional layer (tab bar, toolbar, **sidebar**); standard materials (ultraThin, thin, regular, thick) for the content layer (hig:materials, hig:materials#iOS-iPadOS).
+- The **sidebar** is a larger glass element → appears more opaque for legibility; tab bar/toolbar switch light/dark automatically with monochrome symbols (hig:color#Liquid-Glass-color).
+- Let content run under the sidebar and toolbar; mirror image backgrounds with the **background extension effect** (hig:sidebars#Best-practices, hig:layout#Visual-hierarchy).
+- Regular variant for text-rich elements (sidebars, popovers, alerts); clear only over media, 35 % dimming over bright content (hig:materials#Liquid-Glass).
+- Scroll edge effect: in split views **one per column**, align heights; prefer automatic (hig:scroll-views#Scroll-edge-effects).
+- No custom toolbar backgrounds/tints; one prominent action with a tinted background (hig:toolbars#Best-practices, hig:color#Liquid-Glass-color).
+- Vibrancy: labels label…quaternaryLabel (quaternary not on thin/ultraThin), fills, separator (hig:materials#iOS-iPadOS).
+- Custom components in bars: concentric corner radii (hig:toolbars#Best-practices).
+- App icon layered with glass effects, variants default/dark/clear/tinted (hig:app-icons).
 
 ---
 
-## 7. Typografie & Dynamic Type
+## 7. Typography & Dynamic Type
 
-- SF Pro und New York; Default 17 pt, Minimum 11 pt; Dynamic Type mit denselben Tabellen wie iOS (`typography.md` führt „iOS, iPadOS“ gemeinsam) (hig:typography#iOS-iPadOS, hig:typography#Specifications).
-- Größerer Sehabstand (bis ca. drei Fuß) → Größe und Dichte bewusst wählen, nicht einfach iPhone-Maße hochskalieren (hig:designing-for-ipados).
-- Bei großen Textgrößen Spaltenzahl reduzieren (mehrspaltige Layouts sind auf dem iPad häufiger) (hig:typography#Supporting-Dynamic-Type).
-- Nicht alles mitskalieren: z. B. Tab-Titel müssen nicht wachsen, Inhalt schon (hig:typography#Conveying-hierarchy).
+- SF Pro and New York; default 17 pt, minimum 11 pt; Dynamic Type with the same tables as iOS (`typography.md` lists "iOS, iPadOS" together) (hig:typography#iOS-iPadOS, hig:typography#Specifications).
+- Greater viewing distance (up to approx. three feet) → choose size and density deliberately, do not simply scale up iPhone dimensions (hig:designing-for-ipados).
+- At large text sizes, reduce the number of columns (multi-column layouts are more common on iPad) (hig:typography#Supporting-Dynamic-Type).
+- Do not scale everything: e.g., tab titles do not need to grow, content does (hig:typography#Conveying-hierarchy).
 
-### Default „Large“ (pt)
+### Default "Large" (pt)
 (hig:typography#Specifications)
 
-| Style | Gewicht | Größe | Leading | Emphasized |
+| Style | Weight | Size | Leading | Emphasized |
 |---|---|---|---|---|
 | Large Title | Regular | 34 | 41 | Bold |
 | Title 1 | Regular | 28 | 34 | Bold |
@@ -248,24 +248,24 @@ Indirekt belegte iPad-Bildschirmgrößen (Portrait, pt) aus der Widget-Tabelle, 
 | Caption 1 | Regular | 12 | 16 | Semibold |
 | Caption 2 | Regular | 11 | 13 | Semibold |
 
-Größenverlauf xSmall–AX5: siehe `ios.md` Abschnitt 7.2 (identische Quelle).
+Size progression xSmall–AX5: see `ios.md` section 7.2 (identical source).
 
 ---
 
-## 8. Systemintegration
+## 8. System integration
 
 ### 8.1 Widgets
 (hig:widgets)
-- Home Screen / Today View: small, medium, large, **extra large**; Lock Screen: small (system) sowie accessory circular, rectangular, inline.
-- Lock Screen des iPad: monochrom **ohne** Tint.
+- Home Screen / Today View: small, medium, large, **extra large**; Lock Screen: small (system) as well as accessory circular, rectangular, inline.
+- iPad Lock Screen: monochrome **without** tint.
 - Home Screen: light, dark, clear, tinted.
-- iPadOS rendert Widgets groß und skaliert sie dann herunter → für die Canvas-Größe gestalten (hig:widgets#Choosing-margins-and-padding).
-- Ränder 16 pt (eng 11 pt), Text ≥ 11 pt, Animationen ≤ 2 s, Deep Links, keine App-artigen Layouts.
-- Extra large nicht als aufgeblasene kleinere Größe – nur mit echtem Mehrwert (hig:widgets#Best-practices).
+- iPadOS renders widgets large and then scales them down → design for the canvas size (hig:widgets#Choosing-margins-and-padding).
+- Margins 16 pt (tight 11 pt), text ≥ 11 pt, animations ≤ 2 s, deep links, no app-like layouts.
+- Extra large not as an inflated smaller size – only with real added value (hig:widgets#Best-practices).
 
-**Widget-Größen iPad (pt; Canvas = Gestaltung, Device = Darstellung)** (hig:widgets#Specifications)
+**Widget sizes iPad (pt; canvas = design, device = display)** (hig:widgets#Specifications)
 
-| Screen (Portrait) | Ziel | Small | Medium | Large | Extra large |
+| Screen (portrait) | Target | Small | Medium | Large | Extra large |
 |---|---|---|---|---|---|
 | 768×1024 | Canvas | 141×141 | 305.5×141 | 305.5×305.5 | 634.5×305.5 |
 |  | Device | 120×120 | 260×120 | 260×260 | 540×260 |
@@ -285,16 +285,16 @@ Größenverlauf xSmall–AX5: siehe `ios.md` Abschnitt 7.2 (identische Quelle).
 |  | Device | 160×160 | 356×160 | 356×356 | 748×356 |
 | 1192×1590 * | Canvas/Device | 188×188 | 412×188 | 412×412 | 860×412 |
 
-\* Display Zoom „More Space“.
+\* Display Zoom "More Space".
 
 ### 8.2 Live Activities
 (hig:live-activities)
-- Auf dem iPad: **Lock Screen und Home Screen**; Dynamic Island und StandBy sind iPhone-only.
-- Regeln wie iOS: Anfang/Ende, max. ca. 8 h, keine Werbung, keine sensiblen Daten, Lock-Screen-Rand 14 pt, endet sofort (Lock Screen bis zu 4 h sichtbar).
+- On iPad: **Lock Screen and Home Screen**; Dynamic Island and StandBy are iPhone-only.
+- Rules as on iOS: beginning/end, max. approx. 8 h, no advertising, no sensitive data, Lock Screen margin 14 pt, ends immediately (visible on the Lock Screen for up to 4 h).
 
-**Lock-Screen-Maße iPad (pt)** (hig:live-activities#Specifications)
+**Lock Screen dimensions iPad (pt)** (hig:live-activities#Specifications)
 
-| Screen (laut Spiegel „portrait“) | Lock Screen (Breite × Höhe) |
+| Screen (per mirror "portrait") | Lock Screen (width × height) |
 |---|---|
 | 1366×1024 | 500 × 84–160 |
 | 1194×834 | 425 × 84–160 |
@@ -302,102 +302,102 @@ Größenverlauf xSmall–AX5: siehe `ios.md` Abschnitt 7.2 (identische Quelle).
 | 1080×810 | 425 × 84–160 |
 | 1024×768 | 425 × 84–160 |
 
-### 8.3 Controls, App Shortcuts, Notifications, Quick Actions
-- Controls für Control Center und Lock Screen (Action Button ist iPhone-spezifisch): Symbol selbsterklärend, Zustandsanimation, Redaktion im Sperrzustand, Authentifizierung für Sicherheitsaktionen (hig:controls).
-- App Shortcuts in Spotlight und Shortcuts-App nach Wichtigkeit ordnen (hig:app-shortcuts#iOS-iPadOS).
-- Notifications: knapp, keine Dubletten, keine sensiblen Daten; Badge nur für Ungelesenes (hig:notifications).
-- Home Screen Quick Actions: max. 4 (hig:home-screen-quick-actions).
-- Tastaturkürzel und Menüleiste als Systemintegration für Power-User (hig:the-menu-bar#iPadOS).
+### 8.3 Controls, App Shortcuts, notifications, quick actions
+- Controls for Control Center and the Lock Screen (the Action button is iPhone-specific): self-explanatory symbol, state animation, redaction while locked, authentication for security actions (hig:controls).
+- Order App Shortcuts by importance in Spotlight and the Shortcuts app (hig:app-shortcuts#iOS-iPadOS).
+- Notifications: concise, no duplicates, no sensitive data; badge only for unread items (hig:notifications).
+- Home Screen quick actions: max. 4 (hig:home-screen-quick-actions).
+- Keyboard shortcuts and the menu bar as system integration for power users (hig:the-menu-bar#iPadOS).
 
 ---
 
-## 9. Umsetzung: SwiftUI / UIKit
+## 9. Implementation: SwiftUI / UIKit
 
-Legende: **[S]** = API im Spiegel referenziert; **[K]** = gängige API, nicht im Spiegel belegt – vor Verwendung prüfen.
+Legend: **[S]** = API referenced in the mirror; **[K]** = common API, framework knowledge, not documented in the mirror – verify before use.
 
-| Muster | SwiftUI | UIKit |
+| Pattern | SwiftUI | UIKit |
 |---|---|---|
-| Tab Bar oben, fest | `TabView` + `.tabViewStyle(.tabBarOnly)` – `tabBarOnly` [S] | `UITabBarController` [K] |
-| Tab Bar ↔ Sidebar | `sidebarAdaptable` [S] | `UITab.Placement` [S] |
-| Tab-Anpassung | `TabViewCustomization` [S] | `UITab.Placement` [S] |
-| Nur Sidebar / Split View | `NavigationSplitView` [S] | `UISplitViewController` [S], `UICollectionLayoutListConfiguration.Appearance.sidebar` [S] |
-| Toolbar | `.toolbar`, `ToolbarItem` [K], `ToolbarItemGroup` [S], Anpassung über `.toolbar(id:)` [K] | `UIToolbar` [S], `UIBarButtonItem` [S] |
-| Sheet-Stile | `.sheet` [S], `.presentationSizing(.form/.page)` [K] | `UIModalPresentationStyle` (`.formSheet`, `.pageSheet`) [S] |
+| Tab bar at the top, fixed | `TabView` + `.tabViewStyle(.tabBarOnly)` – `tabBarOnly` [S] | `UITabBarController` [K] |
+| Tab bar ↔ sidebar | `sidebarAdaptable` [S] | `UITab.Placement` [S] |
+| Tab customization | `TabViewCustomization` [S] | `UITab.Placement` [S] |
+| Sidebar only / split view | `NavigationSplitView` [S] | `UISplitViewController` [S], `UICollectionLayoutListConfiguration.Appearance.sidebar` [S] |
+| Toolbar | `.toolbar`, `ToolbarItem` [K], `ToolbarItemGroup` [S], customization via `.toolbar(id:)` [K] | `UIToolbar` [S], `UIBarButtonItem` [S] |
+| Sheet styles | `.sheet` [S], `.presentationSizing(.form/.page)` [K] | `UIModalPresentationStyle` (`.formSheet`, `.pageSheet`) [S] |
 | Popover | `.popover` [K] | `UIPopoverPresentationController` [K] |
-| Fenster | `WindowGroup` [K], `OpenWindowAction` [S] | `UIWindowScene.ActivationInteraction` [S], `collectionView(_:sceneActivationConfigurationForItemAt:point:)` [S] |
-| Quick Look in eigenem Fenster | – | `QLPreviewSceneActivationConfiguration` [S] |
-| Pointer-Effekte | `.hoverEffect(.highlight/.lift)` [K] | `UIPointerInteraction` [K], `UIPointerShape.roundedRect(_:radius:)` [S], `UIPointerAccessory` [S] |
-| Band-Selektion | – | `UIBandSelectionInteraction` [S] |
-| Fokus | `.focusable`, `.focusSection` [K] | `focusGroupIdentifier` [S], `UIFocusGroupPriority` [S], `UIFocusHaloEffect` [S] |
-| Tastenkürzel / Menüleiste | `.keyboardShortcut` [K], `.commands { CommandMenu }` [K] | `UIKeyCommand` [K], `UIMenuBuilder` [K] |
-| Background Extension | `backgroundExtensionEffect()` [S] | `UIBackgroundExtensionView` [S] |
-| Liquid Glass custom | `.glassEffect(_:in:)` [S], `Glass.regular/.clear` [S] | `UIGlassEffect` [K] |
-| Scroll Edge Effect | `ScrollEdgeEffectStyle` [S] | `UIScrollEdgeEffect.Style` [S] |
-| Size Classes | `UserInterfaceSizeClass` [S] | `UITraitChangeObservable` [S] |
+| Windows | `WindowGroup` [K], `OpenWindowAction` [S] | `UIWindowScene.ActivationInteraction` [S], `collectionView(_:sceneActivationConfigurationForItemAt:point:)` [S] |
+| Quick Look in its own window | – | `QLPreviewSceneActivationConfiguration` [S] |
+| Pointer effects | `.hoverEffect(.highlight/.lift)` [K] | `UIPointerInteraction` [K], `UIPointerShape.roundedRect(_:radius:)` [S], `UIPointerAccessory` [S] |
+| Band selection | – | `UIBandSelectionInteraction` [S] |
+| Focus | `.focusable`, `.focusSection` [K] | `focusGroupIdentifier` [S], `UIFocusGroupPriority` [S], `UIFocusHaloEffect` [S] |
+| Keyboard shortcuts / menu bar | `.keyboardShortcut` [K], `.commands { CommandMenu }` [K] | `UIKeyCommand` [K], `UIMenuBuilder` [K] |
+| Background extension | `backgroundExtensionEffect()` [S] | `UIBackgroundExtensionView` [S] |
+| Custom Liquid Glass | `.glassEffect(_:in:)` [S], `Glass.regular/.clear` [S] | `UIGlassEffect` [K] |
+| Scroll edge effect | `ScrollEdgeEffectStyle` [S] | `UIScrollEdgeEffect.Style` [S] |
+| Size classes | `UserInterfaceSizeClass` [S] | `UITraitChangeObservable` [S] |
 | Pencil | PencilKit [K] | `UIPencilInteraction` [K] |
 | Widgets / Live Activities | WidgetKit, ActivityKit [S], `ContainerRelativeShape` [S] | – |
 
 ---
 
-## 10. Review-Checkliste (iPadOS)
+## 10. Review checklist (iPadOS)
 
-- [ ] App funktioniert in full screen **und** windowed; kleinste und größte Fenstergröße getestet (hig:windows#iPadOS, hig:layout#Adaptability)
-- [ ] Alle Size-Class-Kombinationen (compact/regular × compact/regular) sinnvoll; keine Entscheidung nach `idiom`/Orientierung (hig:layout#Size-classes)
-- [ ] Mittlere Fensterbreiten: Split View kollabiert logisch, Navigation zwischen Spalten möglich (hig:split-views#iPadOS)
-- [ ] Gleiche Funktionalität in jeder Größe; nur Sichtbarkeit variiert (hig:layout#Size-classes)
-- [ ] Leading Toolbar-Items werden von Fensterkontrollen nicht verdeckt (hig:windows#iPadOS)
-- [ ] Keine Custom-Fensterrahmen/-kontrollen; im UI „Fenster“ statt „Scene“ (hig:windows#Best-practices)
-- [ ] Mehrfenster unterstützt; neue Fenster nur gezielt (Context Menu / File-Menü) (hig:windows)
-- [ ] Tab Bar oben bzw. `sidebarAdaptable`; Default ≤ 5 Tabs bei Anpassbarkeit (hig:tab-bars#iPadOS)
-- [ ] Sidebar: nicht standardmäßig versteckt, max. 2 Ebenen, SF Symbols, Edge-Swipe funktioniert (hig:sidebars)
-- [ ] Auswahl in jeder Split-View-Spalte persistent hervorgehoben (hig:split-views#Best-practices)
-- [ ] Kein manuelles Overflow-Menü; Toolbar überläuft nicht im Normalzustand; ggf. anpassbar (hig:toolbars)
-- [ ] Eine prominente Aktion trailing; max. ca. 3 Toolbar-Gruppen (hig:toolbars)
-- [ ] Sheets als Form/Page Sheet; Popovers nur in regular, sonst Sheet (hig:sheets#iOS-iPadOS, hig:popovers#iOS-iPadOS)
-- [ ] Modals minimiert; parallele Aufgaben eher als Fenster (hig:designing-for-ipados)
-- [ ] Pointer: Standard-Effekte aktiv; Custom-Buttons mit highlight/lift; lückenlose Hit-Regionen in Bars; Padding 12/24 pt (hig:pointing-devices#iPadOS)
-- [ ] Keine dekorativen Pointer-Effekte, kein Anleitungstext am Pointer (hig:pointing-devices#Customizing-pointers)
-- [ ] Hit-Targets ≥ 44×44 pt auch für Touch, wenn Pointer vorhanden (hig:accessibility#Mobility)
-- [ ] Tastatur: Standardkürzel unverändert, Tab/Pfeil-Fokus in Listen/Sidebars/Grids sinnvoll; Full Keyboard Access getestet (hig:keyboards, hig:focus-and-selection#iPadOS)
-- [ ] Menüleiste: alle Funktionen auch im UI erreichbar; Settings-Eintrag korrekt; Tabs im View-Menü (hig:the-menu-bar#iPadOS)
-- [ ] Context Menus per Long Press **und** Sekundärklick; Edit Menu horizontal und vertikal geprüft (hig:context-menus#iOS-iPadOS, hig:edit-menus#iOS-iPadOS)
-- [ ] Drag and Drop: zwischen Spalten und Apps, Multi-Item, Undo, Option-Kopie (hig:drag-and-drop)
-- [ ] Apple Pencil (falls relevant): sofortiges Markieren, Hover nur Vorschau, Double Tap/Squeeze nicht destruktiv, Scribble in Textfeldern ohne Springen (hig:apple-pencil-and-scribble)
-- [ ] Liquid Glass nur in Bars/Sidebar; Inhalt läuft unter Sidebar/Toolbar; ein Scroll Edge Effect pro Spalte (hig:materials, hig:scroll-views#Scroll-edge-effects)
-- [ ] Dynamic Type inkl. AX-Größen; Spalten bei großen Größen reduziert (hig:typography#Supporting-Dynamic-Type)
-- [ ] Dark Mode mit base/elevated System-Hintergründen (hig:dark-mode#iOS-iPadOS)
-- [ ] Suche: trailing in Toolbar bzw. oben in Sidebar; bei rein virtueller Tastatur nicht auto-fokussieren (hig:search-fields#iPadOS-macOS)
-- [ ] Widgets inkl. extra large mit echtem Mehrwert; Lock Screen monochrom geprüft (hig:widgets)
-- [ ] Multitasking: Kontext gesichert, Medien pausieren, Audio-Unterbrechungen korrekt (hig:multitasking#Best-practices)
-
----
-
-## 11. Häufige Fehler („Web-Port-“ bzw. „iPhone-Port-Geruch“)
-
-- **Hochskalierte iPhone-App**: einspaltige Listen über volle 13"-Breite, riesige Zeilen, Tab Bar unten (hig:tab-bars#iPadOS, hig:split-views).
-- **Fixe Breakpoints nach Gerätebreite** (z. B. „> 768 = Tablet“) statt Size Classes; Layout bricht in mittleren Fensterbreiten (hig:layout#Size-classes, hig:split-views#iPadOS).
-- **Funktionen verschwinden bei schmalem Fenster** statt in Overflow/Tab-Bar zu wandern (hig:layout#Size-classes).
-- **Eigene Fensterchrome, Fake-Ampeln, Custom-Resize-Griffe** (hig:windows#Best-practices).
-- **Buttons ganz links in der Toolbar**, die im Fenstermodus unter den Window Controls landen (hig:windows#iPadOS).
-- **Hamburger-Drawer** statt Sidebar/Split View; Sidebar standardmäßig zu (hig:sidebars).
-- **Selbstgebautes „…“-Overflow** in der Toolbar, obwohl das System es liefert (hig:toolbars).
-- **Vollbild-Modals für alles** (Einstellungen, Detailansichten) statt Popover/Sheet/Fenster (hig:designing-for-ipados, hig:modality).
-- **Hover-only-Bedienung** (Menüs, die nur bei Mouseover öffnen; Tooltips als einzige Erklärung) – Pointer ersetzt Touch nicht (hig:pointing-devices#iPadOS).
-- **CSS-artige Hover-Effekte** (Skalierung auf Tabellenzeilen, Schatten ohne Skalierung) (hig:pointing-devices#Customizing-pointers).
-- **Lücken zwischen Bar-Buttons**, Pointer springt zum Kreis zurück (hig:pointing-devices#Standard-pointers-and-effects).
-- **Eigene Tastaturnavigation für Buttons** statt Full Keyboard Access; umdefinierte Cmd-Standardkürzel (hig:keyboards).
-- **Funktionen nur in der Menüleiste** (hig:the-menu-bar#iPadOS).
-- **Pencil-Modus-Schalter** vor dem ersten Strich; Double Tap löscht Inhalte (hig:apple-pencil-and-scribble).
-- **Opake Markenfarb-Sidebar** statt Liquid Glass mit durchlaufendem Inhalt (hig:sidebars, hig:materials).
+- [ ] App works in full screen **and** windowed; smallest and largest window size tested (hig:windows#iPadOS, hig:layout#Adaptability)
+- [ ] All size class combinations (compact/regular × compact/regular) sensible; no decisions based on `idiom`/orientation (hig:layout#Size-classes)
+- [ ] Medium window widths: split view collapses logically, navigation between columns possible (hig:split-views#iPadOS)
+- [ ] Same functionality at every size; only visibility varies (hig:layout#Size-classes)
+- [ ] Leading toolbar items are not covered by window controls (hig:windows#iPadOS)
+- [ ] No custom window frames/controls; "window" instead of "scene" in the UI (hig:windows#Best-practices)
+- [ ] Multiple windows supported; new windows only deliberately (context menu / File menu) (hig:windows)
+- [ ] Tab bar at the top or `sidebarAdaptable`; default ≤ 5 tabs when customizable (hig:tab-bars#iPadOS)
+- [ ] Sidebar: not hidden by default, max. 2 levels, SF Symbols, edge swipe works (hig:sidebars)
+- [ ] Selection persistently highlighted in every split view column (hig:split-views#Best-practices)
+- [ ] No manual overflow menu; toolbar does not overflow in its normal state; customizable if appropriate (hig:toolbars)
+- [ ] One prominent action trailing; max. approx. 3 toolbar groups (hig:toolbars)
+- [ ] Sheets as form/page sheet; popovers only in regular, otherwise a sheet (hig:sheets#iOS-iPadOS, hig:popovers#iOS-iPadOS)
+- [ ] Modals minimized; parallel tasks preferably as windows (hig:designing-for-ipados)
+- [ ] Pointer: standard effects active; custom buttons with highlight/lift; gapless hit regions in bars; padding 12/24 pt (hig:pointing-devices#iPadOS)
+- [ ] No decorative pointer effects, no instructional text at the pointer (hig:pointing-devices#Customizing-pointers)
+- [ ] Hit targets ≥ 44×44 pt for touch too, even when a pointer is present (hig:accessibility#Mobility)
+- [ ] Keyboard: standard shortcuts unchanged, Tab/arrow focus sensible in lists/sidebars/grids; Full Keyboard Access tested (hig:keyboards, hig:focus-and-selection#iPadOS)
+- [ ] Menu bar: all functions also reachable in the UI; Settings item correct; tabs in the View menu (hig:the-menu-bar#iPadOS)
+- [ ] Context menus via long press **and** secondary click; edit menu checked horizontally and vertically (hig:context-menus#iOS-iPadOS, hig:edit-menus#iOS-iPadOS)
+- [ ] Drag and drop: between columns and apps, multi-item, undo, Option copy (hig:drag-and-drop)
+- [ ] Apple Pencil (if relevant): immediate marking, hover only for preview, double tap/squeeze not destructive, Scribble in text fields without jumping (hig:apple-pencil-and-scribble)
+- [ ] Liquid Glass only in bars/sidebar; content runs under the sidebar/toolbar; one scroll edge effect per column (hig:materials, hig:scroll-views#Scroll-edge-effects)
+- [ ] Dynamic Type including AX sizes; columns reduced at large sizes (hig:typography#Supporting-Dynamic-Type)
+- [ ] Dark Mode with base/elevated system backgrounds (hig:dark-mode#iOS-iPadOS)
+- [ ] Search: trailing in the toolbar or at the top of the sidebar; do not autofocus when only the virtual keyboard is available (hig:search-fields#iPadOS-macOS)
+- [ ] Widgets including extra large with real added value; Lock Screen monochrome checked (hig:widgets)
+- [ ] Multitasking: context saved, media pauses, audio interruptions handled correctly (hig:multitasking#Best-practices)
 
 ---
 
-## Widersprüche & Lücken im Spiegel
+## 11. Common mistakes ("web port" or "iPhone port smell")
 
-- **Keine Gerätetabelle/Safe-Area-Werte** in `layout.md` (Change Log nennt sie aber). Bildschirmgrößen nur aus Widget-/Live-Activity-Tabellen.
-- **Live-Activity-Tabelle iPadOS** ist mit „portrait“ überschrieben, listet aber Querformat-Maße (z. B. 1366×1024), während die Widget-Tabelle 1024×1366 als Portrait führt. Orientierung der LA-Werte ist unklar.
-- **Multitasking-Begriffe:** `layout.md` erwähnt noch „Slide Over“, `multitasking.md#iPadOS` beschreibt nur full screen vs. windowed (plus PiP). Für neue Designs vom Fenstermodell ausgehen.
-- **Tab Bar vs. Sidebar:** `sidebars.md` rät „erst Tab Bar erwägen“, `tab-bars.md#iPadOS` „Tab Bar bevorzugen, bei Komplexität wandelbar“. Das ist konsistent, aber `split-views.md` und `sidebars.md` empfehlen für Hierarchien über zwei Ebenen eine Split View mit Content-Liste. Bei tiefen Hierarchien gilt also Split View statt Tab Bar.
-- **Overflow:** iPadOS liefert das System-Overflow automatisch (toolbars.md); auf iOS soll ein More-Menü manuell entstehen. Für Universal-Apps unterschiedlich behandeln.
-- **Tastatur:** Fokus-Navigation per Tab/Pfeil ist erwünscht (focus-and-selection), für Controls aber ausdrücklich nicht (keyboards) – dort nur Full Keyboard Access.
-- **Sheet-Größen** (Form/Page) sind im Spiegel ohne Zahlenwerte beschrieben.
+- **Scaled-up iPhone app**: single-column lists across the full 13" width, huge rows, tab bar at the bottom (hig:tab-bars#iPadOS, hig:split-views).
+- **Fixed breakpoints by device width** (e.g., "> 768 = tablet") instead of size classes; layout breaks at medium window widths (hig:layout#Size-classes, hig:split-views#iPadOS).
+- **Functions disappear in a narrow window** instead of moving into the overflow/tab bar (hig:layout#Size-classes).
+- **Custom window chrome, fake traffic lights, custom resize handles** (hig:windows#Best-practices).
+- **Buttons at the far left of the toolbar** that end up under the window controls in windowed mode (hig:windows#iPadOS).
+- **Hamburger drawer** instead of a sidebar/split view; sidebar closed by default (hig:sidebars).
+- **Home-made "…" overflow** in the toolbar although the system provides it (hig:toolbars).
+- **Full-screen modals for everything** (settings, detail views) instead of popover/sheet/window (hig:designing-for-ipados, hig:modality).
+- **Hover-only interaction** (menus that open only on mouseover; tooltips as the only explanation) – the pointer does not replace touch (hig:pointing-devices#iPadOS).
+- **CSS-like hover effects** (scaling on table rows, shadows without scaling) (hig:pointing-devices#Customizing-pointers).
+- **Gaps between bar buttons**, the pointer snaps back to the circle (hig:pointing-devices#Standard-pointers-and-effects).
+- **Custom keyboard navigation for buttons** instead of Full Keyboard Access; redefined Cmd standard shortcuts (hig:keyboards).
+- **Functions only in the menu bar** (hig:the-menu-bar#iPadOS).
+- **Pencil mode switch** before the first stroke; double tap deletes content (hig:apple-pencil-and-scribble).
+- **Opaque brand-color sidebar** instead of Liquid Glass with content running underneath (hig:sidebars, hig:materials).
+
+---
+
+## Contradictions & gaps in the mirror
+
+- **No device table/safe area values** in `layout.md` (although the change log mentions them). Screen sizes only from the widget/Live Activity tables.
+- **The iPadOS Live Activity table** is labeled "portrait" but lists landscape dimensions (e.g., 1366×1024), while the widget table lists 1024×1366 as portrait. The orientation of the LA values is unclear.
+- **Multitasking terms:** `layout.md` still mentions "Slide Over", `multitasking.md#iPadOS` describes only full screen vs. windowed (plus PiP). For new designs, assume the window model.
+- **Tab bar vs. sidebar:** `sidebars.md` advises "consider a tab bar first", `tab-bars.md#iPadOS` "prefer a tab bar, convertible for complexity". That is consistent, but `split-views.md` and `sidebars.md` recommend a split view with a content list for hierarchies deeper than two levels. So for deep hierarchies, split view rather than tab bar.
+- **Overflow:** iPadOS provides the system overflow automatically (toolbars.md); on iOS a More menu should be created manually. Handle this differently in universal apps.
+- **Keyboard:** focus navigation via Tab/arrows is desired (focus-and-selection), but explicitly not for controls (keyboards) – only Full Keyboard Access there.
+- **Sheet sizes** (form/page) are described in the mirror without numeric values.

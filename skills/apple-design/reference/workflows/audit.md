@@ -1,50 +1,50 @@
-# audit – HIG-Konformität prüfen
+# audit – check HIG compliance
 
-Systematische, belegte Prüfung. Für große Ziele (ganze App, mehrere Plattformen) den Agenten `apple-design:hig-reviewer` je Plattform parallel starten und die Ergebnisse zusammenführen.
+A systematic, cited review. For large targets (whole app, several platforms) launch the `apple-design:hig-reviewer` agent once per platform in parallel and merge the results.
 
-## Umfang klären
+## Clarify scope
 
-Ziel bestimmen (Datei, Screen, Feature, ganze App). Ist das unklar: AskUserQuestion – „Welcher Umfang?“ (aktuelle Änderung (Empfohlen) · ein Screen · ganze App) und „Welche Plattformen?“.
+Determine the target (file, screen, feature, whole app). If unclear: AskUserQuestion – "What scope?" (current change (Recommended) · one screen · whole app) and "Which platforms?".
 
-## Prüfschritte
+## Review steps
 
-1. **Kontext**: `APPLE_DESIGN.md`, Ziel-OS, Plattformen. Je Plattform die Checkliste aus `reference/platforms/<p>.md` (Abschnitt „Review-Checkliste“) laden.
-2. **Statische Prüfung im Code** – schnelle Funde:
+1. **Context:** `APPLE_DESIGN.md`, target OS, platforms. Per platform, load the checklist from `reference/platforms/<p>.md` (section "Review checklist").
+2. **Static check in code** – quick finds:
    ```bash
-   grep -rnE "\.font\(\.system\(size:" --include=*.swift .             # feste Schriftgrößen
-   grep -rnE "Color\((red|.*#)|UIColor\(red:|NSColor\(red:|Color\(hex" --include=*.swift .  # Rohfarben
-   grep -rnE "\.frame\((width|height): *[1-3][0-9]\b" --include=*.swift .   # evtl. zu kleine Trefferflächen
-   grep -rnE "onTapGesture" --include=*.swift .                          # Tap ohne Button-Semantik/Label?
-   grep -rnE "\.glassEffect|\.background\(\.ultraThinMaterial" --include=*.swift .   # Glass/Material-Einsatzorte prüfen
-   grep -rnE "Image\(\"" --include=*.swift .                              # eigene Bilder statt SF Symbols?
+   grep -rnE "\.font\(\.system\(size:" --include=*.swift .             # fixed font sizes
+   grep -rnE "Color\((red|.*#)|UIColor\(red:|NSColor\(red:|Color\(hex" --include=*.swift .  # raw colors
+   grep -rnE "\.frame\((width|height): *[1-3][0-9]\b" --include=*.swift .   # possibly too-small hit targets
+   grep -rnE "onTapGesture" --include=*.swift .                          # tap without button semantics/label?
+   grep -rnE "\.glassEffect|\.background\(\.ultraThinMaterial" --include=*.swift .   # check where glass/materials are used
+   grep -rnE "Image\(\"" --include=*.swift .                              # custom images instead of SF Symbols?
    grep -rnE "accessibilityLabel|accessibilityHidden" --include=*.swift . | wc -l
    ```
-   Jeden Treffer im Kontext bewerten – kein automatisches Urteil.
-3. **Gerenderte Prüfung** (wenn baubar): Screenshots je Gerätklasse, hell/dunkel, AX-Textgröße (siehe build.md). Ohne Simulator: sagen, dass nur statisch geprüft wurde.
-4. **Querschnitt**: [accessibility](../foundations/accessibility.md), [typography](../foundations/typography.md), [color-and-dark-mode](../foundations/color-and-dark-mode.md), [materials-and-liquid-glass](../foundations/materials-and-liquid-glass.md), Komponentenregeln der verwendeten Komponenten.
-5. **Zweifelsfälle** am Original prüfen: `hig_search.py page <slug> --section "<…>"`.
+   Judge every hit in context – no automatic verdicts.
+3. **Rendered check** (if it builds): screenshots per device class, light/dark, AX text size (see build.md). Without a Simulator: say that only a static review was done.
+4. **Cross-cutting:** [accessibility](../foundations/accessibility.md), [typography](../foundations/typography.md), [color-and-dark-mode](../foundations/color-and-dark-mode.md), [materials-and-liquid-glass](../foundations/materials-and-liquid-glass.md), component rules for the components in use.
+5. **Doubtful cases:** check the original: `hig_search.py page <slug> --section "<…>"`.
 
-## Schweregrade
+## Severity
 
-| Grad | Bedeutung | Beispiele |
+| Level | Meaning | Examples |
 |---|---|---|
-| P0 Blocker | bricht Bedienbarkeit/Barrierefreiheit oder App-Review-relevante Regel | kein VoiceOver-Label auf Icon-Button, Text abgeschnitten bei großer Schrift, blockierter Back-Swipe, eingeschränktes Apple-Symbol zweckentfremdet |
-| P1 Hoch | deutlich unplattformtypisch | eigene Tab-Bar, Hamburger-Menü auf iOS, iPhone-Layout gestreckt auf iPad, fehlende Menübefehle auf dem Mac |
-| P2 Mittel | Konsistenz/Feinschliff | Rohfarben statt semantischer Farben, gemischte Symbolgewichte, falsche Button-Hierarchie |
-| P3 Niedrig | Verbesserung | Haptik, Animation, Texte |
+| P0 Blocker | breaks usability/accessibility or an App Review-relevant rule | no VoiceOver label on an icon button, text truncated at large sizes, blocked back swipe, restricted Apple symbol misused |
+| P1 High | clearly un-platform-like | custom tab bar, hamburger menu on iOS, iPhone layout stretched on iPad, missing menu commands on the Mac |
+| P2 Medium | consistency/refinement | raw colors instead of semantic ones, mixed symbol weights, wrong button hierarchy |
+| P3 Low | improvement | haptics, animation, copy |
 
-## Bericht
+## Report
 
 ```markdown
-## HIG-Audit: <Ziel> (<Plattformen>, Ziel-OS …)
-Geprüft: statisch | Simulator (<Geräte>) · Stand HIG-Spiegel: <Datum>
+## HIG audit: <target> (<platforms>, target OS …)
+Checked: static | Simulator (<devices>) · HIG mirror as of: <date>
 
-| # | Grad | Fundstelle | Befund | Beleg | Fix |
+| # | Level | Location | Finding | Source | Fix |
 |---|---|---|---|---|---|
 | 1 | P0 | `Views/Foo.swift:42` | … | hig:buttons#Best-practices | … |
 
-**Stärken:** …
-**Nächste Schritte:** P0/P1 jetzt beheben? (→ AskUserQuestion: alle P0+P1 fixen (Empfohlen) · nur P0 · nur Bericht)
+**Strengths:** …
+**Next steps:** fix P0/P1 now? (→ AskUserQuestion: fix all P0+P1 (Recommended) · P0 only · report only)
 ```
 
-Nach Zustimmung fixen, dann betroffene Screens erneut prüfen.
+After approval, fix, then re-check the affected screens.

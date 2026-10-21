@@ -43,7 +43,7 @@ def developer_dir() -> str | None:
 def device_types() -> list[dict]:
     dev = developer_dir()
     if not dev:
-        sys.exit("Xcode nicht gefunden. Gerätedaten brauchen Xcode (nicht nur die Command Line Tools).")
+        sys.exit("Xcode not found. Device data requires Xcode (not just the Command Line Tools).")
     env = dict(os.environ, DEVELOPER_DIR=dev)
     out = subprocess.run(["xcrun", "simctl", "list", "devicetypes", "-j"], capture_output=True, text=True, env=env)
     if out.returncode:
@@ -82,7 +82,7 @@ def spec(t: dict) -> dict | None:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--family", choices=FAMILIES)
-    ap.add_argument("--all", action="store_true", help="auch Geräte, die aktuelle OS-Versionen nicht mehr unterstützen")
+    ap.add_argument("--all", action="store_true", help="include devices that no longer support current OS versions")
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
@@ -96,14 +96,14 @@ def main() -> int:
     if args.json:
         print(json.dumps(rows, ensure_ascii=False, indent=1))
         return 0
-    print(f"{'Gerät':<40} {'Punkte':>11} {'Pixel':>11} {'Scale':>6} {'Ecke pt':>8}  ab OS")
+    print(f"{'Device':<40} {'Points':>11} {'Pixels':>11} {'Scale':>6} {'Corner pt':>9}  min OS")
     fam = None
     for r in rows:
         if r["family"] != fam:
             fam = r["family"]
             print(f"— {fam}")
-        print(f"{r['name']:<40} {r['pt']:>11} {r['px']:>11} {r['scale']:>6} {r['corner_radius_pt'] or '':>8}  {r['min_os']}")
-    print("\nQuelle: Xcode-Simulatorprofile (" + (developer_dir() or "?") + "). Werte = Display, ohne Safe Areas.")
+        print(f"{r['name']:<40} {r['pt']:>11} {r['px']:>11} {r['scale']:>6} {r['corner_radius_pt'] or '':>9}  {r['min_os']}")
+    print("\nSource: Xcode simulator profiles (" + (developer_dir() or "?") + "). Values = display, without safe areas.")
     return 0
 
 

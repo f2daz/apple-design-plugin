@@ -31,7 +31,7 @@ def load_index() -> dict:
     idx = mirror() / "index.json"
     if not idx.exists():
         sync = Path(__file__).with_name("hig_sync.py")
-        print("HIG-Spiegel fehlt – synchronisiere einmalig …", file=sys.stderr)
+        print("HIG mirror missing – syncing once …", file=sys.stderr)
         subprocess.run([sys.executable, "-I", str(sync)], check=True)
     return json.loads(idx.read_text(encoding="utf-8"))
 
@@ -39,7 +39,7 @@ def load_index() -> dict:
 def read_page(slug: str) -> str:
     p = mirror() / "pages" / f"{slug}.md"
     if not p.exists():
-        raise SystemExit(f"Seite '{slug}' nicht im Spiegel. `hig_search.py list` zeigt alle Slugs.")
+        raise SystemExit(f"Page '{slug}' not in the mirror. `hig_search.py list` shows all slugs.")
     return p.read_text(encoding="utf-8")
 
 
@@ -71,7 +71,7 @@ def extract(md: str, heading: str) -> str:
 
 
 def strip_images(md: str) -> str:
-    return re.sub(r"!\[([^\]]*)\]\([^)]+\)", lambda m: f"[Bild: {m.group(1)[:90]}]" if m.group(1) else "", md)
+    return re.sub(r"!\[([^\]]*)\]\([^)]+\)", lambda m: f"[Image: {m.group(1)[:90]}]" if m.group(1) else "", md)
 
 
 # --------------------------------------------------------------------------- commands
@@ -107,7 +107,7 @@ def cmd_search(args) -> int:
         results.append((s, e, best_head, best))
     results.sort(key=lambda r: -r[0])
     if not results:
-        print("Keine Treffer.")
+        print("No matches.")
         return 1
     for s, e, head, para in results[:args.limit]:
         snippet = re.sub(r"\s+", " ", strip_images(para))[:400]
@@ -126,7 +126,7 @@ def cmd_page(args) -> int:
         part = extract(md, args.section)
         if not part:
             heads = [h for _, h, _ in sections(md) if h]
-            raise SystemExit(f"Abschnitt nicht gefunden. Vorhanden: {', '.join(heads)}")
+            raise SystemExit(f"Section not found. Available: {', '.join(heads)}")
         md = part
     print(md if args.images else strip_images(md))
     return 0
@@ -153,7 +153,7 @@ def cmd_platform(args) -> int:
             print(f"## {e['title']}  (hig:{e['slug']})")
             print(strip_images("\n\n".join(blocks)), "\n")
     if not count:
-        print(f"Keine plattformspezifischen Abschnitte für {name}.")
+        print(f"No platform-specific sections for {name}.")
     return 0
 
 
@@ -169,7 +169,7 @@ def cmd_list(args) -> int:
             cur = e["section"]
             print(f"\n### {cur or 'Start'}")
         print(f"- {e['slug']:<34} {e['title']} — {e['abstract'][:90]}")
-    print(f"\nSpiegel: {mirror()} · Stand {data['meta']['synced_at']}")
+    print(f"\nMirror: {mirror()} · synced {data['meta']['synced_at']}")
     return 0
 
 

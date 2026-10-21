@@ -1,69 +1,69 @@
-# Farbe und Dark Mode
+# Color and Dark Mode
 
-> Quelle: HIG-Spiegel `color.md` (Apple-Update 2025-12-16, Liquid Glass), `dark-mode.md` (2024-08-06), ergänzend `accessibility`, `materials`, `buttons`, `toolbars`, `tab-bars`, `sidebars`, `branding`, `widgets`. Gespiegelt 2026-10-21. Paraphrasiert; Farbwerte als Fakten übernommen.
+> Source: HIG mirror `color.md` (Apple update 2025-12-16, Liquid Glass), `dark-mode.md` (2024-08-06), supplemented by `accessibility`, `materials`, `buttons`, `toolbars`, `tab-bars`, `sidebars`, `branding`, `widgets`. Mirrored 2026-10-21. Paraphrased; color values taken over as facts.
 
-## Einordnung
+## Overview
 
-Farbe kommuniziert Status, Interaktivität und Marke – aber nur, wenn sie konsistent und sparsam eingesetzt wird. Auf Apple-Plattformen ist der Normalfall: **semantische, dynamische Systemfarben**, die sich automatisch an Light/Dark, Increase Contrast, Vibrancy und Liquid Glass anpassen. Eigene Farben brauchen immer vier Varianten (Light, Dark, je + Increased Contrast). Dark Mode ist eine systemweite Einstellung, die Apps respektieren müssen – keine App-eigene Umschaltung.
+Color communicates status, interactivity and brand – but only when it is used consistently and sparingly. On Apple platforms the default is **semantic, dynamic system colors** that automatically adapt to Light/Dark, Increase Contrast, vibrancy and Liquid Glass. Custom colors always need four variants (Light, Dark, each + Increased Contrast). Dark Mode is a systemwide setting that apps must respect – no app-specific toggle.
 
-## Kernregeln
+## Core rules
 
-### Allgemein
-- Verwende eine Farbe nie für zwei Bedeutungen (z. B. Markenfarbe für interaktive Buttons **und** für nicht-interaktiven Text). (hig:color#Best-practices)
-- Stelle sicher, dass jede Farbe in Light, Dark und Increased Contrast funktioniert; Custom Colors mit Light/Dark-Variante und je einer deutlich kontrastreicheren Increased-Contrast-Variante anlegen. (hig:color#Best-practices)
-- Liefere Light- **und** Dark-Varianten auch dann, wenn die App nur ein Erscheinungsbild nutzt – Liquid Glass passt sich sonst nicht korrekt an. (hig:color#Best-practices)
-- Teste unter verschiedenen Lichtverhältnissen und auf verschiedenen Geräten (True Tone, P3/sRGB-Profile am Mac). (hig:color#Best-practices)
-- Berücksichtige, wie Artwork und Transluzenz benachbarte Farben verändern. (hig:color#Best-practices)
-- Nutze für Farbauswahl durch Nutzer den System-Color-Picker (`ColorPicker`). (hig:color#Best-practices)
+### General
+- Never use one color for two meanings (e.g. brand color for interactive buttons **and** for non-interactive text). (hig:color#Best-practices)
+- Make sure every color works in Light, Dark and Increased Contrast; create custom colors with a Light/Dark variant and a significantly higher-contrast Increased Contrast variant for each. (hig:color#Best-practices)
+- Provide Light **and** Dark variants even if the app uses only one appearance – otherwise Liquid Glass doesn't adapt correctly. (hig:color#Best-practices)
+- Test under different lighting conditions and on different devices (True Tone, P3/sRGB profiles on the Mac). (hig:color#Best-practices)
+- Consider how artwork and translucency change adjacent colors. (hig:color#Best-practices)
+- For user color selection, use the system color picker (`ColorPicker`). (hig:color#Best-practices)
 
-### Inklusiv
-- Transportiere Information nie nur über Farbe – zusätzlich Text, Form oder Symbol. (hig:color#Inclusive-color)
-- Vermeide Kombinationen mit zu wenig Kontrast oder die für Farbfehlsichtige ununterscheidbar sind. (hig:color#Inclusive-color)
-- Prüfe kulturelle Farbbedeutungen (z. B. Rot). (hig:color#Inclusive-color)
+### Inclusive
+- Never convey information through color alone – add text, shape or a symbol. (hig:color#Inclusive-color)
+- Avoid combinations with too little contrast or that are indistinguishable for people with color blindness. (hig:color#Inclusive-color)
+- Check cultural color meanings (e.g. red). (hig:color#Inclusive-color)
 
-### Systemfarben
-- Hartkodiere keine Systemfarbwerte; die Tabellenwerte sind Design-Referenz und können sich je Release ändern. Über APIs (`Color`, `UIColor`, `NSColor`) referenzieren. (hig:color#System-colors)
-- Missbrauche keine semantischen Farben (z. B. `separator` nicht als Textfarbe, `secondaryLabel` nicht als Hintergrund). (hig:color#System-colors)
+### System colors
+- Don't hard-code system color values; the table values are a design reference and can change with each release. Reference them via APIs (`Color`, `UIColor`, `NSColor`). (hig:color#System-colors)
+- Don't misuse semantic colors (e.g. don't use `separator` as a text color or `secondaryLabel` as a background). (hig:color#System-colors)
 
 ### Liquid Glass color
-- Liquid Glass ist standardmäßig farblos und übernimmt Farbe vom Inhalt dahinter. Färbung („stained glass“) nur für echte Betonung, z. B. Primäraktion oder Status. (hig:color#Liquid-Glass-color)
-- Für Primäraktionen den **Hintergrund** einfärben, nicht Symbol/Text – so macht es das System bei prominenten Buttons (z. B. Done) mit der Akzentfarbe. Nicht mehrere Controls farbig hinterlegen. (hig:color#Liquid-Glass-color)
-- Bei farbigem Content: monochrome Toolbars/Tab Bars bevorzugen oder eine klar unterscheidbare Akzentfarbe wählen; bei monochromem Content ist die Markenfarbe als Akzent sinnvoll. (hig:color#Liquid-Glass-color, hig:toolbars#Best-practices, hig:tab-bars#Best-practices, hig:buttons#Style)
-- Achte auf die Ruhelage: ähnliche Farben im Content-Layer und in Controls nicht überlappen lassen; mindestens der Startzustand (Scroll-Anfang) muss klar lesbar sein. (hig:color#Liquid-Glass-color)
-- Kleine Glass-Elemente (Toolbar, Tab Bar) wechseln adaptiv zwischen hell/dunkel; Symbole/Text darauf sind standardmäßig monochrom. Große Elemente (Sidebar) sind opaker. (hig:color#Liquid-Glass-color)
+- Liquid Glass is colorless by default and picks up color from the content behind it. Use tinting ("stained glass") only for real emphasis, e.g. a primary action or status. (hig:color#Liquid-Glass-color)
+- For primary actions, tint the **background**, not the symbol/text – this is what the system does for prominent buttons (e.g. Done) with the accent color. Don't give multiple controls a colored background. (hig:color#Liquid-Glass-color)
+- With colorful content: prefer monochrome toolbars/tab bars or choose a clearly distinguishable accent color; with monochrome content, the brand color makes sense as an accent. (hig:color#Liquid-Glass-color, hig:toolbars#Best-practices, hig:tab-bars#Best-practices, hig:buttons#Style)
+- Pay attention to the resting state: don't let similar colors in the content layer and in controls overlap; at least the initial state (top of scroll) must be clearly legible. (hig:color#Liquid-Glass-color)
+- Small glass elements (toolbar, tab bar) switch adaptively between light/dark; symbols/text on them are monochrome by default. Large elements (sidebar) are more opaque. (hig:color#Liquid-Glass-color)
 
-### Akzentfarbe / Tint
-- Setze die Akzentfarbe gezielt ein: Primäraktionen, Statusindikatoren (z. B. Badges), ausgewähltes Tab-Icon – nicht flächig auf allen Controls. (hig:branding)
-- Marke lieber in den Content-Layer verlagern, wo sie unter Liquid Glass durchscheint. (hig:branding)
-- Toolbar-Hintergründe und getönte Controls reduzieren; Farbe aus dem Content ableiten. (hig:toolbars#Best-practices)
-- Prominente Buttons: höchstens ein bis zwei pro View; destruktive Rolle nutzt System-Rot, primäre Rolle die Akzentfarbe. (hig:buttons#Style, hig:buttons#Role)
-- macOS: Die App-Akzentfarbe gilt nur, wenn der Nutzer „Multicolor“ eingestellt hat; sonst überschreibt die gewählte Systemakzentfarbe sie – außer bei Sidebar-Icons mit bewusst fixer Farbe. (hig:color#App-accent-colors, hig:sidebars#Best-practices)
+### Accent color / tint
+- Use the accent color deliberately: primary actions, status indicators (e.g. badges), the selected tab icon – not across all controls. (hig:branding)
+- Prefer moving the brand into the content layer, where it shows through beneath Liquid Glass. (hig:branding)
+- Reduce toolbar backgrounds and tinted controls; derive color from the content. (hig:toolbars#Best-practices)
+- Prominent buttons: at most one or two per view; the destructive role uses system red, the primary role the accent color. (hig:buttons#Style, hig:buttons#Role)
+- macOS: the app accent color applies only if the user has selected "Multicolor"; otherwise the chosen system accent color overrides it – except for sidebar icons with an intentionally fixed color. (hig:color#App-accent-colors, hig:sidebars#Best-practices)
 
-### Kontrast
-- Mindestkontrast 4.5:1; für eigene Vorder-/Hintergrundfarben 7:1 anstreben, besonders bei kleinem Text. (hig:dark-mode#Dark-Mode-colors)
-- Accessibility Inspector prüft nach folgender Tabelle; falls der Default sie nicht erfüllt, mindestens bei Increase Contrast ein kontrastreicheres Schema liefern. (hig:accessibility)
+### Contrast
+- Minimum contrast 4.5:1; aim for 7:1 for custom foreground/background colors, especially for small text. (hig:dark-mode#Dark-Mode-colors)
+- Accessibility Inspector checks against the following table; if the default doesn't meet it, provide a higher-contrast scheme at least for Increase Contrast. (hig:accessibility)
 
-| Textgröße | Gewicht | Mindestkontrast |
+| Text size | Weight | Minimum contrast |
 |---|---|---|
-| bis 17 pt | alle | 4.5:1 |
-| 18 pt | alle | 3:1 |
-| alle | Bold | 3:1 |
+| up to 17 pt | all | 4.5:1 |
+| 18 pt | all | 3:1 |
+| all | Bold | 3:1 |
 
-Widerspruch: `dark-mode` nennt pauschal „mindestens 4.5:1“, `accessibility` erlaubt 3:1 ab 18 pt bzw. bei Bold. Für Fließtext 4.5:1 als Untergrenze verwenden, 3:1 nur für großen/fetten Text.
+Contradiction: `dark-mode` states a blanket "at least 4.5:1", while `accessibility` allows 3:1 from 18 pt or for bold text. Use 4.5:1 as the lower bound for body text, and 3:1 only for large/bold text.
 
 ### Dark Mode
-- Biete keine app-eigene Hell/Dunkel-Einstellung an; respektiere die Systemeinstellung (inkl. „Automatisch“, die während der Laufzeit umschalten kann). (hig:dark-mode#Best-practices)
-- Teste in Dark Mode mit Increase Contrast und Reduce Transparency – einzeln und kombiniert. (hig:dark-mode#Best-practices)
-- Nur in Ausnahmefällen (immersive Medien) dauerhaft dunkel. (hig:dark-mode#Best-practices)
-- Dark-Mode-Farben sind keine simple Invertierung: dunklere Hintergründe, hellere Vordergründe. (hig:dark-mode#Dark-Mode-colors)
-- Custom Colors als Color Set im Asset Catalog mit hell/dunkel-Variante anlegen. (hig:dark-mode#Dark-Mode-colors)
-- Weiße Bildhintergründe leicht abdunkeln, damit sie nicht „glühen“. (hig:dark-mode#Dark-Mode-colors)
-- SF Symbols verwenden; wo nötig getrennte Icons für hell/dunkel (z. B. Kontur nur im Light Mode). Full-Color-Assets in beiden Modi prüfen, ggf. Varianten im Asset Catalog. (hig:dark-mode#Icons-and-images)
-- Für Labels die System-Label-Farben, für Textfelder/Textviews System-Views verwenden. (hig:dark-mode#Text)
+- Don't offer an app-specific light/dark setting; respect the system setting (including "Automatic", which can switch at runtime). (hig:dark-mode#Best-practices)
+- Test in Dark Mode with Increase Contrast and Reduce Transparency – individually and combined. (hig:dark-mode#Best-practices)
+- Stay permanently dark only in exceptional cases (immersive media). (hig:dark-mode#Best-practices)
+- Dark Mode colors are not a simple inversion: darker backgrounds, lighter foregrounds. (hig:dark-mode#Dark-Mode-colors)
+- Create custom colors as a color set in the asset catalog with a light/dark variant. (hig:dark-mode#Dark-Mode-colors)
+- Slightly darken white image backgrounds so they don't "glow". (hig:dark-mode#Dark-Mode-colors)
+- Use SF Symbols; where necessary, separate icons for light/dark (e.g. outline only in Light Mode). Check full-color assets in both modes, with variants in the asset catalog if needed. (hig:dark-mode#Icons-and-images)
+- Use the system label colors for labels and system views for text fields/text views. (hig:dark-mode#Text)
 
-## Kennwerte
+## Specifications
 
-### Systemfarben (SwiftUI; RGB, Hex umgerechnet) (hig:color#Specifications)
+### System colors (SwiftUI; RGB, hex converted) (hig:color#Specifications)
 
 | Name | SwiftUI | Light | Dark | Increased Contrast Light | Increased Contrast Dark |
 |---|---|---|---|---|---|
@@ -80,9 +80,9 @@ Widerspruch: `dark-mode` nennt pauschal „mindestens 4.5:1“, `accessibility` 
 | Pink | `pink` | 255,45,85 (#FF2D55) | 255,55,95 (#FF375F) | 231,18,77 (#E7124D) | 255,138,196 (#FF8AC4) |
 | Brown | `brown` | 172,127,94 (#AC7F5E) | 183,138,102 (#B78A66) | 149,109,81 (#956D51) | 219,166,121 (#DBA679) |
 
-visionOS verwendet die Dark-Werte. Laut Change Log wurden die Systemfarbwerte am 9. Juni 2025 aktualisiert – Werte aus älteren Referenzen nicht übernehmen.
+visionOS uses the Dark values. According to the change log, the system color values were updated on June 9, 2025 – don't take over values from older references.
 
-### iOS/iPadOS System-Grautöne (UIKit) (hig:color#Specifications)
+### iOS/iPadOS system grays (UIKit) (hig:color#Specifications)
 
 | Name | UIKit | Light | Dark | Increased Contrast Light | Increased Contrast Dark |
 |---|---|---|---|---|---|
@@ -93,130 +93,130 @@ visionOS verwendet die Dark-Werte. Laut Change Log wurden die Systemfarbwerte am
 | Gray 5 | `systemGray5` | 229,229,234 (#E5E5EA) | 44,44,46 (#2C2C2E) | 216,216,220 (#D8D8DC) | 54,54,56 (#363638) |
 | Gray 6 | `systemGray6` | 242,242,247 (#F2F2F7) | 28,28,30 (#1C1C1E) | 235,235,240 (#EBEBF0) | 36,36,38 (#242426) |
 
-SwiftUI-Äquivalent zu `systemGray` ist `Color.gray`; für Gray 2–6 nennt der Spiegel kein SwiftUI-Pendant.
+The SwiftUI equivalent of `systemGray` is `Color.gray`; for Gray 2–6 the mirror names no SwiftUI counterpart.
 
-Nicht im Spiegel: konkrete RGB-Werte für semantische Farben (`label`, `systemBackground` …) – diese sind nur über APIs zu beziehen.
+Not in the mirror: concrete RGB values for semantic colors (`label`, `systemBackground` …) – these can only be obtained via APIs.
 
-### Semantische Farben iOS/iPadOS (hig:color#iOS-iPadOS)
+### Semantic colors iOS/iPadOS (hig:color#iOS-iPadOS)
 
-**Hintergründe** – zwei Sets mit je drei Ebenen (Primary = gesamter View, Secondary = Gruppierung darin, Tertiary = Gruppierung in Secondary):
+**Backgrounds** – two sets with three levels each (Primary = entire view, Secondary = grouping within it, Tertiary = grouping within Secondary):
 
-| Kontext | Primary | Secondary | Tertiary |
+| Context | Primary | Secondary | Tertiary |
 |---|---|---|---|
 | Standard | `systemBackground` | `secondarySystemBackground` | `tertiarySystemBackground` |
-| Grouped Table View | `systemGroupedBackground` | `secondarySystemGroupedBackground` | `tertiarySystemGroupedBackground` |
+| Grouped table view | `systemGroupedBackground` | `secondarySystemGroupedBackground` | `tertiarySystemGroupedBackground` |
 
-**Vordergrund:**
+**Foreground:**
 
-| Farbe | Verwendung | UIKit |
+| Color | Use | UIKit |
 |---|---|---|
-| Label | Primärer Text | `label` |
-| Secondary label | Sekundärer Text | `secondaryLabel` |
-| Tertiary label | Tertiärer Text | `tertiaryLabel` |
-| Quaternary label | Quartärer Text | `quaternaryLabel` |
-| Placeholder text | Platzhalter in Controls/Textviews | `placeholderText` |
-| Separator | Trenner, lässt Inhalt durchscheinen | `separator` |
-| Opaque separator | Deckender Trenner | `opaqueSeparator` |
-| Link | Text als Link | `link` |
+| Label | Primary text | `label` |
+| Secondary label | Secondary text | `secondaryLabel` |
+| Tertiary label | Tertiary text | `tertiaryLabel` |
+| Quaternary label | Quaternary text | `quaternaryLabel` |
+| Placeholder text | Placeholder in controls/text views | `placeholderText` |
+| Separator | Separator that lets content show through | `separator` |
+| Opaque separator | Opaque separator | `opaqueSeparator` |
+| Link | Text as a link | `link` |
 
-Dark Mode iOS/iPadOS: Hintergründe existieren als **base** (dunkler, tritt zurück) und **elevated** (heller, tritt hervor, z. B. Popover, Sheet, Multitasking). Das System wechselt automatisch – daher Systemhintergründe statt eigener Farben verwenden. (hig:dark-mode#iOS-iPadOS)
+Dark Mode iOS/iPadOS: backgrounds exist as **base** (darker, recedes) and **elevated** (lighter, comes forward, e.g. popover, sheet, multitasking). The system switches automatically – so use system backgrounds instead of custom colors. (hig:dark-mode#iOS-iPadOS)
 
-### Semantische Farben macOS (AppKit `NSColor`) (hig:color#macOS)
+### Semantic colors macOS (AppKit `NSColor`) (hig:color#macOS)
 
-| Zweck | API |
+| Purpose | API |
 |---|---|
-| Text Label (1–4) | `labelColor`, `secondaryLabelColor`, `tertiaryLabelColor`, `quaternaryLabelColor` |
-| Dokumenttext / -hintergrund | `textColor`, `textBackgroundColor` |
-| Platzhalter | `placeholderTextColor` |
+| Text label (1–4) | `labelColor`, `secondaryLabelColor`, `tertiaryLabelColor`, `quaternaryLabelColor` |
+| Document text / background | `textColor`, `textBackgroundColor` |
+| Placeholder | `placeholderTextColor` |
 | Link | `linkColor` |
-| Fenster / unter Dokument | `windowBackgroundColor`, `underPageBackgroundColor` |
-| Große Elemente (Browser, Tabelle) | `controlBackgroundColor` |
-| Alternierende Zeilen | `alternatingContentBackgroundColors` |
-| Control-Fläche / -Text / deaktiviert | `controlColor`, `controlTextColor`, `disabledControlTextColor` |
-| Ausgewähltes Control / Text | `selectedControlColor`, `selectedControlTextColor`, `alternateSelectedControlTextColor` |
-| Auswahl Inhalt (Key / Non-Key Window) | `selectedContentBackgroundColor`, `unemphasizedSelectedContentBackgroundColor` |
-| Auswahl Text (Key / Non-Key) | `selectedTextBackgroundColor`, `selectedTextColor`, `unemphasizedSelectedTextBackgroundColor`, `unemphasizedSelectedTextColor` |
-| Menü-Auswahltext | `selectedMenuItemTextColor` |
-| Akzent / Tint | `controlAccentColor`, `currentControlTint` |
-| Fokusring | `keyboardFocusIndicatorColor` |
-| Suche-Hervorhebung | `findHighlightColor` |
-| Raster, Trenner, Header | `gridColor`, `separatorColor`, `headerTextColor` |
-| Licht / Schatten | `highlightColor`, `shadowColor` |
-| Titelleiste | `windowFrameTextColor` |
+| Window / under document | `windowBackgroundColor`, `underPageBackgroundColor` |
+| Large elements (browser, table) | `controlBackgroundColor` |
+| Alternating rows | `alternatingContentBackgroundColors` |
+| Control surface / text / disabled | `controlColor`, `controlTextColor`, `disabledControlTextColor` |
+| Selected control / text | `selectedControlColor`, `selectedControlTextColor`, `alternateSelectedControlTextColor` |
+| Content selection (key / non-key window) | `selectedContentBackgroundColor`, `unemphasizedSelectedContentBackgroundColor` |
+| Text selection (key / non-key) | `selectedTextBackgroundColor`, `selectedTextColor`, `unemphasizedSelectedTextBackgroundColor`, `unemphasizedSelectedTextColor` |
+| Menu selection text | `selectedMenuItemTextColor` |
+| Accent / tint | `controlAccentColor`, `currentControlTint` |
+| Focus ring | `keyboardFocusIndicatorColor` |
+| Find highlight | `findHighlightColor` |
+| Grid, separator, header | `gridColor`, `separatorColor`, `headerTextColor` |
+| Highlight / shadow | `highlightColor`, `shadowColor` |
+| Title bar | `windowFrameTextColor` |
 
-macOS **Desktop Tinting** (bei Akzentfarbe Graphite): Fensterhintergründe übernehmen Farbe vom Schreibtischbild. Eigene Komponenten mit sichtbarem Hintergrund im **neutralen** Zustand leicht transparent machen, im farbigen Zustand nicht. (hig:dark-mode#macOS)
+macOS **desktop tinting** (with the Graphite accent color): window backgrounds pick up color from the desktop picture. Make custom components with a visible background slightly transparent in the **neutral** state, but not in the colored state. (hig:dark-mode#macOS)
 
-### Farbmanagement (hig:color#Color-management)
-- Bildern Farbprofile zuweisen; sRGB ist für die meisten Displays korrekt.
-- Wide Color (Display P3) für reichere Farben: P3-Profil, 16 Bit pro Kanal, Export als PNG; Gestaltung nur auf Wide-Color-Display.
-- Bei sehr ähnlichen P3-Farben oder P3-Verläufen ggf. sRGB-Varianten im Asset Catalog hinterlegen.
+### Color management (hig:color#Color-management)
+- Assign color profiles to images; sRGB is correct for most displays.
+- Wide color (Display P3) for richer colors: P3 profile, 16 bits per channel, export as PNG; design only on a wide-color display.
+- For very similar P3 colors or P3 gradients, consider providing sRGB variants in the asset catalog.
 
-## Plattform-Unterschiede
+## Platform differences
 
-| Plattform | Besonderheiten |
+| Platform | Specifics |
 |---|---|
-| iOS/iPadOS | Zwei Hintergrund-Sets (system/grouped), base/elevated im Dark Mode, Liquid Glass passt sich Content an |
-| macOS | Umfangreiche `NSColor`-Semantik, App-Akzent nur bei „Multicolor“, Desktop Tinting, vibrante Varianten aller Systemfarben |
-| watchOS | Kein Dark Mode (dunkel by default). Hintergrundfarbe nur mit Aussage (Kontext, Orientierung), nicht dekorativ; keine Vollflächenfarbe in langlaufenden Views (Workout, Audio). Complications können im Tinted Mode einfarbig erscheinen. (hig:color#watchOS) |
-| visionOS | Kein Dark Mode; Farben auf Glass sparsam, in fetter Schrift und großen Flächen; Systemfarben = Dark-Werte; Helligkeit in Immersion ausbalancieren. (hig:color#visionOS) |
-| tvOS | Begrenzte Palette passend zum Logo; Fokus nicht nur über Farbe. (hig:color#tvOS) |
+| iOS/iPadOS | Two background sets (system/grouped), base/elevated in Dark Mode, Liquid Glass adapts to content |
+| macOS | Extensive `NSColor` semantics, app accent only with "Multicolor", desktop tinting, vibrant variants of all system colors |
+| watchOS | No Dark Mode (dark by default). Use background color only to convey meaning (context, orientation), not decoratively; no full-screen color in long-running views (workout, audio). Complications can appear in a single color in tinted mode. (hig:color#watchOS) |
+| visionOS | No Dark Mode; use colors on glass sparingly, in bold text and large areas; system colors = Dark values; balance brightness in immersion. (hig:color#visionOS) |
+| tvOS | Limited palette matching the logo; don't indicate focus by color alone. (hig:color#tvOS) |
 
-Widgets: Können full-color, getönt (accented) oder clear erscheinen; Bedeutung nie nur über Farbe, Elemente in Accent- und Primary-Gruppe aufteilen (`widgetAccentable`). (hig:widgets)
+Widgets: can appear full-color, tinted (accented) or clear; never convey meaning through color alone, split elements into an accent group and a primary group (`widgetAccentable`). (hig:widgets)
 
-## Umsetzung
+## Implementation
 
-> Zuordnung UIKit/AppKit-Systemfarbnamen (`systemRed` …) und SwiftUI-Semantik (`.primary`, `.secondary`) ist Framework-Wissen, nicht im Spiegel belegt.
+> The mapping of UIKit/AppKit system color names (`systemRed` …) and SwiftUI semantics (`.primary`, `.secondary`) is framework knowledge, not sourced from the mirror.
 
-| Konzept | SwiftUI | UIKit | AppKit |
+| Concept | SwiftUI | UIKit | AppKit |
 |---|---|---|---|
-| Systemfarbe | `Color.red`, `.blue` … | `UIColor.systemRed` … | `NSColor.systemRed` … |
-| Primärtext | `.foregroundStyle(.primary)` | `.label` | `.labelColor` |
-| Sekundärtext | `.foregroundStyle(.secondary)` | `.secondaryLabel` | `.secondaryLabelColor` |
-| Tertiär/Quartär | `.tertiary`, `.quaternary` | `.tertiaryLabel`, `.quaternaryLabel` | `.tertiaryLabelColor`, `.quaternaryLabelColor` |
-| Hintergrund | `Color(uiColor: .systemBackground)` bzw. Standard-Container | `.systemBackground` | `.windowBackgroundColor` |
-| Trenner | `Divider()` / `Color(uiColor: .separator)` | `.separator` | `.separatorColor` |
-| Akzent | `.tint(_:)`, `Color.accentColor`, AccentColor im Asset Catalog | `tintColor` | `controlAccentColor` |
-| Custom Color | Color Set (Any/Dark + High Contrast) im Asset Catalog | `UIColor(named:)` / `UIColor { traits in … }` | `NSColor(name:dynamicProvider:)` |
+| System color | `Color.red`, `.blue` … | `UIColor.systemRed` … | `NSColor.systemRed` … |
+| Primary text | `.foregroundStyle(.primary)` | `.label` | `.labelColor` |
+| Secondary text | `.foregroundStyle(.secondary)` | `.secondaryLabel` | `.secondaryLabelColor` |
+| Tertiary/quaternary | `.tertiary`, `.quaternary` | `.tertiaryLabel`, `.quaternaryLabel` | `.tertiaryLabelColor`, `.quaternaryLabelColor` |
+| Background | `Color(uiColor: .systemBackground)` or standard container | `.systemBackground` | `.windowBackgroundColor` |
+| Separator | `Divider()` / `Color(uiColor: .separator)` | `.separator` | `.separatorColor` |
+| Accent | `.tint(_:)`, `Color.accentColor`, AccentColor in the asset catalog | `tintColor` | `controlAccentColor` |
+| Custom color | Color set (Any/Dark + High Contrast) in the asset catalog | `UIColor(named:)` / `UIColor { traits in … }` | `NSColor(name:dynamicProvider:)` |
 
 ```swift
-// Primäraktion: Hintergrund getönt, nicht der Text
-Button("Fertig") { save() }
-    .buttonStyle(.borderedProminent)       // System wendet Akzentfarbe auf Hintergrund an
-Button("Löschen", role: .destructive) { delete() } // System-Rot über Rolle
+// Primary action: tint the background, not the text
+Button("Done") { save() }
+    .buttonStyle(.borderedProminent)       // System applies the accent color to the background
+Button("Delete", role: .destructive) { delete() } // System red via role
 
-// Erscheinungsbild abfragen, nicht erzwingen
+// Query the appearance, don't force it
 @Environment(\.colorScheme) var scheme
-@Environment(\.colorSchemeContrast) var contrast   // .increased bei Increase Contrast
+@Environment(\.colorSchemeContrast) var contrast   // .increased with Increase Contrast
 ```
-- Kein `.preferredColorScheme(.dark)` als App-Option; nur für bewusst immer-dunkle Medienansichten.
-- White-Point: Lese-/Foto-/Video-/Spiele-Apps können `UIWhitePointAdaptivityStyle` setzen. (hig:color#Best-practices)
+- No `.preferredColorScheme(.dark)` as an app option; only for intentionally always-dark media views.
+- White point: reading/photo/video/game apps can set `UIWhitePointAdaptivityStyle`. (hig:color#Best-practices)
 
-## Review-Checkliste
+## Review checklist
 
-- [ ] Keine hartkodierten RGB-/Hex-Werte für Systemfarben
-- [ ] Jede Custom Color: Light, Dark, Increased Contrast Light/Dark
-- [ ] Light- und Dark-Variante auch bei Single-Appearance-Apps (Liquid-Glass-Adaptivität)
-- [ ] Semantische Farben gemäß Zweck verwendet (kein Separator als Text etc.)
-- [ ] Information zusätzlich über Text/Form/Symbol, nicht nur Farbe
-- [ ] Kontrast ≥ 4.5:1 (Fließtext), Ziel 7:1 für kleinen Custom-Text; 3:1 nur ≥ 18 pt oder Bold
-- [ ] Getestet: Light, Dark, Increase Contrast, Reduce Transparency, Kombinationen
-- [ ] Keine app-eigene Dark-Mode-Option
-- [ ] Liquid Glass: Farbe nur für Primäraktion/Status, als Hintergrund-Tint, max. ein bis zwei prominente Controls
-- [ ] Bei buntem Content: monochrome Bars oder klar abgesetzte Akzentfarbe; Ruhelage lesbar
-- [ ] macOS: Systemakzentfarbe wird respektiert (Sidebar-Icons), Desktop Tinting berücksichtigt
-- [ ] Bilder mit Farbprofil; P3-Assets mit sRGB-Fallback wo nötig
-- [ ] Dark Mode: weiße Bildflächen abgedunkelt, Icons in beiden Modi sichtbar
-- [ ] iOS: Systemhintergründe (base/elevated) statt eigener Hintergrundfarben
+- [ ] No hard-coded RGB/hex values for system colors
+- [ ] Every custom color: Light, Dark, Increased Contrast Light/Dark
+- [ ] Light and Dark variants even in single-appearance apps (Liquid Glass adaptivity)
+- [ ] Semantic colors used according to purpose (no separator as text, etc.)
+- [ ] Information also conveyed via text/shape/symbol, not color alone
+- [ ] Contrast ≥ 4.5:1 (body text), target 7:1 for small custom text; 3:1 only for ≥ 18 pt or bold
+- [ ] Tested: Light, Dark, Increase Contrast, Reduce Transparency, combinations
+- [ ] No app-specific Dark Mode option
+- [ ] Liquid Glass: color only for primary action/status, as a background tint, max. one or two prominent controls
+- [ ] With colorful content: monochrome bars or a clearly distinct accent color; resting state legible
+- [ ] macOS: system accent color respected (sidebar icons), desktop tinting taken into account
+- [ ] Images with color profile; P3 assets with sRGB fallback where needed
+- [ ] Dark Mode: white image areas darkened, icons visible in both modes
+- [ ] iOS: system backgrounds (base/elevated) instead of custom background colors
 
-## Anti-Patterns
+## Anti-patterns
 
-- Markenfarbe auf jedem Button, jedem Icon und als Textfarbe für Fließtext.
-- Rot/Grün als einzige Unterscheidung für Fehler/Erfolg.
-- Eigene „Dunkles Design“-Umschaltung in den App-Einstellungen.
-- Dark Mode durch Invertieren der Light-Palette.
-- Getönte, opake Toolbar-Hintergründe über Liquid Glass.
-- Farbige Labels auf Glass über ähnlich farbigem Content.
-- Mehrere farbig hinterlegte Glass-Buttons nebeneinander.
-- `secondaryLabel` als Flächenfarbe oder `separator` als Textfarbe.
-- Hex-Werte aus alten HIG-Versionen übernehmen (Werte änderten sich 2025).
-- Vollflächige Farbhintergründe in watchOS-Workout-Views.
+- Brand color on every button, every icon and as the text color for body text.
+- Red/green as the only distinction between error/success.
+- A custom "dark theme" toggle in the app settings.
+- Dark Mode created by inverting the light palette.
+- Tinted, opaque toolbar backgrounds over Liquid Glass.
+- Colored labels on glass over similarly colored content.
+- Several glass buttons with colored backgrounds side by side.
+- `secondaryLabel` as a fill color or `separator` as a text color.
+- Taking over hex values from old HIG versions (values changed in 2025).
+- Full-screen color backgrounds in watchOS workout views.

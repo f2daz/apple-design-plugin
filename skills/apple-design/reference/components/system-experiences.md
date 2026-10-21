@@ -1,289 +1,289 @@
-# System experiences – Komponenten
-> Quelle: Apple HIG, lokaler Spiegel (Stand 2026-10-21). Paraphrasiert. Belege: `(hig:<slug>)`, `(hig:<slug>#Anchor)`.
+# System experiences – Components
+> Source: Apple HIG, local mirror (as of 2026-10-21). Paraphrased. Sources: `(hig:<slug>)`, `(hig:<slug>#Anchor)`.
 
-Oberflächen, über die eine App **außerhalb ihres eigenen Fensters** im System auftaucht: Home/Lock Screen, Dynamic Island, Control Center, Smart Stack, Zifferblatt, Siri/Spotlight. Gemeinsamer Nenner: glanceable, knapp, deep-linkend, meist über WidgetKit / ActivityKit / App Intents umgesetzt.
+Surfaces through which an app appears in the system **outside its own window**: Home/Lock Screen, Dynamic Island, Control Center, Smart Stack, watch face, Siri/Spotlight. Common denominator: glanceable, concise, deep-linking, usually implemented via WidgetKit / ActivityKit / App Intents.
 
-Inhalt: [App Shortcuts](#app-shortcuts) · [Complications](#complications) · [Controls](#controls) · [Live Activities](#live-activities) · [Notifications](#notifications) · [Snippets](#snippets) · [Status bars](#status-bars) · [Top Shelf](#top-shelf) · [Watch faces](#watch-faces) · [Widgets](#widgets)
+Contents: [App Shortcuts](#app-shortcuts) · [Complications](#complications) · [Controls](#controls) · [Live Activities](#live-activities) · [Notifications](#notifications) · [Snippets](#snippets) · [Status bars](#status-bars) · [Top Shelf](#top-shelf) · [Watch faces](#watch-faces) · [Widgets](#widgets)
 
-**Schnellwahl**
-| Bedarf | Komponente |
+**Quick pick**
+| Need | Component |
 |---|---|
-| Periodisch aktualisierte Info + einfache Aktion auf Home/Lock Screen, Desktop, Smart Stack | Widget |
-| Laufender Vorgang mit Anfang/Ende (≤ 8 h), häufige Updates | Live Activity |
-| Einmaliges, zeitkritisches Ereignis, Nutzer nicht in der App | Notification |
-| Ein Knopf/Schalter in Control Center, Lock Screen, Action button | Control |
-| Funktion per Siri/Spotlight/Action button ohne App-Öffnen | App Shortcut (+ Snippet als visuelle Antwort) |
-| Daten auf dem Zifferblatt (watchOS) | Complication (= Accessory-Widget) |
+| Periodically updated information + simple action on Home/Lock Screen, desktop, Smart Stack | Widget |
+| Ongoing activity with a start/end (≤ 8 h), frequent updates | Live Activity |
+| One-time, time-sensitive event, user not in the app | Notification |
+| A button/switch in Control Center, Lock Screen, Action button | Control |
+| Function via Siri/Spotlight/Action button without opening the app | App Shortcut (+ snippet as visual response) |
+| Data on the watch face (watchOS) | Complication (= accessory widget) |
 
 ---
 
 ## App Shortcuts
-**Zweck:** Macht zentrale Funktionen/Inhalte der App systemweit (Siri, Spotlight, Shortcuts-App, Action button, Apple Pencil squeeze) verfügbar, ab Installation. **Plattformen:** ios, ipados, watchos (visionos ohne Besonderheiten). Nicht in tvOS; in macOS keine App Shortcuts, aber App-Intents-Aktionen für eigene Shortcuts (hig:app-shortcuts#macOS).
+**Purpose:** Makes key app functions/content available systemwide (Siri, Spotlight, Shortcuts app, Action button, Apple Pencil squeeze), starting at installation. **Platforms:** ios, ipados, watchos (visionos without specifics). Not in tvOS; in macOS no App Shortcuts, but App Intents actions for custom shortcuts (hig:app-shortcuts#macOS).
 
-**Verwenden, wenn:** häufige, wichtige Aufgaben, idealerweise ohne Kontextwechsel erledigbar; Mehrschritt-Aufgaben dürfen die App öffnen (hig:app-shortcuts#Best-practices).
-**Nicht verwenden, wenn:** die Funktion in eine Domäne fällt, die **app schemas** abdecken – dann diese bevorzugen, damit Apple Intelligence/Siri sie kontextuell anbietet (hig:app-shortcuts#Best-practices).
+**Use when:** frequent, important tasks, ideally completable without a context switch; multistep tasks may open the app (hig:app-shortcuts#Best-practices).
+**Don't use when:** the function falls into a domain covered by **app schemas** – prefer those so Apple Intelligence/Siri can offer them contextually (hig:app-shortcuts#Best-practices).
 
-**Kernregeln:**
-- Beschränke dich auf die häufigsten und wichtigsten Aufgaben (hig:app-shortcuts#Best-practices).
-- Biete höchstens **einen** optionalen Parameter mit vorhersehbaren, vertrauten Werten an – Nutzer sehen die Liste beim Sprechen nicht (hig:app-shortcuts#Best-practices).
-- Frage bei fehlendem optionalem Wert nach; schlage einen wahrscheinlichen Default plus kurze Alternativliste vor (hig:app-shortcuts#Best-practices).
-- Halte Sprachphrasen kurz und laut aussprechbar; zusätzliche Pflichtangaben in einem Folgeschritt erfragen (hig:app-shortcuts#Best-practices).
-- Mache Shortcuts in der App auffindbar, z. B. mit gelegentlichen Siri-Tipps nach passenden Aktionen (hig:app-shortcuts#Best-practices).
-- Antworte mit Snippet (statisch/Bestätigung) oder Live Activity (fortlaufend, z. B. Timer) (hig:app-shortcuts#Responding-to-App-Shortcuts).
-- Lege alle kritischen Infos in den vollständigen Dialogtext – Antworten können auf reinen Audiogeräten (AirPods, HomePod) ankommen (hig:app-shortcuts#Responding-to-App-Shortcuts).
-- Phrasen müssen den App-Namen enthalten; definiere natürliche Varianten (hig:app-shortcuts#Editorial-guidelines).
-- Schreibweise: „App Shortcuts“/„Shortcuts“ in Title Case und Plural; einzelne „shortcuts“ klein (hig:app-shortcuts#Editorial-guidelines).
+**Core rules:**
+- Limit yourself to the most frequent and important tasks (hig:app-shortcuts#Best-practices).
+- Offer at most **one** optional parameter with predictable, familiar values – people don't see the list while speaking (hig:app-shortcuts#Best-practices).
+- Ask for a missing optional value; suggest a likely default plus a short list of alternatives (hig:app-shortcuts#Best-practices).
+- Keep spoken phrases short and easy to say out loud; request additional required details in a follow-up step (hig:app-shortcuts#Best-practices).
+- Make shortcuts discoverable in the app, e.g. with occasional Siri tips after relevant actions (hig:app-shortcuts#Best-practices).
+- Respond with a snippet (static/confirmation) or a Live Activity (ongoing, e.g. timer) (hig:app-shortcuts#Responding-to-App-Shortcuts).
+- Put all critical information in the full dialog text – responses may arrive on audio-only devices (AirPods, HomePod) (hig:app-shortcuts#Responding-to-App-Shortcuts).
+- Phrases must include the app name; define natural variants (hig:app-shortcuts#Editorial-guidelines).
+- Spelling: "App Shortcuts"/"Shortcuts" in title case and plural; individual "shortcuts" lowercase (hig:app-shortcuts#Editorial-guidelines).
 
-**Plattform-Besonderheiten:**
-- iOS/iPadOS: Erscheinen in Spotlight (Top Hit bzw. Shortcuts-Bereich) mit SF Symbol oder Vorschaubild; Reihenfolge nach Wichtigkeit festlegen – das System priorisiert später nach Nutzung (hig:app-shortcuts#iOS-iPadOS).
-- macOS: keine App Shortcuts; App Intents trotzdem in der Shortcuts-App nutzbar (hig:app-shortcuts#macOS).
+**Platform specifics:**
+- iOS/iPadOS: appear in Spotlight (top hit or Shortcuts section) with an SF Symbol or preview image; set the order by importance – the system later prioritizes by usage (hig:app-shortcuts#iOS-iPadOS).
+- macOS: no App Shortcuts; App Intents can still be used in the Shortcuts app (hig:app-shortcuts#macOS).
 
-**Kennwerte:** max. 10 App Shortcuts pro App (hig:app-shortcuts).
-**Umsetzung:** App Intents – `AppIntent`, `AppShortcutsProvider`/`AppShortcut`, `AppShortcutPhrase`, Parameter via `@Parameter`; Tipps mit `SiriTipView` (SwiftUI) / `SiriTipUIView` (UIKit); Dialog `IntentDialog(full:supporting:…)`.
-**Typische Fehler:** mehrere Parameter in einer Phrase; Infos nur visuell statt im Dialog; Shortcut für eine Funktion, die ein app schema bereits abdeckt; Shortcuts nie in der App beworben.
+**Key values:** max. 10 App Shortcuts per app (hig:app-shortcuts).
+**Implementation:** App Intents – `AppIntent`, `AppShortcutsProvider`/`AppShortcut`, `AppShortcutPhrase`, parameters via `@Parameter`; tips with `SiriTipView` (SwiftUI) / `SiriTipUIView` (UIKit); dialog `IntentDialog(full:supporting:…)`.
+**Common mistakes:** multiple parameters in one phrase; information only visual instead of in the dialog; shortcut for a function an app schema already covers; shortcuts never promoted in the app.
 
 ---
 
 ## Complications
-**Zweck:** Zeigt aktuelle, relevante Daten direkt auf dem Zifferblatt, sichtbar bei jedem Handgelenkheben. **Plattformen:** watchos (nur).
+**Purpose:** Shows current, relevant data directly on the watch face, visible every time the wrist is raised. **Platforms:** watchos (only).
 
-**Verwenden, wenn:** es wesentliche, sich ändernde Daten gibt, die man auf einen Blick sehen will (hig:complications#Best-practices).
-**Nicht verwenden, wenn:** nur ein statischer App-Starter ohne Daten entstünde – solche Complications behalten Nutzer selten (hig:complications#Best-practices).
+**Use when:** there is essential, changing data people want to see at a glance (hig:complications#Best-practices).
+**Don't use when:** the result would only be a static app launcher without data – people rarely keep such complications (hig:complications#Best-practices).
 
-**Kernregeln:**
-- Unterstütze möglichst alle Familien; wo keine sinnvollen Daten passen, zeige ein App-repräsentierendes Bild als Starter (hig:complications#Best-practices).
-- Biete mehrere Complications je Familie, jede mit eigenem Deep Link (hig:complications#Best-practices).
-- Schütze sensible Daten – mit Always-On sind sie für Umstehende sichtbar (hig:complications#Best-practices).
-- Plane die Timeline bewusst: Updates pro Tag und gespeicherte Einträge sind begrenzt (hig:complications#Best-practices).
-- Wähle Ring/Gauge passend: closed = Anteil am Ganzen, open = beliebiger Bereich, segmented = schnelle Änderungen im App-Bereich (hig:complications#Visual-design).
-- Teste Tinted Mode: Farbe nie als einzigen Informationsträger; ggf. eigene Tinted-Variante für Vollfarbbilder liefern (hig:complications#Visual-design).
-- Linienstärken ≥ 2 pt (hig:complications#Visual-design).
-- Liefere statische Placeholder-Bilder je unterstützter Complication (hig:complications#Visual-design).
+**Core rules:**
+- Support as many families as possible; where no meaningful data fits, show an image representing the app as a launcher (hig:complications#Best-practices).
+- Offer multiple complications per family, each with its own deep link (hig:complications#Best-practices).
+- Protect sensitive data – with Always On it is visible to people nearby (hig:complications#Best-practices).
+- Plan the timeline deliberately: updates per day and stored entries are limited (hig:complications#Best-practices).
+- Choose the ring/gauge appropriately: closed = fraction of a whole, open = arbitrary range, segmented = rapid changes within the app's range (hig:complications#Visual-design).
+- Test tinted mode: never use color as the only carrier of information; provide a custom tinted variant for full-color images if needed (hig:complications#Visual-design).
+- Line widths ≥ 2 pt (hig:complications#Visual-design).
+- Provide static placeholder images for each supported complication (hig:complications#Visual-design).
 
-**Plattform-Besonderheiten:** Familien ab watchOS 9: Circular (inkl. Extra Large, Bezel-Text), Corner, Inline (utilitarian small/large), Rectangular; Rectangular kann ab watchOS 10 im Smart Stack erscheinen (Hintergrundfarbe, Relevanz-Intents, eigenes Layout) (hig:complications#Rectangular). Legacy-Templates (Circular small, Modular small/large, Extra large) nur für ältere watchOS-Versionen (hig:complications#Legacy-templates).
+**Platform specifics:** Families from watchOS 9: circular (incl. extra large, bezel text), corner, inline (utilitarian small/large), rectangular; rectangular can appear in the Smart Stack from watchOS 10 (background color, relevance intents, custom layout) (hig:complications#Rectangular). Legacy templates (circular small, modular small/large, extra large) only for older watchOS versions (hig:complications#Legacy-templates).
 
-**Kennwerte** (pt @2x-Assets; Auszug, vollständig inkl. 38 mm/Placeholder/Legacy siehe Anchors):
+**Key values** (pt, @2x assets; excerpt, complete incl. 38 mm/placeholder/legacy see anchors):
 | Element | 40 mm | 41 mm | 44 mm | 45/49 mm |
 |---|---|---|---|---|
 | Circular Image | 42×42 | 44.5×44.5 | 47×47 | 50×50 |
 | Circular Extra Large Image | 120×120 | 127×127 | 132×132 | 143×143 |
 | Corner Circular | 32×32 | 34×34 | 36×36 | 38×38 |
-| Rectangular Large image mit Titel | 150×47 | 159×50 | 171×54 | 178.5×56 |
-| Rectangular Large image ohne Titel | 162×69 | 171.5×73 | 184×78 | 193×82 |
-- Default-Text (SwiftUI, Rounded): Circular Medium 12/12.5/13/14.5 pt; Corner Semibold 10/10.5/11/12 pt; Rectangular Medium 16.5/17.5/18/19.5 pt (je 40/41/44/45–49 mm) (hig:complications#Circular, #Corner, #Rectangular).
-- Bezel-Text füllt fast 180° vor Kürzung; Large-Image-Rectangular mit automatisch 4 pt Eckenradius; System maskiert Circular-Bilder kreisförmig (hig:complications#Circular, hig:complications#Rectangular).
-- Weitere Tabellen: (hig:complications#Inline), (hig:complications#Legacy-templates).
+| Rectangular Large image with title | 150×47 | 159×50 | 171×54 | 178.5×56 |
+| Rectangular Large image without title | 162×69 | 171.5×73 | 184×78 | 193×82 |
+- Default text (SwiftUI, Rounded): circular Medium 12/12.5/13/14.5 pt; corner Semibold 10/10.5/11/12 pt; rectangular Medium 16.5/17.5/18/19.5 pt (each 40/41/44/45–49 mm) (hig:complications#Circular, #Corner, #Rectangular).
+- Bezel text fills almost 180° before truncation; large-image rectangular with an automatic 4 pt corner radius; the system masks circular images to a circle (hig:complications#Circular, hig:complications#Rectangular).
+- Further tables: (hig:complications#Inline), (hig:complications#Legacy-templates).
 
-**Umsetzung:** WidgetKit (ab watchOS 9 bevorzugt) mit `WidgetFamily.accessoryCircular/.accessoryCorner/.accessoryInline/.accessoryRectangular`, `TimelineProvider` inkl. `placeholder(in:)`, `WidgetRenderingMode`; Legacy: ClockKit `CLKComplicationDataSource`.
-**Typische Fehler:** statische Complication ohne Daten; alle Complications öffnen denselben Screen; Info nur über Farbe (bricht im Tinted Mode); Haarlinien < 2 pt.
-**Unklarheit:** Die Seite (Stand 2023) nennt keine Größen für 42 mm (neu)/46 mm, während Widgets/Live Activities sie führen. In „Inline“ steht für 41 mm Flat einmal `…x21 pt`, einmal `…x10.5 pt` – vermutlich Tippfehler im Original.
+**Implementation:** WidgetKit (preferred from watchOS 9) with `WidgetFamily.accessoryCircular/.accessoryCorner/.accessoryInline/.accessoryRectangular`, `TimelineProvider` incl. `placeholder(in:)`, `WidgetRenderingMode`; legacy: ClockKit `CLKComplicationDataSource`.
+**Common mistakes:** static complication without data; all complications open the same screen; information only via color (breaks in tinted mode); hairlines < 2 pt.
+**Ambiguity:** The page (as of 2023) gives no sizes for 42 mm (new)/46 mm, whereas Widgets/Live Activities list them. In "Inline", 41 mm Flat is given once as `…x21 pt` and once as `…x10.5 pt` – probably a typo in the original.
 
 ---
 
 ## Controls
-**Zweck:** Button oder Toggle, der eine App-Funktion aus Control Center, Lock Screen oder per Action button erreichbar macht. **Plattformen:** ios, ipados, macos. Nicht in watchOS, tvOS, visionOS.
+**Purpose:** Button or toggle that makes an app function reachable from Control Center, the Lock Screen, or via the Action button. **Platforms:** ios, ipados, macos. Not in watchOS, tvOS, visionOS.
 
-**Verwenden, wenn:** eine Aktion den größten Nutzen bringt, ohne die App zu starten – z. B. Live Activity starten, Gerät schalten, Kamera öffnen (hig:controls#Best-practices).
-**Nicht verwenden, wenn:** Informationen dargestellt werden sollen (→ Widget) oder die Aufgabe mehrere Schritte in der App braucht.
+**Use when:** an action provides the most value without launching the app – e.g. start a Live Activity, switch a device, open the camera (hig:controls#Best-practices).
+**Don't use when:** information should be displayed (→ widget) or the task requires multiple steps in the app.
 
-**Anatomie:** Symbol + Titel + optionaler Wert. Control Center zeigt Symbol (größer: + Titel/Wert), Lock Screen nur Symbol, Action button zeigt Symbol + Wert in der Dynamic Island (hig:controls#Anatomy).
+**Anatomy:** symbol + title + optional value. Control Center shows the symbol (larger sizes: + title/value), Lock Screen only the symbol, the Action button shows symbol + value in the Dynamic Island (hig:controls#Anatomy).
 
-**Kernregeln:**
-- Wähle ein Symbol, das das Verhalten allein trägt; für Toggles je ein Symbol für an/aus (hig:controls#Best-practices).
-- Animiere Zustandswechsel per Symbol-Animation; bei laufenden Aktionen animiert lassen bis Abschluss (hig:controls#Best-practices).
-- Aktualisiere den Control bei Interaktion, Abschluss oder per Push (hig:controls#Best-practices).
-- Wähle eine markenkonforme Tint-Farbe (färbt Toggle-„an“ und Dynamic-Island-Darstellung) (hig:controls#Best-practices).
-- Fordere nötige Konfiguration (z. B. welche Lampe) direkt beim Hinzufügen an (hig:controls#Best-practices).
-- Liefere Hinweistext für den Action button, verbbasiert (hig:controls#Best-practices).
-- Gib Platzhalter an, wenn Titel/Wert situativ sind (hig:controls#Best-practices).
-- Lass Titel/Wert bei gesperrtem Gerät redigieren; sicherheitsrelevante Aktionen (Tür, Auto) nur nach Entsperren (hig:controls#Best-practices).
-- Kamera-Control (ab iOS 18 auf gesperrtem Gerät): gleiche Kamera-UI wie in der App, Anleitung zum Hinzufügen geben (hig:controls#Camera-experiences-on-a-locked-device).
+**Core rules:**
+- Choose a symbol that conveys the behavior on its own; for toggles one symbol each for on/off (hig:controls#Best-practices).
+- Animate state changes with a symbol animation; for ongoing actions keep animating until completion (hig:controls#Best-practices).
+- Update the control on interaction, on completion, or via push (hig:controls#Best-practices).
+- Choose a brand-appropriate tint color (colors the toggle's "on" state and the Dynamic Island presentation) (hig:controls#Best-practices).
+- Request required configuration (e.g. which lamp) directly when the control is added (hig:controls#Best-practices).
+- Provide hint text for the Action button, verb-based (hig:controls#Best-practices).
+- Provide placeholders when the title/value depend on the situation (hig:controls#Best-practices).
+- Let the title/value be redacted when the device is locked; security-relevant actions (door, car) only after unlocking (hig:controls#Best-practices).
+- Camera control (from iOS 18 on a locked device): same camera UI as in the app, provide instructions for adding it (hig:controls#Camera-experiences-on-a-locked-device).
 
-**Plattform-Besonderheiten:** keine zusätzlichen für iOS/iPadOS/macOS (hig:controls#Platform-considerations).
-**Kennwerte:** keine im Spiegel.
-**Umsetzung:** WidgetKit/SwiftUI `ControlWidget`, `ControlWidgetButton`, `ControlWidgetToggle`; `promptsForUserConfiguration()`, `controlWidgetActionHint(_:)`; App Intents `IntentAuthenticationPolicy`; `LockedCameraCapture`; `SymbolEffect`.
-**Typische Fehler:** Symbol unverständlich ohne Titel; Toggle mit nur einem Symbol; Zustand nach Aktion nicht aktualisiert; sensible Werte auf dem Lock Screen sichtbar.
+**Platform specifics:** no additional ones for iOS/iPadOS/macOS (hig:controls#Platform-considerations).
+**Key values:** none in the mirror.
+**Implementation:** WidgetKit/SwiftUI `ControlWidget`, `ControlWidgetButton`, `ControlWidgetToggle`; `promptsForUserConfiguration()`, `controlWidgetActionHint(_:)`; App Intents `IntentAuthenticationPolicy`; `LockedCameraCapture`; `SymbolEffect`.
+**Common mistakes:** symbol incomprehensible without a title; toggle with only one symbol; state not updated after the action; sensitive values visible on the Lock Screen.
 
 ---
 
 ## Live Activities
-**Zweck:** Zeigt den Fortschritt eines zeitlich begrenzten Vorgangs (Lieferung, Spiel, Workout) laufend und glanceable an. **Plattformen:** ios, ipados, macos (Menüleiste, gespiegelt vom iPhone), watchos (Smart Stack); zusätzlich CarPlay. Nicht in tvOS, visionOS.
+**Purpose:** Shows the progress of a time-limited activity (delivery, game, workout) continuously and at a glance. **Platforms:** ios, ipados, macos (menu bar, mirrored from iPhone), watchos (Smart Stack); additionally CarPlay. Not in tvOS, visionOS.
 
-**Verwenden, wenn:** Aufgabe/Ereignis mit klarem Anfang und Ende, kurze bis mittlere Dauer ≤ 8 h, häufige Updates (hig:live-activities#Best-practices).
-**Nicht verwenden, wenn:** Werbung/Promotion; dauerhafte Info ohne Ende (→ Widget); Einmal-Ereignis (→ Notification).
+**Use when:** a task/event with a clear start and end, short to medium duration ≤ 8 h, frequent updates (hig:live-activities#Best-practices).
+**Don't use when:** advertising/promotion; permanent information without an end (→ widget); one-time event (→ notification).
 
-**Präsentationen (alle Pflicht):** Compact (Dynamic Island, leading + trailing um TrueDepth-Kamera), Minimal (bei mehreren Activities), Expanded (Touch-and-hold), Lock Screen (Banner unten; auf Geräten ohne Dynamic Island auch als Overlay-Banner), dazu StandBy (hig:live-activities#Anatomy).
+**Presentations (all required):** compact (Dynamic Island, leading + trailing around the TrueDepth camera), minimal (with multiple activities), expanded (touch and hold), Lock Screen (banner at the bottom; on devices without Dynamic Island also as an overlay banner), plus StandBy (hig:live-activities#Anatomy).
 
-**Kernregeln:**
-- Zeige nur das Wichtigste; Details per Tap in der App, direkt an der richtigen Stelle (hig:live-activities#Best-practices, hig:live-activities#Offering-interactivity).
-- Keine sensiblen Daten offen anzeigen – harmlose Zusammenfassung oder Redaction (hig:live-activities#Best-practices).
-- Text groß und mindestens Medium-Gewicht; Logo ohne Container, nie das ganze App-Icon (hig:live-activities#Best-practices).
-- Unterstütze limited width: Compact/Minimal passen in einen 28-pt-Kreis, notfalls nur leading View (hig:live-activities#Creating-Live-Activity-layouts).
-- Nutze konzentrische Ränder und `ContainerRelativeShape` statt hart codierter Radien; Höhe dynamisch an Inhalt anpassen (hig:live-activities#Creating-Live-Activity-layouts).
-- Höchstens ein interaktives Element, nur für Kernfunktionen (Pause/Resume, Kontakt) (hig:live-activities#Offering-interactivity).
-- Update nur bei neuem Inhalt; Alerts nur für wirklich Wichtiges, nicht parallel Push-Notifications für dasselbe (hig:live-activities#Starting-updating-and-ending-a-Live-Activity).
-- Mehrere Ereignisse in **einer** rotierenden Activity bündeln (hig:live-activities#Starting-updating-and-ending-a-Live-Activity).
-- Beende sofort bei Ereignisende; Dismissal-Zeit proportional wählen, meist 15–30 min (hig:live-activities#Starting-updating-and-ending-a-Live-Activity).
-- Erst iPhone-Design, dann für StandBy/CarPlay/watchOS verfeinern; Lock Screen nicht wie eine Notification gestalten (hig:live-activities#Presentation, hig:live-activities#Lock-Screen-presentation).
+**Core rules:**
+- Show only the most important information; details via tap in the app, directly at the right place (hig:live-activities#Best-practices, hig:live-activities#Offering-interactivity).
+- Don't show sensitive data openly – harmless summary or redaction (hig:live-activities#Best-practices).
+- Large text with at least Medium weight; logo without a container, never the whole app icon (hig:live-activities#Best-practices).
+- Support limited width: compact/minimal fit into a 28 pt circle, if necessary only the leading view (hig:live-activities#Creating-Live-Activity-layouts).
+- Use concentric margins and `ContainerRelativeShape` instead of hard-coded radii; adapt the height dynamically to the content (hig:live-activities#Creating-Live-Activity-layouts).
+- At most one interactive element, only for core functions (pause/resume, contact) (hig:live-activities#Offering-interactivity).
+- Update only for new content; alerts only for truly important things, not parallel push notifications for the same thing (hig:live-activities#Starting-updating-and-ending-a-Live-Activity).
+- Bundle multiple events into **one** rotating activity (hig:live-activities#Starting-updating-and-ending-a-Live-Activity).
+- End immediately when the event ends; choose a proportional dismissal time, usually 15–30 min (hig:live-activities#Starting-updating-and-ending-a-Live-Activity).
+- Design for iPhone first, then refine for StandBy/CarPlay/watchOS; don't design the Lock Screen presentation like a notification (hig:live-activities#Presentation, hig:live-activities#Lock-Screen-presentation).
 
-**Plattform-Besonderheiten:**
-- iOS StandBy: Minimal → Tap → Lock-Screen-Präsentation 2× skaliert; Default-Hintergrund empfohlen; Night Mode = Rot-Tint prüfen (hig:live-activities#StandBy-presentation).
-- Dynamic Island: Hintergrund immer schwarz-opak, nicht anpassbar (nur Lock Screen erlaubt eigenen Hintergrund); Key-Line-Farbe passend tinten (hig:live-activities#Choosing-colors).
-- macOS: erscheint automatisch in der Menüleiste (compact/minimal/expanded), Klick öffnet iPhone Mirroring (hig:live-activities#macOS).
-- watchOS: oben im Smart Stack, Default = kombiniertes Compact-Layout; eigenes Layout möglich, gilt aber auch für CarPlay (dort Interaktion deaktiviert) (hig:live-activities#watchOS).
-- CarPlay: eigenes Layout über `ActivityFamily.small`; Buttons/Toggles werden deaktiviert (hig:live-activities#CarPlay).
+**Platform specifics:**
+- iOS StandBy: minimal → tap → Lock Screen presentation scaled 2×; default background recommended; check Night Mode = red tint (hig:live-activities#StandBy-presentation).
+- Dynamic Island: background always opaque black, not customizable (only the Lock Screen allows a custom background); tint the key line color appropriately (hig:live-activities#Choosing-colors).
+- macOS: appears automatically in the menu bar (compact/minimal/expanded), a click opens iPhone Mirroring (hig:live-activities#macOS).
+- watchOS: at the top of the Smart Stack, default = combined compact layout; a custom layout is possible but also applies to CarPlay (where interaction is disabled) (hig:live-activities#watchOS).
+- CarPlay: custom layout via `ActivityFamily.small`; buttons/toggles are disabled (hig:live-activities#CarPlay).
 
-**Kennwerte:**
-- Dauer ≤ 8 h; nach Ende bis zu 4 h sichtbar (Lock Screen, Mac-Menüleiste, Smart Stack), Dynamic Island/CarPlay sofort entfernt (hig:live-activities#Best-practices, hig:live-activities#Starting-updating-and-ending-a-Live-Activity).
-- Animationen max. 2 s; keine Animation auf Always-On mit reduzierter Helligkeit (hig:live-activities#Adding-transitions-and-animating-content-updates).
-- Minimal: bis zu drei Activities in der Dynamic Island (hig:live-activities#Minimal).
-- Lock-Screen-Standardrand 14 pt (hig:live-activities#Lock-Screen-presentation).
+**Key values:**
+- Duration ≤ 8 h; after ending visible for up to 4 h (Lock Screen, Mac menu bar, Smart Stack), removed immediately from Dynamic Island/CarPlay (hig:live-activities#Best-practices, hig:live-activities#Starting-updating-and-ending-a-Live-Activity).
+- Animations max. 2 s; no animation in Always On with reduced brightness (hig:live-activities#Adding-transitions-and-animating-content-updates).
+- Minimal: up to three activities in the Dynamic Island (hig:live-activities#Minimal).
+- Lock Screen default margin 14 pt (hig:live-activities#Lock-Screen-presentation).
 
 | iPhone (pt, portrait) | Compact | Minimal | Expanded | Lock Screen | Limited width |
 |---|---|---|---|---|---|
 | 430×932 | 62.33×36.67 | 36.67–45×36.67 | 408×84–160 | 408×84–160 | 28×28 |
 | 393×852 | 52.33×36.67 | 36.67–45×36.67 | 371×84–160 | 371×84–160 | 28×28 |
-- iPad Lock Screen: 500×84–160 (1366×1024) bzw. 425×84–160 (übrige gelistete Größen); macOS nutzt iOS-Maße; CarPlay 240×78, 240×100, 170×78; watchOS = Widget-Smart-Stack-Maße (hig:live-activities#Specifications).
+- iPad Lock Screen: 500×84–160 (1366×1024) or 425×84–160 (other listed sizes); macOS uses iOS dimensions; CarPlay 240×78, 240×100, 170×78; watchOS = widget Smart Stack dimensions (hig:live-activities#Specifications).
 
-**Umsetzung:** ActivityKit (`Activity`, `ActivityAttributes`) + WidgetKit `ActivityConfiguration` mit `DynamicIsland { … }`; `isDynamicIslandLimitedInWidth`; `activitySystemActionForegroundColor(_:)`; `supplementalActivityFamilies([.small])` für watchOS/CarPlay; Start per App Intents `LiveActivityIntent`.
-**Typische Fehler:** Activity ohne Ende/über Tage; leading und trailing wirken wie zwei getrennte Infos; zu viele Alerts + doppelte Push-Notifications; mehrere parallele Activities statt einer rotierenden; Buttons, die im Auto nicht funktionieren.
+**Implementation:** ActivityKit (`Activity`, `ActivityAttributes`) + WidgetKit `ActivityConfiguration` with `DynamicIsland { … }`; `isDynamicIslandLimitedInWidth`; `activitySystemActionForegroundColor(_:)`; `supplementalActivityFamilies([.small])` for watchOS/CarPlay; start via App Intents `LiveActivityIntent`.
+**Common mistakes:** activity without an end/lasting days; leading and trailing look like two separate pieces of information; too many alerts + duplicate push notifications; multiple parallel activities instead of one rotating one; buttons that don't work in the car.
 
 ---
 
 ## Notifications
-**Zweck:** Liefert zeitnahe, wertvolle Informationen, die auf einen Blick verständlich sind – auch wenn die App nicht im Vordergrund ist. **Plattformen:** ios, ipados, macos, watchos (auch tvos, visionos ohne Besonderheiten).
+**Purpose:** Delivers timely, valuable information that can be understood at a glance – even when the app isn't in the foreground. **Platforms:** ios, ipados, macos, watchos (also tvos, visionos without specifics).
 
-**Verwenden, wenn:** ein Ereignis für den Nutzer relevant ist und er nicht in der App ist; Einwilligung liegt vor (hig:notifications).
-**Nicht verwenden, wenn:** Fehlermeldungen (→ Alert) (hig:notifications#Best-practices); Aufforderungen zu Aufgaben in der App; Werbung.
+**Use when:** an event is relevant to the user and they aren't in the app; consent has been given (hig:notifications).
+**Don't use when:** error messages (→ alert) (hig:notifications#Best-practices); prompts for tasks in the app; advertising.
 
-**Kernregeln:**
-- Knapp und informativ; keine Mehrfach-Notifications zum selben Anlass (hig:notifications#Best-practices).
-- Keine sensiblen/vertraulichen Inhalte (hig:notifications#Best-practices).
-- Im Vordergrund dezent integrieren (Badge, Liste aktualisieren) statt zu unterbrechen (hig:notifications#Best-practices).
-- Titel kurz, Title Case, ohne Schlusspunkt; bei generischem Titel lieber App-Namen zeigen lassen (hig:notifications#Content).
-- Body in ganzen Sätzen, Sentence Case, nicht selbst kürzen; neutralen Platzhaltertext für ausgeblendete Vorschauen liefern (hig:notifications#Content).
-- App-Name/-Icon nicht in den Inhalt – das System zeigt sie (hig:notifications#Content).
-- Aktionen: nützlich, kurz (Title Case), mit Interface-Icon; keine „App öffnen“-Aktion; destruktive Aktionen vermeiden bzw. kennzeichnen (hig:notifications#Notification-actions).
-- Badge nur für Anzahl ungelesener Notifications, aktuell halten, nie als einzige Informationsquelle, keine badge-ähnlichen Eigenbauten (hig:notifications#Badging).
-- Sound optional, kurz und unverwechselbar; nie allein für wichtige Info verlassen (hig:notifications#Content).
+**Core rules:**
+- Concise and informative; no multiple notifications for the same occasion (hig:notifications#Best-practices).
+- No sensitive/confidential content (hig:notifications#Best-practices).
+- In the foreground, integrate subtly (badge, refresh a list) instead of interrupting (hig:notifications#Best-practices).
+- Short title, title case, without a closing period; with a generic title, rather let the app name be shown (hig:notifications#Content).
+- Body in complete sentences, sentence case, don't truncate it yourself; provide neutral placeholder text for hidden previews (hig:notifications#Content).
+- Don't put the app name/icon in the content – the system shows them (hig:notifications#Content).
+- Actions: useful, short (title case), with an interface icon; no "Open app" action; avoid or mark destructive actions (hig:notifications#Notification-actions).
+- Badge only for the number of unread notifications, keep it current, never as the only source of information, no custom badge-like elements (hig:notifications#Badging).
+- Sound optional, short and distinctive; never rely on it alone for important information (hig:notifications#Content).
 
-**Plattform-Besonderheiten:**
-- watchOS: Short Look (kurz, diskret, nichts Kritisches nur dort) → Long Look (scrollbar, statisch oder dynamisch; mindestens statische Variante mitliefern, dynamische bevorzugt); Sash oben anpassbar (Farbe/Blur), Dismiss-Button immer unten (hig:notifications#Short-looks, hig:notifications#Long-looks).
-- watchOS Double Tap führt die erste nicht-destruktive Aktion aus → häufigste Aktion zuerst (hig:notifications#Double-tap).
+**Platform specifics:**
+- watchOS: short look (brief, discreet, nothing critical only there) → long look (scrollable, static or dynamic; provide at least a static variant, dynamic preferred); sash at the top customizable (color/blur), Dismiss button always at the bottom (hig:notifications#Short-looks, hig:notifications#Long-looks).
+- watchOS double tap performs the first nondestructive action → most frequent action first (hig:notifications#Double-tap).
 
-**Kennwerte:** bis zu 4 Aktions-Buttons (Detailansicht; auch watchOS Long Look); Long-Look-Hintergrund wie Systemnotifications: Weiß mit 18 % Opazität (hig:notifications#Notification-actions, hig:notifications#Long-looks).
-**Umsetzung:** UserNotifications (`UNUserNotificationCenter`, `requestAuthorization`, `UNNotificationCategory`/`UNNotificationAction`, `hiddenPreviewsBodyPlaceholder`, `UNNotificationSound`); Custom UI: UserNotificationsUI `UNNotificationContentExtension`; watchOS: SwiftUI `WKNotificationScene`.
-**Typische Fehler:** Fehler als Notification; „Jetzt öffnen“-Aktion; Badge für Nicht-Notification-Zahlen; private Inhalte im Titel; Erinnerungs-Spam.
+**Key values:** up to 4 action buttons (detail view; also watchOS long look); long look background like system notifications: white at 18 % opacity (hig:notifications#Notification-actions, hig:notifications#Long-looks).
+**Implementation:** UserNotifications (`UNUserNotificationCenter`, `requestAuthorization`, `UNNotificationCategory`/`UNNotificationAction`, `hiddenPreviewsBodyPlaceholder`, `UNNotificationSound`); custom UI: UserNotificationsUI `UNNotificationContentExtension`; watchOS: SwiftUI `WKNotificationScene`.
+**Common mistakes:** errors as notifications; "Open now" action; badge for non-notification counts; private content in the title; reminder spam.
 
 ---
 
 ## Snippets
-**Zweck:** Kompakte Ansicht, die nach einer Aktion via Siri, Spotlight oder Shortcuts ein Ergebnis zeigt oder eine Bestätigung einholt. **Plattformen:** ios, ipados, macos. Nicht in tvOS, visionOS, watchOS.
+**Purpose:** Compact view that shows a result or requests confirmation after an action via Siri, Spotlight, or Shortcuts. **Platforms:** ios, ipados, macos. Not in tvOS, visionOS, watchOS.
 
-**Typen:** *Confirmation* (Bestätigen/Abbrechen, optional mit Optionen) und *Result* (Info ohne Folgeaktion); jedes Snippet-Intent endet mit Result, Confirmation ist optional (hig:snippets).
-**Anatomie:** Dialog (von Siri gesprochen, standardmäßig über der View) · Custom View (darf Buttons enthalten) · System-Buttons: Confirmation = Cancel + Primärbutton, Result = Done (hig:snippets#Anatomy).
+**Types:** *Confirmation* (confirm/cancel, optionally with options) and *Result* (information without a follow-up action); every snippet intent ends with a result, confirmation is optional (hig:snippets).
+**Anatomy:** dialog (spoken by Siri, shown above the view by default) · custom view (may contain buttons) · system buttons: confirmation = Cancel + primary button, result = Done (hig:snippets#Anatomy).
 
-**Verwenden, wenn:** leichte, schnelle Interaktion zu einer App-Aktion (Wetter, Bestellung bestätigen, Tagesziel).
-**Nicht verwenden, wenn:** umfangreiche Details nötig sind → Deep Link in die App (hig:snippets#Best-practices); fortlaufender Status → Live Activity.
+**Use when:** lightweight, quick interaction for an app action (weather, confirm an order, daily goal).
+**Don't use when:** extensive details are needed → deep link into the app (hig:snippets#Best-practices); ongoing status → Live Activity.
 
-**Kernregeln:**
-- Kontrast und einheitliche Ränder in Light und Dark prüfen (hig:snippets#Best-practices).
-- Inhalt knapp, Höhe ≤ 400 pt; Dynamic Type beim Textumfang bedenken (hig:snippets#Best-practices).
-- Primärbutton beschreibend beschriften („Bestellen“ statt „OK“); ohne Angabe heißt er „Continue“ (hig:snippets#Best-practices).
-- Zweck visuell vermitteln, Dialogtext aus der Darstellung möglichst weglassen – er ist für Audio-Nutzung da (hig:snippets#Best-practices).
+**Core rules:**
+- Check contrast and consistent margins in light and dark (hig:snippets#Best-practices).
+- Concise content, height ≤ 400 pt; consider Dynamic Type for the amount of text (hig:snippets#Best-practices).
+- Label the primary button descriptively ("Order" instead of "OK"); without a label it is called "Continue" (hig:snippets#Best-practices).
+- Convey the purpose visually, omit the dialog text from the visual presentation where possible – it's there for audio use (hig:snippets#Best-practices).
 
-**Plattform-Besonderheiten:** keine zusätzlichen (hig:snippets#Platform-considerations).
-**Kennwerte:** max. Höhe der Custom View 400 pt (hig:snippets#Best-practices).
-**Umsetzung:** App Intents (SwiftUI-View als Intent-Ergebnis, Bestätigung mit `ConfirmationActionName`); Details siehe „Displaying static and interactive snippets“.
-**Typische Fehler:** zu hohe Views (abgeschnitten); „OK“-Primärbutton; Dialogtext als einzige Bedeutungsquelle.
+**Platform specifics:** no additional ones (hig:snippets#Platform-considerations).
+**Key values:** max. height of the custom view 400 pt (hig:snippets#Best-practices).
+**Implementation:** App Intents (SwiftUI view as the intent result, confirmation with `ConfirmationActionName`); for details see "Displaying static and interactive snippets".
+**Common mistakes:** views too tall (clipped); "OK" primary button; dialog text as the only source of meaning.
 
 ---
 
 ## Status bars
-**Zweck:** Leiste am oberen Bildschirmrand mit Gerätestatus (Uhrzeit, Netz, Akku). **Plattformen:** ios, ipados. Nicht in macOS, tvOS, visionOS, watchOS.
+**Purpose:** Bar at the top edge of the screen with device status (time, network, battery). **Platforms:** ios, ipados. Not in macOS, tvOS, visionOS, watchOS.
 
-**Verwenden/Nicht verwenden:** systemgegeben; Entscheidung betrifft nur Lesbarkeit und temporäres Ausblenden.
+**Use/don't use:** provided by the system; the decision concerns only legibility and temporary hiding.
 
-**Kernregeln:**
-- Inhalt unter der Statusleiste abdecken, damit sie lesbar bleibt und nichts interaktiv wirkt; bevorzugt Scroll-Edge-Effekt mit Blur (hig:status-bars#Best-practices).
-- Bei Vollbild-Medien temporär ausblenden (hig:status-bars#Best-practices).
-- Nie dauerhaft ausblenden; einfache, auffindbare Geste zum Wiedereinblenden (z. B. Tap) (hig:status-bars#Best-practices).
+**Core rules:**
+- Obscure content under the status bar so it stays legible and nothing appears interactive; preferably a scroll edge effect with blur (hig:status-bars#Best-practices).
+- Hide temporarily for full-screen media (hig:status-bars#Best-practices).
+- Never hide permanently; a simple, discoverable gesture to show it again (e.g. tap) (hig:status-bars#Best-practices).
 
-**Plattform-Besonderheiten:** keine zusätzlichen.
-**Kennwerte:** keine im Spiegel.
-**Umsetzung:** SwiftUI `statusBarHidden(_:)`, `ScrollEdgeEffectStyle`; UIKit `preferredStatusBarStyle`, `UIStatusBarStyle`, `prefersStatusBarHidden`, `UIScrollEdgeEffect`.
-**Typische Fehler:** Controls hinter transparenter Statusleiste; permanent versteckte Statusleiste.
+**Platform specifics:** no additional ones.
+**Key values:** none in the mirror.
+**Implementation:** SwiftUI `statusBarHidden(_:)`, `ScrollEdgeEffectStyle`; UIKit `preferredStatusBarStyle`, `UIStatusBarStyle`, `prefersStatusBarHidden`, `UIScrollEdgeEffect`.
+**Common mistakes:** controls behind a transparent status bar; permanently hidden status bar.
 
 ---
 
 ## Top Shelf
-**Zweck:** Bereich auf dem Apple-TV-Home-Screen, der Inhalte der App im Dock prominent zeigt. **Plattformen:** nur tvos (außerhalb des Fokus dieses Plugins).
+**Purpose:** Area on the Apple TV Home Screen that prominently shows the app's content in the Dock. **Platforms:** tvos only (outside the focus of this plugin).
 
-**Kernregeln:**
-- Direkt in Inhalte führen (Play + More Info bei Carousel-Layouts) und Neues statt bereits Gesehenes zeigen (hig:top-shelf#Best-practices).
-- Keine Werbung/Preise; dynamische, geschichtete Bilder bevorzugen (hig:top-shelf#Best-practices).
-- Mindestens ein statisches Fallback-Bild (2320×720 pt) liefern, das nicht interaktiv wirkt (hig:top-shelf#Best-practices).
-- Scrolling Inset Banner: 3–8 Bilder, Text ins Bild + Accessibility-Label (hig:top-shelf#Scrolling-inset-banner).
+**Core rules:**
+- Lead directly into content (Play + More Info in carousel layouts) and show new content rather than already watched content (hig:top-shelf#Best-practices).
+- No advertising/prices; prefer dynamic, layered images (hig:top-shelf#Best-practices).
+- Provide at least one static fallback image (2320×720 pt) that doesn't appear interactive (hig:top-shelf#Best-practices).
+- Scrolling inset banner: 3–8 images, text in the image + accessibility label (hig:top-shelf#Scrolling-inset-banner).
 
-**Kennwerte:** Bildgrößen je Layout siehe (hig:top-shelf#Sectioned-content-row), (hig:top-shelf#Scrolling-inset-banner).
+**Key values:** image sizes per layout see (hig:top-shelf#Sectioned-content-row), (hig:top-shelf#Scrolling-inset-banner).
 
 ---
 
 ## Watch faces
-**Zweck:** Vom Nutzer gewählte Hauptansicht der Apple Watch; Apps können konfigurierte, teilbare Zifferblätter mit ihren Complications anbieten. **Plattformen:** watchos (nur).
+**Purpose:** The user-chosen main view of Apple Watch; apps can offer configured, shareable watch faces with their complications. **Platforms:** watchos (only).
 
-**Verwenden, wenn:** die App mehrere Complications hat und ein kuratiertes, vorkonfiguriertes Erlebnis die Entdeckung fördert (hig:watch-faces#Best-practices).
-**Nicht verwenden, wenn:** nur eine einzelne, kaum nützliche Complication existiert.
+**Use when:** the app has multiple complications and a curated, preconfigured experience promotes discovery (hig:watch-faces#Best-practices).
+**Don't use when:** only a single, barely useful complication exists.
 
-**Kernregeln:**
-- Teile Zifferblätter, die deine Complications zeigen (ggf. mit Akzentfarbe, Bildern, Stilen); fehlt die App, fordert das System zur Installation auf (hig:watch-faces#Best-practices).
-- Zeige eine Vorschau je geteiltem Zifferblatt (Bezel illustriert oder aus Apple Design Resources) (hig:watch-faces#Best-practices).
-- Biete Varianten für alle Geräte; manche Faces erst ab Series 4 (Explorer ab Series 3 mit Cellular) – Geräte kennzeichnen (hig:watch-faces#Best-practices).
-- Bei inkompatiblem Face sofort eine kompatible Alternative anbieten statt Fehler zu zeigen (hig:watch-faces#Best-practices).
+**Core rules:**
+- Share watch faces that show your complications (possibly with accent color, images, styles); if the app is missing, the system prompts for installation (hig:watch-faces#Best-practices).
+- Show a preview for each shared watch face (bezel illustrated or from Apple Design Resources) (hig:watch-faces#Best-practices).
+- Offer variants for all devices; some faces only from Series 4 (Explorer from Series 3 with cellular) – indicate the devices (hig:watch-faces#Best-practices).
+- For an incompatible face, immediately offer a compatible alternative instead of showing an error (hig:watch-faces#Best-practices).
 
-**Plattform-Besonderheiten:** nur watchOS; Teilen ab watchOS 7 (hig:watch-faces).
-**Kennwerte:** keine im Spiegel.
-**Umsetzung:** ClockKit `CLKWatchFaceLibrary` („Sharing an Apple Watch face“).
-**Typische Fehler:** Face nur für neue Modelle ohne Alternative; Fehlermeldung statt Fallback; keine Vorschau.
+**Platform specifics:** watchOS only; sharing from watchOS 7 (hig:watch-faces).
+**Key values:** none in the mirror.
+**Implementation:** ClockKit `CLKWatchFaceLibrary` ("Sharing an Apple Watch face").
+**Common mistakes:** face only for new models without an alternative; error message instead of fallback; no preview.
 
 ---
 
 ## Widgets
-**Zweck:** Bietet glanceable, zeitnahe Inhalte und fokussierte Interaktionen der App auf Home/Lock Screen, Desktop, Smart Stack u. a. **Plattformen:** ios, ipados, macos, watchos (auch visionos; Apple HomeView laut Spiegel). Nicht in tvOS.
+**Purpose:** Offers glanceable, timely content and focused interactions of the app on the Home/Lock Screen, desktop, Smart Stack, and more. **Platforms:** ios, ipados, macos, watchos (also visionos; Apple HomeView according to the mirror). Not in tvOS.
 
-**Familien:** System small/medium/large/extra large (iPad, Mac, visionOS)/extra large portrait (nur visionOS); Accessory circular/rectangular/inline (Lock Screen iPhone/iPad, Watch), corner (nur Watch) (hig:widgets#System-family-widgets, hig:widgets#Accessory-widgets).
-**Rendering modes:** full-color, accented (Akzent-/Primärgruppe, Tinted/Clear-Darstellung mit Liquid Glass), vibrant (Lock Screen, StandBy-Nacht, Mac-Desktop) (hig:widgets#Appearances, hig:widgets#Rendering-modes).
+**Families:** system small/medium/large/extra large (iPad, Mac, visionOS)/extra large portrait (visionOS only); accessory circular/rectangular/inline (Lock Screen iPhone/iPad, Watch), corner (Watch only) (hig:widgets#System-family-widgets, hig:widgets#Accessory-widgets).
+**Rendering modes:** full-color, accented (accent/primary group, tinted/clear appearance with Liquid Glass), vibrant (Lock Screen, StandBy night, Mac desktop) (hig:widgets#Appearances, hig:widgets#Rendering-modes).
 
-**Verwenden, wenn:** einfache, zum App-Hauptzweck passende Info, die sich im Tagesverlauf ändert, plus Deep Links/einfache Aktionen (hig:widgets#Best-practices).
-**Nicht verwenden, wenn:** Echtzeit-Updates nötig (→ Live Activity) (hig:widgets#iOS-iPadOS); nur App-Icon-Ersatz; App-artige Komplexität.
+**Use when:** simple information matching the app's main purpose that changes over the day, plus deep links/simple actions (hig:widgets#Best-practices).
+**Don't use when:** real-time updates are needed (→ Live Activity) (hig:widgets#iOS-iPadOS); just an app icon substitute; app-like complexity.
 
-**Kernregeln:**
-- Eine Idee je Widget; Größen nur anbieten, wenn sie Mehrwert bringen – kleinen Inhalt nicht aufblasen (hig:widgets#Best-practices).
-- Informationsdichte ausbalancieren; nur Inhalte zum Hauptzweck (hig:widgets#Best-practices).
-- Marke dezent; Logo höchstens klein oben rechts (hig:widgets#Best-practices).
-- Datum/Zeit vom System aktualisieren lassen; Stand-Zeitpunkt anzeigen, wenn Updates seltener sind als Blicke (hig:widgets#Updating-widget-content).
-- Interaktion: wenige, ausreichend große Ziele (Buttons/Toggles); Tap öffnet die App an der passenden Stelle (hig:widgets#Adding-interactivity).
-- Standardränder nutzen, Eckenradius per `ContainerRelativeShape` angleichen (hig:widgets#Choosing-margins-and-padding).
-- Systemschrift, Text Styles, SF Symbols; Text nie rastern (hig:widgets#Displaying-text-in-widgets).
-- Bedeutung nie nur über Farbe; Vollfarbbilder sparsam (z. B. Album-Art) (hig:widgets#Using-color).
-- Accented: Views in Akzent- und Primärgruppe teilen; Vibrant: opake Graustufen statt Weiß-Opazitäten (hig:widgets#Rendering-modes).
-- Realistische Gallery-Vorschau, erkennbare Placeholder, eine Beschreibung pro Widget (beginnt mit Verb), Größen gruppieren (hig:widgets#Previews-and-placeholders).
+**Core rules:**
+- One idea per widget; offer sizes only if they add value – don't inflate small content (hig:widgets#Best-practices).
+- Balance information density; only content related to the main purpose (hig:widgets#Best-practices).
+- Subtle branding; logo at most small in the top right (hig:widgets#Best-practices).
+- Let the system update dates/times; show the as-of time when updates are less frequent than glances (hig:widgets#Updating-widget-content).
+- Interaction: few, sufficiently large targets (buttons/toggles); a tap opens the app at the appropriate place (hig:widgets#Adding-interactivity).
+- Use standard margins, match the corner radius via `ContainerRelativeShape` (hig:widgets#Choosing-margins-and-padding).
+- System font, text styles, SF Symbols; never rasterize text (hig:widgets#Displaying-text-in-widgets).
+- Never convey meaning by color alone; use full-color images sparingly (e.g. album art) (hig:widgets#Using-color).
+- Accented: split views into accent and primary groups; vibrant: opaque grayscale instead of white opacities (hig:widgets#Rendering-modes).
+- Realistic gallery preview, recognizable placeholders, one description per widget (starting with a verb), group sizes (hig:widgets#Previews-and-placeholders).
 
-**Plattform-Besonderheiten:**
-- iOS/iPadOS: Lock-Screen-Widgets folgen zusätzlich den Complication-Prinzipien (inline über, circular/rectangular unter der Uhr); Always-On mit ausreichend Grau-Kontrast; StandBy/CarPlay = small ohne Hintergrund, hochskaliert → Hintergrund als removable markieren, wenig Bild/Farbe, große Schrift; StandBy-Nacht = Rot-Tint (hig:widgets#iOS-iPadOS, hig:widgets#StandBy-and-CarPlay).
-- macOS: keine zusätzlichen Hinweise; Desktop nutzt kleinere Ränder und Vibrant-Darstellung (hig:widgets#Choosing-margins-and-padding, hig:widgets#Appearances).
-- watchOS: Smart Stack standardmäßig schwarzer Hintergrund – bedeutungstragende Hintergrundfarbe erwägen; Relevanz (Ort, Workout) via RelevanceKit liefern (hig:widgets#watchOS).
-- visionOS (Randthema): 3D-Objekt auf Flächen, zwei Detailstufen (simplified/default), Mounting elevated/recessed, Treatment paper/glass (hig:widgets#visionOS).
+**Platform specifics:**
+- iOS/iPadOS: Lock Screen widgets additionally follow the complication principles (inline above, circular/rectangular below the clock); Always On with sufficient gray contrast; StandBy/CarPlay = small without background, scaled up → mark the background as removable, little image/color, large text; StandBy night = red tint (hig:widgets#iOS-iPadOS, hig:widgets#StandBy-and-CarPlay).
+- macOS: no additional guidance; the desktop uses smaller margins and the vibrant appearance (hig:widgets#Choosing-margins-and-padding, hig:widgets#Appearances).
+- watchOS: Smart Stack black background by default – consider a meaningful background color; provide relevance (location, workout) via RelevanceKit (hig:widgets#watchOS).
+- visionOS (peripheral topic): 3D object on surfaces, two levels of detail (simplified/default), mounting elevated/recessed, treatment paper/glass (hig:widgets#visionOS).
 
-**Kennwerte:**
-- Standardrand 16 pt, enger 11 pt für Gruppierungen; Mac-Desktop/Lock Screen kleiner (hig:widgets#Choosing-margins-and-padding).
-- Schrift ≥ 11 pt; Dynamic Type Large bis AX5 (iOS, iPadOS, visionOS) (hig:widgets#Displaying-text-in-widgets).
-- Update-Animationen bis 2 s (hig:widgets#Updating-widget-content).
-- Inline-Accessory: nur ein Tap-Ziel (hig:widgets#Adding-interactivity).
-- iPhone (Auszug, pt): 430×932 → small 170×170, medium 364×170, large 364×382, circular 76×76, rectangular 172×76, inline 257×26; 393×852 → 158×158, 338×158, 338×354, 72×72, 160×72, 234×26. Volle iPhone/iPad-Tabellen: (hig:widgets#Specifications).
+**Key values:**
+- Default margin 16 pt, tighter 11 pt for groupings; Mac desktop/Lock Screen smaller (hig:widgets#Choosing-margins-and-padding).
+- Text ≥ 11 pt; Dynamic Type Large to AX5 (iOS, iPadOS, visionOS) (hig:widgets#Displaying-text-in-widgets).
+- Update animations up to 2 s (hig:widgets#Updating-widget-content).
+- Inline accessory: only one tap target (hig:widgets#Adding-interactivity).
+- iPhone (excerpt, pt): 430×932 → small 170×170, medium 364×170, large 364×382, circular 76×76, rectangular 172×76, inline 257×26; 393×852 → 158×158, 338×158, 338×354, 72×72, 160×72, 234×26. Full iPhone/iPad tables: (hig:widgets#Specifications).
 - Watch Smart Stack (pt): 40 mm 152×69.5 · 41 mm 165×72.5 · 42 mm 176×72.5 · 44 mm 173×76.5 · 45 mm 184×80.5 · 46 mm 194×80.5 · 49 mm Ultra 3/4 198×81.5 · Ultra 1/2 191×81.5 (hig:widgets#watchOS-dimensions).
-- visionOS: Skalierung 75–125 % durch Nutzer (hig:widgets#Thresholds-and-sizes).
+- visionOS: scaling 75–125 % by the user (hig:widgets#Thresholds-and-sizes).
 
-**Umsetzung:** WidgetKit + SwiftUI: `Widget`, `StaticConfiguration`/`AppIntentConfiguration`, `TimelineProvider`, `supportedFamilies`, `containerBackground(for:)`/`containerBackgroundRemovable`, `widgetAccentable(_:)`, `widgetRenderingMode` (Environment), `Button(intent:)`/`Toggle(isOn:intent:)`, `Link`/`widgetURL`, `Text(_:style:)` für Zeitangaben, `supportedMountingStyles(_:)` (visionOS).
-**Typische Fehler:** Widget = App-Icon-Kopie; zu dicht/App-artig; statischer Inhalt; Bedeutung nur über Farbe (bricht in Tinted/Vibrant); Text unter 11 pt; Widget-Optik in der App nachgebaut (hig:widgets#Best-practices).
-**Hinweis:** „Apple HomeView“ (small-Widgets, Modular face bis 4 Widgets) ist laut Spiegel ein Update vom 2026-10-13 – keine weiteren Belege außerhalb dieser Seite (hig:widgets#Apple-HomeView).
+**Implementation:** WidgetKit + SwiftUI: `Widget`, `StaticConfiguration`/`AppIntentConfiguration`, `TimelineProvider`, `supportedFamilies`, `containerBackground(for:)`/`containerBackgroundRemovable`, `widgetAccentable(_:)`, `widgetRenderingMode` (environment), `Button(intent:)`/`Toggle(isOn:intent:)`, `Link`/`widgetURL`, `Text(_:style:)` for times, `supportedMountingStyles(_:)` (visionOS).
+**Common mistakes:** widget = copy of the app icon; too dense/app-like; static content; meaning only via color (breaks in tinted/vibrant); text below 11 pt; widget look replicated in the app (hig:widgets#Best-practices).
+**Note:** "Apple HomeView" (small widgets, Modular face up to 4 widgets) is, according to the mirror, an update from 2026-10-13 – no further sources outside this page (hig:widgets#Apple-HomeView).

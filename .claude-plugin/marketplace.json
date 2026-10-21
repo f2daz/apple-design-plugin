@@ -1,6 +1,6 @@
 {
   "name": "apple-design-plugin",
-  "description": "Apple-Design-Plugin: Human Interface Guidelines, SF Symbols und Apple Design Resources für iOS, iPadOS, macOS und watchOS.",
+  "description": "Apple design plugin: Human Interface Guidelines, SF Symbols and Apple Design Resources for iOS, iPadOS, macOS and watchOS.",
   "owner": {
     "name": "f2daz",
     "url": "https://github.com/f2daz"
@@ -9,8 +9,8 @@
     {
       "name": "apple-design",
       "source": "./",
-      "description": "Apple Human Interface Guidelines, SF Symbols und Apple Design Resources als geführter Design-Workflow für iOS, iPadOS, macOS und watchOS.",
-      "version": "0.1.0"
+      "description": "Apple Human Interface Guidelines, SF Symbols and Apple Design Resources as a guided design workflow for iOS, iPadOS, macOS and watchOS.",
+      "version": "0.2.0"
     }
   ]
 }

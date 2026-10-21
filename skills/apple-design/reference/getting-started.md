@@ -1,105 +1,105 @@
-# Getting started – Design principles und Plattform-Grundlagen
+# Getting started – Design principles and platform fundamentals
 
-Verdichtete Referenz zur HIG-Section „Getting started“: Design principles, „Designing for …“-Seiten je Plattform, Games, iPhone Duo. Quelle: lokaler HIG-Spiegel (`~/.apple-design/hig/pages/`, Sync 2026-10-21). Belege als `(hig:<slug>)` bzw. `(hig:<slug>#Anker)`. Alles paraphrasiert.
+Condensed reference for the HIG section "Getting started": Design principles, the "Designing for …" pages per platform, Games, iPhone Duo. Source: local HIG mirror (`~/.apple-design/hig/pages/`, sync 2026-10-21). Sources cited as `(hig:<slug>)` or `(hig:<slug>#Anchor)`. Everything is paraphrased.
 
-## Inhalt
+## Contents
 
 1. [Design principles](#design-principles)
-2. [Plattformvergleich iOS / iPadOS / macOS / watchOS](#plattformvergleich-ios--ipados--macos--watchos)
+2. [Platform comparison iOS / iPadOS / macOS / watchOS](#platform-comparison-ios--ipados--macos--watchos)
 3. [Designing for iOS](#designing-for-ios)
 4. [Designing for iPadOS](#designing-for-ipados)
 5. [Designing for macOS](#designing-for-macos)
 6. [Designing for watchOS](#designing-for-watchos)
 7. [iPhone Duo](#iphone-duo)
 8. [Designing for games](#designing-for-games)
-9. [tvOS und visionOS (kurz)](#tvos-und-visionos-kurz)
-10. [Auffälligkeiten und Unklarheiten](#auffälligkeiten-und-unklarheiten)
+9. [tvOS and visionOS (brief)](#tvos-and-visionos-brief)
+10. [Observations and ambiguities](#observations-and-ambiguities)
 
 ---
 
 ## Design principles
 
-Stand im Spiegel: Seite am **2026-06-08** „wieder eingeführt“ (hig:design-principles). Die HIG nennt **acht** Prinzipien. Sie sind keine Rezepte, sondern Werkzeuge zum Abwägen konkurrierender Prioritäten (hig:design-principles).
+Status in the mirror: page "reintroduced" on **2026-06-08** (hig:design-principles). The HIG names **eight** principles. They are not recipes but tools for weighing competing priorities (hig:design-principles).
 
-> Hinweis: Begriffe wie „Hierarchy, Harmony, Consistency“ kommen im Spiegel **nicht** als Prinzipien-Überschriften vor. „Hierarchie herstellen“ und „Konsistenz“ erscheinen nur als Einzelregeln unter Simplicity bzw. Familiarity. Wer auf diese Trias verweist, bezieht sich auf eine andere (ältere/andere) Quelle.
+> Note: Terms like "Hierarchy, Harmony, Consistency" do **not** appear as principle headings in the mirror. "Establish hierarchy" and "consistency" appear only as individual rules under Simplicity and Familiarity respectively. Anyone referring to this triad is relying on a different (older/other) source.
 
-| Prinzip | Leitsatz (paraphrasiert) | Kern |
+| Principle | Guiding statement (paraphrased) | Core |
 |---|---|---|
-| Purpose | Etwas Bedeutsames schaffen | Was ist den Menschen wichtig – das großartig machen |
-| Agency | Menschen auf ihre Art handeln lassen | Freiheit, informiert halten, Fehler leicht korrigierbar |
-| Responsibility | Im Interesse der Menschen handeln | Sicherheit, Privatsphäre, Transparenz |
-| Familiarity | Auf Bekanntem aufbauen | Etablierte physische/digitale Muster, konsistent angewendet |
-| Flexibility | Sich an Kontexte und Bedürfnisse anpassen | Viele Geräte, Eingaben, Perspektiven unterstützen |
-| Simplicity | Klar und direkt sein | Unnötiges entfernen, logisch strukturiert |
-| Craft | Sich um jedes Detail kümmern | Qualität als Haltung |
-| Delight | Menschlich gestalten | Passende Emotion, angenehm im Gebrauch |
+| Purpose | Create something meaningful | What matters to people – make that great |
+| Agency | Let people act their own way | Freedom, keep people informed, mistakes easy to correct |
+| Responsibility | Act in people's interest | Safety, privacy, transparency |
+| Familiarity | Build on the familiar | Established physical/digital patterns, applied consistently |
+| Flexibility | Adapt to contexts and needs | Support many devices, inputs, perspectives |
+| Simplicity | Be clear and direct | Remove the unnecessary, structure logically |
+| Craft | Care about every detail | Quality as an attitude |
+| Delight | Design for humans | Fitting emotion, pleasant to use |
 
-### Regeln je Prinzip
+### Rules per principle
 
 **Purpose** (hig:design-principles#Purpose)
-- Schaffe Wert: Prüfe in jeder Phase, wofür das Produkt da ist und ob das Design dem dient.
-- Bleib fokussiert: Wichtigste Features priorisieren und exzellent machen.
-- Löse Probleme neu: Bestehende Lösungen nicht nachbauen; Alleinstellung herausarbeiten.
+- Create value: at every stage, check what the product is for and whether the design serves that.
+- Stay focused: prioritize the most important features and make them excellent.
+- Solve problems anew: don't copy existing solutions; work out what makes yours distinctive.
 
 **Agency** (hig:design-principles#Agency)
-- Steh nicht im Weg: Direkt zur Aufgabe/zum Inhalt führen; unaufdringlich, aber präsent wenn nötig.
-- Freiheit zum Erkunden: Keine erzwungenen Flows/Modi; geführte Flows überspringbar machen.
-- Fehler korrigierbar machen: Rückgängig/Zurück muss leicht sein und darf keine Arbeit kosten.
+- Don't get in the way: lead directly to the task/content; unobtrusive, but present when needed.
+- Freedom to explore: no forced flows/modes; make guided flows skippable.
+- Make mistakes correctable: undo/back must be easy and must not cost any work.
 
 **Responsibility** (hig:design-principles#Responsibility)
-- Transparent sein: Absicht der App von Anfang an klar; Berechtigungsanfragen begründen; Datenerhebung offenlegen.
-- Daten schützen: Nur Nötiges erheben; Missbrauch antizipieren und verhindern.
+- Be transparent: make the app's intent clear from the start; justify permission requests; disclose data collection.
+- Protect data: collect only what's needed; anticipate and prevent misuse.
 
 **Familiarity** (hig:design-principles#Familiarity)
-- Bekannte Konzepte nutzen (reale Welt, andere Software).
-- Visuelles und Interaktion konsistent halten – einmal festgelegtes Verhalten überall gleich.
-- Klares Feedback: Verfügbarkeit von Controls, Inhaltsänderungen zeigen; System-Patterns für Alerts und Auswahl nutzen.
+- Use familiar concepts (real world, other software).
+- Keep visuals and interaction consistent – once a behavior is defined, it's the same everywhere.
+- Clear feedback: show control availability and content changes; use system patterns for alerts and selection.
 
 **Flexibility** (hig:design-principles#Flexibility)
-- Für alle gestalten; Accessibility von Anfang an priorisieren; inklusiv.
-- Kontext bewahren: Inhalte/Controls an konsistenten, vorhersehbaren Positionen über Plattformen und Konfigurationen; natürliche Übergangsanimationen.
-- Viele Eingabemethoden berücksichtigen (Voice, Touch, Keyboard …).
-- Jede Plattform mit gleicher Sorgfalt behandeln.
+- Design for everyone; prioritize accessibility from the start; be inclusive.
+- Preserve context: content/controls in consistent, predictable positions across platforms and configurations; natural transition animations.
+- Account for many input methods (voice, touch, keyboard …).
+- Treat every platform with the same care.
 
 **Simplicity** (hig:design-principles#Simplicity)
-- Nur Notwendiges – Einfachheit ist nicht Minimalismus.
-- Knapp formulieren; exakt die nötigen Worte für Konzepte und Labels.
-- Hierarchie herstellen: erkennbare Controls, konsistente Struktur, die zeigt, wo man ist und was als Nächstes kommt.
+- Only what's essential – simplicity is not minimalism.
+- Be concise; use exactly the words needed for concepts and labels.
+- Establish hierarchy: recognizable controls, consistent structure that shows where you are and what comes next.
 
 **Craft** (hig:design-principles#Craft)
-- Qualität setzt den Ton (Visuals, Animation, Wortwahl, Audio).
-- Früh prototypen, iterieren, Verworfenes loslassen; im realen Umfeld testen.
-- Pflege nach Release: aktuelle Plattformfähigkeiten und Patterns übernehmen.
+- Quality sets the tone (visuals, animation, wording, audio).
+- Prototype early, iterate, let go of what's discarded; test in the real environment.
+- Maintenance after release: adopt current platform capabilities and patterns.
 
 **Delight** (hig:design-principles#Delight)
-- Zielemotion bestimmen (Fitness: energetisch, Meditation: beruhigend, Spiel: spannend).
-- Prägende Momente gestalten – vom Button-Druck bis zur Fehlermeldung.
-- Delight ist keine Dekoration; die Aufgabe hat Vorrang.
-- Delight entsteht aus der Summe: Handlungsfreiheit, Sicherheit beim Erkunden, vertraute Metaphern, flexible Kontextwechsel.
+- Define the target emotion (fitness: energizing, meditation: calming, game: exciting).
+- Design defining moments – from a button press to an error message.
+- Delight is not decoration; the task takes precedence.
+- Delight comes from the sum: freedom to act, confidence while exploring, familiar metaphors, flexible context switches.
 
 ---
 
-## Plattformvergleich iOS / iPadOS / macOS / watchOS
+## Platform comparison iOS / iPadOS / macOS / watchOS
 
-Grundlage: jeweilige „Designing for …“-Seite. Abstände so, wie die Seiten sie angeben (Fuß-Angaben im Original; 1 ft ≈ 0,3 m).
+Basis: the respective "Designing for …" page. Distances as the pages state them (feet in the original; 1 ft ≈ 0.3 m).
 
-| Merkmal | iOS (iPhone) | iPadOS | macOS | watchOS |
+| Attribute | iOS (iPhone) | iPadOS | macOS | watchOS |
 |---|---|---|---|---|
-| Display | mittelgroß, hochauflösend | groß, hochauflösend | typ. groß, hochauflösend; erweiterbar um weitere Displays inkl. iPad | klein, am Handgelenk, hochauflösend; Always On |
-| Haltung/Ergonomie | ein- oder beidhändig, Hoch-/Querformat | gehalten, auf Fläche oder Ständer | stationär auf Tisch | getragen; Handgelenk heben, andere Hand bedient |
-| Sehabstand | höchstens ein bis zwei Fuß | meist innerhalb etwa 3 Fuß | etwa 1 bis 3 Fuß | höchstens ca. ein Fuß |
-| Primäre Eingabe | Multi-Touch, virtuelles Keyboard, Voice | Multi-Touch, virtuelles Keyboard; zusätzlich Hardware-Keyboard, Pointer, Apple Pencil, Voice – oft kombiniert | physisches Keyboard, Pointing device, Game controls, Siri | Digital Crown (vertikale Navigation, Daten inspizieren), Tap/Swipe/Drag, Action button, Shortcuts |
-| Sensorik/Daten | Gyro/Accelerometer, persönliche Daten, Nearby interactions | – (nicht separat genannt) | – | GPS, Blutsauerstoff, Herzsensoren, Höhenmesser, Accelerometer, Gyro |
-| Typische Session | 1–2 Minuten (Updates, Nachrichten) bis über eine Stunde (Web, Spiele, Medien) | wenige schnelle Aktionen bis stundenlange Vertiefung (Spiele, Medien, Kreation, Produktivität) | wenige Minuten bis mehrere Stunden konzentrierter Arbeit | Blicke, oft unter einer Minute; viele Male am Tag |
-| Multitasking | mehrere Apps offen, häufiges Wechseln | mehrere Apps gleichzeitig sichtbar, Drag and drop zwischen Apps | viele Apps parallel, fließende Aktiv-/Inaktiv-Wechsel | Complications, Notifications, Siri oft wichtiger als die App selbst |
-| Navigation (Best practices) | wenige Controls, Sekundäres auffindbar; Bedienung im mittleren/unteren Bereich; Swipe zurück, Swipe-Aktionen in Zeilen | großen Screen für Inhalt nutzen, wenig Modalität und Vollbild-Übergänge; Controls erreichbar, nicht im Weg | mehr Inhalt in weniger Ebenen, weniger Modalität; Menüleiste mit allen Befehlen; Fenster frei skalierbar | flache Hierarchie, Single-Screen-Interaktionen; Crown für vertikales Scrollen/Wechseln |
-| Systemfeatures (laut Seite) | Widgets, Home Screen quick actions, Spotlight, Shortcuts, Activity views | Multitasking, Widgets, Drag and drop | Menu bar, File management, Going full screen, Dock menus | Complications, Notifications, Always On, Watch faces |
+| Display | medium-size, high-resolution | large, high-resolution | typically large, high-resolution; extendable with additional displays incl. iPad | small, on the wrist, high-resolution; Always On |
+| Posture/ergonomics | one- or two-handed, portrait/landscape | handheld, on a surface or stand | stationary on a desk | worn; raise the wrist, other hand operates |
+| Viewing distance | no more than one to two feet | mostly within about 3 feet | about 1 to 3 feet | no more than about one foot |
+| Primary input | Multi-Touch, virtual keyboard, voice | Multi-Touch, virtual keyboard; additionally hardware keyboard, pointer, Apple Pencil, voice – often combined | physical keyboard, pointing device, game controls, Siri | Digital Crown (vertical navigation, inspecting data), tap/swipe/drag, Action button, Shortcuts |
+| Sensors/data | gyro/accelerometer, personal data, nearby interactions | – (not mentioned separately) | – | GPS, blood oxygen, heart sensors, altimeter, accelerometer, gyro |
+| Typical session | 1–2 minutes (updates, messages) to over an hour (web, games, media) | a few quick actions to hours of immersion (games, media, creation, productivity) | a few minutes to several hours of focused work | glances, often under a minute; many times a day |
+| Multitasking | several apps open, frequent switching | several apps visible at once, drag and drop between apps | many apps in parallel, fluid active/inactive switching | complications, notifications, Siri often more important than the app itself |
+| Navigation (best practices) | few controls, secondary items discoverable; interaction in the middle/bottom area; swipe back, swipe actions in rows | use the large screen for content, little modality and few full-screen transitions; controls reachable, not in the way | more content in fewer levels, less modality; menu bar with all commands; freely resizable windows | flat hierarchy, single-screen interactions; Crown for vertical scrolling/switching |
+| System features (per page) | Widgets, Home Screen quick actions, Spotlight, Shortcuts, Activity views | Multitasking, Widgets, Drag and drop | Menu bar, File management, Going full screen, Dock menus | Complications, Notifications, Always On, Watch faces |
 
-Belege: (hig:designing-for-ios), (hig:designing-for-ipados), (hig:designing-for-macos), (hig:designing-for-watchos).
+Sources: (hig:designing-for-ios), (hig:designing-for-ipados), (hig:designing-for-macos), (hig:designing-for-watchos).
 
-Mindestgrößen (aus Spiele-Sicht, gelten laut Seite plattformweit als Empfehlung; hig:designing-for-games#Look-stunning-on-every-display):
+Minimum sizes (from the games perspective; per the page, they apply platform-wide as a recommendation; hig:designing-for-games#Look-stunning-on-every-display):
 
-| Plattform | Text Standard / Minimum | Button Standard / Minimum |
+| Platform | Text default / minimum | Button default / minimum |
 |---|---|---|
 | iOS, iPadOS | 17 pt / 11 pt | 44x44 pt / 28x28 pt |
 | macOS | 13 pt / 10 pt | 28x28 pt / 20x20 pt |
@@ -111,102 +111,102 @@ Mindestgrößen (aus Spiele-Sicht, gelten laut Seite plattformweit als Empfehlun
 
 ## Designing for iOS
 
-Kontext: iPhone als Begleiter unterwegs – verbunden bleiben, spielen, Medien, Aufgaben, persönliche Daten (hig:designing-for-ios).
+Context: iPhone as a companion on the go – staying connected, gaming, media, tasks, personal data (hig:designing-for-ios).
 
-- Konzentriere auf Primäraufgabe und Inhalt: wenige Controls auf dem Screen, Sekundäres mit minimaler Interaktion erreichbar.
-- Passe dich nahtlos an Orientierung, Dark Mode und Dynamic Type an; Nutzer wählen die Konfiguration.
-- Gestalte für die Haltung: Controls in Mitte/unten sind leichter erreichbar; Swipe zum Zurücknavigieren und für Zeilen-Aktionen ist besonders wichtig.
-- Nutze mit Erlaubnis Plattformdaten statt Eingaben zu verlangen (Apple Pay, biometrische Authentifizierung, Standort).
+- Focus on the primary task and content: few controls on screen, secondary items reachable with minimal interaction.
+- Adapt seamlessly to orientation, Dark Mode, and Dynamic Type; people choose the configuration.
+- Design for how the device is held: controls in the middle/bottom are easier to reach; swiping to navigate back and for row actions is especially important.
+- With permission, use platform data instead of requiring input (Apple Pay, biometric authentication, location).
 
-(alle: hig:designing-for-ios#Best-practices)
+(all: hig:designing-for-ios#Best-practices)
 
 ## Designing for iPadOS
 
-Kontext: Leistung, Mobilität, Flexibilität – Medien, Spiele, detaillierte Produktivität, Kreation (hig:designing-for-ipados).
+Context: power, mobility, flexibility – media, games, detailed productivity, creation (hig:designing-for-ipados).
 
-- Nutze den großen Screen für Inhalte; minimiere modale Interfaces und Vollbild-Übergänge; Controls erreichbar, aber nicht im Weg.
-- Bestimme Größe und Dichte nach Sehabstand und Eingabemodus.
-- Unterstütze Multi-Touch, Hardware-Keyboard/Trackpad und Apple Pencil; erwäge Interaktionen, die Eingaben kombinieren.
-- Passe dich an Orientierung, Multitasking-Modi, Dark Mode, Dynamic Type an und laufe sauber auch unter macOS.
+- Use the large screen for content; minimize modal interfaces and full-screen transitions; controls reachable but not in the way.
+- Determine size and density based on viewing distance and input mode.
+- Support Multi-Touch, hardware keyboard/trackpad, and Apple Pencil; consider interactions that combine inputs.
+- Adapt to orientation, multitasking modes, Dark Mode, Dynamic Type, and also run cleanly on macOS.
 
-(alle: hig:designing-for-ipados#Best-practices)
+(all: hig:designing-for-ipados#Best-practices)
 
 ## Designing for macOS
 
-Kontext: Leistung, Platz, Flexibilität für tiefe Produktivität, Medien, Spiele – oft mit mehreren Apps gleichzeitig (hig:designing-for-macos).
+Context: power, space, flexibility for deep productivity, media, games – often with several apps at once (hig:designing-for-macos).
 
-- Nutze große Displays für mehr Inhalt in weniger verschachtelten Ebenen und mit weniger Modalität, bei angenehmer Informationsdichte.
-- Lass Fenster skalieren, aus-/einblenden, verschieben; unterstütze Vollbild für ablenkungsfreies Arbeiten.
-- Mache alle Befehle über die Menüleiste erreichbar.
-- Unterstütze hochpräzise Eingabe für pixelgenaue Auswahl und Bearbeitung.
-- Unterstütze Keyboard-Shortcuts und reine Keyboard-Arbeitsweisen.
-- Erlaube Personalisierung: Toolbars anpassen, Fenster-Ansichten konfigurieren, Farben/Schriften wählen.
+- Use large displays for more content in fewer nested levels and with less modality, at a comfortable information density.
+- Let windows resize, hide/show, move; support full screen for distraction-free work.
+- Make all commands reachable through the menu bar.
+- Support high-precision input for pixel-accurate selection and editing.
+- Support keyboard shortcuts and keyboard-only workflows.
+- Allow personalization: customize toolbars, configure window views, choose colors/fonts.
 
-(alle: hig:designing-for-macos#Best-practices)
+(all: hig:designing-for-macos#Best-practices)
 
 ## Designing for watchOS
 
-Kontext: Ein Blick aufs Handgelenk – wesentliche Infos und einfache, zeitnahe Aufgaben, auch in Bewegung (hig:designing-for-watchos).
+Context: a glance at the wrist – essential information and simple, timely tasks, even on the move (hig:designing-for-watchos).
 
-- Gestalte schnelle, glanceable Single-Screen-Interaktionen mit einer oder zwei Gesten.
-- Halte die Navigationshierarchie flach; nutze die Digital Crown für vertikales Scrollen und Screen-Wechsel.
-- Personalisiere proaktiv mit On-Device-Daten: relevant jetzt oder in Kürze.
-- Nutze Complications für dynamische Daten direkt auf dem Watch Face (Tap führt in die App).
-- Nutze Notifications für zeitkritische, wertvolle Infos und Aktionen ohne App-Start.
-- Nutze Hintergrundfarbe für unterstützende Infos und Materials für Hierarchie und Ortsgefühl.
-- Baue die App eigenständig funktionsfähig, ergänzend zu Notifications und Complications.
+- Design quick, glanceable single-screen interactions with one or two gestures.
+- Keep the navigation hierarchy flat; use the Digital Crown for vertical scrolling and screen switching.
+- Personalize proactively with on-device data: relevant now or soon.
+- Use complications for dynamic data directly on the watch face (tap leads into the app).
+- Use notifications for time-critical, valuable information and actions without launching the app.
+- Use background color for supporting information and materials for hierarchy and a sense of place.
+- Build the app to function on its own, complementing notifications and complications.
 
-(alle: hig:designing-for-watchos#Best-practices)
+(all: hig:designing-for-watchos#Best-practices)
 
 ---
 
 ## iPhone Duo
 
-Seite neu seit **2026-09-09** (hig:designing-for-iphone-duo). iPhone mit zwei Displays (außen, innen), je eigener Frontkamera, Mittelscharnier; es gilt weiterhin alles aus „Designing for iOS“.
+Page new since **2026-09-09** (hig:designing-for-iphone-duo). iPhone with two displays (outer, inner), each with its own front camera, central hinge; everything from "Designing for iOS" still applies.
 
-- **Anatomie:** Außen-Display (geschlossen) ist breiter und kürzer als bei anderen iPhones → System setzt Toolbars/Tab bars **seitlich**. Innen-Display im Querformat behält die Seitenposition; nur innen im Hochformat bleiben horizontale Bars (hig:designing-for-iphone-duo#Anatomy, #Vertical-controls).
-- **Posen:** Buchartig gefaltet, liegend, auf Kante stehend. Kein eigenes Layout je Pose – Size classes: compact width außen, regular width innen. Test in Xcode über Device Hub (hig:designing-for-iphone-duo#Device-poses).
-- Baue resizable: Size classes, Layout margins, Safe area insets; keine festen Breiten (hig:designing-for-iphone-duo#Best-practices).
-- Gleiche Funktionen und Zustände auf beiden Displays und in allen Posen; innen ggf. eine Hierarchieebene mehr zeigen (Beispiel Mail: Liste + Mail nebeneinander) (hig:designing-for-iphone-duo#Best-practices).
-- Spiele: in jeder Pose spielbar; Orientierung sperren erlaubt, aber Screen füllen; Seitenverhältnis anpassen statt Letter-/Pillarboxing (hig:designing-for-iphone-duo#Best-practices).
-- **Reserved regions:** äußere Kamera (immer, erweitert sich zur Dynamic Island), innere Kamera (nur aktiv), Faltbereich (bei teilweise geöffnetem Gerät). APIs `ReservedRegion` (SwiftUI) / `UIView.ReservedRegion` (UIKit) (hig:designing-for-iphone-duo#Reserved-regions).
-- Beim Falten: sich selbst anpassende Container bevorzugen; Grids mit gerader Spaltenzahl; keine drastischen Umbauten (hig:designing-for-iphone-duo#Reserved-regions).
-- **Arrangement views** (`ArrangementView` / `UIArrangementViewController`): *split* (teilt je nach Seitenverhältnis horizontal/vertikal) und *overlay* (übereinander; bei Faltung je Seite). Navigation-Container außerhalb platzieren (hig:designing-for-iphone-duo#Arrangement-views).
-- **Vertikale Controls:** Standard-Platzierung nicht überschreiben; oben Back/Close, dann prominente Aktion (Done); Overflow von unten nach oben, steuerbar via `ToolbarItemVisibilityPriority` / `UIBarButtonItemVisibilityPriority`; Title + Symbol für jedes Item; Text-Buttons minimieren; System-Overflow-Menü statt eigenem; Ellipsis nur für Overflow (hig:designing-for-iphone-duo#Vertical-controls).
-- Platzmangel: navigationsorientiert → Toolbar-Items in Overflow (Standard); aufgabenorientiert → Tab bar minimieren (`ToolbarVerticalCompressionBehavior` / `UIVerticalBarCompressionBehavior`) (hig:designing-for-iphone-duo#Vertical-controls).
-- Controls bleiben bei RTL auf derselben Seite (hardware-gebunden); bei Split View hat jede App die Controls an ihrer Außenkante (hig:designing-for-iphone-duo#Vertical-controls).
+- **Anatomy:** The outer display (closed) is wider and shorter than on other iPhones → the system places toolbars/tab bars **at the side**. The inner display in landscape keeps the side position; only the inner display in portrait keeps horizontal bars (hig:designing-for-iphone-duo#Anatomy, #Vertical-controls).
+- **Poses:** folded like a book, lying flat, standing on its edge. No separate layout per pose – size classes: compact width outside, regular width inside. Test in Xcode via Device Hub (hig:designing-for-iphone-duo#Device-poses).
+- Build resizable: size classes, layout margins, safe area insets; no fixed widths (hig:designing-for-iphone-duo#Best-practices).
+- Same functions and states on both displays and in all poses; on the inner display, optionally show one more hierarchy level (example Mail: list + message side by side) (hig:designing-for-iphone-duo#Best-practices).
+- Games: playable in every pose; locking orientation is allowed, but fill the screen; adapt the aspect ratio instead of letterboxing/pillarboxing (hig:designing-for-iphone-duo#Best-practices).
+- **Reserved regions:** outer camera (always, expands into the Dynamic Island), inner camera (only when active), fold area (when the device is partially open). APIs `ReservedRegion` (SwiftUI) / `UIView.ReservedRegion` (UIKit) (hig:designing-for-iphone-duo#Reserved-regions).
+- When folding: prefer self-adapting containers; grids with an even number of columns; no drastic restructuring (hig:designing-for-iphone-duo#Reserved-regions).
+- **Arrangement views** (`ArrangementView` / `UIArrangementViewController`): *split* (splits horizontally/vertically depending on aspect ratio) and *overlay* (stacked; when folded, one per side). Place navigation containers outside (hig:designing-for-iphone-duo#Arrangement-views).
+- **Vertical controls:** don't override the default placement; Back/Close at the top, then the prominent action (Done); overflow from bottom to top, controllable via `ToolbarItemVisibilityPriority` / `UIBarButtonItemVisibilityPriority`; title + symbol for every item; minimize text buttons; system overflow menu instead of a custom one; ellipsis only for overflow (hig:designing-for-iphone-duo#Vertical-controls).
+- Lack of space: navigation-oriented → toolbar items into overflow (default); task-oriented → minimize the tab bar (`ToolbarVerticalCompressionBehavior` / `UIVerticalBarCompressionBehavior`) (hig:designing-for-iphone-duo#Vertical-controls).
+- Controls stay on the same side in RTL (hardware-bound); in Split View each app has its controls at its outer edge (hig:designing-for-iphone-duo#Vertical-controls).
 
 ---
 
 ## Designing for games
 
-Für Spiele über alle Plattformen (hig:designing-for-games):
+For games across all platforms (hig:designing-for-games):
 
-- Sofort spielbar nach Installation; Download des Grundumfangs **höchstens 30 Minuten**, Rest im Hintergrund (hig:designing-for-games#Jump-into-gameplay).
-- Gute Defaults aus Geräteinfos (Auflösung, gekoppelte Controller, Accessibility-Einstellungen) (hig:designing-for-games#Jump-into-gameplay).
-- Durch Spielen lehren; schriftliches Tutorial nur als Nachschlagewerk (hig:designing-for-games#Jump-into-gameplay).
-- Berechtigungen im passenden Spielmoment anfragen; Bewertung erst nach ausreichend Spielzeit (hig:designing-for-games#Jump-into-gameplay).
-- Text- und Buttongrößen gemäß Tabelle oben; auflösungsunabhängige Assets; Safe areas; Menüs für 16:10, 19.5:9, 4:3 und beide Orientierungen (hig:designing-for-games#Look-stunning-on-every-display).
-- Standard-Eingabe jeder Plattform unterstützen; Controller optional mit Alternativen; Touch controls auf iPhone/iPad (hig:designing-for-games#Enable-intuitive-interactions).
-- Wahrnehmbarkeit, Personalisierung (Textgröße, Mapping, Bewegungsintensität, Klangbalance), Selbstdarstellung, keine Stereotype (hig:designing-for-games#Welcome-everyone).
+- Playable immediately after installation; download of the base content **no more than 30 minutes**, the rest in the background (hig:designing-for-games#Jump-into-gameplay).
+- Good defaults from device information (resolution, paired controllers, accessibility settings) (hig:designing-for-games#Jump-into-gameplay).
+- Teach through play; written tutorial only as a reference (hig:designing-for-games#Jump-into-gameplay).
+- Request permissions at the fitting moment in the game; ask for ratings only after sufficient play time (hig:designing-for-games#Jump-into-gameplay).
+- Text and button sizes per the table above; resolution-independent assets; safe areas; menus for 16:10, 19.5:9, 4:3 and both orientations (hig:designing-for-games#Look-stunning-on-every-display).
+- Support each platform's default input; controllers optional with alternatives; touch controls on iPhone/iPad (hig:designing-for-games#Enable-intuitive-interactions).
+- Perceivability, personalization (text size, mapping, motion intensity, sound balance), self-expression, no stereotypes (hig:designing-for-games#Welcome-everyone).
 - Game Center, GameSave (iCloud), Core Haptics (iOS, iPadOS, tvOS, visionOS), Spatial Audio (hig:designing-for-games#Adopt-Apple-technologies).
 
 ---
 
-## tvOS und visionOS (kurz)
+## tvOS and visionOS (brief)
 
-**tvOS** (hig:designing-for-tvos): sehr großes Display, Abstand oft 8 Fuß oder mehr; Siri Remote, Controller, Voice, Apps auf anderen Geräten; stundenlange Sessions, Picture-in-Picture. Fokus-System, randlose Artwork, Mehrbenutzer-Profile mit einfachem, seltenem Sign-in.
+**tvOS** (hig:designing-for-tvos): very large display, distance often 8 feet or more; Siri Remote, controllers, voice, apps on other devices; hours-long sessions, Picture-in-Picture. Focus system, edge-to-edge artwork, multi-user profiles with simple, infrequent sign-in.
 
-**visionOS** (hig:designing-for-visionos): unbegrenzter Raum (Windows, Volumes, 3D); Shared Space (Standard) vs. Full Space; Passthrough über Digital Crown; Eyes + indirekte Gesten; Komfort hat Priorität (Sichtfeld, ruhige Bewegung, Hände dürfen ruhen); minimal nötige Immersionsstufe je Moment; Nutzung ab 13 Jahren, nicht beim Fahren/Bewegen in gefährlicher Umgebung.
+**visionOS** (hig:designing-for-visionos): unlimited space (windows, volumes, 3D); Shared Space (default) vs. Full Space; passthrough via Digital Crown; eyes + indirect gestures; comfort has priority (field of view, calm motion, hands can rest); minimal necessary immersion level per moment; use from age 13, not while driving/moving in a hazardous environment.
 
 ---
 
-## Auffälligkeiten und Unklarheiten
+## Observations and ambiguities
 
-- **Design principles:** Die Seite (Update 2026-06-08, „Reintroduced“) nennt acht Prinzipien – Purpose, Agency, Responsibility, Familiarity, Flexibility, Simplicity, Craft, Delight. Eine Trias „Hierarchy / Harmony / Consistency“ ist im Spiegel nicht als Prinzip vorhanden; ggf. stammt sie aus einer früheren HIG-Fassung oder Apple-Kommunikation. Nicht aus dem Spiegel belegbar.
-- **iPhone Duo** ist eine neue Getting-started-Seite (2026-09-09); andere Seiten (z. B. hig:designing-for-ios) erwähnen das Gerät noch nicht.
-- **Sehabstände** stehen nur in Fuß und teils vage („ein bis zwei Fuß“, „etwa 3 Fuß“) – nicht in exakte Meter umrechnen.
-- **Standard-Eingabe in hig:designing-for-games:** visionOS und watchOS als „Touch“ geführt; das weicht von hig:designing-for-visionos (Eyes + Hands) und hig:digital-crown (Crown als primäre Navigation ab watchOS 10) ab.
-- Die iOS-/iPadOS-/tvOS-Seiten verlinken teils mit vollständigen URLs statt `hig:`-Slugs; hig:designing-for-ios verweist auf den veralteten Slug `spatial-interactions` (heute nearby-interactions).
-- Die Größentabellen für Text und Buttons stehen in der Games-Seite; ob sie für Nicht-Spiele identisch gelten, ist dort nicht ausdrücklich gesagt (iOS-44x44-pt-Minimum verweist aber auf hig:buttons).
-- iOS, iPadOS, macOS-Seiten haben keinen Update-Vermerk; watchOS zuletzt 2023-06-05, Games 2025-06-09.
+- **Design principles:** The page (update 2026-06-08, "Reintroduced") names eight principles – Purpose, Agency, Responsibility, Familiarity, Flexibility, Simplicity, Craft, Delight. A "Hierarchy / Harmony / Consistency" triad does not exist as a principle in the mirror; it may come from an earlier HIG version or Apple communication. Cannot be sourced from the mirror.
+- **iPhone Duo** is a new Getting started page (2026-09-09); other pages (e.g. hig:designing-for-ios) don't mention the device yet.
+- **Viewing distances** are given only in feet and partly vaguely ("one to two feet", "about 3 feet") – do not convert them into exact meters.
+- **Default input in hig:designing-for-games:** visionOS and watchOS are listed as "Touch"; this deviates from hig:designing-for-visionos (eyes + hands) and hig:digital-crown (Crown as primary navigation since watchOS 10).
+- The iOS/iPadOS/tvOS pages partly link with full URLs instead of `hig:` slugs; hig:designing-for-ios refers to the outdated slug `spatial-interactions` (now nearby-interactions).
+- The size tables for text and buttons are on the Games page; whether they apply identically to non-games is not stated explicitly there (the iOS 44x44 pt minimum does, however, refer to hig:buttons).
+- The iOS, iPadOS, and macOS pages have no update note; watchOS last updated 2023-06-05, Games 2025-06-09.

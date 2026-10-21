@@ -1,49 +1,50 @@
-# apple-design – Claude-Code-Plugin für Apple-Plattform-Design
+# apple-design – a Claude Code plugin for Apple platform design
 
-Ein Design-Begleiter für native Apps auf **iOS, iPadOS, macOS und watchOS** in [Claude Code](https://claude.com/claude-code). Grundlage sind Apples [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines) (HIG) und die [Apple Design Resources](https://developer.apple.com/design/resources/).
+A design companion for native apps on **iOS, iPadOS, macOS and watchOS** in [Claude Code](https://claude.com/claude-code). It is built on Apple's [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines) (HIG) and the [Apple Design Resources](https://developer.apple.com/design/resources/).
 
-Das Plugin fragt nach, plant, baut und prüft. Jede Designregel ist mit einem Verweis auf die HIG-Seite belegt. Aufbau und Workflow sind inspiriert von [impeccable](https://github.com/pbakaus/impeccable) und [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill).
+The plugin asks questions, plans, builds and reviews. Every design rule it applies is backed by a reference to the HIG page. Structure and workflow are inspired by [impeccable](https://github.com/pbakaus/impeccable) and [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill). It replies in whatever language you write in.
 
 ---
 
-## Inhalt
+## Contents
 
-- [Was das Plugin kann](#was-das-plugin-kann)
-- [Voraussetzungen](#voraussetzungen)
+- [What it does](#what-it-does)
+- [Requirements](#requirements)
 - [Installation](#installation)
-- [Ersteinrichtung](#ersteinrichtung)
-- [Anleitung: der typische Ablauf](#anleitung-der-typische-ablauf)
-- [Alle Befehle](#alle-befehle)
-- [Werkzeuge direkt im Terminal](#werkzeuge-direkt-im-terminal)
-- [Aufbau des Repos](#aufbau-des-repos)
-- [Aktualisieren & Pflege](#aktualisieren--pflege)
-- [Fehlerbehebung](#fehlerbehebung)
-- [Rechtliches](#rechtliches)
+- [First-time setup](#first-time-setup)
+- [Walkthrough: the typical flow](#walkthrough-the-typical-flow)
+- [All commands](#all-commands)
+- [Using the tools from the terminal](#using-the-tools-from-the-terminal)
+- [Repository layout](#repository-layout)
+- [Updating & maintenance](#updating--maintenance)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [Legal](#legal)
 
 ---
 
-## Was das Plugin kann
+## What it does
 
-| Baustein | Inhalt |
+| Building block | Content |
 |---|---|
-| **Skill `apple-design`** | Geführte Workflows: `init · shape · build · audit · critique · polish · adapt · icon · hig · symbols · resources · whatsnew · sync` |
-| **Verdichtete HIG** | Rund 7.000 Zeilen auf Deutsch: Plattformen (iOS, iPadOS, macOS, watchOS), Grundlagen (Typografie, Farbe/Dark Mode, Layout, Liquid Glass, Icons/SF Symbols, Barrierefreiheit, Motion/Haptik, Texte/Datenschutz), Katalog aller Komponenten mit Entscheidungshilfe, Patterns, Eingabe, Technologien. Jede Regel ist mit `hig:<seite>` belegt, Widersprüche in der HIG sind benannt. |
-| **HIG-Spiegel** | Alle HIG-Seiten (aktuell 173) lokal als Markdown, mit Volltextsuche, Abschnittsauszug, „Platform considerations“ je OS und Änderungsliste |
-| **SF-Symbols-Suche** | Namen, Suchbegriffe, Kategorien, Mindest-OS, Fill-Varianten und Nutzungsbeschränkungen, direkt aus den macOS-Systemdaten |
-| **Gerätemaße** | Display in pt/px, Scale und Eckenradius aller aktuellen iPhones, iPads und Watches, aus Xcode. Die HIG hat die Gerätetabellen im September 2026 entfernt. |
-| **Design Resources** | Katalog aller Ressourcen (UI-Kits für Figma/Sketch, Templates, Fonts, SF Symbols, Icon Composer, Bezels, Glyphen) mit Download und Font-Installation ohne sudo |
-| **Agent `hig-reviewer`** | Prüft bei großen Audits jede Plattform parallel |
+| **Skill `apple-design`** | Guided workflows: `init · shape · build · audit · critique · polish · adapt · icon · hig · symbols · resources · whatsnew · sync` |
+| **Condensed HIG** | About 7,000 lines covering the platforms (iOS, iPadOS, macOS, watchOS), foundations (typography, color/Dark Mode, layout, Liquid Glass, icons/SF Symbols, accessibility, motion/haptics, writing/privacy), a catalog of all components with a decision guide, patterns, inputs and technologies. Every rule is cited as `hig:<page>`; contradictions within the HIG are called out. |
+| **HIG mirror** | All HIG pages (currently 173) as local Markdown, with full-text search, section extraction, per-platform "Platform considerations" and a change list |
+| **SF Symbols search** | Names, keywords, categories, minimum OS, fill variants and usage restrictions, read directly from macOS system data |
+| **Device specs** | Display size in pt/px, scale and corner radius of current iPhones, iPads and Watches, read from Xcode. The HIG dropped its device tables in September 2026. |
+| **Design Resources** | Catalog of all resources (UI kits for Figma/Sketch, templates, fonts, SF Symbols, Icon Composer, bezels, glyphs) with downloader and a font installer that needs no sudo |
+| **Agent `hig-reviewer`** | Reviews each platform in parallel during large audits |
 
-## Voraussetzungen
+## Requirements
 
-- [Claude Code](https://docs.claude.com/en/docs/claude-code) (CLI, Desktop-App oder IDE-Erweiterung)
-- **macOS** mit Python 3, das macOS bereits mitbringt. Die Skripte brauchen keine zusätzlichen Pakete.
-- **Xcode** für Gerätemaße, Simulator-Screenshots und den Bau der Apps. Ohne Xcode funktioniert alles andere trotzdem.
-- Optional: Figma oder Sketch für die UI-Kits
+- [Claude Code](https://docs.claude.com/en/docs/claude-code) (CLI, desktop app or IDE extension)
+- **macOS** with Python 3 (preinstalled). The scripts need no extra packages.
+- **Xcode** for device specs, Simulator screenshots and building apps. Everything else works without it.
+- Optional: Figma or Sketch for the UI kits
 
 ## Installation
 
-### Variante A – aus GitHub (empfohlen)
+### Option A – from GitHub (recommended)
 
 In Claude Code:
 
@@ -52,16 +53,16 @@ In Claude Code:
 /plugin install apple-design@apple-design-plugin
 ```
 
-Oder im Terminal:
+Or in the terminal:
 
 ```bash
 claude plugin marketplace add f2daz/apple-design-plugin
 claude plugin install apple-design@apple-design-plugin
 ```
 
-Danach Claude Code neu starten oder `/reload-plugins` ausführen. `/plugin` zeigt, ob `apple-design` aktiv ist.
+Then restart Claude Code or run `/reload-plugins`. `/plugin` shows whether `apple-design` is enabled.
 
-### Variante B – lokaler Klon (zum Mitentwickeln)
+### Option B – local clone (for contributing)
 
 ```bash
 git clone https://github.com/f2daz/apple-design-plugin.git
@@ -69,220 +70,230 @@ claude plugin marketplace add ./apple-design-plugin
 claude plugin install apple-design@apple-design-plugin
 ```
 
-Änderungen am Klon übernimmst du mit `claude plugin marketplace update apple-design-plugin`.
+Pick up changes in your clone with `claude plugin marketplace update apple-design-plugin`.
 
-## Ersteinrichtung
+## First-time setup
 
-Das Plugin legt seine Daten unter `~/.apple-design/` ab, nicht im Repo. Den HIG-Spiegel lädt es beim ersten `hig`-Aufruf automatisch. Du kannst ihn und den Rest aber auch vorab einrichten. Am bequemsten geht das in Claude Code:
+The plugin keeps its data in `~/.apple-design/`, not in the repo. The HIG mirror is created automatically on the first `hig` call, but you can set everything up in advance. The easiest way is inside Claude Code:
 
 ```
 /apple-design sync
 /apple-design resources
 ```
 
-Oder im Terminal. Der Pfad unten gilt für die Installation aus GitHub, `claude plugin list` zeigt bei Bedarf den genauen Ort:
+Or in the terminal. First locate the plugin's script folder:
 
 ```bash
-S=$(dirname "$(find ~/.claude/plugins -path '*apple-design/skills/apple-design/SKILL.md' | head -1)")/scripts
+S=$(find ~/.claude/plugins -type d -path '*/skills/apple-design/scripts' | head -1)
+echo "$S"   # must print a path, e.g. ~/.claude/plugins/cache/apple-design-plugin/apple-design/0.1.0/skills/apple-design/scripts
 
-# 1. HIG-Spiegel laden (~10 s, ~170 Seiten → ~/.apple-design/hig)
+# 1. Build the HIG mirror (~10 s, ~170 pages → ~/.apple-design/hig)
 python3 -I "$S/hig_sync.py"
 
-# 2. Ressourcenkatalog aktualisieren
+# 2. Refresh the resource catalog
 python3 -I "$S/resources.py" sync
 
-# 3. Wichtigste Ressourcen laden: Fonts, SF-Symbols-App, Icon-Templates (~850 MB)
+# 3. Download the essentials: fonts, SF Symbols app, icon templates (~850 MB)
 python3 -I "$S/resources.py" download essentials --accept-license
 
-# 4. Fonts installieren: SF Pro, SF Compact, SF Mono, New York → ~/Library/Fonts (ohne sudo)
+# 4. Install fonts: SF Pro, SF Compact, SF Mono, New York → ~/Library/Fonts (no sudo)
 python3 -I "$S/resources.py" install-fonts --accept-license
 
-# 5. SF Symbols App installieren: DMG öffnen und dem Installer folgen
+# 5. Install the SF Symbols app: open the DMG and follow the installer
 open ~/.apple-design/downloads/SF-Symbols-*.dmg
 ```
 
-> `--accept-license` bestätigt, dass du die Apple-Lizenz im jeweiligen DMG akzeptierst. Die Fonts dürfen nur zum Gestalten und Entwickeln von Software für Apple-Plattformen genutzt werden.
+> `--accept-license` confirms that you accept Apple's license inside each DMG. The fonts may only be used to design and develop software for Apple platforms.
 
-## Anleitung: der typische Ablauf
+## Walkthrough: the typical flow
 
-Beispiel: Eine neue SwiftUI-App für iPhone, iPad und Mac bekommt eine Einstellungsseite.
+Example: a new SwiftUI app for iPhone, iPad and Mac gets a settings screen.
 
-### 1. Projekt kennenlernen – `init`
+### 1. Get to know the project – `init`
 
-Starte Claude Code im Projektordner (dort, wo die `.xcodeproj` oder `Package.swift` liegt):
+Start Claude Code in the project folder (where the `.xcodeproj` or `Package.swift` lives):
 
 ```
 /apple-design init
 ```
 
-Das Plugin liest zuerst selbst aus dem Projekt: Deployment Targets, Gerätefamilien, Frameworks, Asset-Katalog. Dann fragt es per Auswahl nur, was fehlt:
+The plugin first reads what it can from the project: deployment targets, device families, frameworks, asset catalog. Then it asks multiple-choice questions only for what's missing:
 
-- Plattformen (iOS · iPadOS · macOS · watchOS)
-- Stack (SwiftUI · UIKit · AppKit · gemischt)
-- Ziel-OS. Das entscheidet, ob Liquid Glass voll nutzbar ist oder Fallbacks nötig sind.
-- App-Art, Marke (Akzentfarbe, eigene Schrift), Barrierefreiheitsziel, Systemintegration (Widgets, Live Activities, Complications …)
+- Platforms (iOS · iPadOS · macOS · watchOS)
+- Stack (SwiftUI · UIKit · AppKit · mixed)
+- Target OS. This decides whether Liquid Glass is fully available or needs fallbacks.
+- App type, brand (accent color, custom typeface), accessibility goal, system integration (widgets, Live Activities, complications …)
 
-Ergebnis ist eine `APPLE_DESIGN.md` im Projekt mit Navigationsgerüst je Plattform, Markenregeln und passenden UI-Kits. Alle weiteren Befehle richten sich danach. Committe sie mit.
+The result is an `APPLE_DESIGN.md` in your project with a navigation skeleton per platform, brand rules and the matching UI kits. Every later command follows it. Commit it.
 
-### 2. Planen – `shape`
-
-```
-/apple-design shape Einstellungen
-```
-
-Du bekommst eine Spezifikation, bevor Code entsteht:
-
-- wo das Feature in der Navigation sitzt
-- welches Muster je Plattform passt, z. B. iPhone: Push in Liste; iPad: Split View; Mac: `Settings`-Fenster
-- welche Systemkomponenten es nutzt, jeweils mit Beleg
-- Zustände (leer, lädt, Fehler, große Schrift, Dark Mode), Texte und SF Symbols samt Mindest-OS
-
-Bei echten Alternativen legt das Plugin dir Optionen mit ASCII-Vorschau zur Auswahl vor.
-
-### 3. Bauen – `build`
+### 2. Plan – `shape`
 
 ```
-/apple-design build Einstellungen
+/apple-design shape Settings
 ```
 
-Die Umsetzung nutzt Systemkomponenten, Textstile mit Dynamic Type, semantische Farben und Liquid Glass nur auf der Funktionsebene. Jede View bekommt Previews (hell/dunkel, große Schrift). Mit Xcode baut das Plugin die App, macht Simulator-Screenshots und schaut sich das Ergebnis an.
+You get a spec before any code is written:
 
-### 4. Prüfen – `audit` und `critique`
+- where the feature sits in the navigation
+- which pattern fits each platform, e.g. iPhone: push from a list; iPad: split view; Mac: a `Settings` window
+- which system components it uses, each with a source
+- states (empty, loading, error, large text, Dark Mode), copy and SF Symbols with their minimum OS
+
+For real alternatives the plugin presents options with an ASCII preview for you to choose from.
+
+### 3. Build – `build`
 
 ```
-/apple-design audit              # Regelkonformität: Befunde P0–P3 mit Fundstelle, Beleg und Fix
-/apple-design critique           # Gestaltung: Bewertungsraster, Top-3-Hebel, Alternativen
+/apple-design build Settings
 ```
 
-Bei mehreren Plattformen startet `audit` je Plattform einen `hig-reviewer` parallel. Danach fragt das Plugin, ob es P0/P1-Befunde direkt beheben soll.
+The implementation uses system components, text styles with Dynamic Type, semantic colors, and Liquid Glass only on the functional layer. Every view gets previews (light/dark, large text). With Xcode installed, the plugin builds the app, takes Simulator screenshots and looks at the result.
 
-### 5. Feinschliff – `polish`
+### 4. Review – `audit` and `critique`
+
+```
+/apple-design audit              # rule compliance: findings P0–P3 with location, source and fix
+/apple-design critique           # design quality: rubric, top 3 levers, alternatives
+```
+
+With several platforms, `audit` launches one `hig-reviewer` per platform in parallel. Afterwards it asks whether to fix the P0/P1 findings right away.
+
+### 5. Final pass – `polish`
 
 ```
 /apple-design polish
 ```
 
-Letzter Durchgang mit Checkliste: Typografie, Dark Mode/Kontrast, Symbole, Pressed-States, Haptik, Reduce Motion, Leer- und Fehlerzustände, Tastaturkürzel auf iPad und Mac.
+A last checklist pass: typography, Dark Mode/contrast, symbols, pressed states, haptics, Reduce Motion, empty and error states, keyboard shortcuts on iPad and Mac.
 
-### 6. Auf weitere Geräte bringen – `adapt`
+### 6. Bring it to more devices – `adapt`
 
 ```
 /apple-design adapt watchos
 ```
 
-Überträgt das Design idiomatisch statt skaliert, z. B. iPhone-Tab-Bar → Mac-Sidebar mit Menüleiste → Watch mit vertikalen Seiten und Complication.
+Transfers the design idiomatically instead of scaling it, e.g. iPhone tab bar → Mac sidebar with menu bar → Watch with vertical pages and a complication.
 
-### Zwischendurch nachschlagen
+### Look things up anytime
 
 ```
-/apple-design hig Wie viele Tabs darf eine Tab Bar haben?
-/apple-design symbols Zahlung Karte
+/apple-design hig How many tabs can a tab bar have?
+/apple-design symbols card payment
 /apple-design resources bezels iphone
 /apple-design whatsnew
 ```
 
-Du kannst auch einfach normal fragen, z. B. „Ist das Sheet hier HIG-konform?“. Der Skill springt bei Apple-Design-Themen automatisch an.
+You can also just ask normally, e.g. "Is this sheet HIG-compliant?". The skill kicks in automatically for Apple design topics.
 
-## Alle Befehle
+## All commands
 
-| Befehl | Was passiert |
+| Command | What happens |
 |---|---|
-| `/apple-design` | Menü mit Vorschlag passend zum Projektstand |
+| `/apple-design` | Context-aware menu with a recommendation |
 | `init` | Interview → `APPLE_DESIGN.md` |
-| `shape <feature>` | Spezifikation: Struktur, Muster je Plattform, Komponenten, Zustände, Texte |
-| `build <feature>` | Umsetzung in SwiftUI/UIKit/AppKit inkl. Previews und Simulator-Check |
-| `audit [ziel]` | HIG-Prüfung mit Schweregraden und Belegen, optional Fixes |
-| `critique [ziel]` | UX-Review am gerenderten Screen |
-| `polish [ziel]` | Feinschliff vor dem Release |
-| `adapt <plattform>` | Übertragung auf iPad, Mac oder Watch |
-| `icon` | App-Icon mit Icon Composer (Liquid Glass, Varianten Default/Dark/Clear/Tinted) |
-| `hig <frage>` | Antwort aus der HIG mit Beleg |
-| `symbols <begriff>` | Passende SF Symbols mit Verfügbarkeit |
-| `resources [suche]` | UI-Kits, Templates, Fonts, Bezels zeigen, laden, installieren |
-| `whatsnew` | Zuletzt geänderte HIG-Seiten und ihre Bedeutung fürs Projekt |
-| `sync` | HIG-Spiegel und Ressourcenkatalog aktualisieren |
+| `shape <feature>` | Spec: structure, pattern per platform, components, states, copy |
+| `build <feature>` | Implementation in SwiftUI/UIKit/AppKit incl. previews and a Simulator check |
+| `audit [target]` | HIG review with severities and sources, optional fixes |
+| `critique [target]` | UX review of the rendered screen |
+| `polish [target]` | Final pass before release |
+| `adapt <platform>` | Bring the design to iPad, Mac or Watch |
+| `icon` | App icon with Icon Composer (Liquid Glass, default/dark/clear/tinted variants) |
+| `hig <question>` | Answer from the HIG with a citation |
+| `symbols <term>` | Matching SF Symbols with availability |
+| `resources [query]` | Show, download and install UI kits, templates, fonts, bezels |
+| `whatsnew` | Recently changed HIG pages and what they mean for your project |
+| `sync` | Refresh the HIG mirror and the resource catalog |
 
-## Werkzeuge direkt im Terminal
+## Using the tools from the terminal
 
-Alle Skripte liegen in `skills/apple-design/scripts/` und kommen ohne zusätzliche Pakete aus. Aufruf jeweils mit `python3 -I <skript> …`:
+All scripts live in `skills/apple-design/scripts/` and need no extra packages. Run each with `python3 -I <script> …`:
 
 ```bash
 # HIG
-hig_search.py search "tab bar badge" --platform ios     # Volltext mit bestem Absatz
+hig_search.py search "tab bar badge" --platform ios     # full text with the best paragraph
 hig_search.py page buttons --section "Platform considerations"
-hig_search.py platform watchos                          # alle watchOS-Besonderheiten
+hig_search.py platform watchos                          # all watchOS specifics
 hig_search.py list --section Components
 hig_search.py updates --since 2026-06-01
-hig_sync.py --if-stale 14                               # nur laden, wenn älter als 14 Tage
+hig_sync.py --if-stale 14                               # only sync if older than 14 days
 
 # SF Symbols
 sf_symbols.py search trash --min-ios 17
-sf_symbols.py info heart                                # Kategorien, Fill-Variante, Beschränkungen
+sf_symbols.py info heart                                # categories, fill variant, restrictions
 sf_symbols.py categories
-sf_symbols.py new 2026                                  # neue Symbole eines Jahrgangs
+sf_symbols.py new 2026                                  # symbols added in a given year
 
-# Geräte (braucht Xcode)
+# Devices (requires Xcode)
 device_specs.py --family iphone
 
-# Ressourcen
+# Resources
 resources.py list --platform macos
 resources.py show "sign in with apple"
-resources.py download bezels-iphone --accept-license    # Presets: fonts, essentials, bezels-iphone,
+resources.py download bezels-iphone --accept-license    # presets: fonts, essentials, bezels-iphone,
                                                         # bezels-ipad, bezels-mac, bezels-watch, glyphs, all
 resources.py status
 ```
 
-## Aufbau des Repos
+## Repository layout
 
 ```
 .claude-plugin/
-  plugin.json            Plugin-Manifest
-  marketplace.json       Marketplace-Eintrag (Installation per /plugin marketplace add)
+  plugin.json            plugin manifest
+  marketplace.json       marketplace entry (install via /plugin marketplace add)
 agents/
-  hig-reviewer.md        Audit-Agent je Plattform
+  hig-reviewer.md        per-platform audit agent
 skills/apple-design/
-  SKILL.md               Router, Grundsätze, Qualitätsboden
+  SKILL.md               router, principles, quality floor
   reference/
-    workflows/           Playbooks: init, shape, build, audit, critique, polish, adapt, icon, lookup, resources
+    workflows/           playbooks: init, shape, build, audit, critique, polish, adapt, icon, lookup, resources
     platforms/           ios, ipados, macos, watchos
     foundations/         typography, color-and-dark-mode, layout-and-spacing, materials-and-liquid-glass,
                          icons-and-symbols, accessibility, motion-and-feedback, writing-and-privacy
-    components/          Entscheidungshilfe + 8 Gruppen (64 Komponenten)
+    components/          decision guide + 8 groups (64 components)
     patterns.md · inputs.md · technologies.md · getting-started.md
   scripts/               hig_sync, hig_search, sf_symbols, device_specs, resources
-  data/resources.json    Mitgelieferter Ressourcenkatalog (Fallback)
+  data/resources.json    bundled resource catalog (fallback)
   templates/APPLE_DESIGN.md
 ```
 
-Lokale Daten liegen außerhalb des Repos:
+Local data lives outside the repo:
 
-| Pfad | Inhalt |
+| Path | Content |
 |---|---|
-| `~/.apple-design/hig/` | HIG-Spiegel (`pages/*.md`, `index.json`) |
-| `~/.apple-design/resources.json` | aktueller Ressourcenkatalog |
-| `~/.apple-design/downloads/` | heruntergeladene DMGs |
+| `~/.apple-design/hig/` | HIG mirror (`pages/*.md`, `index.json`) |
+| `~/.apple-design/resources.json` | current resource catalog |
+| `~/.apple-design/downloads/` | downloaded DMGs |
 
-Mit der Umgebungsvariable `APPLE_DESIGN_HOME` lässt sich der Basisordner verlegen.
+Set the `APPLE_DESIGN_HOME` environment variable to move the base folder.
 
-## Aktualisieren & Pflege
+## Updating & maintenance
 
-- **Plugin:** `claude plugin marketplace update apple-design-plugin`, danach `/reload-plugins`
-- **HIG:** Apple ändert die Guidelines laufend. `/apple-design whatsnew` oder `hig_sync.py --if-stale 14` holt den neuesten Stand.
-- **Verdichtungen nachziehen:** `hig_search.py updates --since <letzter Stand>` zeigt geänderte Seiten. Die passenden Dateien unter `reference/` anpassen, die Originalseite gewinnt.
+- **Plugin:** `claude plugin marketplace update apple-design-plugin`, then `/reload-plugins`
+- **HIG:** Apple updates the guidelines continuously. `/apple-design whatsnew` or `hig_sync.py --if-stale 14` fetches the latest state.
+- **Keeping the condensed references current:** `hig_search.py updates --since <last review>` lists changed pages. Update the matching files under `reference/`; the original page always wins.
 
-## Fehlerbehebung
+## Troubleshooting
 
-| Problem | Lösung |
+| Problem | Fix |
 |---|---|
-| `CERTIFICATE_VERIFY_FAILED` (Firmenproxy) | Die Skripte nutzen dann automatisch `curl` mit den System-Zertifikaten. Ist kein `curl` vorhanden: Zertifikat in Python hinterlegen oder ein anderes Netz nutzen. |
-| `device_specs.py`: „Xcode nicht gefunden“ | Xcode installieren. Die Command Line Tools allein reichen nicht. Das Skript findet `/Applications/Xcode*.app` auch ohne `xcode-select`. |
-| `sf_symbols.py` findet keine Metadaten | Läuft nur auf macOS. Alternativ die SF-Symbols-App installieren. |
-| Skill erscheint nicht | `/plugin` prüfen, `/reload-plugins` ausführen, Claude Code neu starten |
-| HIG-Spiegel veraltet oder kaputt | `rm -rf ~/.apple-design/hig && python3 -I hig_sync.py` |
+| `CERTIFICATE_VERIFY_FAILED` (corporate proxy) | The scripts then fall back to `curl` with the system certificates automatically. Without `curl`: add the certificate to Python or use another network. |
+| `device_specs.py`: "Xcode not found" | Install Xcode; the Command Line Tools alone are not enough. The script finds `/Applications/Xcode*.app` even without `xcode-select`. |
+| `sf_symbols.py` finds no metadata | macOS only. Alternatively install the SF Symbols app. |
+| Skill doesn't show up | Check `/plugin`, run `/reload-plugins`, restart Claude Code |
+| HIG mirror outdated or broken | `rm -rf ~/.apple-design/hig && python3 -I hig_sync.py` |
 
-## Rechtliches
+## Contributing
 
-- **Plugin-Code und eigene Texte:** MIT, siehe [LICENSE](LICENSE).
-- **Apple-Inhalte:** Die HIG-Texte und -Bilder, SF-Fonts, SF Symbols und alle Apple Design Resources sind © Apple Inc. Dieses Repository enthält **keine** Apple-Originalinhalte, nur eigene, verdichtete Zusammenfassungen mit Quellenverweisen sowie einen Linkkatalog mit den kurzen Beschreibungen der Ressourcenseite. HIG-Spiegel und Downloads entstehen lokal auf deinem Rechner, direkt von Apple, und sind nicht zur Weitergabe bestimmt.
-- **Fonts:** Die SF-Fonts dürfen laut Apple-Lizenz nur zum Gestalten und Entwickeln von Software für Apple-Plattformen genutzt werden. Im App-Code sind sie nicht einzubetten, das System liefert sie mit.
-- Apple, iPhone, iPad, Mac, Apple Watch, SF Symbols und Liquid Glass sind Marken von Apple Inc. Dieses Projekt steht in keiner Verbindung zu Apple.
+Issues and pull requests are welcome, especially:
+- corrections where a condensed reference diverges from the current HIG (cite the `hig:` page),
+- coverage for tvOS and visionOS,
+- better heuristics for the audit greps.
+
+Please never commit Apple originals (HIG text, images, fonts, templates) to the repo.
+
+## Legal
+
+- **Plugin code and original texts:** MIT, see [LICENSE](LICENSE).
+- **Apple content:** HIG text and images, SF fonts, SF Symbols and all Apple Design Resources are © Apple Inc. This repository contains **no** Apple original content, only original condensed summaries with source references, plus a link catalog with the short descriptions from the resources page. The HIG mirror and downloads are created locally on your machine, directly from Apple, and are not meant for redistribution.
+- **Fonts:** under Apple's license the SF fonts may only be used to design and develop software for Apple platforms. Don't embed them in app code; the system provides them.
+- Apple, iPhone, iPad, Mac, Apple Watch, SF Symbols and Liquid Glass are trademarks of Apple Inc. This project is not affiliated with Apple.
