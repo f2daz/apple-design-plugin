@@ -1,0 +1,1151 @@
+{
+ "synced_at": "2026-10-21T13:58:57+00:00",
+ "source": "https://developer.apple.com/design/resources/",
+ "items": [
+  {
+   "section": "iOS and iPadOS",
+   "section_id": "ios-apps",
+   "title": "UI Kit",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1651309003795292092/ios-and-ipados-27",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://www.sketch.com/s/04c24d8b-38fb-4afb-8836-36617e022f02",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ios",
+    "ipados"
+   ]
+  },
+  {
+   "section": "iOS and iPadOS",
+   "section_id": "ios-apps",
+   "title": "App Icon Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1645923469870515372/app-icon-template-ios-ipados-and-watchos-27",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/a443d962-d989-4c5b-b1db-fb7fb3946995",
+     "kind": "sketch",
+     "note": ""
+    },
+    {
+     "label": "Photoshop, Illustrator",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/iOS-27-Icon-Templates-Photoshop-Illustrator.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ios",
+    "ipados"
+   ]
+  },
+  {
+   "section": "macOS",
+   "section_id": "macos-apps",
+   "title": "UI Kit",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1651309434229735362/macos-27",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/57153a31-3379-4737-8ac6-dbfd6525f052",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "macos"
+   ]
+  },
+  {
+   "section": "tvOS",
+   "section_id": "tvos-apps",
+   "title": "UI Kit",
+   "description": "Note: Sketch must be installed to download",
+   "links": [
+    {
+     "label": "Sketch",
+     "url": "sketch://add-library?url=https%3A%2F%2Fdeveloper.apple.com%2Fdesign%2Fdownloads%2Fsketch-tvOS.rss",
+     "kind": "sketch",
+     "note": "Note: Sketch must be installed to download"
+    }
+   ],
+   "platforms": [
+    "tvos"
+   ]
+  },
+  {
+   "section": "tvOS",
+   "section_id": "tvos-apps",
+   "title": "Templates",
+   "description": "",
+   "links": [
+    {
+     "label": "Sketch",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/tvOS-18-Design-Templates-Sketch.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "tvos"
+   ]
+  },
+  {
+   "section": "tvOS",
+   "section_id": "tvos-apps",
+   "title": "Production Templates",
+   "description": "427 KB",
+   "links": [
+    {
+     "label": "Sketch",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/tvOS-18-Production-Templates-Sketch.dmg",
+     "kind": "dmg",
+     "note": "427 KB"
+    },
+    {
+     "label": "Photoshop",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/tvOS-18-Production-Templates-Photoshop.dmg",
+     "kind": "dmg",
+     "note": "238 KB"
+    }
+   ],
+   "platforms": [
+    "tvos"
+   ]
+  },
+  {
+   "section": "watchOS",
+   "section_id": "watchos-apps",
+   "title": "UI Kit",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1540060090060216489/watchos-26",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/2b12618d-596c-41fd-8488-132bff9535e7",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "watchos"
+   ]
+  },
+  {
+   "section": "visionOS",
+   "section_id": "visionos-apps",
+   "title": "UI Kit",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1540071341298017505/visionos-26",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/eb13bfe1-2ddb-4f87-b92c-740a36abed7a",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "visionos"
+   ]
+  },
+  {
+   "section": "visionOS",
+   "section_id": "visionos-apps",
+   "title": "UI Kit",
+   "description": "Note: Sketch must be installed to download",
+   "links": [
+    {
+     "label": "Sketch",
+     "url": "sketch://add-library?url=https%3A%2F%2Fdeveloper.apple.com%2Fdesign%2Fdownloads%2Fsketch-visionOS.rss",
+     "kind": "sketch",
+     "note": "Note: Sketch must be installed to download"
+    },
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1253443272911187215/apple-design-resources-visionos",
+     "kind": "figma",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "visionos"
+   ]
+  },
+  {
+   "section": "visionOS",
+   "section_id": "visionos-apps",
+   "title": "Templates",
+   "description": "",
+   "links": [
+    {
+     "label": "Sketch",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/visionOS-2-Design-Templates-Sketch.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "visionos"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Add Apple Watch Face",
+   "description": "",
+   "links": [
+    {
+     "label": "PNG, PDF, SVG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Glyph-Add-Apple-Watch-Face.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "watchos"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "AirPlay",
+   "description": "",
+   "links": [
+    {
+     "label": "PDF",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Glyph-AirPlay.dmg",
+     "kind": "dmg",
+     "note": ""
+    },
+    {
+     "label": "Design Guidelines",
+     "url": "https://developer.apple.com/design/human-interface-guidelines/airplay/",
+     "kind": "web",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "App Clips Design Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367914571662801866/app-clips",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/e6ed1af0-508c-4fd5-bc6f-05f7ccb91c6e",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Apple Health Icon",
+   "description": "",
+   "links": [
+    {
+     "label": "PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Icon-Apple-Health.dmg",
+     "kind": "dmg",
+     "note": ""
+    },
+    {
+     "label": "Design Guidelines",
+     "url": "https://developer.apple.com/design/human-interface-guidelines/healthkit/",
+     "kind": "web",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Apple Pay Design Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367915141082663884/apple-pay",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/b0fa95e1-e12d-4694-895f-a70f39b8f313",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "ARKit Badge and Glyph",
+   "description": "",
+   "links": [
+    {
+     "label": "PDF",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Glyph-ARKit.dmg",
+     "kind": "dmg",
+     "note": ""
+    },
+    {
+     "label": "Design Guidelines",
+     "url": "https://developer.apple.com/design/human-interface-guidelines/augmented-reality/",
+     "kind": "web",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Camera Control",
+   "description": "",
+   "links": [
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/85a0f9d2-d76c-42f9-b681-6225882d8024",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Games and Game Center",
+   "description": "",
+   "links": [
+    {
+     "label": "PNG, PDF",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Icon-Game-Center.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "HomeKit Icon and Glyph",
+   "description": "",
+   "links": [
+    {
+     "label": "PNG, PDF",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Icon-HomeKit.dmg",
+     "kind": "dmg",
+     "note": ""
+    },
+    {
+     "label": "Design Guidelines",
+     "url": "https://developer.apple.com/design/human-interface-guidelines/homekit/",
+     "kind": "web",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Live Activities Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367915437752334285/live-activities",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/d1e8992f-14c2-4eef-b29d-24a32c0c0ef9",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Messages Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367916269438172112/imessage-apps-and-stickers",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/d6cd3d23-7aec-43d5-acb9-52f720ff48b7",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Sign in with Apple Logo",
+   "description": "",
+   "links": [
+    {
+     "label": "PNG, PDF, SVG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Logo-Sign-in-with-Apple.dmg",
+     "kind": "dmg",
+     "note": ""
+    },
+    {
+     "label": "Design Guidelines",
+     "url": "https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/",
+     "kind": "web",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Sign in with Apple Buttons",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367916685468040146/sign-in-with-apple",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/7cd7dbf4-41b2-4e90-bb00-2796ced3cf2b",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Siri and App Shortcuts Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367916969551216595/siri-app-shortcuts",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/84ba051b-c6ad-48c5-8106-28185947754a",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Siri Icons",
+   "description": "",
+   "links": [
+    {
+     "label": "PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Icon-Siri.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Tap to Pay on iPhone Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367917199004804052/tap-to-pay-on-iphone",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/fbd2fa90-fadd-403a-b319-0f4d7c04ae5f",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ios"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "TipKit Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367917705471226837/tipkit",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/b99f22e1-235e-481b-9ccd-aa7d8f31fedc",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Technologies",
+   "section_id": "technologies",
+   "title": "Wallet Template",
+   "description": "",
+   "links": [
+    {
+     "label": "Figma",
+     "url": "https://www.figma.com/community/file/1367917956770293718/wallet",
+     "kind": "figma",
+     "note": ""
+    },
+    {
+     "label": "Sketch",
+     "url": "https://sketch.com/s/dd2ce40a-097e-486b-9053-b60088e1d6c3",
+     "kind": "sketch",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Fonts",
+   "section_id": "fonts",
+   "title": "SF Pro",
+   "description": "System font for iOS, iPadOS, macOS and tvOS.",
+   "links": [
+    {
+     "label": "Download SF Pro",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg",
+     "kind": "dmg",
+     "note": "System font for iOS, iPadOS, macOS and tvOS."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Fonts",
+   "section_id": "fonts",
+   "title": "SF Compact",
+   "description": "System font for watchOS, optimized for small sizes and narrow columns.",
+   "links": [
+    {
+     "label": "Download SF Compact",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg",
+     "kind": "dmg",
+     "note": "System font for watchOS, optimized for small sizes and narrow columns."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Fonts",
+   "section_id": "fonts",
+   "title": "SF Mono",
+   "description": "Used in Xcode, enables alignment between rows and columns of text.",
+   "links": [
+    {
+     "label": "Download SF Mono",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg",
+     "kind": "dmg",
+     "note": "Used in Xcode, enables alignment between rows and columns of text."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Fonts",
+   "section_id": "fonts",
+   "title": "New York",
+   "description": "Performs as a traditional reading face at small sizes and a graphic display face at larger sizes.",
+   "links": [
+    {
+     "label": "Download New York",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/NY.dmg",
+     "kind": "dmg",
+     "note": "Performs as a traditional reading face at small sizes and a graphic display face at larger sizes."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Fonts",
+   "section_id": "fonts",
+   "title": "SF Arabic",
+   "description": "Arabic system font on Apple platforms.",
+   "links": [
+    {
+     "label": "Download SF Arabic",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Arabic.dmg",
+     "kind": "dmg",
+     "note": "Arabic system font on Apple platforms."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Fonts",
+   "section_id": "fonts",
+   "title": "SF Armenian",
+   "description": "Designed with proportions that have been adjusted for a better visual balance in multilingual typesetting.",
+   "links": [
+    {
+     "label": "Download SF Armenian",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Armenian.dmg",
+     "kind": "dmg",
+     "note": "Designed with proportions that have been adjusted for a better visual balance in multilingual typesetting."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Fonts",
+   "section_id": "fonts",
+   "title": "SF Georgian",
+   "description": "Supports modern Georgian, Mkhedruli, and Mtavruli uppercase forms.",
+   "links": [
+    {
+     "label": "Download SF Georgian",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Georgian.dmg",
+     "kind": "dmg",
+     "note": "Supports modern Georgian, Mkhedruli, and Mtavruli uppercase forms."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Fonts",
+   "section_id": "fonts",
+   "title": "SF Hebrew",
+   "description": "With full support of the Niqqud diacritical marks.",
+   "links": [
+    {
+     "label": "Download SF Hebrew",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Hebrew.dmg",
+     "kind": "dmg",
+     "note": "With full support of the Niqqud diacritical marks."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "SF Symbols",
+   "section_id": "tools",
+   "title": "SF Symbols",
+   "description": "SF Symbols is a library of over 7,000 symbols designed to integrate seamlessly with San Francisco, the system font for Apple platforms. Symbols come in nine weights and three scales, automatically align with text, and can be exported and edited using vector graphics tools to create custom symbols with shared design characteristics and accessibility features. Symbols feature multi-layer drawings designed for motion, enabling a range of expressive animations. Crafted for a global audience, symbols automatically adapt to a user’s reading direction and feature localized designs for over 20 international scripts.",
+   "links": [
+    {
+     "label": "Learn more",
+     "url": "https://developer.apple.com/sf-symbols/",
+     "kind": "web",
+     "note": ""
+    },
+    {
+     "label": "Download SF Symbols 27",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/SF-Symbols-27.dmg?2",
+     "kind": "dmg",
+     "note": "Requires macOS Sonoma or later."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Icon Composer",
+   "section_id": "icon-composer",
+   "title": "Icon Composer",
+   "description": "Icon Composer lets you create layered icons out of Liquid Glass from a single design for iPhone, iPad, Mac, and Apple Watch. A multi-layer icon format allows you to craft your icon and annotate it across appearance modes. Icon Composer is designed to work seamlessly with Xcode and provides the option to export a flattened version of your icon for marketing and communication needs.",
+   "links": [
+    {
+     "label": "Learn more",
+     "url": "https://developer.apple.com/icon-composer/",
+     "kind": "web",
+     "note": ""
+    },
+    {
+     "label": "Download Icon Composer",
+     "url": "https://developer.apple.com/download/all/?q=Icon%20Composer",
+     "kind": "app",
+     "note": "Requires macOS Sequoia or later."
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Parallax image tools",
+   "section_id": "parallax-previewer",
+   "title": "Parallax Previewer App",
+   "description": "Requires macOS 13.5 or later.",
+   "links": [
+    {
+     "label": "Download version 2 for macOS",
+     "url": "https://itunespartner.apple.com/assets/downloads/Parallax%20Previewer.dmg",
+     "kind": "dmg",
+     "note": "Requires macOS 13.5 or later."
+    },
+    {
+     "label": "Download version 1 for macOS",
+     "url": "https://itunespartner.apple.com/assets/downloads/Parallax%20Previewer_1_0.dmg",
+     "kind": "dmg",
+     "note": "Requires macOS 10.10.5 or later."
+    },
+    {
+     "label": "User Guide",
+     "url": "https://help.apple.com/itc/parallaxpreviewer/",
+     "kind": "web",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "Apple TV",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-Apple-TV.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "Apple Watch Ultra 3 (2025)",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-Apple-Watch-Ultra-3-2025.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "watchos"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "Apple Watch Ultra 2 (2024)",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-Apple-Watch-Ultra-2-2024.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "watchos"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "Apple Watch Series 11",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-Apple-Watch-Series-11-2025.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "watchos"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "Studio Displays",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-Studio-Displays.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "macos"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iMac",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iMac-M4.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "macos"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPad (A16)",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iPad-(A16).dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ipados"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPad Air (M4)",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iPad-Air-(M4).dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ipados"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPad mini (A17 Pro)",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iPad-mini-(A17-Pro).dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ipados"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPad Pro (M5)",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iPad-Pro-(M5).dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ipados"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPhone Duo",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iPhone-Duo.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ios"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPhone 18",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iPhone-18.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ios"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPhone 17",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iPhone-17.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ios"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPhone 16",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-iPhone-16.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ios"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "MacBook Air M5",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-MacBook-Air-M5.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "macos"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "MacBook Pro M5",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-MacBook-Pro-M5.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "macos"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "MacBook Neo",
+   "description": "",
+   "links": [
+    {
+     "label": "Photoshop, PNG",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Bezel-MacBook-Neo.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "macos"
+   ]
+  },
+  {
+   "section": "Product Bezels",
+   "section_id": "product-bezels",
+   "title": "iPhone and iPad for Keynote Live Video",
+   "description": "",
+   "links": [
+    {
+     "label": "Keynote",
+     "url": "https://devimages-cdn.apple.com/design/resources/download/Keynote-Live-Video-Product-Bezel.dmg",
+     "kind": "dmg",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "ios",
+    "ipados"
+   ]
+  },
+  {
+   "section": "Badges and Logos",
+   "section_id": "badges-and-logos",
+   "title": "Badges and Logos",
+   "description": "Find badges and logos for Apple technologies, such as Apple Health, Apple Wallet, Apple Music, and Apple Pay, that can be used in your app’s marketing material.",
+   "links": [
+    {
+     "label": "View Apple Badges and Logos",
+     "url": "https://developer.apple.com/licensing-trademarks/",
+     "kind": "web",
+     "note": ""
+    }
+   ],
+   "platforms": [
+    "all"
+   ]
+  }
+ ]
+}

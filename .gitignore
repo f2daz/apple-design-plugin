@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+# HIG mirror and downloads live in ~/.apple-design, never in the repo
+hig/
+downloads/
+*.dmg
