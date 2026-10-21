@@ -10,7 +10,7 @@
       "name": "apple-design",
       "source": "./",
       "description": "Apple Human Interface Guidelines, SF Symbols and Apple Design Resources as a guided design workflow for iOS, iPadOS, macOS and watchOS.",
-      "version": "0.2.0"
+      "version": "0.3.0"
     }
   ]
 }

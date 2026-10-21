@@ -1,7 +1,7 @@
 {
   "name": "apple-design",
   "description": "Apple platform design companion for iOS, iPadOS, macOS and watchOS: condensed Human Interface Guidelines with citations, a local searchable HIG mirror, SF Symbols search, device specs, Apple Design Resources (UI kits, templates, fonts, bezels) and guided workflows (init, shape, build, audit, critique, polish, adapt, icon).",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "f2daz",
     "url": "https://github.com/f2daz"

@@ -16,7 +16,9 @@ from __future__ import annotations
 import argparse
 import concurrent.futures as cf
 import datetime as dt
+import hashlib
 import json
+import re
 import os
 import shutil
 import subprocess
@@ -240,7 +242,33 @@ def render_page(path: str, doc: dict) -> tuple[str, dict]:
         "updated": custom.get("alert-date"),
         "update_note": custom.get("alert-text"),
     }
+    entry.update(change_info(md, custom))
+    entry["hash"] = content_hash(md)
     return "\n".join(md).rstrip() + "\n", entry
+
+
+def content_hash(md: list[str]) -> str:
+    """Fingerprint of the page content, ignoring the per-sync source comment."""
+    body = "\n".join(l for l in md if not l.startswith("<!-- source:"))
+    return hashlib.sha256(body.encode("utf-8")).hexdigest()[:16]
+
+
+def change_info(md: list[str], custom: dict) -> dict:
+    """Latest change from the page's change log table, falling back to the alert metadata."""
+    text = "\n".join(md)
+    log = text.split("## Change log", 1)[1] if "## Change log" in text else ""
+    best = None
+    for date_s, note in re.findall(r"^\| ([A-Z][a-z]+ \d{1,2}, \d{4}) \| (.*?) \|$", log, re.M):
+        try:
+            d = dt.datetime.strptime(date_s, "%B %d, %Y").date().isoformat()
+        except ValueError:
+            continue
+        if not best or d > best[0]:
+            best = (d, note)
+    alert = custom.get("alert-date")
+    if alert and (not best or alert > best[0]):
+        best = (alert, custom.get("alert-text") or "")
+    return {"changed": best[0] if best else None, "change_note": best[1] if best else None}
 
 
 def child_paths(doc: dict) -> set[str]:

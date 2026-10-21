@@ -1,0 +1,63 @@
+name: HIG watch
+
+# Weekly: mirror Apple's HIG and Design Resources, compare with the reviewed baseline
+# (skills/apple-design/data/hig-baseline.json) and keep one tracking issue up to date.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # Mondays 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: hig-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    env:
+      APPLE_DESIGN_HOME: ${{ runner.temp }}/apple-design
+      GH_TOKEN: ${{ github.token }}
+      LABEL: hig-update
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Mirror HIG and Design Resources
+        run: |
+          python3 -I skills/apple-design/scripts/hig_sync.py
+          python3 -I skills/apple-design/scripts/resources.py sync
+
+      - name: Build report
+        id: report
+        run: python3 -I .github/scripts/watch_report.py "$RUNNER_TEMP/report.md" >> "$GITHUB_OUTPUT"
+
+      - name: Create or update tracking issue
+        if: steps.report.outputs.changes == 'true'
+        run: |
+          gh label create "$LABEL" --color FBCA04 --description "Apple changed the HIG or Design Resources" --force
+          title="HIG changed since last review"
+          number=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number')
+          if [ -n "$number" ]; then
+            old=$(gh issue view "$number" --json body --jq .body)
+            if [ "$old" != "$(cat "$RUNNER_TEMP/report.md")" ]; then
+              gh issue edit "$number" --body-file "$RUNNER_TEMP/report.md"
+              gh issue comment "$number" --body "Report updated on $(date -u +%F) – new changes detected."
+            fi
+          else
+            gh issue create --title "$title" --label "$LABEL" --body-file "$RUNNER_TEMP/report.md"
+          fi
+
+      - name: Close tracking issue when everything matches
+        if: steps.report.outputs.changes == 'false'
+        run: |
+          for n in $(gh issue list --label "$LABEL" --state open --json number --jq '.[].number'); do
+            gh issue close "$n" --comment "Baseline matches the current HIG and Design Resources again ($(date -u +%F))."
+          done

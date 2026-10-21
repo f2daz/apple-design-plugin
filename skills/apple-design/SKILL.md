@@ -33,8 +33,9 @@ Principles:
 | `scripts/resources.py list [--platform ios]` / `show <query>` | Apple Design Resources: UI kits (Figma/Sketch), templates, fonts, bezels |
 | `scripts/resources.py download <query\|preset> --accept-license` | DMGs to `~/.apple-design/downloads` (presets: fonts, essentials, bezels-iphone/-ipad/-mac/-watch, glyphs) |
 | `scripts/resources.py install-fonts --accept-license` | SF Pro/Compact/Mono/New York into `~/Library/Fonts` (no sudo) |
+| `scripts/hig_search.py stale [--brief\|--json]` | HIG pages that changed (or appeared/disappeared) since the references below were reviewed, with the reference files they affect |
 
-If the mirror is missing (`~/.apple-design/hig/index.json`), `hig_search.py` creates it on first use. For questions about very recent guidance, run `hig_sync.py --if-stale 14` first.
+**Freshness.** A SessionStart hook refreshes the mirror in the background when it is older than 7 days and the resource catalog when older than 30 days (`auto_update.py`, log in `~/.apple-design/update.log`, opt out with `APPLE_DESIGN_AUTO_UPDATE=0`). If the mirror is missing, `hig_search.py` creates it on first use. For questions about very recent guidance, run `hig_sync.py --if-stale 1` first.
 
 ## Knowledge (distilled from the HIG, with citations)
 
@@ -47,11 +48,14 @@ Load only what the task needs:
 
 If the distillation isn't enough or a rule is disputed, read the original with `hig_search.py page <slug>`. The original wins.
 
+The references reflect the HIG as of the baseline in `data/hig-baseline.json`. Apple changes pages between releases, so **check once per session** with `hig_search.py stale --brief`. For every page it lists, treat the reference's statements about that page as possibly outdated: read the original page instead and tell the user briefly ("the HIG page on sheets changed on … – using the current original").
+
 ## Setup (once per session)
 
 1. Read the project context: `APPLE_DESIGN.md` in the project root. If it's missing and the task is more than a single question → run `init` first.
 2. Detect the project if still unknown: `*.xcodeproj`/`project.pbxproj` (`IPHONEOS_DEPLOYMENT_TARGET`, `MACOSX_DEPLOYMENT_TARGET`, `WATCHOS_DEPLOYMENT_TARGET`, `SUPPORTED_PLATFORMS`, `TARGETED_DEVICE_FAMILY`), `Package.swift` (`platforms:`), imports (`SwiftUI`, `UIKit`, `AppKit`, `WatchKit`). Never assume a stack.
-3. Load the platform reference(s) listed in `APPLE_DESIGN.md` before writing or evaluating UI.
+3. Run `hig_search.py stale --brief` (no network, instant) and remember the changed pages for this session.
+4. Load the platform reference(s) listed in `APPLE_DESIGN.md` before writing or evaluating UI.
 
 ## Commands
 

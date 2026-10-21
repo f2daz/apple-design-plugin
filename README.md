@@ -242,6 +242,10 @@ resources.py status
   marketplace.json       marketplace entry (install via /plugin marketplace add)
 agents/
   hig-reviewer.md        per-platform audit agent
+hooks/
+  hooks.json             SessionStart: background auto-update
+.github/
+  workflows/hig-watch.yml  weekly HIG/resource watch → tracking issue
 skills/apple-design/
   SKILL.md               router, principles, quality floor
   reference/
@@ -251,8 +255,9 @@ skills/apple-design/
                          icons-and-symbols, accessibility, motion-and-feedback, writing-and-privacy
     components/          decision guide + 8 groups (64 components)
     patterns.md · inputs.md · technologies.md · getting-started.md
-  scripts/               hig_sync, hig_search, sf_symbols, device_specs, resources
+  scripts/               hig_sync, hig_search, sf_symbols, device_specs, resources, auto_update
   data/resources.json    bundled resource catalog (fallback)
+  data/hig-baseline.json fingerprints of the HIG pages the references were reviewed against
   templates/APPLE_DESIGN.md
 ```
 
@@ -268,9 +273,27 @@ Set the `APPLE_DESIGN_HOME` environment variable to move the base folder.
 
 ## Updating & maintenance
 
+Apple changes the HIG continuously, not just at WWDC. The plugin keeps up on three levels:
+
+| Level | What happens | Automatic? |
+|---|---|---|
+| **Local mirror** | A `SessionStart` hook refreshes the HIG mirror in the background when it's older than 7 days and the resource catalog when it's older than 30 days. It returns instantly and never blocks a session; log in `~/.apple-design/update.log`. | yes |
+| **Stale-reference detection** | `data/hig-baseline.json` records a fingerprint of every HIG page at the time the condensed references were reviewed. Once per session the skill runs `hig_search.py stale --brief`; for any page that changed since then (including silent edits without a change-log entry) it uses the current original page instead of the condensed reference and tells you so. | yes |
+| **Repository watch** | The GitHub Action [`HIG watch`](.github/workflows/hig-watch.yml) mirrors the HIG and the Design Resources every Monday, compares them with the baseline and keeps one issue labeled `hig-update` up to date, listing changed/new/removed pages, the affected reference files and new resources. It closes the issue once everything matches again. | yes |
+| **Updating the condensed references** | A maintainer reads the changed pages, updates the reference files and marks them reviewed. | no – reviewed by a human |
+
+Settings for the auto-update: `APPLE_DESIGN_AUTO_UPDATE=0` turns it off, `APPLE_DESIGN_HIG_MAX_AGE` and `APPLE_DESIGN_RESOURCES_MAX_AGE` set the maximum age in days.
+
+Commands:
+
+```bash
+hig_search.py stale                     # what changed since the references were reviewed, and which files are affected
+hig_search.py baseline sheets widgets   # maintainers: mark pages as reviewed after updating the references
+hig_search.py baseline                  # … or all pages
+```
+
 - **Plugin:** `claude plugin marketplace update apple-design-plugin`, then `/reload-plugins`
-- **HIG:** Apple updates the guidelines continuously. `/apple-design whatsnew` or `hig_sync.py --if-stale 14` fetches the latest state.
-- **Keeping the condensed references current:** `hig_search.py updates --since <last review>` lists changed pages. Update the matching files under `reference/`; the original page always wins.
+- **Manually right now:** `/apple-design whatsnew` or `/apple-design sync`
 
 ## Troubleshooting
 

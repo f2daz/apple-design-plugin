@@ -6,12 +6,15 @@
     python3 hig_search.py platform watchos [--page buttons]   # every "Platform considerations" block for one OS
     python3 hig_search.py list [--section Components]
     python3 hig_search.py updates [--since 2025-06-01]        # recently changed guidance
+    python3 hig_search.py stale [--brief|--json]              # HIG pages changed since the references were reviewed
+    python3 hig_search.py baseline [slug …]                   # maintainers: mark pages as reviewed
 
 Pages are addressed by slug (the last URL segment); references inside the mirror use `hig:<slug>`.
 """
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import os
 import re
@@ -21,6 +24,10 @@ from pathlib import Path
 
 PLATFORM_NAMES = {"ios": "iOS", "ipados": "iPadOS", "macos": "macOS", "watchos": "watchOS",
                   "tvos": "tvOS", "visionos": "visionOS"}
+
+
+SKILL_DIR = Path(__file__).resolve().parent.parent
+BASELINE = SKILL_DIR / "data" / "hig-baseline.json"
 
 
 def mirror() -> Path:
@@ -181,6 +188,93 @@ def cmd_updates(args) -> int:
     return 0
 
 
+def citations() -> dict[str, list[str]]:
+    """slug → reference files (relative to reference/) that cite it."""
+    out: dict[str, set] = {}
+    root = SKILL_DIR / "reference"
+    for f in root.rglob("*.md"):
+        for slug in set(re.findall(r"hig:([a-z0-9-]+)", f.read_text(encoding="utf-8"))):
+            out.setdefault(slug, set()).add(str(f.relative_to(root)))
+    return {k: sorted(v) for k, v in out.items()}
+
+
+def compare() -> dict:
+    data = load_index()
+    if not BASELINE.exists():
+        raise SystemExit(f"No baseline at {BASELINE}. Create one with `hig_search.py baseline`.")
+    base = json.loads(BASELINE.read_text(encoding="utf-8"))
+    cites = citations()
+    now = {e["slug"]: e for e in data["pages"]}
+    changed, new = [], []
+    for slug, e in now.items():
+        b = base["pages"].get(slug)
+        if b is None:
+            new.append({"slug": slug, "title": e["title"], "changed": e.get("changed"),
+                        "note": e.get("change_note"), "cited_in": cites.get(slug, [])})
+        elif b["hash"] != e.get("hash"):
+            changed.append({"slug": slug, "title": e["title"], "changed": e.get("changed"),
+                            "note": e.get("change_note") if (e.get("changed") or "") > (b.get("changed") or "")
+                            else "no change log entry – silent edit", "cited_in": cites.get(slug, [])})
+    removed = [{"slug": s, "title": b["title"], "cited_in": cites.get(s, [])}
+               for s, b in base["pages"].items() if s not in now]
+    key = lambda r: (r.get("changed") or "", r["slug"])
+    return {"reviewed": base["reviewed"], "mirror_synced": data["meta"]["synced_at"],
+            "changed": sorted(changed, key=key, reverse=True), "new": sorted(new, key=key, reverse=True),
+            "removed": removed}
+
+
+def cmd_stale(args) -> int:
+    r = compare()
+    total = len(r["changed"]) + len(r["new"]) + len(r["removed"])
+    if args.json:
+        print(json.dumps(r, ensure_ascii=False, indent=1))
+        return 0
+    if args.brief:
+        if not total:
+            print(f"apple-design: references match the HIG (reviewed {r['reviewed']}).")
+        else:
+            slugs = [x["slug"] for x in r["changed"] + r["new"] + r["removed"]]
+            print(f"apple-design: {total} HIG page(s) changed since the references were reviewed "
+                  f"({r['reviewed']}): {', '.join(slugs[:15])}{' …' if len(slugs) > 15 else ''}. "
+                  f"For these, read the original page (`hig_search.py page <slug>`) – it wins over the reference.")
+        return 0
+    print(f"References reviewed: {r['reviewed']} · mirror synced: {r['mirror_synced']}\n")
+    if not total:
+        print("No HIG changes since the last review.")
+        return 0
+    for label, rows in (("Changed", r["changed"]), ("New pages", r["new"]), ("Removed pages", r["removed"])):
+        if not rows:
+            continue
+        print(f"## {label} ({len(rows)})")
+        for x in rows:
+            date = f" · {x['changed']}" if x.get("changed") else ""
+            note = f" – {x['note']}" if x.get("note") else ""
+            cited = ", ".join(x["cited_in"]) or "not cited by any reference"
+            print(f"- hig:{x['slug']} ({x['title']}){date}{note}\n    affects: {cited}")
+        print()
+    return 0
+
+
+def cmd_baseline(args) -> int:
+    data = load_index()
+    now = {e["slug"]: e for e in data["pages"]}
+    base = json.loads(BASELINE.read_text(encoding="utf-8")) if BASELINE.exists() else {"pages": {}}
+    slugs = args.slugs or list(now)
+    for s in slugs:
+        if s in now:
+            e = now[s]
+            base["pages"][s] = {"title": e["title"], "hash": e.get("hash"), "changed": e.get("changed")}
+        else:
+            base["pages"].pop(s, None)
+    if not args.slugs:
+        base["pages"] = {s: v for s, v in base["pages"].items() if s in now}
+    base["reviewed"] = dt.date.today().isoformat()
+    base["pages"] = dict(sorted(base["pages"].items()))
+    BASELINE.write_text(json.dumps(base, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"Baseline updated for {len(slugs)} page(s) → {BASELINE}")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -190,9 +284,11 @@ def main() -> int:
     p = sub.add_parser("platform"); p.add_argument("platform"); p.add_argument("--page")
     p = sub.add_parser("list"); p.add_argument("--section"); p.add_argument("--platform")
     p = sub.add_parser("updates"); p.add_argument("--since")
+    p = sub.add_parser("stale"); p.add_argument("--brief", action="store_true"); p.add_argument("--json", action="store_true")
+    p = sub.add_parser("baseline"); p.add_argument("slugs", nargs="*")
     args = ap.parse_args()
-    return {"search": cmd_search, "page": cmd_page, "platform": cmd_platform,
-            "list": cmd_list, "updates": cmd_updates}[args.cmd](args)
+    return {"search": cmd_search, "page": cmd_page, "platform": cmd_platform, "list": cmd_list,
+            "updates": cmd_updates, "stale": cmd_stale, "baseline": cmd_baseline}[args.cmd](args)
 
 
 if __name__ == "__main__":
