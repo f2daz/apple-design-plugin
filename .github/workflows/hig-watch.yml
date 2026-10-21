@@ -20,7 +20,6 @@ jobs:
   watch:
     runs-on: ubuntu-latest
     env:
-      APPLE_DESIGN_HOME: ${{ runner.temp }}/apple-design
       GH_TOKEN: ${{ github.token }}
       LABEL: hig-update
     steps:
@@ -32,6 +31,8 @@ jobs:
 
       - name: Mirror HIG and Design Resources
         run: |
+          echo "APPLE_DESIGN_HOME=$RUNNER_TEMP/apple-design" >> "$GITHUB_ENV"
+          export APPLE_DESIGN_HOME="$RUNNER_TEMP/apple-design"
           python3 -I skills/apple-design/scripts/hig_sync.py
           python3 -I skills/apple-design/scripts/resources.py sync
 
