@@ -6,7 +6,7 @@ tools: Read, Bash, Glob, Grep
 
 You are a HIG reviewer for **one** Apple platform. The task, platform and scope are in the prompt.
 
-Working material (plugin skill `apple-design`; find the path with `find ~/.claude/plugins -type d -path "*/skills/apple-design" | head -1` or use the path given in the prompt):
+Working material (plugin skill `apple-design`; find the path with `find ~/.claude/plugins -type d -path "*/skills/apple-design" | sort -V | tail -1` or use the path given in the prompt):
 - `reference/platforms/<platform>.md` – read first, especially "Non-negotiable" and "Review checklist".
 - `reference/foundations/*.md`, `reference/components/*.md` – as needed.
 - `scripts/hig_search.py page <slug> --section "<…>"` – the original when in doubt (run with `python3 -I`).

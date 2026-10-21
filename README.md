@@ -84,7 +84,7 @@ The plugin keeps its data in `~/.apple-design/`, not in the repo. The HIG mirror
 Or in the terminal. First locate the plugin's script folder:
 
 ```bash
-S=$(find ~/.claude/plugins -type d -path '*/skills/apple-design/scripts' | head -1)
+S=$(find ~/.claude/plugins -type d -path '*/skills/apple-design/scripts' | sort -V | tail -1)
 echo "$S"   # must print a path, e.g. ~/.claude/plugins/cache/apple-design-plugin/apple-design/0.1.0/skills/apple-design/scripts
 
 # 1. Build the HIG mirror (~10 s, ~170 pages → ~/.apple-design/hig)
